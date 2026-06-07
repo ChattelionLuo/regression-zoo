@@ -1,0 +1,96 @@
+site_name: GLM Algorithm Arena
+site_description: A comprehensive, faithful encyclopedia of concrete algorithms (solvers) for Generalized Linear Models.
+site_author: GLM Arena
+repo_url: "https://github.com/ChattelionLuo/regression-zoo"
+site_url: "https://ChattelionLuo.github.io/regression-zoo/"
+use_directory_urls: true
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - js/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - css/extra.css
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Framework:
+      - Notation & framework: framework/notation.md
+      - Taxonomy: framework/taxonomy.md
+      - Card schema: framework/card-schema.md
+  - Algorithms:
+      - Catalogue: algorithms/index.md
+      - Classical:
+          - Ordinary Least Squares: algorithms/ols.md
+          - Ridge Regression: algorithms/ridge.md
+          - GLM via IRLS: algorithms/glm-irls.md
+      - Penalized (batch):
+          - Lasso (coordinate descent): algorithms/lasso-cd.md
+          - Elastic Net: algorithms/elastic-net.md
+          - Adaptive Lasso: algorithms/adaptive-lasso.md
+          - SCAD (LLA): algorithms/scad-lla.md
+          - MCP (coordinate descent): algorithms/mcp-cd.md
+          - Group Lasso: algorithms/group-lasso.md
+          - Fused Lasso: algorithms/fused-lasso.md
+      - Path / homotopy:
+          - LARS: algorithms/lars.md
+      - First-order / proximal:
+          - ISTA: algorithms/ista.md
+          - FISTA: algorithms/fista.md
+      - High-dimensional inference:
+          - Debiased Lasso: algorithms/debiased-lasso.md
+          - Decorrelated Score: algorithms/decorrelated-score.md
+      - Online / streaming:
+          - SGD: algorithms/sgd.md
+          - Implicit SGD: algorithms/implicit-sgd.md
+          - AdaGrad: algorithms/adagrad.md
+          - FOBOS: algorithms/fobos.md
+          - RDA: algorithms/rda.md
+          - Truncated Gradient: algorithms/truncated-gradient.md
+          - Renewable GLM: algorithms/renewable-glm.md

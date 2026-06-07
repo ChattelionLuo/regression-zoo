@@ -1,0 +1,202 @@
+---
+id: debiased-lasso
+name: "Debiased / Desparsified Lasso"
+aliases: ["desparsified lasso", "de-biased lasso", "LDPE", "low-dimensional projection estimator"]
+family: high-dim-inference
+regime: [high-dim]
+penalty: lasso
+link_support: [identity, logit, log]
+output: point+inference
+year: 2014
+refs: [vandegeer2014, Zhang_delasso_2014, javanmard2014confidence, hdi2015, 10.1111/biom.13587, guo2021inference, ma2021global]
+status: draft
+---
+
+# Debiased / Desparsified Lasso
+
+!!! info "At a glance"
+    **Family:** high-dim-inference · **Regime:** high-dim ($p\gg n$) · **Penalty:** lasso (base) ·
+    **Output:** point+inference · **Links:** identity, logit, log · **Status:** draft ·
+    **Refs:** vandegeer2014, Zhang_delasso_2014, javanmard2014confidence, hdi2015, 10.1111/biom.13587
+
+## Setting & assumptions
+
+- High-dimensional regime: $p$ comparable to or $\gg n$, with sparsity
+  $s=\lVert\beta^\star\rVert_0\ll p$. The motivating goal is **inference on individual
+  coordinates** $\beta_j^\star$ — confidence intervals and tests — not just point estimation.
+- Linear/Gaussian case: $y=X\beta^\star+\varepsilon$, identity link, $\varepsilon$ mean-zero with
+  variance $\sigma^2$ (unknown, estimated). GLM extension covers logit/log links via the
+  Fisher-information geometry (below).
+- The lasso $\hat\beta$ is consistent in $\ell_1$ but **biased** and non-Gaussian (shrinkage
+  toward $0$, no tractable limit law). Debiasing removes the leading bias so a Gaussian limit
+  is recovered.
+- Design conditions: a restricted-eigenvalue / compatibility condition on
+  $\hat\Sigma=X^\top X/n$, and a **row-sparsity** condition on the precision matrix
+  $\Theta^\star=\Sigma^{-1}$ so that $\hat\Theta$ can be estimated. Sparsity must satisfy
+  $s=o\!\big(\sqrt{n}/\log p\big)$ for the remainder term to be asymptotically negligible.
+
+## Estimator / objective
+
+Start from the lasso base estimator
+$\hat\beta=\arg\min_\beta \tfrac1{2n}\lVert y-X\beta\rVert_2^2+\lambda\lVert\beta\rVert_1$.
+Its KKT/score residual is biased; the **debiased (desparsified)** estimator adds a single
+score-correction step using an approximate inverse $\hat\Theta$ of
+$\hat\Sigma=X^\top X/n$:
+
+$$
+\boxed{\;\hat b \;=\; \hat\beta \;+\; \frac{1}{n}\,\hat\Theta\, X^\top\big(y-X\hat\beta\big)\;}
+$$
+
+This is an **estimating-equation** correction rather than a new penalized objective: it inverts
+the lasso KKT conditions so that the $\ell_1$ shrinkage on the target coordinate is removed
+("desparsified"). Plugging $y=X\beta^\star+\varepsilon$ gives the bias decomposition
+
+$$
+\sqrt{n}\,\big(\hat b-\beta^\star\big)
+=\underbrace{\tfrac{1}{\sqrt n}\,\hat\Theta X^\top\varepsilon}_{\text{Gaussian term }Z}
+\;+\;\underbrace{\sqrt{n}\,\big(I-\hat\Theta\hat\Sigma\big)\big(\beta^\star-\hat\beta\big)}_{\text{remainder }\Delta}.
+$$
+
+The Gaussian term satisfies $Z_j\mid X\sim N\!\big(0,\sigma^2[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}\big)$.
+The remainder is bounded coordinatewise by
+$\lVert\Delta\rVert_\infty\le \sqrt{n}\,\lambda_{\text{node}}\,\lVert\hat\beta-\beta^\star\rVert_1
+=O_P\!\big(s\log p/\sqrt n\big)$, which $\to 0$ under $s=o(\sqrt n/\log p)$. Hence each coordinate
+is **asymptotically normal and $\sqrt n$-consistent**:
+
+$$
+\sqrt{n}\,\big(\hat b_j-\beta_j^\star\big)\;\xrightarrow{d}\;N\!\big(0,\ \sigma^2\,[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}\big),
+$$
+
+yielding the $(1-\alpha)$ confidence interval
+$\hat b_j\pm z_{1-\alpha/2}\,\hat\sigma\sqrt{[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}/n}$.
+
+### Constructing $\hat\Theta$ — nodewise lasso
+
+van de Geer et al. (2014) build $\hat\Theta$ row by row via **nodewise lasso**: regress each
+column $X_{\cdot j}$ on the remaining columns $X_{\cdot\text{-}j}$,
+
+$$
+\hat\gamma_j=\arg\min_{\gamma\in\mathbb{R}^{p-1}}\ \tfrac1{2n}\lVert X_{\cdot j}-X_{\cdot\text{-}j}\gamma\rVert_2^2+\lambda_j\lVert\gamma\rVert_1,
+$$
+
+with residual $r_j=X_{\cdot j}-X_{\cdot\text{-}j}\hat\gamma_j$ and
+$\hat\tau_j^2=r_j^\top X_{\cdot j}/n$. Row $j$ of $\hat\Theta$ is
+$\hat\Theta_{j\cdot}=\hat\tau_j^{-2}\,(-\hat\gamma_{j,1},\dots,1,\dots,-\hat\gamma_{j,p-1})$ (the
+$1$ in position $j$). Equivalently (Javanmard–Montanari) $\hat\Theta$'s rows solve a
+**constrained optimization** minimizing $m^\top\hat\Sigma m$ subject to
+$\lVert\hat\Sigma m-e_j\rVert_\infty\le\mu$, directly controlling the bias term
+$\lVert I-\hat\Theta\hat\Sigma\rVert_\infty\le\mu$.
+
+### Variance estimation
+
+The noise level $\sigma^2$ is estimated from the lasso residuals, e.g. the scaled-lasso /
+degrees-of-freedom corrected estimator
+$\hat\sigma^2=\lVert y-X\hat\beta\rVert_2^2/\big(n-\lVert\hat\beta\rVert_0\big)$ or via
+cross-validation; `hdi` (`hdi2015`) implements these defaults.
+
+### GLM extension (logit / log links)
+
+For a GLM, replace the Gaussian residual by the score and $\hat\Sigma$ by the weighted
+(Fisher-information) Gram matrix $\hat\Sigma_W=X^\top \hat W X/n$ with
+$\hat W=\operatorname{diag}\big(V(\hat\mu_i)\big)$ evaluated at the penalized MLE $\hat\beta$.
+The debiased estimator becomes
+
+$$
+\hat b=\hat\beta+\tfrac1n\,\hat\Theta\,X^\top\big(y-\hat\mu\big),\qquad
+\hat\Theta\approx\big(X^\top\hat W X/n\big)^{-1},
+$$
+
+with asymptotic variance $[\hat\Theta\,\hat\Sigma_W\,\hat\Theta^\top]_{jj}/n$; the nodewise
+regressions are run on the $\sqrt{\hat W}$-weighted design. Xia, Nan & Li (`10.1111/biom.13587`)
+develop this weighted/Fisher-information correction for GLMs; `guo2021inference` and
+`ma2021global` give related corrections and (simultaneous) tests for high-dimensional logistic
+regression.
+
+## Algorithm
+
+```text
+Input: X (n×p), y (n), penalties λ (lasso), {λ_j} (nodewise), link g
+1. Fit base lasso:  β̂ = argmin (1/2n)‖y - Xβ‖² + λ‖β‖₁     # GLM: penalized IRLS
+2. Build Θ̂ (nodewise lasso), for j = 1..p:
+       γ̂_j = argmin (1/2n)‖X[:,j] - X[:,-j]γ‖² + λ_j‖γ‖₁     # GLM: √Ŵ-weighted
+       r_j  = X[:,j] - X[:,-j] γ̂_j
+       τ̂_j² = r_jᵀ X[:,j] / n
+       Θ̂[j,:] = (1/τ̂_j²) · (−γ̂_j with 1 inserted at position j)
+3. Debias:   b̂ = β̂ + (1/n) Θ̂ Xᵀ (y - Xβ̂)               # GLM: (y - μ̂), Ŵ-weighted Gram
+4. Variance: σ̂²  from lasso residuals;  Ω̂ = Θ̂ Σ̂ Θ̂ᵀ
+5. Inference: for each j
+       se_j = σ̂ · sqrt( Ω̂_jj / n )
+       CI_j = b̂_j ± z_{1-α/2} · se_j
+       z-stat = b̂_j / se_j   →  N(0,1) under H₀: β_j = 0
+Return  b̂, {se_j}, {CI_j}
+```
+
+The Javanmard–Montanari variant replaces step 2 with the per-row constrained QP
+$\min_m m^\top\hat\Sigma m$ s.t. $\lVert\hat\Sigma m-e_j\rVert_\infty\le\mu$.
+
+## Hyperparameters & configuration
+
+| Knob | Default | Notes |
+|---|---|---|
+| $\lambda$ (base lasso) | CV / $\sqrt{\log p/n}$ | controls $\hat\beta$; bias of $\hat b$ is first-order insensitive to it |
+| $\lambda_j$ (nodewise) | CV per column | governs $\hat\Theta$ quality and the remainder $\lVert I-\hat\Theta\hat\Sigma\rVert_\infty$ |
+| $\mu$ (JM variant) | $\asymp\sqrt{\log p/n}$ | bias bound in the constrained-QP construction |
+| $\hat\sigma^2$ | scaled lasso / df-corrected | noise level for Gaussian SEs |
+| link / weights | identity | logit, log via Fisher weights $\hat W$ (GLM extension) |
+| $\alpha$ | $0.05$ | CI level; Bonferroni/holm or `ma2021global` for simultaneity |
+
+## Mapping to framework
+
+- **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link $g$, penalties $\lambda,\{\lambda_j\}$.
+- **Output:** debiased point estimate $\hat b$ **plus inference** — standard errors $\{se_j\}$,
+  $z$-statistics/$p$-values, and CIs $\{CI_j\}$ (hence `output: point+inference`).
+- **Links:** identity (Gaussian); logit, log via the weighted Fisher-information correction.
+- **Preprocessing:** standardize columns of $X$; center $y$ (Gaussian) or fit unpenalized
+  intercept (GLM). Coefficients/SEs returned on the requested scale.
+
+## Complexity
+
+- Base lasso: as in [Lasso via Coordinate Descent](lasso-cd.md), $O(npL)$ over a path.
+- Nodewise $\hat\Theta$: **$p$ separate lasso regressions**, each $O(np)$ per cycle ⇒
+  dominant cost $O(np^2)$ (embarrassingly parallel over columns).
+- Debias + variance: $O(np)$ for the score correction; forming the needed diagonal of
+  $\hat\Theta\hat\Sigma\hat\Theta^\top$ is $O(np)$ per coordinate.
+- Memory $O(np)$ (rows of $\hat\Theta$ can be streamed/discarded after extracting $se_j$).
+
+## Statistical guarantees
+
+- **Asymptotic normality:** under compatibility + precision-row-sparsity and
+  $s=o(\sqrt n/\log p)$, $\sqrt n(\hat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})$
+  with $\Omega=\Theta\Sigma\Theta^\top$ (`vandegeer2014`, `Zhang_delasso_2014`,
+  `javanmard2014confidence`).
+- **Coverage / honesty:** the resulting CIs achieve asymptotically nominal coverage uniformly
+  over the sparse parameter space; the remainder term is uniformly negligible.
+- **Efficiency:** the asymptotic variance attains the semiparametric efficiency bound under the
+  stated conditions (`jankova2018semiparametric`).
+- **GLM:** analogous normality with the Fisher-information variance for logit/log links
+  (`10.1111/biom.13587`, `guo2021inference`); `ma2021global` provides simultaneous/global tests.
+
+## Variants & related
+
+- [Lasso via Coordinate Descent](lasso-cd.md) — the base estimator that is debiased here.
+- [Decorrelated Score (Ning–Liu)](decorrelated-score.md) — score-based inference framework with
+  the same orthogonalization idea, stated directly for general GLMs.
+- **Nodewise lasso** (Meinshausen–Bühlmann) — the precision-matrix construction reused for $\hat\Theta$.
+- **Scaled / square-root lasso** — pivotal noise-level estimation feeding the SEs.
+
+## References
+
+- van de Geer, Bühlmann, Ritov & Dezeure (2014), *On asymptotically optimal confidence regions
+  and tests for high-dimensional models* (`vandegeer2014`) — desparsified lasso, nodewise $\hat\Theta$.
+- Zhang & Zhang (2014), *Confidence intervals for low-dimensional parameters in high-dimensional
+  linear models* (`Zhang_delasso_2014`) — the low-dimensional projection / debiasing idea.
+- Javanmard & Montanari (2014), *Confidence intervals and hypothesis testing for high-dimensional
+  regression* (`javanmard2014confidence`) — constrained-QP construction of $\hat\Theta$.
+- Dezeure, Bühlmann, Meier & Meinshausen (2015), *High-dimensional inference: confidence
+  intervals, p-values and R-software hdi* (`hdi2015`) — implementation and variance defaults.
+- Xia, Nan & Li (2021), *Debiased lasso for generalized linear models* (`10.1111/biom.13587`) —
+  Fisher-information correction for GLMs.
+- Guo, Rakshit, Herman & Chen (2021), *Inference for the case probability in high-dimensional
+  logistic regression* (`guo2021inference`).
+- Ma, Cai & Li (2021), *Global and simultaneous hypothesis testing for high-dimensional logistic
+  regression models* (`ma2021global`).
