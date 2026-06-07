@@ -26,9 +26,13 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 > **what** exactly does the algorithm return as $\hat\beta$ ?
 
 Each method can be viewed as the same essential mapping $(X, y, \text{model}) \mapsto \hat\beta$ and often written
-against the shared template 
-$$\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta)$$
-, or other procedures/ output rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
+against the shared template
+
+$$
+\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
+$$
+
+or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
 benchmarked on equal footing.
 
 ## Explore
@@ -71,6 +75,14 @@ benchmarked on equal footing.
     [:octicons-arrow-right-24: Open the catalogue](algorithms/index.md)
 
 </div>
+
+## Why this project exists
+
+Linear models are old in the way linear algebra is old: mature, not obsolete. They sit underneath econometric studies, experimental analysis, clinical and credit-risk scores, fraud systems, demand and traffic models, industrial monitoring, and scientific baselines. Sometimes they are the final model. Often they are the baseline. Almost always they are the thing you want to understand before trusting something larger.
+
+The algorithms around them are less tidy. The same statistical object can appear under different notation; the same penalty can be fit by several solvers; likelihood, regularization, inference, and streaming updates often live in different literatures.
+
+This Arena puts this solver zoo in one coordinate system. Each algorithm card states the estimator, assumptions, objective or update rule, hyperparameters, and output contract using shared notation and source-faithful mathematics.
 
 ## Project construction
 
