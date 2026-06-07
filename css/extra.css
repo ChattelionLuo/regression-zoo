@@ -1,30 +1,436 @@
+/* ============================================================================
+   GLM Algorithm Arena — design system
+   Editorial-technical aesthetic: white canvas, near-black ink, one confident
+   accent, serif display headings over a grotesk body, hairline rules, sharp
+   corners. Inspired by Jane Street (editorial) × Palantir (structured density).
+   ============================================================================ */
+
+/* ----- Display serif for headings ----------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap");
+
+/* ----- Brand tokens -------------------------------------------------------- */
 :root {
-  --md-primary-fg-color: #3f51b5;
+  --arena-ink:        #0b0d10;   /* near-black text            */
+  --arena-ink-soft:   #3a4149;   /* secondary text            */
+  --arena-muted:      #6b7682;   /* tertiary / captions       */
+  --arena-line:       #e6e8eb;   /* hairline borders          */
+  --arena-line-strong:#d3d7db;
+  --arena-surface:    #f7f8f9;   /* subtle panels             */
+  --arena-surface-2:  #f0f2f4;
+  --arena-canvas:     #ffffff;
+
+  /* signature accent — a deep, confident indigo-klein blue */
+  --arena-accent:     #2f43d6;
+  --arena-accent-ink: #243bc0;
+  --arena-accent-2:   #6b34c9;   /* secondary (violet)        */
+  --arena-accent-wash:#eef0fe;
+
+  --arena-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --arena-mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* Map onto Material's variables (light scheme) */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--arena-canvas);
+  --md-primary-fg-color--dark:  var(--arena-ink);
+  --md-primary-bg-color:        var(--arena-ink);
+  --md-primary-bg-color--light: var(--arena-ink-soft);
+  --md-accent-fg-color:         var(--arena-accent);
+  --md-typeset-a-color:         var(--arena-accent-ink);
+  --md-default-fg-color:        var(--arena-ink);
+  --md-default-fg-color--light: var(--arena-ink-soft);
+  --md-default-fg-color--lighter: var(--arena-muted);
+  --md-footer-bg-color:         var(--arena-ink);
+  --md-footer-bg-color--dark:   #06070a;
+}
+
+/* ----- Base typography ----------------------------------------------------- */
+.md-typeset {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+  -webkit-font-smoothing: antialiased;
+  color: var(--arena-ink);
+  font-size: 0.80rem;
+  line-height: 1.72;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--arena-serif);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--arena-ink);
+}
+.md-typeset h1 {
+  font-size: 2.05rem;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.7em;
+}
+.md-typeset h2 {
+  font-size: 1.42rem;
+  line-height: 1.22;
+  margin-top: 2.4em;
+  padding-bottom: 0.32em;
+  border-bottom: 1px solid var(--arena-line);
+}
+.md-typeset h3 { font-size: 1.12rem; margin-top: 1.8em; font-weight: 600; }
+.md-typeset h4 {
+  font-family: var(--arena-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--arena-muted);
+  font-weight: 600;
+}
+
+.md-typeset a { text-decoration: none; transition: color .15s ease; }
+.md-typeset a:hover { color: var(--arena-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ----- Top header: crisp editorial bar ------------------------------------ */
+.md-header {
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  color: var(--arena-ink);
+  border-bottom: 1px solid var(--arena-line);
+  box-shadow: none;
+}
+.md-header--shadow { box-shadow: 0 1px 0 var(--arena-line); }
+.md-header__title { font-weight: 600; letter-spacing: -0.01em; }
+.md-header__topic .md-ellipsis { font-family: var(--arena-serif); font-weight: 600; }
+
+.md-search__form {
+  background: var(--arena-surface);
+  border: 1px solid var(--arena-line);
+  border-radius: 6px;
+  box-shadow: none;
+}
+.md-search__form:hover { background: var(--arena-surface-2); }
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form { border-color: var(--arena-accent); }
+
+/* ----- Tabs (primary nav) -------------------------------------------------- */
+.md-tabs {
+  background: var(--arena-canvas);
+  color: var(--arena-ink);
+  border-bottom: 1px solid var(--arena-line);
+}
+.md-tabs__link {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  opacity: 0.74;
+  transition: opacity .15s ease;
+}
+.md-tabs__link:hover,
+.md-tabs__link--active { opacity: 1; color: var(--arena-ink); }
+
+/* ----- Sidebar nav --------------------------------------------------------- */
+.md-nav { font-size: 0.72rem; }
+.md-nav__title { font-family: var(--arena-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--arena-muted); }
+.md-nav__link--active { color: var(--arena-accent-ink); font-weight: 600; }
+.md-sidebar__scrollwrap::-webkit-scrollbar { width: 6px; }
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb { background: var(--arena-line-strong); border-radius: 3px; }
+
+/* ----- Content width & rhythm --------------------------------------------- */
+.md-grid { max-width: 70rem; }
+.md-content__inner { margin-top: 1.2rem; }
+.md-content__inner > :first-child { margin-top: 0; }
+
+.md-typeset ul li, .md-typeset ol li { margin-bottom: 0.3em; }
+
+/* ----- Blockquote → editorial pull ---------------------------------------- */
+.md-typeset blockquote {
+  border-left: 2px solid var(--arena-accent);
+  color: var(--arena-ink-soft);
+  background: var(--arena-surface);
+  padding: 0.7rem 1.1rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.94em;
+}
+
+/* ----- Tables: clean ledger ----------------------------------------------- */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--arena-line);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.72rem;
+  box-shadow: none;
+}
+.md-typeset table:not([class]) th {
+  background: var(--arena-surface);
+  font-family: var(--arena-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--arena-ink-soft);
+  font-weight: 600;
+  border-bottom: 1px solid var(--arena-line-strong);
+}
+.md-typeset table:not([class]) td { border-top: 1px solid var(--arena-line); }
+.md-typeset table:not([class]) tr:hover td { background: var(--arena-surface); }
+
+/* ----- Code --------------------------------------------------------------- */
+.md-typeset code {
+  background: var(--arena-surface-2);
+  border: 1px solid var(--arena-line);
+  border-radius: 4px;
+  padding: 0.1em 0.36em;
+  font-size: 0.78em;
+}
+.md-typeset pre > code {
+  border: 1px solid var(--arena-line);
+  border-radius: 8px;
+  background: var(--arena-surface);
+}
+.md-typeset .highlight { border-radius: 8px; }
+
+/* ----- Admonitions: flatten & sharpen ------------------------------------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--arena-line);
+  border-left-width: 2px;
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 0.74rem;
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-family: var(--arena-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--arena-surface);
+}
+.md-typeset .admonition.info { border-left-color: var(--arena-accent); }
+.md-typeset .admonition.tip  { border-left-color: #0e9f6e; }
+.md-typeset .admonition.note { border-left-color: var(--arena-accent-2); }
+
+/* MathJax display blocks — give them air */
+mjx-container[display="true"] {
+  margin: 1.3em 0 !important;
+  padding: 0.2em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ============================================================================
+   HERO  (landing page)
+   ============================================================================ */
+.arena-hero {
+  margin: -0.4rem 0 2.6rem;
+  padding: 2.2rem 0 0.4rem;
+}
+.arena-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--arena-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--arena-accent-ink);
+  background: var(--arena-accent-wash);
+  border: 1px solid #dfe2fb;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  margin-bottom: 1.3rem;
+}
+.arena-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--arena-accent);
+  box-shadow: 0 0 0 3px rgba(47,67,214,0.18);
+}
+.md-typeset .arena-hero h1 {
+  font-size: 3.0rem;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  margin: 0 0 0.5rem;
+  max-width: 18ch;
+}
+.arena-hero .arena-lede {
+  font-size: 1.04rem;
+  line-height: 1.6;
+  color: var(--arena-ink-soft);
+  max-width: 60ch;
+  margin: 0 0 1.6rem;
+}
+.arena-hero .arena-lede strong { color: var(--arena-ink); font-weight: 600; }
+
+.arena-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 0.4rem; }
+.md-typeset .arena-btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 0.76rem; font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.md-typeset .arena-btn:hover { text-decoration: none; transform: translateY(-1px); }
+.md-typeset .arena-btn--primary {
+  background: var(--arena-ink); color: #fff;
+  box-shadow: 0 1px 2px rgba(11,13,16,0.2);
+}
+.md-typeset .arena-btn--primary:hover { background: #000; box-shadow: 0 6px 18px rgba(11,13,16,0.22); }
+.md-typeset .arena-btn--ghost {
+  background: var(--arena-canvas); color: var(--arena-ink);
+  border-color: var(--arena-line-strong);
+}
+.md-typeset .arena-btn--ghost:hover { border-color: var(--arena-ink); color: var(--arena-ink); }
+
+/* hero equation showcase */
+.arena-showcase {
+  margin-top: 2.2rem;
+  border: 1px solid var(--arena-line);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--arena-canvas), var(--arena-surface));
+  padding: 1.5rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+.arena-showcase::before {
+  content: "the entire field, one mapping";
+  position: absolute; top: 0.7rem; right: 1rem;
+  font-family: var(--arena-mono); font-size: 0.58rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--arena-muted);
+}
+.arena-showcase .arena-map {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.9rem; flex-wrap: wrap;
+  font-family: var(--arena-mono); font-size: 0.84rem; color: var(--arena-ink-soft);
+}
+.arena-showcase .arena-chip {
+  border: 1px solid var(--arena-line-strong); background: var(--arena-canvas);
+  border-radius: 6px; padding: 0.35rem 0.6rem; color: var(--arena-ink);
+}
+.arena-showcase .arena-arrow { color: var(--arena-accent); font-weight: 700; }
+.arena-showcase .arena-out {
+  border-color: var(--arena-accent); color: var(--arena-accent-ink);
+  background: var(--arena-accent-wash);
+}
+
+/* ----- Stat strip ---------------------------------------------------------- */
+.arena-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin: 2.4rem 0;
+  border: 1px solid var(--arena-line); border-radius: 12px; overflow: hidden;
+}
+.arena-stat { padding: 1.1rem 1.2rem; border-right: 1px solid var(--arena-line); }
+.arena-stat:last-child { border-right: none; }
+.arena-stat .arena-num {
+  font-family: var(--arena-serif); font-size: 1.9rem; font-weight: 700;
+  line-height: 1; color: var(--arena-ink); letter-spacing: -0.02em;
+}
+.arena-stat .arena-num .u { color: var(--arena-accent); }
+.arena-stat .arena-lab {
+  margin-top: 0.4rem; font-family: var(--arena-mono); font-size: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--arena-muted);
+}
+
+/* ============================================================================
+   GRID CARDS  (Material's .grid.cards, restyled)
+   ============================================================================ */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border: 1px solid var(--arena-line);
+  border-radius: 12px;
+  padding: 1.1rem 1.15rem;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  background: var(--arena-canvas);
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--arena-accent);
+  box-shadow: 0 10px 30px -12px rgba(47,67,214,0.25);
+  transform: translateY(-2px);
+}
+.md-typeset .grid.cards > ul > li > hr {
+  margin: 0.7rem 0; border: none; border-top: 1px solid var(--arena-line);
+}
+.md-typeset .grid.cards p > strong { font-family: var(--arena-serif); font-size: 1.02rem; }
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .md-icon { color: var(--arena-accent); }
+
+/* ----- Section label helper ----------------------------------------------- */
+.arena-kicker {
+  font-family: var(--arena-mono); font-size: 0.62rem; text-transform: uppercase;
+  letter-spacing: 0.16em; color: var(--arena-accent-ink); margin-bottom: 0.3rem;
+}
+
+/* ============================================================================
+   ALGORITHM-CARD chrome
+   ============================================================================ */
 .algo-meta {
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 0.4rem;
-  padding: 0.6rem 0.9rem;
-  margin: 0.8rem 0 1.2rem 0;
-  font-size: 0.82rem;
-  background: var(--md-code-bg-color);
+  border: 1px solid var(--arena-line);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin: 0.8rem 0 1.4rem;
+  font-size: 0.74rem;
+  background: var(--arena-surface);
 }
-
 .algo-meta table { margin: 0; }
 
 .badge {
   display: inline-block;
-  padding: 0.1rem 0.5rem;
-  border-radius: 0.8rem;
-  font-size: 0.72rem;
-  background: var(--md-primary-fg-color);
+  padding: 0.12rem 0.55rem;
+  border-radius: 100px;
+  font-family: var(--arena-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  background: var(--arena-accent);
   color: white;
   margin-right: 0.3rem;
 }
+.badge.regime { background: #0e7c66; }
+.badge.family { background: var(--arena-accent-2); }
+.badge.status-stub { background: #aab3bd; color: #1b2127; }
+.badge.status-draft { background: #c97a16; }
+.badge.status-reviewed { background: #0e9f6e; }
 
-.badge.regime { background: #00897b; }
-.badge.family { background: #5e35b1; }
-.badge.status-stub { background: #b0bec5; color: #263238; }
-.badge.status-draft { background: #fb8c00; }
-.badge.status-reviewed { background: #43a047; }
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+.md-footer-meta { background: #06070a; }
+.md-footer__inner { padding: 1.2rem 0; }
+
+/* ============================================================================
+   DARK SCHEME refinements
+   ============================================================================ */
+[data-md-color-scheme="slate"] {
+  --arena-canvas:    #0c0e12;
+  --arena-surface:   #14171d;
+  --arena-surface-2: #1b1f26;
+  --arena-line:      #232830;
+  --arena-line-strong:#2d333c;
+  --arena-ink:       #e7ebf0;
+  --arena-ink-soft:  #b3bcc7;
+  --arena-muted:     #7e8896;
+  --arena-accent:    #8b9bff;
+  --arena-accent-ink:#aeb9ff;
+  --arena-accent-wash:#161a2e;
+
+  --md-default-bg-color: #0c0e12;
+  --md-typeset-a-color:  var(--arena-accent-ink);
+}
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(12,14,18,0.86);
+  border-bottom-color: var(--arena-line);
+  color: var(--arena-ink);
+}
+[data-md-color-scheme="slate"] .md-tabs { background: #0c0e12; color: var(--arena-ink); border-bottom-color: var(--arena-line); }
+[data-md-color-scheme="slate"] .arena-eyebrow { border-color: #2a2f52; }
+[data-md-color-scheme="slate"] .md-typeset .arena-btn--primary { background: #e7ebf0; color: #0c0e12; }
+[data-md-color-scheme="slate"] .md-typeset .arena-btn--primary:hover { background: #fff; }
+
+/* ----- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 76.1875em) {
+  .md-typeset .arena-hero h1 { font-size: 2.4rem; }
+}
+@media screen and (max-width: 44.9375em) {
+  .arena-stats { grid-template-columns: repeat(2, 1fr); }
+  .arena-stat:nth-child(2) { border-right: none; }
+  .arena-stat:nth-child(1), .arena-stat:nth-child(2) { border-bottom: 1px solid var(--arena-line); }
+  .md-typeset .arena-hero h1 { font-size: 2.0rem; }
+}
