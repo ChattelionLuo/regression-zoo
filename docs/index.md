@@ -25,10 +25,9 @@ high-dimensional, and online — reduced to **one precise mapping** and document
 <p class="arena-kicker">The one question every card answers</p>
 
 > **Given** a design matrix $X$, a response $y$, and a link function $g$,
-> **how** does this algorithm produce a coefficient estimate $\hat\beta$ —
-> under what configuration and hyperparameters?
+> **how** does this algorithm produce a coefficient estimate $\hat\beta$?
 
-Each method is reduced to the same essential mapping $(X, y, g) \mapsto \hat\beta$ and written
+Each method can be viewed as the same essential mapping $(X, y, g) \mapsto \hat\beta$ and written
 against the shared template $\;\hat\beta=\arg\min_\beta \mathcal L(\beta)+\lambda P(\beta)$, so
 estimators defined across decades of literature can be read, compared, and — in later phases —
 benchmarked on equal footing.
@@ -50,7 +49,7 @@ benchmarked on equal footing.
 
     ---
 
-    How hundreds of solvers stay navigable — organized by **family × data regime × penalty**,
+    How hundreds of solvers stay navigable,
     from classical closed forms to online stochastic approximation.
 
     [:octicons-arrow-right-24: See the taxonomy](framework/taxonomy.md)
@@ -68,14 +67,14 @@ benchmarked on equal footing.
 
     ---
 
-    The growing library: OLS, Ridge, Lasso, Elastic Net, SCAD, MCP, LARS, FISTA,
+    The growing collection: OLS, Ridge, Lasso, Elastic Net, SCAD, MCP, LARS, FISTA,
     debiased Lasso, SGD, and many more.
 
     [:octicons-arrow-right-24: Open the catalogue](algorithms/index.md)
 
 </div>
 
-## Built in three phases
+## Project construction
 
 <div class="grid cards" markdown>
 
