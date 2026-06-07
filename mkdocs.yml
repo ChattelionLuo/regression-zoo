@@ -2,33 +2,46 @@ site_name: GLM Algorithm Arena
 site_description: A comprehensive, faithful encyclopedia of concrete algorithms (solvers) for Generalized Linear Models.
 site_author: GLM Arena
 repo_url: "https://github.com/ChattelionLuo/regression-zoo"
+repo_name: ChattelionLuo/regression-zoo
 site_url: "https://ChattelionLuo.github.io/regression-zoo/"
+copyright: "GLM Algorithm Arena — a faithful encyclopedia of GLM solvers."
 use_directory_urls: true
 
 theme:
   name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/chart-bell-curve-cumulative
+    repo: fontawesome/brands/github
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
+      primary: white
       accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
+      primary: black
       accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
   features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.tracking
     - navigation.top
     - navigation.indexes
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.code.annotate
     - toc.follow
 
 markdown_extensions:
@@ -44,6 +57,9 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
   - js/mathjax.js

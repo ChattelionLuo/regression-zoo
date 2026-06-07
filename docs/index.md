@@ -1,42 +1,138 @@
-# GLM Algorithm Arena
+---
+hide:
+  - toc
+---
 
-A comprehensive, faithful **encyclopedia of concrete algorithms (solvers) for Generalized
-Linear Models** — and, in later phases, an **arena** where those algorithms compete on many
-datasets.
+<div class="arena-hero" markdown>
 
-## The one question every card answers
+<span class="arena-eyebrow">GLM Algorithm Arena · Phase I</span>
+
+# An encyclopedia of algorithms for generalized linear models.
+
+<p class="arena-lede" markdown>
+Every estimator for linear and generalized linear models — classical, penalized,
+high-dimensional, and online — reduced to **one precise mapping** and documented under
+**one unified notation**. From OLS to debiased Lasso to streaming stochastic approximation.
+</p>
+
+<div class="arena-cta" markdown>
+[Browse the catalogue](algorithms/index.md){ .arena-btn .arena-btn--primary }
+[Read the framework](framework/notation.md){ .arena-btn .arena-btn--ghost }
+</div>
+
+<div class="arena-showcase">
+  <div class="arena-map">
+    <span class="arena-chip">X &nbsp;covariates</span>
+    <span class="arena-chip">y &nbsp;response</span>
+    <span class="arena-chip">g &nbsp;link</span>
+    <span class="arena-arrow">&rarr;</span>
+    <span class="arena-chip arena-out">&beta;&#770; &nbsp;estimator</span>
+  </div>
+</div>
+
+</div>
+
+<div class="arena-stats">
+  <div class="arena-stat">
+    <div class="arena-num">22<span class="u">+</span></div>
+    <div class="arena-lab">Algorithm cards</div>
+  </div>
+  <div class="arena-stat">
+    <div class="arena-num">6</div>
+    <div class="arena-lab">Method families</div>
+  </div>
+  <div class="arena-stat">
+    <div class="arena-num">1</div>
+    <div class="arena-lab">Unified notation</div>
+  </div>
+  <div class="arena-stat">
+    <div class="arena-num">3</div>
+    <div class="arena-lab">Project phases</div>
+  </div>
+</div>
+
+<p class="arena-kicker">The one question every card answers</p>
 
 > **Given** a design matrix $X$, a response $y$, and a link function $g$,
 > **how** does this algorithm produce a coefficient estimate $\hat\beta$ —
 > under what configuration and hyperparameters?
 
-From ordinary least squares to penalized high-dimensional estimators, from offline coordinate
-descent to online stochastic approximation, every method is reduced to the same essential
-mapping $(X, y, g) \mapsto \hat\beta$ and documented under [one unified notation](framework/notation.md).
+Each method is reduced to the same essential mapping $(X, y, g) \mapsto \hat\beta$ and written
+against the shared template $\;\hat\beta=\arg\min_\beta \mathcal L(\beta)+\lambda P(\beta)$, so
+estimators defined across decades of literature can be read, compared, and — in later phases —
+benchmarked on equal footing.
 
-## How it is organized
+## Explore
 
-- **[Notation & framework](framework/notation.md)** — the shared mathematical language:
-  exponential family, links, loss, score/Fisher information, the penalized-likelihood
-  template $\hat\beta=\arg\min \mathcal L(\beta)+\lambda P(\beta)$, and the optimization primitives.
-- **[Taxonomy](framework/taxonomy.md)** — how algorithms are grouped (family × data regime × penalty).
-- **[Card schema](framework/card-schema.md)** — the exact template each algorithm card follows.
-- **[Algorithm catalogue](algorithms/index.md)** — the growing library of cards.
+<div class="grid cards" markdown>
 
-## Project phases
+-   :material-function-variant:{ .lg } &nbsp; **Notation & framework**
 
-1. **Documentation (current).** Faithful algorithm cards — exact mathematics only.
-2. **Implementation (later).** Python implementations behind a common
-   `fit(X, y, link, **config) -> beta_hat` interface, mirroring each method's official construction.
-3. **Arena / analysis (later).** Run all solvers across many datasets; study performance,
-   agreement, and correlations between their outputs.
+    ---
 
-## Scope (Phase 1)
+    The shared mathematical language: exponential family, link functions, loss,
+    score and Fisher information, penalties, and the optimization primitives every card builds on.
 
-Concrete **solvers** only: the precise algorithm mapping $(X,y,g)$ to $\hat\beta$, with its
-configuration. Theory (rates, inference validity) is summarized briefly and cited, not proved.
+    [:octicons-arrow-right-24: Read the framework](framework/notation.md)
+
+-   :material-sitemap-outline:{ .lg } &nbsp; **Taxonomy**
+
+    ---
+
+    How hundreds of solvers stay navigable — organized by **family × data regime × penalty**,
+    from classical closed forms to online stochastic approximation.
+
+    [:octicons-arrow-right-24: See the taxonomy](framework/taxonomy.md)
+
+-   :material-card-text-outline:{ .lg } &nbsp; **Card schema**
+
+    ---
+
+    The exact, faithful template each algorithm follows — machine-readable metadata plus
+    nine fixed sections, with a strict faithfulness rule.
+
+    [:octicons-arrow-right-24: View the schema](framework/card-schema.md)
+
+-   :material-bookshelf:{ .lg } &nbsp; **Algorithm catalogue**
+
+    ---
+
+    The growing library: OLS, Ridge, Lasso, Elastic Net, SCAD, MCP, LARS, FISTA,
+    debiased Lasso, SGD, and many more.
+
+    [:octicons-arrow-right-24: Open the catalogue](algorithms/index.md)
+
+</div>
+
+## Built in three phases
+
+<div class="grid cards" markdown>
+
+-   **I · Documentation** &nbsp; <span class="badge status-draft">current</span>
+
+    ---
+
+    Faithful algorithm cards — exact mathematics only. Each defines the estimator,
+    the algorithm, its hyperparameters, and the precise $(X,y,g)\mapsto\hat\beta$ contract.
+
+-   **II · Implementation** &nbsp; <span class="badge status-stub">planned</span>
+
+    ---
+
+    Python solvers behind one interface, `fit(X, y, link, **config) -> beta_hat`,
+    mirroring each method's official construction.
+
+-   **III · The Arena** &nbsp; <span class="badge status-stub">planned</span>
+
+    ---
+
+    Run every solver across many datasets; study performance, agreement, and the
+    correlations between their outputs.
+
+</div>
 
 !!! tip "Contributing a card"
     Copy the stub in the [card schema](framework/card-schema.md), drop it in
     `docs/algorithms/<id>.md`, fill the fixed sections faithfully from the source paper, and
-    add the bibkey to `reference.bib`. Then it appears in the catalogue.
+    add the bibkey to `reference.bib`. Run `python scripts/validate_cards.py`, and it appears
+    in the catalogue.
