@@ -413,6 +413,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-this-project-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this project exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#project-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1894,6 +1905,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#why-this-project-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this project exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#project-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1944,9 +1966,11 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 <strong>what</strong> exactly does the algorithm return as <span class="arithmatex">\(\hat\beta\)</span> ?</p>
 </blockquote>
 <p>Each method can be viewed as the same essential mapping <span class="arithmatex">\((X, y, \text{model}) \mapsto \hat\beta\)</span> and often written
-against the shared template 
-$<span class="arithmatex">\(\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta)\)</span>$
-, or other procedures/ output rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
+against the shared template</p>
+<div class="arithmatex">\[
+\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
+\]</div>
+<p>or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
 benchmarked on equal footing.</p>
 <h2 id="explore">Explore<a class="headerlink" href="#explore" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
@@ -1980,6 +2004,10 @@ debiased Lasso, SGD, and many more.</p>
 </li>
 </ul>
 </div>
+<h2 id="why-this-project-exists">Why this project exists<a class="headerlink" href="#why-this-project-exists" title="Permanent link">&para;</a></h2>
+<p>Linear models are old in the way linear algebra is old: mature, not obsolete. They sit underneath econometric studies, experimental analysis, clinical and credit-risk scores, fraud systems, demand and traffic models, industrial monitoring, and scientific baselines. Sometimes they are the final model. Often they are the baseline. Almost always they are the thing you want to understand before trusting something larger.</p>
+<p>The algorithms around them are less tidy. The same statistical object can appear under different notation; the same penalty can be fit by several solvers; likelihood, regularization, inference, and streaming updates often live in different literatures.</p>
+<p>This Arena puts this solver zoo in one coordinate system. Each algorithm card states the estimator, assumptions, objective or update rule, hyperparameters, and output contract using shared notation and source-faithful mathematics.</p>
 <h2 id="project-construction">Project construction<a class="headerlink" href="#project-construction" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
