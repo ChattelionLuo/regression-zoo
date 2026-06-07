@@ -20,35 +20,6 @@ high-dimensional, and online — reduced to **one precise mapping** and document
 [Read the framework](framework/notation.md){ .arena-btn .arena-btn--ghost }
 </div>
 
-<div class="arena-showcase">
-  <div class="arena-map">
-    <span class="arena-chip">X &nbsp;covariates</span>
-    <span class="arena-chip">y &nbsp;response</span>
-    <span class="arena-chip">g &nbsp;link</span>
-    <span class="arena-arrow">&rarr;</span>
-    <span class="arena-chip arena-out">&beta;&#770; &nbsp;estimator</span>
-  </div>
-</div>
-
-</div>
-
-<div class="arena-stats">
-  <div class="arena-stat">
-    <div class="arena-num">22<span class="u">+</span></div>
-    <div class="arena-lab">Algorithm cards</div>
-  </div>
-  <div class="arena-stat">
-    <div class="arena-num">6</div>
-    <div class="arena-lab">Method families</div>
-  </div>
-  <div class="arena-stat">
-    <div class="arena-num">1</div>
-    <div class="arena-lab">Unified notation</div>
-  </div>
-  <div class="arena-stat">
-    <div class="arena-num">3</div>
-    <div class="arena-lab">Project phases</div>
-  </div>
 </div>
 
 <p class="arena-kicker">The one question every card answers</p>
