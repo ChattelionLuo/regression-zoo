@@ -7,7 +7,7 @@ hide:
 
 <span class="arena-eyebrow">GLM Algorithm Arena · Phase I</span>
 
-# An encyclopedia of GLM algorithms.
+# An encyclopedia of GLM algorithms
 
 <p class="arena-lede" markdown>
 Linear and generalized linear models are still load-bearing statistical tools. Their algorithms are scattered across papers, packages, and notation systems. This project puts them in one coordinate system.
@@ -29,7 +29,7 @@ Each method can be viewed as the same essential mapping $(X, y, \text{model}) \m
 against the shared template
 
 $$
-\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
+\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
 $$
 
 or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
