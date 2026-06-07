@@ -10,7 +10,7 @@ hide:
 # An encyclopedia of GLM algorithms
 
 <p class="arena-lede" markdown>
-Linear and generalized linear models are still load-bearing statistical tools. Their algorithms are scattered across papers, packages, and notation systems. This project puts them in one coordinate system.
+Linear and generalized linear models are still load-bearing statistical tools. Their algorithms are scattered across papers, packages, and systems. This project puts them in one coordinate system.
 </p>
 
 <div class="arena-cta" markdown>
