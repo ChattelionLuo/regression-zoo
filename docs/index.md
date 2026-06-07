@@ -7,12 +7,10 @@ hide:
 
 <span class="arena-eyebrow">GLM Algorithm Arena · Phase I</span>
 
-# An encyclopedia of algorithms for generalized linear models.
+# An encyclopedia of GLM algorithms.
 
 <p class="arena-lede" markdown>
-Every estimator for linear and generalized linear models — classical, penalized,
-high-dimensional, and online — reduced to **one precise mapping** and documented under
-**one unified notation**. From OLS to debiased Lasso to streaming stochastic approximation.
+Linear and generalized linear models are still load-bearing statistical tools. Their algorithms are scattered across papers, packages, and notation systems. This project puts them in one coordinate system.
 </p>
 
 <div class="arena-cta" markdown>
@@ -24,12 +22,13 @@ high-dimensional, and online — reduced to **one precise mapping** and document
 
 <p class="arena-kicker">The one question every card answers</p>
 
-> **Given** a design matrix $X$, a response vector $y$, and a link function $g$,
-> **how** does this algorithm produce a coefficient estimate $\hat\beta$ ?
+> **Given** a design matrix $X$, a response vector $y$, a model specification — family, link $g$, loss, and tuning parameters where relevant —
+> **what** exactly does the algorithm return as $\hat\beta$ ?
 
-Each method can be viewed as the same essential mapping $(X, y, g) \mapsto \hat\beta$ and written
-against the shared template $\;\hat\beta=\arg\min_\beta \mathcal L(\beta)+\lambda P(\beta)$, so
-estimators defined across decades of literature can be read, compared, and — in later phases —
+Each method can be viewed as the same essential mapping $(X, y, \text{model}) \mapsto \hat\beta$ and often written
+against the shared template 
+$$\;\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta)$$
+, or other procedures/ output rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
 benchmarked on equal footing.
 
 ## Explore
@@ -58,8 +57,7 @@ benchmarked on equal footing.
 
     ---
 
-    The exact, faithful template each algorithm follows — machine-readable metadata plus
-    nine fixed sections, with a strict faithfulness rule.
+    The template that keeps the catalogue honest: metadata, source-backed mathematics, and a rule against undocumented reinterpretations.
 
     [:octicons-arrow-right-24: View the schema](framework/card-schema.md)
 
@@ -102,7 +100,7 @@ benchmarked on equal footing.
 </div>
 
 !!! tip "Contributing a card"
-    Copy the stub in the [card schema](framework/card-schema.md), drop it in
+    If a source defines an algorithm precisely, it can become a card. Copy the stub in the [card schema](framework/card-schema.md), drop it in
     `docs/algorithms/<id>.md`, fill the fixed sections faithfully from the source paper, and
     add the bibkey to `reference.bib`. Run `python scripts/validate_cards.py`, and it appears
     in the catalogue.
