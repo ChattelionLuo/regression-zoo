@@ -23,7 +23,6 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
   features:
-    - navigation.instant
     - navigation.tracking
     - navigation.top
     - navigation.indexes
