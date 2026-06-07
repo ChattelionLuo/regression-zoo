@@ -24,8 +24,8 @@ high-dimensional, and online — reduced to **one precise mapping** and document
 
 <p class="arena-kicker">The one question every card answers</p>
 
-> **Given** a design matrix $X$, a response $y$, and a link function $g$,
-> **how** does this algorithm produce a coefficient estimate $\hat\beta$?
+> **Given** a design matrix $X$, a response vector $y$, and a link function $g$,
+> **how** does this algorithm produce a coefficient estimate $\hat\beta$ ?
 
 Each method can be viewed as the same essential mapping $(X, y, g) \mapsto \hat\beta$ and written
 against the shared template $\;\hat\beta=\arg\min_\beta \mathcal L(\beta)+\lambda P(\beta)$, so
