@@ -501,40 +501,35 @@ mjx-container[display="true"] {
 .algo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.45rem;
+  gap: 0.3rem;
   margin: 0.6rem 0 1.8rem;
 }
 .algo-item {
   display: block;
   padding: 0.72rem 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--arena-line);
-  background: var(--arena-canvas);
+  border-radius: 0;
+  border: none;
+  background: var(--arena-surface);
   color: var(--arena-ink) !important;
   font-size: 0.80rem;
   font-weight: 500;
   line-height: 1.3;
   text-decoration: none !important;
-  transition: background 0.14s ease, border-color 0.14s ease,
-              color 0.14s ease, box-shadow 0.14s ease;
+  transition: background 0.14s ease, color 0.14s ease;
 }
 .algo-item:hover {
-  background: var(--arena-accent-wash);
-  border-color: var(--arena-accent);
-  color: var(--arena-accent-ink) !important;
-  box-shadow: 0 2px 8px rgba(47,67,214,0.08);
+  background: var(--arena-accent);
+  color: #ffffff !important;
   text-decoration: none !important;
 }
 /* dark scheme */
 [data-md-color-scheme="slate"] .algo-item {
-  background: #13161c;
-  border-color: #2a2d35;
-  color: #d8dce6 !important;
+  background: #1e2128;
+  color: #c8cdd8 !important;
 }
 [data-md-color-scheme="slate"] .algo-item:hover {
-  background: #1a1f33;
-  border-color: var(--arena-accent);
-  color: #8ea4ff !important;
+  background: var(--arena-accent);
+  color: #ffffff !important;
 }
 /* phone: single column */
 @media screen and (max-width: 600px) {
