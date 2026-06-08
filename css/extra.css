@@ -235,8 +235,37 @@
 }
 .md-typeset table:not([class]) td { border-top: 1px solid var(--arena-line); }
 .md-typeset table:not([class]) tr:hover td { background: var(--arena-surface); }
+
+/* ----- Citation badge: `Author, Year` inside a link ----------------------- */
+/* Links wrapping a code span are citation references — style as a badge      */
+.md-typeset a > code {
+  font-family: var(--arena-sans);   /* same body font, not monospace          */
+  font-size: 0.78em;
+  font-weight: 500;
+  color: var(--arena-accent-ink);
+  background: var(--arena-accent-wash);
+  border-color: rgba(47,67,214,0.20);
+  border-radius: 3px;
+  padding: 0.08em 0.38em;
+  transition: background 0.12s, border-color 0.12s;
+}
+.md-typeset a:hover > code {
+  background: var(--arena-accent);
+  border-color: var(--arena-accent);
+  color: #fff;
+}
+[data-md-color-scheme="slate"] .md-typeset a > code {
+  background: #1a1f33;
+  border-color: rgba(100,130,255,0.30);
+  color: #8ea4ff;
+}
+[data-md-color-scheme="slate"] .md-typeset a:hover > code {
+  background: var(--arena-accent);
+  border-color: var(--arena-accent);
+  color: #fff;
+}
 
-/* ----- Code --------------------------------------------------------------- */
+
 .md-typeset code {
   background: var(--arena-surface-2);
   border: 1px solid var(--arena-line);
