@@ -2218,10 +2218,10 @@ f(y_i; \theta_i, \phi) = \exp\!\left\{ \frac{y_i \theta_i - b(\theta_i)}{a(\phi)
 <thead>
 <tr>
 <th>Family</th>
-<th><span class="arithmatex">\(b(\theta)\)</span></th>
-<th><span class="arithmatex">\(\mu(\theta)\)</span></th>
-<th><span class="arithmatex">\(V(\mu)\)</span></th>
-<th>dispersion <span class="arithmatex">\(a(\phi)\)</span></th>
+<th>Cumulant</th>
+<th>Mean</th>
+<th>Variance</th>
+<th>Dispersion</th>
 </tr>
 </thead>
 <tbody>
@@ -2267,8 +2267,8 @@ which <span class="arithmatex">\(\theta_i = \eta_i\)</span>, i.e. <span class="a
 <thead>
 <tr>
 <th>Family</th>
-<th>Canonical link <span class="arithmatex">\(g(\mu)\)</span></th>
-<th>Inverse link <span class="arithmatex">\(g^{-1}(\eta)\)</span></th>
+<th>Canonical link</th>
+<th>Inverse link</th>
 </tr>
 </thead>
 <tbody>
@@ -2307,15 +2307,28 @@ empirical loss as</p>
 \ell_i(\beta) = -\,\big[\, y_i\, x_i^\top\beta - b(x_i^\top\beta) \,\big] \big/ a(\phi),
 \]</div>
 <p>which specializes to the familiar losses (dropping constant factors):</p>
-<div class="arithmatex">\[
-\textbf{OLS:}\quad \mathcal{L}(\beta) = \frac{1}{2n}\lVert y - X\beta\rVert_2^2,
-$$
-$$
-\textbf{Logistic:}\quad \mathcal{L}(\beta) = \frac{1}{n}\sum_{i=1}^n \Big[\log\!\big(1+e^{x_i^\top\beta}\big) - y_i\, x_i^\top\beta\Big],
-$$
-$$
-\textbf{Poisson:}\quad \mathcal{L}(\beta) = \frac{1}{n}\sum_{i=1}^n \Big[ e^{x_i^\top\beta} - y_i\, x_i^\top\beta \Big].
-\]</div>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th><span class="arithmatex">\(\mathcal{L}(\beta)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OLS</td>
+<td><span class="arithmatex">\(\dfrac{1}{2n}\lVert y - X\beta\rVert_2^2\)</span></td>
+</tr>
+<tr>
+<td>Logistic</td>
+<td><span class="arithmatex">\(\dfrac{1}{n}\displaystyle\sum_{i=1}^n \Big[\log\!\big(1+e^{x_i^\top\beta}\big) - y_i\, x_i^\top\beta\Big]\)</span></td>
+</tr>
+<tr>
+<td>Poisson</td>
+<td><span class="arithmatex">\(\dfrac{1}{n}\displaystyle\sum_{i=1}^n \Big[e^{x_i^\top\beta} - y_i\, x_i^\top\beta\Big]\)</span></td>
+</tr>
+</tbody>
+</table>
 <h3 id="gradient-and-hessian-canonical-link">Gradient and Hessian (canonical link)<a class="headerlink" href="#gradient-and-hessian-canonical-link" title="Permanent link">&para;</a></h3>
 <p>With <span class="arithmatex">\(\mu(\beta) = \big(g^{-1}(x_1^\top\beta),\dots\big)^\top\)</span> and <span class="arithmatex">\(W(\beta) = \operatorname{diag}\big(V(\mu_i)\big)\)</span>,</p>
 <div class="arithmatex">\[
@@ -2341,7 +2354,7 @@ first-order, homotopy/path, stochastic/online, ...), which is precisely the "alg
 <thead>
 <tr>
 <th>Name</th>
-<th><span class="arithmatex">\(P(\beta)\)</span></th>
+<th>Penalty</th>
 <th>Notes</th>
 </tr>
 </thead>
@@ -2364,7 +2377,7 @@ first-order, homotopy/path, stochastic/online, ...), which is precisely the "alg
 <tr>
 <td>SCAD</td>
 <td>nonconvex, see card</td>
-<td>unbiased for large $</td>
+<td>unbiased for large <span class="arithmatex">\(\lvert\beta_j\rvert\)</span></td>
 </tr>
 <tr>
 <td>MCP</td>
@@ -2378,13 +2391,13 @@ first-order, homotopy/path, stochastic/online, ...), which is precisely the "alg
 </tr>
 <tr>
 <td>Fused lasso</td>
-<td>$\lVert\beta\rVert_1 + \sum_j</td>
-<td>\beta_j-\beta_{j-1}</td>
+<td><span class="arithmatex">\(\lVert\beta\rVert_1 + \sum_j \lvert\beta_j-\beta_{j-1}\rvert\)</span></td>
+<td>piecewise constant</td>
 </tr>
 <tr>
 <td>Adaptive lasso</td>
-<td>$\sum_j w_j</td>
-<td>\beta_j</td>
+<td><span class="arithmatex">\(\sum_j w_j \lvert\beta_j\rvert\)</span></td>
+<td>data-driven weights <span class="arithmatex">\(w_j\)</span></td>
 </tr>
 </tbody>
 </table>
