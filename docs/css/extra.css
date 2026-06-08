@@ -185,6 +185,25 @@
 .md-sidebar__scrollwrap::-webkit-scrollbar { width: 6px; }
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb { background: var(--arena-line-strong); border-radius: 3px; }
 
+/* Mobile nav drawer — dark background to match header */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background: var(--arena-ink);
+    color: #ffffff;
+  }
+  .md-nav--primary {
+    background: var(--arena-ink);
+    color: #ffffff;
+  }
+  .md-nav--primary .md-nav__item .md-nav__link {
+    color: rgba(255,255,255,0.82);
+  }
+  .md-nav--primary .md-nav__item .md-nav__link:hover,
+  .md-nav--primary .md-nav__item .md-nav__link--active {
+    color: #ffffff;
+  }
+}
+
 /* ----- Content width & rhythm --------------------------------------------- */
 .md-grid { max-width: 70rem; }
 .md-content__inner { margin-top: 1.2rem; }
