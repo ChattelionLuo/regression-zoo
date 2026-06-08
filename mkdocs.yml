@@ -10,6 +10,7 @@ use_directory_urls: true
 theme:
   name: material
   font: false  # self-hosted Alright Sans via docs/css/extra.css
+  favicon: img/logo.svg
   icon:
     logo: material/chart-bell-curve-cumulative
     repo: fontawesome/brands/github
