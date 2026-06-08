@@ -53,7 +53,7 @@ $$
 
 where $V(\mu) = b''(\theta(\mu))$ is the **variance function**.
 
-| Family | $b(\theta)$ | $\mu(\theta)$ | $V(\mu)$ | dispersion $a(\phi)$ |
+| Family | Cumulant | Mean | Variance | Dispersion |
 |---|---|---|---|---|
 | Gaussian | $\theta^2/2$ | $\theta$ | $1$ | $\sigma^2$ |
 | Bernoulli / Binomial | $\log(1+e^{\theta})$ | $\tfrac{e^\theta}{1+e^\theta}$ | $\mu(1-\mu)$ | $1$ |
@@ -73,7 +73,7 @@ $$
 $g$ is the **link function** (monotone, differentiable). The **canonical link** is the one for
 which $\theta_i = \eta_i$, i.e. $g = (b')^{-1}$.
 
-| Family | Canonical link $g(\mu)$ | Inverse link $g^{-1}(\eta)$ |
+| Family | Canonical link | Inverse link |
 |---|---|---|
 | Gaussian | identity $\mu$ | $\eta$ |
 | Bernoulli | logit $\log\frac{\mu}{1-\mu}$ | $\frac{1}{1+e^{-\eta}}$ |
@@ -101,15 +101,11 @@ $$
 
 which specializes to the familiar losses (dropping constant factors):
 
-$$
-\textbf{OLS:}\quad \mathcal{L}(\beta) = \frac{1}{2n}\lVert y - X\beta\rVert_2^2,
-$$
-$$
-\textbf{Logistic:}\quad \mathcal{L}(\beta) = \frac{1}{n}\sum_{i=1}^n \Big[\log\!\big(1+e^{x_i^\top\beta}\big) - y_i\, x_i^\top\beta\Big],
-$$
-$$
-\textbf{Poisson:}\quad \mathcal{L}(\beta) = \frac{1}{n}\sum_{i=1}^n \Big[ e^{x_i^\top\beta} - y_i\, x_i^\top\beta \Big].
-$$
+| Model | $\mathcal{L}(\beta)$ |
+|---|---|
+| OLS | $\dfrac{1}{2n}\lVert y - X\beta\rVert_2^2$ |
+| Logistic | $\dfrac{1}{n}\displaystyle\sum_{i=1}^n \Big[\log\!\big(1+e^{x_i^\top\beta}\big) - y_i\, x_i^\top\beta\Big]$ |
+| Poisson | $\dfrac{1}{n}\displaystyle\sum_{i=1}^n \Big[e^{x_i^\top\beta} - y_i\, x_i^\top\beta\Big]$ |
 
 ### Gradient and Hessian (canonical link)
 
@@ -143,16 +139,16 @@ Some cards instead define $\hat\beta$ through an **estimating equation** $\sum_i
 
 ### Common penalties $P(\beta)$
 
-| Name | $P(\beta)$ | Notes |
+| Name | Penalty | Notes |
 |---|---|---|
 | Ridge ($\ell_2$) | $\tfrac12\lVert\beta\rVert_2^2$ | strongly convex, no sparsity |
 | Lasso ($\ell_1$) | $\lVert\beta\rVert_1$ | convex, sparse |
 | Elastic net | $\alpha\lVert\beta\rVert_1 + \tfrac{1-\alpha}{2}\lVert\beta\rVert_2^2$ | $\alpha\in[0,1]$ |
-| SCAD | nonconvex, see card | unbiased for large $|\beta_j|$ |
+| SCAD | nonconvex, see card | unbiased for large $\lvert\beta_j\rvert$ |
 | MCP | nonconvex, see card | minimax concave |
 | Group lasso | $\sum_{g} \sqrt{d_g}\,\lVert\beta_g\rVert_2$ | group sparsity |
-| Fused lasso | $\lVert\beta\rVert_1 + \sum_j |\beta_j-\beta_{j-1}|$ | piecewise constant |
-| Adaptive lasso | $\sum_j w_j |\beta_j|$ | data-driven weights $w_j$ |
+| Fused lasso | $\lVert\beta\rVert_1 + \sum_j \lvert\beta_j-\beta_{j-1}\rvert$ | piecewise constant |
+| Adaptive lasso | $\sum_j w_j \lvert\beta_j\rvert$ | data-driven weights $w_j$ |
 
 ### Proximal operators (used by first-order solvers)
 
