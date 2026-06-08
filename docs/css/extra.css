@@ -312,13 +312,21 @@ mjx-container[display="true"] {
 }
 .arena-hero .arena-lede strong { color: var(--arena-ink); font-weight: 600; }
 
-.arena-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 0.4rem; }
+.arena-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;          /* comfortable breathing room between buttons */
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+  align-items: center;
+}
 .md-typeset .arena-btn {
   display: inline-flex; align-items: center; gap: 0.45rem;
-  font-size: 0.76rem; font-weight: 600;
-  padding: 0.6rem 1.1rem;
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.72rem 1.5rem;
   border-radius: 7px;
   border: 1px solid transparent;
+  white-space: nowrap;
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
 .md-typeset .arena-btn:hover { text-decoration: none; transform: translateY(-1px); }
@@ -332,6 +340,19 @@ mjx-container[display="true"] {
   border-color: var(--arena-line-strong);
 }
 .md-typeset .arena-btn--ghost:hover { border-color: var(--arena-ink); color: var(--arena-ink); }
+
+/* Mobile: stack buttons vertically, keep them auto-width (not full-stretch) */
+@media screen and (max-width: 480px) {
+  .arena-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .md-typeset .arena-btn {
+    width: auto;
+    align-self: flex-start;
+  }
+}
 
 /* hero equation showcase */
 .arena-showcase {
