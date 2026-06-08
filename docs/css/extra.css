@@ -497,7 +497,51 @@ mjx-container[display="true"] {
 [data-md-color-scheme="slate"] .md-typeset .arena-btn--primary { background: #e7ebf0; color: #0c0e12; }
 [data-md-color-scheme="slate"] .md-typeset .arena-btn--primary:hover { background: #fff; }
 
-/* ----- Responsive ---------------------------------------------------------- */
+/* ----- Algorithm catalogue grid ------------------------------------------- */
+.algo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin: 0.6rem 0 1.8rem;
+}
+.algo-item {
+  display: block;
+  padding: 0.72rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--arena-line);
+  background: var(--arena-canvas);
+  color: var(--arena-ink) !important;
+  font-size: 0.80rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none !important;
+  transition: background 0.14s ease, border-color 0.14s ease,
+              color 0.14s ease, box-shadow 0.14s ease;
+}
+.algo-item:hover {
+  background: var(--arena-accent-wash);
+  border-color: var(--arena-accent);
+  color: var(--arena-accent-ink) !important;
+  box-shadow: 0 2px 8px rgba(47,67,214,0.08);
+  text-decoration: none !important;
+}
+/* dark scheme */
+[data-md-color-scheme="slate"] .algo-item {
+  background: #13161c;
+  border-color: #2a2d35;
+  color: #d8dce6 !important;
+}
+[data-md-color-scheme="slate"] .algo-item:hover {
+  background: #1a1f33;
+  border-color: var(--arena-accent);
+  color: #8ea4ff !important;
+}
+/* phone: single column */
+@media screen and (max-width: 600px) {
+  .algo-grid { grid-template-columns: 1fr; }
+}
+
+
 @media screen and (max-width: 76.1875em) {
   .md-typeset .arena-hero h1 { font-size: 2.4rem; }
 }

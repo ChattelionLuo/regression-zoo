@@ -11,45 +11,56 @@ $(X, y, g) \mapsto \hat\beta$ under the [unified notation](../framework/notation
 
 ## Classical (low-dimensional regression & GLMs)
 
-- [Ordinary Least Squares (OLS)](ols.md)
-- [Ridge Regression](ridge.md)
-- [GLM via IRLS / Fisher Scoring](glm-irls.md)
+<div class="algo-grid">
+<a class="algo-item" href="ols/">Ordinary Least Squares (OLS)</a>
+<a class="algo-item" href="ridge/">Ridge Regression</a>
+<a class="algo-item" href="glm-irls/">GLM via IRLS / Fisher Scoring</a>
+</div>
 
 ## Penalized (batch)
 
-- [Lasso via Coordinate Descent](lasso-cd.md)
-- [Elastic Net](elastic-net.md)
-- [Adaptive Lasso](adaptive-lasso.md)
-- [SCAD via Local Linear Approximation](scad-lla.md)
-- [MCP via Coordinate Descent](mcp-cd.md)
-- [Group Lasso](group-lasso.md)
-- [Fused Lasso](fused-lasso.md)
+<div class="algo-grid">
+<a class="algo-item" href="lasso-cd/">Lasso via Coordinate Descent</a>
+<a class="algo-item" href="elastic-net/">Elastic Net</a>
+<a class="algo-item" href="adaptive-lasso/">Adaptive Lasso</a>
+<a class="algo-item" href="scad-lla/">SCAD via Local Linear Approximation</a>
+<a class="algo-item" href="mcp-cd/">MCP via Coordinate Descent</a>
+<a class="algo-item" href="group-lasso/">Group Lasso</a>
+<a class="algo-item" href="fused-lasso/">Fused Lasso</a>
+</div>
 
 ## Path / homotopy
 
-- [Least Angle Regression (LARS)](lars.md)
+<div class="algo-grid">
+<a class="algo-item" href="lars/">Least Angle Regression (LARS)</a>
+</div>
 
 ## First-order / proximal solvers
 
-- [ISTA](ista.md)
-- [FISTA](fista.md)
+<div class="algo-grid">
+<a class="algo-item" href="ista/">ISTA</a>
+<a class="algo-item" href="fista/">FISTA</a>
+</div>
 
 ## High-dimensional inference
 
-- [Debiased / Desparsified Lasso](debiased-lasso.md)
-- [Decorrelated Score (Ning–Liu)](decorrelated-score.md)
+<div class="algo-grid">
+<a class="algo-item" href="debiased-lasso/">Debiased / Desparsified Lasso</a>
+<a class="algo-item" href="decorrelated-score/">Decorrelated Score (Ning–Liu)</a>
+</div>
 
 ## Online / streaming
 
-- [Stochastic Gradient Descent (SGD)](sgd.md)
-- [Implicit SGD (ISGD)](implicit-sgd.md)
-- [AdaGrad](adagrad.md)
-- [FOBOS](fobos.md)
-- [Regularized Dual Averaging (RDA)](rda.md)
-- [Truncated Gradient](truncated-gradient.md)
-- [Renewable Estimation (streaming GLM)](renewable-glm.md)
+<div class="algo-grid">
+<a class="algo-item" href="sgd/">Stochastic Gradient Descent (SGD)</a>
+<a class="algo-item" href="implicit-sgd/">Implicit SGD (ISGD)</a>
+<a class="algo-item" href="adagrad/">AdaGrad</a>
+<a class="algo-item" href="fobos/">FOBOS</a>
+<a class="algo-item" href="rda/">Regularized Dual Averaging (RDA)</a>
+<a class="algo-item" href="truncated-gradient/">Truncated Gradient</a>
+<a class="algo-item" href="renewable-glm/">Renewable Estimation (streaming GLM)</a>
+</div>
 
 ---
 
-*The lists above are the planned initial set; cards are added incrementally. Missing links
-point to cards not yet written.*
+*The lists above are the planned initial set; cards are added incrementally.*
