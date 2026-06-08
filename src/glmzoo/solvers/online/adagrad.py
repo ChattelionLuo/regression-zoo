@@ -19,9 +19,9 @@ class AdaGradSolver(BaseSolver):
 
     Config
     ------
-    eta      : float, default 0.01  — global step size
+    eta      : float, default 0.1   — global step size
     eps      : float, default 1e-8  — numerical stability constant
-    n_passes : int, default 3
+    n_passes : int, default 10
     seed     : int, default 42
     """
 
@@ -29,9 +29,9 @@ class AdaGradSolver(BaseSolver):
 
     def fit(self, X: np.ndarray, y: np.ndarray, link: str | Link = "identity") -> FitResult:
         lnk = self._resolve_link(link)
-        eta: float = self.config.get("eta", 0.01)
+        eta: float = self.config.get("eta", 0.1)
         eps: float = self.config.get("eps", 1e-8)
-        n_passes: int = self.config.get("n_passes", 3)
+        n_passes: int = self.config.get("n_passes", 10)
         seed: int = self.config.get("seed", 42)
 
         rng = np.random.default_rng(seed)

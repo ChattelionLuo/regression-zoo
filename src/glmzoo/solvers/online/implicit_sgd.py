@@ -20,10 +20,10 @@ class ImplicitSGDSolver(BaseSolver):
 
     Config
     ------
-    gamma0   : float, default 0.01
+    gamma0   : float, default 0.05
     alpha    : float, default 0.51
     c        : float, default 1.0
-    n_passes : int, default 3
+    n_passes : int, default 10
     seed     : int, default 42
     """
 
@@ -31,10 +31,10 @@ class ImplicitSGDSolver(BaseSolver):
 
     def fit(self, X: np.ndarray, y: np.ndarray, link: str | Link = "identity") -> FitResult:
         lnk = self._resolve_link(link)
-        gamma0: float = self.config.get("gamma0", 0.01)
+        gamma0: float = self.config.get("gamma0", 0.05)
         alpha: float = self.config.get("alpha", 0.51)
         c: float = self.config.get("c", 1.0)
-        n_passes: int = self.config.get("n_passes", 3)
+        n_passes: int = self.config.get("n_passes", 10)
         seed: int = self.config.get("seed", 42)
 
         rng = np.random.default_rng(seed)

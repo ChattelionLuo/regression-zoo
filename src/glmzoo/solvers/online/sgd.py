@@ -18,10 +18,10 @@ class SGDSolver(BaseSolver):
 
     Config
     ------
-    gamma0 : float, default 0.01   — initial step size
+    gamma0 : float, default 0.05   — initial step size
     alpha  : float, default 0.51   — decay exponent
     c      : float, default 1.0    — decay scale
-    n_passes : int, default 3      — number of passes over data
+    n_passes : int, default 10     — number of passes over data
     averaging : bool, default True — enable Polyak-Ruppert averaging
     seed   : int, default 42
     """
@@ -30,10 +30,10 @@ class SGDSolver(BaseSolver):
 
     def fit(self, X: np.ndarray, y: np.ndarray, link: str | Link = "identity") -> FitResult:
         lnk = self._resolve_link(link)
-        gamma0: float = self.config.get("gamma0", 0.01)
+        gamma0: float = self.config.get("gamma0", 0.05)
         alpha: float = self.config.get("alpha", 0.51)
         c: float = self.config.get("c", 1.0)
-        n_passes: int = self.config.get("n_passes", 3)
+        n_passes: int = self.config.get("n_passes", 10)
         averaging: bool = self.config.get("averaging", True)
         seed: int = self.config.get("seed", 42)
 

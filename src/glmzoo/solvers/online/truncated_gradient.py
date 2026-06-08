@@ -24,7 +24,7 @@ class TruncatedGradientSolver(BaseSolver):
     lam      : float, default 0.1  — L1 regularisation weight
     gamma0   : float, default 0.1  — initial step size
     K        : int,   default 10   — truncation period
-    n_passes : int, default 3
+    n_passes : int, default 10
     seed     : int, default 42
     """
 
@@ -35,7 +35,7 @@ class TruncatedGradientSolver(BaseSolver):
         lam: float = self.config.get("lam", 0.1)
         gamma0: float = self.config.get("gamma0", 0.1)
         K: int = int(self.config.get("K", 10))
-        n_passes: int = self.config.get("n_passes", 3)
+        n_passes: int = self.config.get("n_passes", 10)
         seed: int = self.config.get("seed", 42)
 
         rng = np.random.default_rng(seed)
