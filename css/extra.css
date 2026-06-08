@@ -185,22 +185,16 @@
 .md-sidebar__scrollwrap::-webkit-scrollbar { width: 6px; }
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb { background: var(--arena-line-strong); border-radius: 3px; }
 
-/* Mobile nav drawer — dark background to match header */
+/* Mobile nav drawer — dark title bar only, items stay on white */
 @media screen and (max-width: 76.1875em) {
   .md-nav--primary .md-nav__title[for="__drawer"] {
     background: var(--arena-ink);
     color: #ffffff;
   }
-  .md-nav--primary {
-    background: var(--arena-ink);
-    color: #ffffff;
-  }
-  .md-nav--primary .md-nav__item .md-nav__link {
-    color: rgba(255,255,255,0.82);
-  }
-  .md-nav--primary .md-nav__item .md-nav__link:hover,
-  .md-nav--primary .md-nav__item .md-nav__link--active {
-    color: #ffffff;
+  /* section back-button titles (e.g. "Penalized (Batch)") */
+  .md-nav--primary .md-nav__title {
+    background: var(--arena-surface);
+    color: var(--arena-ink);
   }
 }
 
