@@ -2107,7 +2107,7 @@
 <p class="admonition-title">At a glance</p>
 <p><strong>Family:</strong> online-streaming · <strong>Regime:</strong> streaming / low-dim / high-dim · <strong>Penalty:</strong> none ·
 <strong>Output:</strong> point · <strong>Links:</strong> identity, logit, log · <strong>Status:</strong> draft ·
-<strong>Refs:</strong> Robbins1951, polyak1992acceleration, ruppert1988efficient, chen2020statistical</p>
+<strong>Refs:</strong> <a href="#ref-Robbins1951"><code>Robbins and Monro, 1951</code></a> · <a href="#ref-polyak1992acceleration"><code>Polyak and Juditsky, 1992</code></a> · <a href="#ref-ruppert1988efficient"><code>Ruppert, 1988</code></a> · <a href="#ref-chen2020statistical"><code>Chen et al., 2020</code></a></p>
 </div>
 <h2 id="setting-assumptions">Setting &amp; assumptions<a class="headerlink" href="#setting-assumptions" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2220,13 +2220,13 @@ Return β  (or the averaged β̄ for inference)
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Consistency.</strong> Under the Robbins–Monro step conditions, <span class="arithmatex">\(\beta^{(t)}\to\beta^\star\)</span> a.s.
-  <a href="#ref-Robbins1951">[Robbins and Monro, 1951]</a>.</li>
+  <a href="#ref-Robbins1951"><code>Robbins and Monro, 1951</code></a>.</li>
 <li><strong>Asymptotic normality of the averaged iterate.</strong> With <span class="arithmatex">\(\gamma_t=\gamma_0 t^{-a}\)</span>, <span class="arithmatex">\(a\in(0.5,1)\)</span>,
   <span class="arithmatex">\(\sqrt{t}\,(\bar\beta_t - \beta^\star)\xrightarrow{d}\mathcal N(0,\, H^{-1} G H^{-1})\)</span> where
   <span class="arithmatex">\(H=\nabla^2\mathcal L(\beta^\star)\)</span> and <span class="arithmatex">\(G\)</span> is the gradient-noise covariance; this matches the
-  MLE's efficiency (<a href="#ref-polyak1992acceleration">[Polyak and Juditsky, 1992]</a>, <a href="#ref-ruppert1988efficient">[Ruppert, 1988]</a>).</li>
+  MLE's efficiency (<a href="#ref-polyak1992acceleration"><code>Polyak and Juditsky, 1992</code></a>, <a href="#ref-ruppert1988efficient"><code>Ruppert, 1988</code></a>).</li>
 <li><strong>Inference.</strong> Plug-in / online estimators of the sandwich covariance permit confidence
-  intervals from the averaged SGD path <a href="#ref-chen2020statistical">[Chen et al., 2020]</a>.</li>
+  intervals from the averaged SGD path <a href="#ref-chen2020statistical"><code>Chen et al., 2020</code></a>.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>

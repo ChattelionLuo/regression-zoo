@@ -2185,7 +2185,7 @@
 <p class="admonition-title">At a glance</p>
 <p><strong>Family:</strong> high-dim-inference · <strong>Regime:</strong> high-dim (<span class="arithmatex">\(p\gg n\)</span>) · <strong>Penalty:</strong> lasso (base) ·
 <strong>Output:</strong> point+inference · <strong>Links:</strong> identity, logit, log · <strong>Status:</strong> draft ·
-<strong>Refs:</strong> vandegeer2014, Zhang_delasso_2014, javanmard2014confidence, hdi2015, 10.1111/biom.13587</p>
+<strong>Refs:</strong> <a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a> · <a href="#ref-Zhang_delasso_2014"><code>Zhang and Zhang, 2014</code></a> · <a href="#ref-javanmard2014confidence"><code>Javanmard and Montanari, 2014</code></a> · <a href="#ref-hdi2015"><code>Dezeure et al., 2015</code></a> · <a href="#ref-10.1111/biom.13587"><code>Xia et al., 2021</code></a></p>
 </div>
 <h2 id="setting-assumptions">Setting &amp; assumptions<a class="headerlink" href="#setting-assumptions" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2231,7 +2231,7 @@ is <strong>asymptotically normal and <span class="arithmatex">\(\sqrt n\)</span>
 <p>yielding the <span class="arithmatex">\((1-\alpha)\)</span> confidence interval
 <span class="arithmatex">\(\hat b_j\pm z_{1-\alpha/2}\,\hat\sigma\sqrt{[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}/n}\)</span>.</p>
 <h3 id="constructing-hattheta-nodewise-lasso">Constructing <span class="arithmatex">\(\hat\Theta\)</span> — nodewise lasso<a class="headerlink" href="#constructing-hattheta-nodewise-lasso" title="Permanent link">&para;</a></h3>
-<p>van de Geer et al. (2014) build <span class="arithmatex">\(\hat\Theta\)</span> row by row via <strong>nodewise lasso</strong>: regress each
+<p><a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a> build <span class="arithmatex">\(\hat\Theta\)</span> row by row via <strong>nodewise lasso</strong>: regress each
 column <span class="arithmatex">\(X_{\cdot j}\)</span> on the remaining columns <span class="arithmatex">\(X_{\cdot\text{-}j}\)</span>,</p>
 <div class="arithmatex">\[
 \hat\gamma_j=\arg\min_{\gamma\in\mathbb{R}^{p-1}}\ \tfrac1{2n}\lVert X_{\cdot j}-X_{\cdot\text{-}j}\gamma\rVert_2^2+\lambda_j\lVert\gamma\rVert_1,
@@ -2247,7 +2247,7 @@ column <span class="arithmatex">\(X_{\cdot j}\)</span> on the remaining columns 
 <p>The noise level <span class="arithmatex">\(\sigma^2\)</span> is estimated from the lasso residuals, e.g. the scaled-lasso /
 degrees-of-freedom corrected estimator
 <span class="arithmatex">\(\hat\sigma^2=\lVert y-X\hat\beta\rVert_2^2/\big(n-\lVert\hat\beta\rVert_0\big)\)</span> or via
-cross-validation; <a href="#ref-hdi2015">[Dezeure et al., 2015]</a> implements these defaults.</p>
+cross-validation; <a href="#ref-hdi2015"><code>Dezeure et al., 2015</code></a> implements these defaults.</p>
 <h3 id="glm-extension-logit-log-links">GLM extension (logit / log links)<a class="headerlink" href="#glm-extension-logit-log-links" title="Permanent link">&para;</a></h3>
 <p>For a GLM, replace the Gaussian residual by the score and <span class="arithmatex">\(\hat\Sigma\)</span> by the weighted
 (Fisher-information) Gram matrix <span class="arithmatex">\(\hat\Sigma_W=X^\top \hat W X/n\)</span> with
@@ -2258,9 +2258,9 @@ The debiased estimator becomes</p>
 \hat\Theta\approx\big(X^\top\hat W X/n\big)^{-1},
 \]</div>
 <p>with asymptotic variance <span class="arithmatex">\([\hat\Theta\,\hat\Sigma_W\,\hat\Theta^\top]_{jj}/n\)</span>; the nodewise
-regressions are run on the <span class="arithmatex">\(\sqrt{\hat W}\)</span>-weighted design. <a href="#ref-10.1111/biom.13587">[Xia et al., 2021]</a>
-develop this weighted/Fisher-information correction for GLMs; <a href="#ref-guo2021inference">[Guo et al., 2021]</a> and
-<a href="#ref-ma2021global">[Ma et al., 2021]</a> give related corrections and (simultaneous) tests for high-dimensional logistic
+regressions are run on the <span class="arithmatex">\(\sqrt{\hat W}\)</span>-weighted design. <a href="#ref-10.1111/biom.13587"><code>Xia et al., 2021</code></a>
+develop this weighted/Fisher-information correction for GLMs; <a href="#ref-guo2021inference"><code>Guo et al., 2021</code></a> and
+<a href="#ref-ma2021global"><code>Ma et al., 2021</code></a> give related corrections and (simultaneous) tests for high-dimensional logistic
 regression.</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>Input: X (n×p), y (n), penalties λ (lasso), {λ_j} (nodewise), link g
@@ -2344,14 +2344,14 @@ Return  b̂, {se_j}, {CI_j}
 <ul>
 <li><strong>Asymptotic normality:</strong> under compatibility + precision-row-sparsity and
   <span class="arithmatex">\(s=o(\sqrt n/\log p)\)</span>, <span class="arithmatex">\(\sqrt n(\hat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})\)</span>
-  with <span class="arithmatex">\(\Omega=\Theta\Sigma\Theta^\top\)</span> (<a href="#ref-vandegeer2014">[van de Geer et al., 2014]</a>, <a href="#ref-Zhang_delasso_2014">[Zhang and Zhang, 2014]</a>,
-  <a href="#ref-javanmard2014confidence">[Javanmard and Montanari, 2014]</a>).</li>
+  with <span class="arithmatex">\(\Omega=\Theta\Sigma\Theta^\top\)</span> (<a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a>, <a href="#ref-Zhang_delasso_2014"><code>Zhang and Zhang, 2014</code></a>,
+  <a href="#ref-javanmard2014confidence"><code>Javanmard and Montanari, 2014</code></a>).</li>
 <li><strong>Coverage / honesty:</strong> the resulting CIs achieve asymptotically nominal coverage uniformly
   over the sparse parameter space; the remainder term is uniformly negligible.</li>
 <li><strong>Efficiency:</strong> the asymptotic variance attains the semiparametric efficiency bound under the
-  stated conditions <a href="#ref-jankova2018semiparametric">[Janková and van de Geer, 2018]</a>.</li>
+  stated conditions <a href="#ref-jankova2018semiparametric"><code>Janková and van de Geer, 2018</code></a>.</li>
 <li><strong>GLM:</strong> analogous normality with the Fisher-information variance for logit/log links
-  (<a href="#ref-10.1111/biom.13587">[Xia et al., 2021]</a>, <a href="#ref-guo2021inference">[Guo et al., 2021]</a>); <a href="#ref-ma2021global">[Ma et al., 2021]</a> provides simultaneous/global tests.</li>
+  (<a href="#ref-10.1111/biom.13587"><code>Xia et al., 2021</code></a>, <a href="#ref-guo2021inference"><code>Guo et al., 2021</code></a>); <a href="#ref-ma2021global"><code>Ma et al., 2021</code></a> provides simultaneous/global tests.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>

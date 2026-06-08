@@ -2107,7 +2107,7 @@
 <p class="admonition-title">At a glance</p>
 <p><strong>Family:</strong> online-streaming · <strong>Regime:</strong> streaming / low-dim / high-dim · <strong>Penalty:</strong> none (or composite) ·
 <strong>Output:</strong> point · <strong>Links:</strong> identity, logit, log · <strong>Status:</strong> draft ·
-<strong>Refs:</strong> AdaGrad2011</p>
+<strong>Refs:</strong> <a href="#ref-AdaGrad2011"><code>Duchi et al., 2011</code></a></p>
 </div>
 <h2 id="setting-assumptions">Setting &amp; assumptions<a class="headerlink" href="#setting-assumptions" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2210,7 +2210,7 @@ step <span class="arithmatex">\(\eta/(\sqrt{G_{t,j}}+\epsilon)\)</span>, giving 
 <li><strong>Online regret.</strong> AdaGrad achieves data-dependent regret
   <span class="arithmatex">\(\mathcal O\!\big(\max_j \lVert g_{1:T,j}\rVert_2\big)\)</span>, never worse than and often far better
   than non-adaptive online gradient descent, with the largest gains on sparse/predictable
-  features <a href="#ref-AdaGrad2011">[Duchi et al., 2011]</a>.</li>
+  features <a href="#ref-AdaGrad2011"><code>Duchi et al., 2011</code></a>.</li>
 <li>It is an optimization (regret) guarantee rather than an asymptotic-efficiency statement; for
   parameter inference, pair with averaging as in <a href="../sgd/">SGD</a>.</li>
 </ul>

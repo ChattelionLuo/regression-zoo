@@ -2107,7 +2107,7 @@
 <p class="admonition-title">At a glance</p>
 <p><strong>Family:</strong> high-dim-inference · <strong>Regime:</strong> high-dim (<span class="arithmatex">\(p\gg n\)</span>) · <strong>Penalty:</strong> lasso (base) ·
 <strong>Output:</strong> point+inference · <strong>Links:</strong> any · <strong>Status:</strong> draft ·
-<strong>Refs:</strong> 10.1214/16-AOS1448, vandegeer2014, javanmard2014confidence</p>
+<strong>Refs:</strong> <a href="#ref-10.1214/16-AOS1448"><code>Ning and Liu, 2017</code></a> · <a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a> · <a href="#ref-javanmard2014confidence"><code>Javanmard and Montanari, 2014</code></a></p>
 </div>
 <h2 id="setting-assumptions">Setting &amp; assumptions<a class="headerlink" href="#setting-assumptions" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2247,15 +2247,15 @@ Return  θ̂, U (p-value), CI
 <li><strong>Asymptotic null distribution:</strong> under compatibility + sparsity
   (<span class="arithmatex">\(s\log p/\sqrt n\to 0\)</span>) and a valid sparse <span class="arithmatex">\(\hat w\)</span>,
   <span class="arithmatex">\(U_n\xrightarrow{d}N(0,1)\)</span> under <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(U_n^2\xrightarrow{d}\chi^2_d\)</span>
-  <a href="#ref-10.1214/16-AOS1448">[Ning and Liu, 2017]</a>.</li>
+  <a href="#ref-10.1214/16-AOS1448"><code>Ning and Liu, 2017</code></a>.</li>
 <li><strong>Estimation / normality:</strong> the one-step estimator is <span class="arithmatex">\(\sqrt n\)</span>-consistent and asymptotically
   normal with variance <span class="arithmatex">\(I_{\theta\mid\gamma}^{-1}\)</span>, the semiparametric efficiency bound for
-  <span class="arithmatex">\(\theta\)</span> in the presence of the nuisance <a href="#ref-jankova2018semiparametric">[Janková and van de Geer, 2018]</a>.</li>
+  <span class="arithmatex">\(\theta\)</span> in the presence of the nuisance <a href="#ref-jankova2018semiparametric"><code>Janková and van de Geer, 2018</code></a>.</li>
 <li><strong>Honest coverage:</strong> inverting the test gives CIs with asymptotically nominal coverage,
   uniformly over the sparse nuisance space; validity is <strong>robust to model misspecification</strong> of
   the nuisance and to moderate nuisance estimation error.</li>
-<li>The construction generalizes the desparsified-lasso normal limit (<a href="#ref-vandegeer2014">[van de Geer et al., 2014]</a>,
-  <a href="#ref-javanmard2014confidence">[Javanmard and Montanari, 2014]</a>) from linear models to general (penalized) likelihoods.</li>
+<li>The construction generalizes the desparsified-lasso normal limit (<a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a>,
+  <a href="#ref-javanmard2014confidence"><code>Javanmard and Montanari, 2014</code></a>) from linear models to general (penalized) likelihoods.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>

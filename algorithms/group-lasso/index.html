@@ -2107,7 +2107,7 @@
 <p class="admonition-title">At a glance</p>
 <p><strong>Family:</strong> penalized-batch · <strong>Regime:</strong> high-dim / low-dim · <strong>Penalty:</strong> group-lasso ·
 <strong>Output:</strong> path over <span class="arithmatex">\(\lambda\)</span> · <strong>Links:</strong> identity, logit, log · <strong>Status:</strong> draft ·
-<strong>Refs:</strong> SGL2015, buhlmann2011statistics</p>
+<strong>Refs:</strong> <a href="#ref-buhlmann2011statistics"><code>Buhlmann and van de Geer, 2011</code></a></p>
 </div>
 <h2 id="setting-assumptions">Setting &amp; assumptions<a class="headerlink" href="#setting-assumptions" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2239,14 +2239,14 @@ lasso but with the groupwise update replacing the scalar one.</p>
 <li><strong>Groupwise sparsity / selection.</strong> Under a group-restricted-eigenvalue condition and
   <span class="arithmatex">\(\lambda\asymp\sigma\big(\sqrt{d_g/n}+\sqrt{\log G/n}\big)\)</span>, the group lasso recovers the true
   active groups and attains <span class="arithmatex">\(\ell_2\)</span> error scaling with the total active dimension
-  <span class="arithmatex">\(\sum_{g\in S}d_g\)</span> rather than <span class="arithmatex">\(p\)</span> <a href="#ref-buhlmann2011statistics">[Bühlmann and van de Geer, 2011]</a>.</li>
+  <span class="arithmatex">\(\sum_{g\in S}d_g\)</span> rather than <span class="arithmatex">\(p\)</span> <a href="#ref-buhlmann2011statistics"><code>Bühlmann and van de Geer, 2011</code></a>.</li>
 <li>The <span class="arithmatex">\(\sqrt{d_g}\)</span> weighting equalizes the noise level across groups of differing size, which is
   what makes a single <span class="arithmatex">\(\lambda\)</span> appropriate for all groups.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../lasso-cd/">Lasso</a> — the all-singletons case (<span class="arithmatex">\(d_g\equiv 1\)</span>).</li>
-<li><strong>Sparse group lasso</strong> — adds an extra <span class="arithmatex">\(\ell_1\)</span> term for within-group sparsity <a href="#ref-simon2013sparse">[Simon et al., 2013]</a>.</li>
+<li><strong>Sparse group lasso</strong> — adds an extra <span class="arithmatex">\(\ell_1\)</span> term for within-group sparsity <a href="#ref-simon2013sparse"><code>Simon et al., 2013</code></a>.</li>
 <li><a href="../elastic-net/">Elastic Net</a> · <a href="../adaptive-lasso/">Adaptive Lasso</a> ·
   <a href="../fused-lasso/">Fused Lasso</a> — sibling structured penalties.</li>
 <li><strong>Overlapping group lasso</strong> — groups may share variables (latent-group formulation).</li>
