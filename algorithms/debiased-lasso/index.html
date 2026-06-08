@@ -2247,7 +2247,7 @@ column <span class="arithmatex">\(X_{\cdot j}\)</span> on the remaining columns 
 <p>The noise level <span class="arithmatex">\(\sigma^2\)</span> is estimated from the lasso residuals, e.g. the scaled-lasso /
 degrees-of-freedom corrected estimator
 <span class="arithmatex">\(\hat\sigma^2=\lVert y-X\hat\beta\rVert_2^2/\big(n-\lVert\hat\beta\rVert_0\big)\)</span> or via
-cross-validation; <code>hdi</code> (<code>hdi2015</code>) implements these defaults.</p>
+cross-validation; <a href="#ref-hdi2015">[Dezeure et al., 2015]</a> implements these defaults.</p>
 <h3 id="glm-extension-logit-log-links">GLM extension (logit / log links)<a class="headerlink" href="#glm-extension-logit-log-links" title="Permanent link">&para;</a></h3>
 <p>For a GLM, replace the Gaussian residual by the score and <span class="arithmatex">\(\hat\Sigma\)</span> by the weighted
 (Fisher-information) Gram matrix <span class="arithmatex">\(\hat\Sigma_W=X^\top \hat W X/n\)</span> with
@@ -2258,9 +2258,9 @@ The debiased estimator becomes</p>
 \hat\Theta\approx\big(X^\top\hat W X/n\big)^{-1},
 \]</div>
 <p>with asymptotic variance <span class="arithmatex">\([\hat\Theta\,\hat\Sigma_W\,\hat\Theta^\top]_{jj}/n\)</span>; the nodewise
-regressions are run on the <span class="arithmatex">\(\sqrt{\hat W}\)</span>-weighted design. Xia, Nan &amp; Li (<code>10.1111/biom.13587</code>)
-develop this weighted/Fisher-information correction for GLMs; <code>guo2021inference</code> and
-<code>ma2021global</code> give related corrections and (simultaneous) tests for high-dimensional logistic
+regressions are run on the <span class="arithmatex">\(\sqrt{\hat W}\)</span>-weighted design. <a href="#ref-10.1111/biom.13587">[Xia et al., 2021]</a>
+develop this weighted/Fisher-information correction for GLMs; <a href="#ref-guo2021inference">[Guo et al., 2021]</a> and
+<a href="#ref-ma2021global">[Ma et al., 2021]</a> give related corrections and (simultaneous) tests for high-dimensional logistic
 regression.</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>Input: X (n×p), y (n), penalties λ (lasso), {λ_j} (nodewise), link g
@@ -2344,14 +2344,14 @@ Return  b̂, {se_j}, {CI_j}
 <ul>
 <li><strong>Asymptotic normality:</strong> under compatibility + precision-row-sparsity and
   <span class="arithmatex">\(s=o(\sqrt n/\log p)\)</span>, <span class="arithmatex">\(\sqrt n(\hat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})\)</span>
-  with <span class="arithmatex">\(\Omega=\Theta\Sigma\Theta^\top\)</span> (<code>vandegeer2014</code>, <code>Zhang_delasso_2014</code>,
-  <code>javanmard2014confidence</code>).</li>
+  with <span class="arithmatex">\(\Omega=\Theta\Sigma\Theta^\top\)</span> (<a href="#ref-vandegeer2014">[van de Geer et al., 2014]</a>, <a href="#ref-Zhang_delasso_2014">[Zhang and Zhang, 2014]</a>,
+  <a href="#ref-javanmard2014confidence">[Javanmard and Montanari, 2014]</a>).</li>
 <li><strong>Coverage / honesty:</strong> the resulting CIs achieve asymptotically nominal coverage uniformly
   over the sparse parameter space; the remainder term is uniformly negligible.</li>
 <li><strong>Efficiency:</strong> the asymptotic variance attains the semiparametric efficiency bound under the
-  stated conditions (<code>jankova2018semiparametric</code>).</li>
+  stated conditions <a href="#ref-jankova2018semiparametric">[Janková and van de Geer, 2018]</a>.</li>
 <li><strong>GLM:</strong> analogous normality with the Fisher-information variance for logit/log links
-  (<code>10.1111/biom.13587</code>, <code>guo2021inference</code>); <code>ma2021global</code> provides simultaneous/global tests.</li>
+  (<a href="#ref-10.1111/biom.13587">[Xia et al., 2021]</a>, <a href="#ref-guo2021inference">[Guo et al., 2021]</a>); <a href="#ref-ma2021global">[Ma et al., 2021]</a> provides simultaneous/global tests.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2363,20 +2363,14 @@ Return  b̂, {se_j}, {CI_j}
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>van de Geer, Bühlmann, Ritov &amp; Dezeure (2014), <em>On asymptotically optimal confidence regions
-  and tests for high-dimensional models</em> (<code>vandegeer2014</code>) — desparsified lasso, nodewise <span class="arithmatex">\(\hat\Theta\)</span>.</li>
-<li>Zhang &amp; Zhang (2014), <em>Confidence intervals for low-dimensional parameters in high-dimensional
-  linear models</em> (<code>Zhang_delasso_2014</code>) — the low-dimensional projection / debiasing idea.</li>
-<li>Javanmard &amp; Montanari (2014), <em>Confidence intervals and hypothesis testing for high-dimensional
-  regression</em> (<code>javanmard2014confidence</code>) — constrained-QP construction of <span class="arithmatex">\(\hat\Theta\)</span>.</li>
-<li>Dezeure, Bühlmann, Meier &amp; Meinshausen (2015), <em>High-dimensional inference: confidence
-  intervals, p-values and R-software hdi</em> (<code>hdi2015</code>) — implementation and variance defaults.</li>
-<li>Xia, Nan &amp; Li (2021), <em>Debiased lasso for generalized linear models</em> (<code>10.1111/biom.13587</code>) —
-  Fisher-information correction for GLMs.</li>
-<li>Guo, Rakshit, Herman &amp; Chen (2021), <em>Inference for the case probability in high-dimensional
-  logistic regression</em> (<code>guo2021inference</code>).</li>
-<li>Ma, Cai &amp; Li (2021), <em>Global and simultaneous hypothesis testing for high-dimensional logistic
-  regression models</em> (<code>ma2021global</code>).</li>
+<li><a id="ref-vandegeer2014"></a> van de Geer, S., Bühlmann, P., Ritov, Y. A., and Dezeure, R. (2014). On asymptotically optimal confidence regions and tests for high-dimensional models. <em>Ann. Statist.</em>, 42(3):1166--1202.</li>
+<li><a id="ref-Zhang_delasso_2014"></a> Zhang, C.-H. and Zhang, S. S. (2014). Confidence intervals for low dimensional parameters in high dimensional linear models. <em>J. R. Stat. Soc. Ser. B</em>, 76(1):217--242.</li>
+<li><a id="ref-javanmard2014confidence"></a> Javanmard, A. and Montanari, A. (2014). Confidence intervals and hypothesis testing for high-dimensional regression. <em>J. Mach. Learn. Res.</em>, 15(1):2869--2909.</li>
+<li><a id="ref-hdi2015"></a> Dezeure, R., Bühlmann, P., Meier, L., and Meinshausen, N. (2015). High-dimensional inference: confidence intervals, p-values and R-software hdi. <em>Stat. Sci.</em>, 30(4):533--558.</li>
+<li><a id="ref-10.1111/biom.13587"></a> Xia, L., Nan, B., and Li, Y. (2021). Debiased Lasso for generalized linear models with a diverging number of covariates. <em>Biometrics</em>, 79(1):344--357.</li>
+<li><a id="ref-guo2021inference"></a> Guo, Z., Rakshit, P., Herman, D. S., and Chen, J. (2021). Inference for the case probability in high-dimensional logistic regression. <em>J. Mach. Learn. Res.</em>, 22(254):1--54.</li>
+<li><a id="ref-ma2021global"></a> Ma, R., Cai, T. T., and Li, H. (2021). Global and simultaneous hypothesis testing for high-dimensional logistic regression models. <em>J. Amer. Statist. Assoc.</em>, 116(534):984--998.</li>
+<li><a id="ref-jankova2018semiparametric"></a> Janková, J. and van de Geer, S. (2018). Semiparametric efficiency bounds for high-dimensional models. <em>Ann. Statist.</em>, 46(5):2336--2359.</li>
 </ul>
 
 

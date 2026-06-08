@@ -2210,7 +2210,7 @@ step <span class="arithmatex">\(\eta/(\sqrt{G_{t,j}}+\epsilon)\)</span>, giving 
 <li><strong>Online regret.</strong> AdaGrad achieves data-dependent regret
   <span class="arithmatex">\(\mathcal O\!\big(\max_j \lVert g_{1:T,j}\rVert_2\big)\)</span>, never worse than and often far better
   than non-adaptive online gradient descent, with the largest gains on sparse/predictable
-  features (<code>AdaGrad2011</code>).</li>
+  features <a href="#ref-AdaGrad2011">[Duchi et al., 2011]</a>.</li>
 <li>It is an optimization (regret) guarantee rather than an asymptotic-efficiency statement; for
   parameter inference, pair with averaging as in <a href="../sgd/">SGD</a>.</li>
 </ul>
@@ -2222,7 +2222,7 @@ step <span class="arithmatex">\(\eta/(\sqrt{G_{t,j}}+\epsilon)\)</span>, giving 
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Duchi, Hazan &amp; Singer (2011), <em>Adaptive subgradient methods for online learning and stochastic optimization</em> (<code>AdaGrad2011</code>).</li>
+<li><a id="ref-AdaGrad2011"></a> Duchi, J., Hazan, E., and Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. <em>J. Mach. Learn. Res.</em>, 12:2121--2159.</li>
 </ul>
 
 

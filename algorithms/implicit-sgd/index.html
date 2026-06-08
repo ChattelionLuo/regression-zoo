@@ -2222,10 +2222,10 @@ iterations; no <span class="arithmatex">\(p\times p\)</span> system is ever form
 <ul>
 <li><strong>Stability &amp; consistency.</strong> The implicit update is numerically stable — it cannot overshoot for
   large <span class="arithmatex">\(\gamma_t\)</span> the way explicit SGD can — while retaining the same limit <span class="arithmatex">\(\beta^\star\)</span> and the
-  same asymptotic distribution as explicit SGD (<code>Toulis2017</code>).</li>
+  same asymptotic distribution as explicit SGD <a href="#ref-Toulis2017">[Toulis and Airoldi, 2017]</a>.</li>
 <li><strong>Asymptotic efficiency via averaging.</strong> The Polyak–Ruppert average of implicit iterates is
   asymptotically normal with the MLE's sandwich covariance, enabling scalable inference
-  (<code>Fang2019</code>).</li>
+  <a href="#ref-Fang2019">[Fang, 2019]</a>.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2236,8 +2236,8 @@ iterations; no <span class="arithmatex">\(p\times p\)</span> system is ever form
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Toulis &amp; Airoldi (2017), <em>Asymptotic and finite-sample properties of estimators based on stochastic gradients</em> (<code>Toulis2017</code>).</li>
-<li>Fang (2019), <em>Scalable statistical inference for averaged implicit stochastic gradient descent</em> (<code>Fang2019</code>).</li>
+<li><a id="ref-Toulis2017"></a> Toulis, P. and Airoldi, E. M. (2017). Asymptotic and finite-sample properties of estimators based on stochastic gradients. <em>Ann. Statist.</em>, 45(4):1694--1727.</li>
+<li><a id="ref-Fang2019"></a> Fang, Y. (2019). Scalable statistical inference for averaged implicit stochastic gradient descent. <em>Scand. J. Stat.</em>, 46(4):987--1002.</li>
 </ul>
 
 

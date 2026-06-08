@@ -2220,13 +2220,13 @@ Return β  (or the averaged β̄ for inference)
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Consistency.</strong> Under the Robbins–Monro step conditions, <span class="arithmatex">\(\beta^{(t)}\to\beta^\star\)</span> a.s.
-  (<code>Robbins1951</code>).</li>
+  <a href="#ref-Robbins1951">[Robbins and Monro, 1951]</a>.</li>
 <li><strong>Asymptotic normality of the averaged iterate.</strong> With <span class="arithmatex">\(\gamma_t=\gamma_0 t^{-a}\)</span>, <span class="arithmatex">\(a\in(0.5,1)\)</span>,
   <span class="arithmatex">\(\sqrt{t}\,(\bar\beta_t - \beta^\star)\xrightarrow{d}\mathcal N(0,\, H^{-1} G H^{-1})\)</span> where
   <span class="arithmatex">\(H=\nabla^2\mathcal L(\beta^\star)\)</span> and <span class="arithmatex">\(G\)</span> is the gradient-noise covariance; this matches the
-  MLE's efficiency (<code>polyak1992acceleration</code>, <code>ruppert1988efficient</code>).</li>
+  MLE's efficiency (<a href="#ref-polyak1992acceleration">[Polyak and Juditsky, 1992]</a>, <a href="#ref-ruppert1988efficient">[Ruppert, 1988]</a>).</li>
 <li><strong>Inference.</strong> Plug-in / online estimators of the sandwich covariance permit confidence
-  intervals from the averaged SGD path (<code>chen2020statistical</code>).</li>
+  intervals from the averaged SGD path <a href="#ref-chen2020statistical">[Chen et al., 2020]</a>.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2237,10 +2237,10 @@ Return β  (or the averaged β̄ for inference)
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Robbins &amp; Monro (1951), <em>A stochastic approximation method</em> (<code>Robbins1951</code>).</li>
-<li>Polyak &amp; Juditsky (1992), <em>Acceleration of stochastic approximation by averaging</em> (<code>polyak1992acceleration</code>).</li>
-<li>Ruppert (1988), <em>Efficient estimations from a slowly convergent Robbins–Monro process</em> (<code>ruppert1988efficient</code>).</li>
-<li>Chen, Lee, Tong &amp; Zhang (2020), <em>Statistical inference for model parameters in stochastic gradient descent</em> (<code>chen2020statistical</code>).</li>
+<li><a id="ref-Robbins1951"></a> Robbins, H. and Monro, S. (1951). A stochastic approximation method. <em>Ann. Math. Statist.</em>, 22(3):400--407.</li>
+<li><a id="ref-polyak1992acceleration"></a> Polyak, B. T. and Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging. <em>SIAM J. Control Optim.</em>, 30(4):838--855.</li>
+<li><a id="ref-ruppert1988efficient"></a> Ruppert, D. (1988). Efficient estimations from a slowly convergent Robbins-Monro process. Technical Report, Cornell University Operations Research and Industrial Engineering.</li>
+<li><a id="ref-chen2020statistical"></a> Chen, X., Lee, J. D., Tong, X. T., and Zhang, Y. (2020). Statistical inference for model parameters in stochastic gradient descent. <em>Ann. Statist.</em>, 48(1):251--273.</li>
 </ul>
 
 

@@ -2247,15 +2247,15 @@ Return  θ̂, U (p-value), CI
 <li><strong>Asymptotic null distribution:</strong> under compatibility + sparsity
   (<span class="arithmatex">\(s\log p/\sqrt n\to 0\)</span>) and a valid sparse <span class="arithmatex">\(\hat w\)</span>,
   <span class="arithmatex">\(U_n\xrightarrow{d}N(0,1)\)</span> under <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(U_n^2\xrightarrow{d}\chi^2_d\)</span>
-  (<code>10.1214/16-AOS1448</code>).</li>
+  <a href="#ref-10.1214/16-AOS1448">[Ning and Liu, 2017]</a>.</li>
 <li><strong>Estimation / normality:</strong> the one-step estimator is <span class="arithmatex">\(\sqrt n\)</span>-consistent and asymptotically
   normal with variance <span class="arithmatex">\(I_{\theta\mid\gamma}^{-1}\)</span>, the semiparametric efficiency bound for
-  <span class="arithmatex">\(\theta\)</span> in the presence of the nuisance (<code>jankova2018semiparametric</code>).</li>
+  <span class="arithmatex">\(\theta\)</span> in the presence of the nuisance <a href="#ref-jankova2018semiparametric">[Janková and van de Geer, 2018]</a>.</li>
 <li><strong>Honest coverage:</strong> inverting the test gives CIs with asymptotically nominal coverage,
   uniformly over the sparse nuisance space; validity is <strong>robust to model misspecification</strong> of
   the nuisance and to moderate nuisance estimation error.</li>
-<li>The construction generalizes the desparsified-lasso normal limit (<code>vandegeer2014</code>,
-  <code>javanmard2014confidence</code>) from linear models to general (penalized) likelihoods.</li>
+<li>The construction generalizes the desparsified-lasso normal limit (<a href="#ref-vandegeer2014">[van de Geer et al., 2014]</a>,
+  <a href="#ref-javanmard2014confidence">[Javanmard and Montanari, 2014]</a>) from linear models to general (penalized) likelihoods.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2267,15 +2267,10 @@ Return  θ̂, U (p-value), CI
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Ning &amp; Liu (2017), <em>A general theory of hypothesis tests and confidence regions for sparse
-  high-dimensional models</em>, Ann. Statist. (<code>10.1214/16-AOS1448</code>) — the decorrelated score
-  framework and its <span class="arithmatex">\(N(0,1)/\chi^2\)</span> theory.</li>
-<li>van de Geer, Bühlmann, Ritov &amp; Dezeure (2014), <em>On asymptotically optimal confidence regions
-  and tests for high-dimensional models</em> (<code>vandegeer2014</code>) — linear-model desparsified score.</li>
-<li>Javanmard &amp; Montanari (2014), <em>Confidence intervals and hypothesis testing for high-dimensional
-  regression</em> (<code>javanmard2014confidence</code>) — related score-correction construction.</li>
-<li>Janková &amp; van de Geer (2018), <em>Semiparametric efficiency bounds for high-dimensional models</em>
-  (<code>jankova2018semiparametric</code>) — efficiency of the partial-information variance.</li>
+<li><a id="ref-10.1214/16-AOS1448"></a> Ning, Y. and Liu, H. (2017). A general theory of hypothesis tests and confidence regions for sparse high dimensional models. <em>Ann. Statist.</em>, 45(1):158--195.</li>
+<li><a id="ref-vandegeer2014"></a> van de Geer, S., Bühlmann, P., Ritov, Y. A., and Dezeure, R. (2014). On asymptotically optimal confidence regions and tests for high-dimensional models. <em>Ann. Statist.</em>, 42(3):1166--1202.</li>
+<li><a id="ref-javanmard2014confidence"></a> Javanmard, A. and Montanari, A. (2014). Confidence intervals and hypothesis testing for high-dimensional regression. <em>J. Mach. Learn. Res.</em>, 15(1):2869--2909.</li>
+<li><a id="ref-jankova2018semiparametric"></a> Janková, J. and van de Geer, S. (2018). Semiparametric efficiency bounds for high-dimensional models. <em>Ann. Statist.</em>, 46(5):2336--2359.</li>
 </ul>
 
 

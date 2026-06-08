@@ -2212,12 +2212,12 @@ return β̂
 <ul>
 <li><strong>Optimization (convex <span class="arithmatex">\(\mathcal L\)</span>).</strong> With <span class="arithmatex">\(t_k=1/L_\nabla\)</span>,
   <span class="arithmatex">\(F(\beta^{(k)})-F(\hat\beta)\le \dfrac{L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{2k}=O(1/k)\)</span>,
-  where <span class="arithmatex">\(F=\mathcal L+\lambda P\)</span> (<code>beck2009fast</code>). The accelerated <a href="../fista/">FISTA</a> improves this
+  where <span class="arithmatex">\(F=\mathcal L+\lambda P\)</span> <a href="#ref-beck2009fast">[Beck and Teboulle, 2009]</a>. The accelerated <a href="../fista/">FISTA</a> improves this
   to <span class="arithmatex">\(O(1/k^2)\)</span>.</li>
 <li>ISTA is an optimization method: statistical properties of the <em>solution</em> <span class="arithmatex">\(\hat\beta(\lambda)\)</span>
   are those of the lasso/penalized M-estimator it computes (see <a href="../lasso-cd/">Lasso-CD</a>).</li>
 <li>Daubechies, Defrise &amp; De Mol (2004) established convergence of the iterative thresholding
-  iteration for linear inverse problems with a sparsity penalty (<code>daubechies2004iterative</code>).</li>
+  iteration for linear inverse problems with a sparsity penalty <a href="#ref-daubechies2004iterative">[Daubechies et al., 2004]</a>.</li>
 </ul>
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2227,10 +2227,8 @@ return β̂
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Daubechies, Defrise &amp; De Mol (2004), <em>An iterative thresholding algorithm for linear inverse
-  problems with a sparsity constraint</em> (<code>daubechies2004iterative</code>).</li>
-<li>Beck &amp; Teboulle (2009), <em>A fast iterative shrinkage-thresholding algorithm for linear inverse
-  problems</em> (<code>beck2009fast</code>) — states ISTA, its <span class="arithmatex">\(O(1/k)\)</span> rate, and backtracking.</li>
+<li><a id="ref-daubechies2004iterative"></a> Daubechies, I., Defrise, M., and De Mol, C. (2004). An iterative thresholding algorithm for linear inverse problems with a sparsity constraint. <em>Commun. Pure Appl. Math.</em>, 57(11):1413--1457.</li>
+<li><a id="ref-beck2009fast"></a> Beck, A. and Teboulle, M. (2009). A fast iterative shrinkage-thresholding algorithm for linear inverse problems. <em>SIAM J. Imaging Sci.</em>, 2(1):183--202.</li>
 </ul>
 
 
