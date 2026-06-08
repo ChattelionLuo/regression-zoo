@@ -104,10 +104,10 @@ Return β
 ## Statistical guarantees
 
 - **Online regret.** With $\beta_t\propto\sqrt{t}$, RDA attains $\mathcal O(\sqrt{T})$ regret for
-  convex losses (`xiao2009dual`).
+  convex losses [[Xiao, 2010]](#ref-xiao2009dual).
 - **Sparsity.** Because the threshold acts on the *averaged* gradient $\bar g_t$ with a level that
   does not vanish, RDA produces sparser, more stable solutions than the diminishing-threshold
-  FOBOS, as analyzed in `xiao2009dual`.
+  FOBOS, as analyzed in [[Xiao, 2010]](#ref-xiao2009dual).
 
 ## Variants & related
 
@@ -117,4 +117,4 @@ Return β
 
 ## References
 
-- Xiao (2009), *Dual averaging method for regularized stochastic learning and online optimization* (`xiao2009dual`) — introduces RDA and contrasts it with FOBOS.
+- <a id="ref-xiao2009dual"></a> Xiao, L. (2010). Dual averaging methods for regularized stochastic learning and online optimization. *J. Mach. Learn. Res.*, 11:2543--2596.

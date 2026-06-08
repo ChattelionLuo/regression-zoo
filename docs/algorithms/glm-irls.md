@@ -136,10 +136,6 @@ step-halving) and which generalizes the residual sum of squares.
 
 ## References
 
-- McCullagh & Nelder (1989), *Generalized Linear Models*, 2nd ed. — the canonical textbook
-  treatment of GLMs and IRLS (not in `reference.bib`; named here in prose). The method originates
-  with Nelder & Wedderburn (1972).
-- Green (1987), *Penalized likelihood for general semi-parametric regression models* (`IWLS1987`)
-  — iteratively reweighted least squares for (penalized) likelihood.
-- Nocedal & Wright, *Numerical Optimization* (`Nocedal2006`) — Newton/Gauss–Newton view, line search
-  and step-halving safeguards.
+- <a id="ref-McCullagh1989"></a> McCullagh, P. and Nelder, J. A. (1989). *Generalized Linear Models*, 2nd ed. Chapman and Hall.
+- <a id="ref-IWLS1987"></a> Green, P. J. (1987). Penalized likelihood for general semi-parametric regression models. *Int. Stat. Rev.*, 55:245--259.
+- <a id="ref-Nocedal2006"></a> Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.

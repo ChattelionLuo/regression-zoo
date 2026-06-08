@@ -104,7 +104,7 @@ Return β
 
 - **Online regret / sparsity trade-off.** Truncated Gradient enjoys an online regret bound and
   provably controls the induced sparsity through $(\lambda, K, \theta)$, with the truncation bias
-  bounded by the gravity parameter (`truncated_SGD_Langford_2009`).
+  bounded by the gravity parameter [[Langford et al., 2009]](#ref-truncated_SGD_Langford_2009).
 - It recovers FOBOS-$\ell_1$ (hence its regret guarantees) in the $\theta\to\infty$, $K=1$ limit.
 
 ## Variants & related
@@ -115,4 +115,4 @@ Return β
 
 ## References
 
-- Langford, Li & Zhang (2009), *Sparse online learning via truncated gradient* (`truncated_SGD_Langford_2009`).
+- <a id="ref-truncated_SGD_Langford_2009"></a> Langford, J., Li, L., and Zhang, T. (2009). Sparse online learning via truncated gradient. *J. Mach. Learn. Res.*, 10:777--801.

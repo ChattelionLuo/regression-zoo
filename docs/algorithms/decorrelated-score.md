@@ -146,15 +146,15 @@ Return  θ̂, U (p-value), CI
 - **Asymptotic null distribution:** under compatibility + sparsity
   ($s\log p/\sqrt n\to 0$) and a valid sparse $\hat w$,
   $U_n\xrightarrow{d}N(0,1)$ under $H_0$ and $U_n^2\xrightarrow{d}\chi^2_d$
-  (`10.1214/16-AOS1448`).
+  [[Ning and Liu, 2017]](#ref-10.1214/16-AOS1448).
 - **Estimation / normality:** the one-step estimator is $\sqrt n$-consistent and asymptotically
   normal with variance $I_{\theta\mid\gamma}^{-1}$, the semiparametric efficiency bound for
-  $\theta$ in the presence of the nuisance (`jankova2018semiparametric`).
+  $\theta$ in the presence of the nuisance [[Janková and van de Geer, 2018]](#ref-jankova2018semiparametric).
 - **Honest coverage:** inverting the test gives CIs with asymptotically nominal coverage,
   uniformly over the sparse nuisance space; validity is **robust to model misspecification** of
   the nuisance and to moderate nuisance estimation error.
-- The construction generalizes the desparsified-lasso normal limit (`vandegeer2014`,
-  `javanmard2014confidence`) from linear models to general (penalized) likelihoods.
+- The construction generalizes the desparsified-lasso normal limit ([[van de Geer et al., 2014]](#ref-vandegeer2014),
+  [[Javanmard and Montanari, 2014]](#ref-javanmard2014confidence)) from linear models to general (penalized) likelihoods.
 
 ## Variants & related
 
@@ -166,12 +166,7 @@ Return  θ̂, U (p-value), CI
 
 ## References
 
-- Ning & Liu (2017), *A general theory of hypothesis tests and confidence regions for sparse
-  high-dimensional models*, Ann. Statist. (`10.1214/16-AOS1448`) — the decorrelated score
-  framework and its $N(0,1)/\chi^2$ theory.
-- van de Geer, Bühlmann, Ritov & Dezeure (2014), *On asymptotically optimal confidence regions
-  and tests for high-dimensional models* (`vandegeer2014`) — linear-model desparsified score.
-- Javanmard & Montanari (2014), *Confidence intervals and hypothesis testing for high-dimensional
-  regression* (`javanmard2014confidence`) — related score-correction construction.
-- Janková & van de Geer (2018), *Semiparametric efficiency bounds for high-dimensional models*
-  (`jankova2018semiparametric`) — efficiency of the partial-information variance.
+- <a id="ref-10.1214/16-AOS1448"></a> Ning, Y. and Liu, H. (2017). A general theory of hypothesis tests and confidence regions for sparse high dimensional models. *Ann. Statist.*, 45(1):158--195.
+- <a id="ref-vandegeer2014"></a> van de Geer, S., Bühlmann, P., Ritov, Y. A., and Dezeure, R. (2014). On asymptotically optimal confidence regions and tests for high-dimensional models. *Ann. Statist.*, 42(3):1166--1202.
+- <a id="ref-javanmard2014confidence"></a> Javanmard, A. and Montanari, A. (2014). Confidence intervals and hypothesis testing for high-dimensional regression. *J. Mach. Learn. Res.*, 15(1):2869--2909.
+- <a id="ref-jankova2018semiparametric"></a> Janková, J. and van de Geer, S. (2018). Semiparametric efficiency bounds for high-dimensional models. *Ann. Statist.*, 46(5):2336--2359.

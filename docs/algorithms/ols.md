@@ -89,4 +89,4 @@ No regularization parameter ($\lambda=0$).
 
 ## References
 
-- Nocedal & Wright, *Numerical Optimization* (`Nocedal2006`) — least squares & linear-algebra solvers.
+- <a id="ref-Nocedal2006"></a> Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.

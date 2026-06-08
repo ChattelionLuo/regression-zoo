@@ -150,9 +150,6 @@ is read off (or interpolated between knots) afterwards, with $\lambda$ chosen by
 
 ## References
 
-- Efron, Hastie, Johnstone & Tibshirani (2004), *Least Angle Regression* — the originating paper
-  (not in `reference.bib`; named here in prose).
-- Tibshirani (1996), *Regression shrinkage and selection via the lasso* (`tibshirani1996regression`)
-  — the lasso objective whose path LARS-Lasso traces.
-- Bühlmann & van de Geer (2011), *Statistics for High-Dimensional Data* (`buhlmann2011statistics`)
-  — homotopy/path algorithms and lasso theory.
+- <a id="ref-Efron2004lars"></a> Efron, B., Hastie, T., Johnstone, I., and Tibshirani, R. (2004). Least angle regression. *Ann. Statist.*, 32(2):407--499.
+- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
+- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.

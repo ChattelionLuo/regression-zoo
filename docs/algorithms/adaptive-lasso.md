@@ -119,7 +119,7 @@ cross-validation.
   nonzero coefficients with the same asymptotic distribution as if the true support were known.
   The ordinary lasso does **not** enjoy this property in general.
 - High-dimensional consistency holds under restricted-eigenvalue/compatibility conditions and a
-  suitable initial estimator; see Bühlmann & van de Geer (`buhlmann2011statistics`).
+  suitable initial estimator; see [[Bühlmann and van de Geer, 2011]](#ref-buhlmann2011statistics).
 
 ## Variants & related
 
@@ -130,11 +130,7 @@ cross-validation.
 
 ## References
 
-- Zou (2006), *The adaptive lasso and its oracle properties* — original proposal and oracle
-  theory (canonical paper; not in `reference.bib`).
-- Bühlmann & van de Geer (2011), *Statistics for High-Dimensional Data* (`buhlmann2011statistics`)
-  — adaptive lasso, weighting, and high-dimensional analysis.
-- Tibshirani (1996), *Regression shrinkage and selection via the lasso* (`tibshirani1996regression`)
-  — base $\ell_1$ estimator.
-- Friedman, Hastie, Höfling & Tibshirani (2007), *Pathwise coordinate optimization* (`fhht2007`)
-  — coordinate-descent solver reused after rescaling.
+- <a id="ref-zou2006adaptive"></a> Zou, H. (2006). The adaptive lasso and its oracle properties. *J. Amer. Statist. Assoc.*, 101(476):1418--1429.
+- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.
+- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
+- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.

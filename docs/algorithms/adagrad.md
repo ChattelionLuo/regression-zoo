@@ -105,7 +105,7 @@ step $\eta/(\sqrt{G_{t,j}}+\epsilon)$, giving sparse adaptive online solutions.
 - **Online regret.** AdaGrad achieves data-dependent regret
   $\mathcal O\!\big(\max_j \lVert g_{1:T,j}\rVert_2\big)$, never worse than and often far better
   than non-adaptive online gradient descent, with the largest gains on sparse/predictable
-  features (`AdaGrad2011`).
+  features [[Duchi et al., 2011]](#ref-AdaGrad2011).
 - It is an optimization (regret) guarantee rather than an asymptotic-efficiency statement; for
   parameter inference, pair with averaging as in [SGD](sgd.md).
 
@@ -117,4 +117,4 @@ step $\eta/(\sqrt{G_{t,j}}+\epsilon)$, giving sparse adaptive online solutions.
 
 ## References
 
-- Duchi, Hazan & Singer (2011), *Adaptive subgradient methods for online learning and stochastic optimization* (`AdaGrad2011`).
+- <a id="ref-AdaGrad2011"></a> Duchi, J., Hazan, E., and Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. *J. Mach. Learn. Res.*, 12:2121--2159.

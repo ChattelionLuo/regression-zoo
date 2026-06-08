@@ -147,9 +147,6 @@ $\{0,0.1,\dots,1\}$ with a full $\lambda$ path for each.
 
 ## References
 
-- Zou & Hastie (2005), *Regularization and variable selection via the elastic net*
-  (`zou2005regularization`) — defines the penalty, grouping effect, naive vs corrected estimate.
-- Friedman, Hastie, Höfling & Tibshirani (2007), *Pathwise coordinate optimization* (`fhht2007`)
-  — coordinate-descent path solver used here.
-- Tibshirani (1996), *Regression shrinkage and selection via the lasso* (`tibshirani1996regression`)
-  — the $\ell_1$ endpoint.
+- <a id="ref-zou2005regularization"></a> Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.
+- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.
+- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.

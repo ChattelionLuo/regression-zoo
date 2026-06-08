@@ -110,7 +110,7 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 - **Asymptotic equivalence to the full-data MLE.** As batches accumulate, $\hat\beta_b$ is
   consistent and asymptotically normal with the **same** limiting distribution as the oracle MLE
   computed on all data at once, with $J_b^{-1}$ a consistent variance estimator
-  (`luo2020renewable`, `Luo2020`).
+  [[Luo and Song, 2020]](#ref-luo2020renewable).
 - This yields valid streaming confidence intervals and tests while storing only $O(p^2)$ summary
   statistics.
 
@@ -122,5 +122,4 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 
 ## References
 
-- Luo & Song (2020), *Renewable estimation and incremental inference in generalized linear models with streaming data sets* (`luo2020renewable`).
-- Luo & Song (2020), *Renewable Estimation and Incremental Inference in GLMs with Streaming Datasets* (`Luo2020`).
+- <a id="ref-luo2020renewable"></a><a id="ref-Luo2020"></a> Luo, L. and Song, P. X.-K. (2020). Renewable estimation and incremental inference in generalized linear models with streaming data sets. *J. R. Stat. Soc. Ser. B*, 82(1):69--97.

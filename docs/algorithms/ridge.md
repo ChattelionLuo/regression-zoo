@@ -156,15 +156,12 @@ complexity and feeds GCV.
 
 - [OLS](ols.md) — the $\lambda\to 0$ limit (full-rank $X$).
 - [Lasso via Coordinate Descent](lasso-cd.md) — $\ell_1$ analogue producing sparsity.
-- [Elastic Net](elastic-net.md) — convex combination of ridge and lasso (`zou2005regularization`).
+- [Elastic Net](elastic-net.md) — convex combination of ridge and lasso [[Zou and Hastie, 2005]](#ref-zou2005regularization).
 - [GLM via IRLS](glm-irls.md) — the unpenalized engine reused inside ridge's penalized IRLS.
 
 ## References
 
-- Hoerl & Kennard (1970), *Ridge regression: biased estimation for nonorthogonal problems* —
-  originators of the estimator (not in `reference.bib`; named here in prose).
-- Nocedal & Wright, *Numerical Optimization* (`Nocedal2006`) — regularized least squares, SVD/Cholesky solvers.
-- Zou & Hastie (2005), *Regularization and variable selection via the elastic net*
-  (`zou2005regularization`) — ridge as a building block.
-- Bühlmann & van de Geer (2011), *Statistics for High-Dimensional Data* (`buhlmann2011statistics`)
-  — $\ell_2$ regularization and degrees of freedom.
+- <a id="ref-hoerl1970ridge"></a> Hoerl, A. E. and Kennard, R. W. (1970). Ridge regression: biased estimation for nonorthogonal problems. *Technometrics*, 12(1):55--67.
+- <a id="ref-Nocedal2006"></a> Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.
+- <a id="ref-zou2005regularization"></a> Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.
+- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.

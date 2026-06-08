@@ -130,10 +130,10 @@ return path {β(λ)}
   behaved than generic nonconvex problems.
 - **Near-unbiased selection (Zhang 2010).** Under a sparse Riesz / restricted-eigenvalue
   condition, MCP attains the oracle sparsity pattern and near-minimax estimation rates while
-  minimizing the maximum concavity for a given threshold gap (`zhang2010nearly`).
+  minimizing the maximum concavity for a given threshold gap [[Zhang, 2010]](#ref-zhang2010nearly).
 - **Stationary-point control.** As a regularized M-estimator with nonconvex penalty, all
   stationary points are within statistical precision of $\beta^\star$ under restricted strong
-  convexity (`loh2015regularized`).
+  convexity [[Loh and Wainwright, 2015]](#ref-loh2015regularized).
 
 ## Variants & related
 
@@ -143,7 +143,5 @@ return path {β(λ)}
 
 ## References
 
-- Zhang (2010), *Nearly unbiased variable selection under minimax concave penalty*
-  (`zhang2010nearly`) — defines MCP and the MC+ / coordinate-descent algorithm.
-- Loh & Wainwright (2015), *Regularized M-estimators with nonconvexity* (`loh2015regularized`)
-  — statistical control of stationary points under nonconvex penalties.
+- <a id="ref-zhang2010nearly"></a> Zhang, C.-H. (2010). Nearly unbiased variable selection under minimax concave penalty. *Ann. Statist.*, 38(2):894--942.
+- <a id="ref-loh2015regularized"></a> Loh, P.-L. and Wainwright, M. J. (2015). Regularized M-estimators with nonconvexity: statistical and algorithmic theory for local optima. *J. Mach. Learn. Res.*, 16:559--616.

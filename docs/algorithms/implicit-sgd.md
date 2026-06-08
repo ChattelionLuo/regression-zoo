@@ -116,10 +116,10 @@ iterations; no $p\times p$ system is ever formed.
 
 - **Stability & consistency.** The implicit update is numerically stable — it cannot overshoot for
   large $\gamma_t$ the way explicit SGD can — while retaining the same limit $\beta^\star$ and the
-  same asymptotic distribution as explicit SGD (`Toulis2017`).
+  same asymptotic distribution as explicit SGD [[Toulis and Airoldi, 2017]](#ref-Toulis2017).
 - **Asymptotic efficiency via averaging.** The Polyak–Ruppert average of implicit iterates is
   asymptotically normal with the MLE's sandwich covariance, enabling scalable inference
-  (`Fang2019`).
+  [[Fang, 2019]](#ref-Fang2019).
 
 ## Variants & related
 
@@ -130,5 +130,5 @@ iterations; no $p\times p$ system is ever formed.
 
 ## References
 
-- Toulis & Airoldi (2017), *Asymptotic and finite-sample properties of estimators based on stochastic gradients* (`Toulis2017`).
-- Fang (2019), *Scalable statistical inference for averaged implicit stochastic gradient descent* (`Fang2019`).
+- <a id="ref-Toulis2017"></a> Toulis, P. and Airoldi, E. M. (2017). Asymptotic and finite-sample properties of estimators based on stochastic gradients. *Ann. Statist.*, 45(4):1694--1727.
+- <a id="ref-Fang2019"></a> Fang, Y. (2019). Scalable statistical inference for averaged implicit stochastic gradient descent. *Scand. J. Stat.*, 46(4):987--1002.

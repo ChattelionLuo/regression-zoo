@@ -124,25 +124,21 @@ lasso but with the groupwise update replacing the scalar one.
 - **Groupwise sparsity / selection.** Under a group-restricted-eigenvalue condition and
   $\lambda\asymp\sigma\big(\sqrt{d_g/n}+\sqrt{\log G/n}\big)$, the group lasso recovers the true
   active groups and attains $\ell_2$ error scaling with the total active dimension
-  $\sum_{g\in S}d_g$ rather than $p$ (Bühlmann & van de Geer, `buhlmann2011statistics`).
+  $\sum_{g\in S}d_g$ rather than $p$ [[Bühlmann and van de Geer, 2011]](#ref-buhlmann2011statistics).
 - The $\sqrt{d_g}$ weighting equalizes the noise level across groups of differing size, which is
   what makes a single $\lambda$ appropriate for all groups.
 
 ## Variants & related
 
 - [Lasso](lasso-cd.md) — the all-singletons case ($d_g\equiv 1$).
-- **Sparse group lasso** — adds an extra $\ell_1$ term for within-group sparsity (`SGL2015`).
+- **Sparse group lasso** — adds an extra $\ell_1$ term for within-group sparsity [[Simon et al., 2013]](#ref-simon2013sparse).
 - [Elastic Net](elastic-net.md) · [Adaptive Lasso](adaptive-lasso.md) ·
   [Fused Lasso](fused-lasso.md) — sibling structured penalties.
 - **Overlapping group lasso** — groups may share variables (latent-group formulation).
 
 ## References
 
-- Yuan & Lin (2006), *Model selection and estimation in regression with grouped variables* —
-  original group lasso (canonical paper; not in `reference.bib`).
-- Simon, Friedman, Hastie & Tibshirani (2013), *A sparse-group lasso* (`SGL2015`) — block
-  coordinate descent and the sparse-group extension.
-- Bühlmann & van de Geer (2011), *Statistics for High-Dimensional Data* (`buhlmann2011statistics`)
-  — group lasso theory and conditions.
-- Friedman, Hastie, Höfling & Tibshirani (2007), *Pathwise coordinate optimization* (`fhht2007`)
-  — pathwise coordinate-descent machinery.
+- <a id="ref-Yuan2006group"></a> Yuan, M. and Lin, Y. (2006). Model selection and estimation in regression with grouped variables. *J. R. Stat. Soc. Ser. B*, 68(1):49--67.
+- <a id="ref-simon2013sparse"></a> Simon, N., Friedman, J., Hastie, T., and Tibshirani, R. (2013). A sparse-group lasso. *J. Comput. Graph. Statist.*, 22(2):231--245.
+- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.
+- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.

@@ -101,7 +101,7 @@ penalized weighted least squares problem.
 - **Estimation:** under a restricted-eigenvalue / compatibility condition and
   $\lambda\asymp\sigma\sqrt{\log p / n}$, $\lVert\hat\beta-\beta^\star\rVert_1=O_P(s\sqrt{\log p/n})$.
 - **Selection:** support recovery under the irrepresentable/beta-min conditions
-  (`zhao2006model`).
+  [[Zhao and Yu, 2006]](#ref-zhao2006model).
 - Coordinate descent converges to a global optimum (convex objective, separable penalty).
 
 ## Variants & related
@@ -113,6 +113,6 @@ penalized weighted least squares problem.
 
 ## References
 
-- Tibshirani (1996), *Regression shrinkage and selection via the lasso* (`tibshirani1996regression`).
-- Friedman, Hastie, Höfling & Tibshirani (2007), *Pathwise coordinate optimization* (`fhht2007`).
-- Zhao & Yu (2006), *On model selection consistency of Lasso* (`zhao2006model`).
+- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
+- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.
+- <a id="ref-zhao2006model"></a> Zhao, P. and Yu, B. (2006). On model selection consistency of Lasso. *J. Mach. Learn. Res.*, 7:2541--2563.

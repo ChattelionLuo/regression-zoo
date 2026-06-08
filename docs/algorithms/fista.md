@@ -104,11 +104,11 @@ return β̂
 - **Optimization (convex $\mathcal L$).** With $s=1/L_\nabla$,
   $F(\beta^{(k)})-F(\hat\beta)\le \dfrac{2L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{(k+1)^2}=O(1/k^2)$,
   where $F=\mathcal L+\lambda P$ — the optimal rate for first-order methods on this class
-  (`beck2009fast`).
+  [[Beck and Teboulle, 2009]](#ref-beck2009fast).
 - FISTA is an optimization method: statistical properties of the *solution* $\hat\beta(\lambda)$
   are those of the lasso/penalized M-estimator it computes (see [Lasso-CD](lasso-cd.md)).
 - Builds on the iterative thresholding iteration of Daubechies, Defrise & De Mol (2004)
-  (`daubechies2004iterative`).
+  [[Daubechies et al., 2004]](#ref-daubechies2004iterative).
 
 ## Variants & related
 
@@ -118,7 +118,5 @@ return β̂
 
 ## References
 
-- Beck & Teboulle (2009), *A fast iterative shrinkage-thresholding algorithm for linear inverse
-  problems* (`beck2009fast`) — introduces FISTA and proves the $O(1/k^2)$ rate.
-- Daubechies, Defrise & De Mol (2004), *An iterative thresholding algorithm for linear inverse
-  problems with a sparsity constraint* (`daubechies2004iterative`) — the ISTA precursor.
+- <a id="ref-beck2009fast"></a> Beck, A. and Teboulle, M. (2009). A fast iterative shrinkage-thresholding algorithm for linear inverse problems. *SIAM J. Imaging Sci.*, 2(1):183--202.
+- <a id="ref-daubechies2004iterative"></a> Daubechies, I., Defrise, M., and De Mol, C. (2004). An iterative thresholding algorithm for linear inverse problems with a sparsity constraint. *Commun. Pure Appl. Math.*, 57(11):1413--1457.

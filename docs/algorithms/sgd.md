@@ -108,13 +108,13 @@ Return β  (or the averaged β̄ for inference)
 ## Statistical guarantees
 
 - **Consistency.** Under the Robbins–Monro step conditions, $\beta^{(t)}\to\beta^\star$ a.s.
-  (`Robbins1951`).
+  [[Robbins and Monro, 1951]](#ref-Robbins1951).
 - **Asymptotic normality of the averaged iterate.** With $\gamma_t=\gamma_0 t^{-a}$, $a\in(0.5,1)$,
   $\sqrt{t}\,(\bar\beta_t - \beta^\star)\xrightarrow{d}\mathcal N(0,\, H^{-1} G H^{-1})$ where
   $H=\nabla^2\mathcal L(\beta^\star)$ and $G$ is the gradient-noise covariance; this matches the
-  MLE's efficiency (`polyak1992acceleration`, `ruppert1988efficient`).
+  MLE's efficiency ([[Polyak and Juditsky, 1992]](#ref-polyak1992acceleration), [[Ruppert, 1988]](#ref-ruppert1988efficient)).
 - **Inference.** Plug-in / online estimators of the sandwich covariance permit confidence
-  intervals from the averaged SGD path (`chen2020statistical`).
+  intervals from the averaged SGD path [[Chen et al., 2020]](#ref-chen2020statistical).
 
 ## Variants & related
 
@@ -125,7 +125,7 @@ Return β  (or the averaged β̄ for inference)
 
 ## References
 
-- Robbins & Monro (1951), *A stochastic approximation method* (`Robbins1951`).
-- Polyak & Juditsky (1992), *Acceleration of stochastic approximation by averaging* (`polyak1992acceleration`).
-- Ruppert (1988), *Efficient estimations from a slowly convergent Robbins–Monro process* (`ruppert1988efficient`).
-- Chen, Lee, Tong & Zhang (2020), *Statistical inference for model parameters in stochastic gradient descent* (`chen2020statistical`).
+- <a id="ref-Robbins1951"></a> Robbins, H. and Monro, S. (1951). A stochastic approximation method. *Ann. Math. Statist.*, 22(3):400--407.
+- <a id="ref-polyak1992acceleration"></a> Polyak, B. T. and Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging. *SIAM J. Control Optim.*, 30(4):838--855.
+- <a id="ref-ruppert1988efficient"></a> Ruppert, D. (1988). Efficient estimations from a slowly convergent Robbins-Monro process. Technical Report, Cornell University Operations Research and Industrial Engineering.
+- <a id="ref-chen2020statistical"></a> Chen, X., Lee, J. D., Tong, X. T., and Zhang, Y. (2020). Statistical inference for model parameters in stochastic gradient descent. *Ann. Statist.*, 48(1):251--273.

@@ -136,7 +136,7 @@ return β^(λ)
   initializer, one LLA step yields the oracle estimator with high probability.
 - **Nonconvex M-estimation theory.** Under restricted strong convexity, all stationary points
   of the nonconvex objective lie within statistical precision of $\beta^\star$
-  (`loh2015regularized`), so the LLA fixed point is well-behaved despite nonconvexity.
+  [[Loh and Wainwright, 2015]](#ref-loh2015regularized), so the LLA fixed point is well-behaved despite nonconvexity.
 
 ## Variants & related
 
@@ -146,10 +146,6 @@ return β^(λ)
 
 ## References
 
-- Fan & Li (2001), *Variable selection via nonconcave penalized likelihood and its oracle
-  properties* (`fan2001variable`) — defines SCAD and LQA; establishes the oracle property.
-- Zou & Li (2008), *One-step sparse estimates in nonconcave penalized likelihood models*
-  (*Annals of Statistics*) — introduces the LLA algorithm and one-step estimator (not in
-  `reference.bib`; named here in prose).
-- Loh & Wainwright (2015), *Regularized M-estimators with nonconvexity* (`loh2015regularized`)
-  — statistical control of stationary points under nonconvex penalties.
+- <a id="ref-fan2001variable"></a> Fan, J. and Li, R. (2001). Variable selection via nonconcave penalized likelihood and its oracle properties. *J. Amer. Statist. Assoc.*, 96(456):1348--1360.
+- <a id="ref-ZouLi2008"></a> Zou, H. and Li, R. (2008). One-step sparse estimates in nonconcave penalized likelihood models. *Ann. Statist.*, 36(4):1509--1533.
+- <a id="ref-loh2015regularized"></a> Loh, P.-L. and Wainwright, M. J. (2015). Regularized M-estimators with nonconvexity: statistical and algorithmic theory for local optima. *J. Mach. Learn. Res.*, 16:559--616.
