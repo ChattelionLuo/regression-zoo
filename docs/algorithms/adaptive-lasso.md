@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch · **Regime:** low-dim / high-dim · **Penalty:** adaptive-lasso ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** buhlmann2011statistics, tibshirani1996regression
+    **Refs:** [`Buhlmann and van de Geer, 2011`](#ref-buhlmann2011statistics) · [`Tibshirani, 1996`](#ref-tibshirani1996regression)
 
 ## Setting & assumptions
 
@@ -119,7 +119,7 @@ cross-validation.
   nonzero coefficients with the same asymptotic distribution as if the true support were known.
   The ordinary lasso does **not** enjoy this property in general.
 - High-dimensional consistency holds under restricted-eigenvalue/compatibility conditions and a
-  suitable initial estimator; see [[Bühlmann and van de Geer, 2011]](#ref-buhlmann2011statistics).
+  suitable initial estimator; see [`Bühlmann and van de Geer, 2011`](#ref-buhlmann2011statistics).
 
 ## Variants & related
 

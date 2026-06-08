@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** classical · **Regime:** low-dim / high-dim · **Penalty:** ridge ($\ell_2$) ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** Nocedal2006, zou2005regularization, buhlmann2011statistics
+    **Refs:** [`Nocedal and Wright, 2006`](#ref-Nocedal2006) · [`Zou and Hastie, 2005`](#ref-zou2005regularization) · [`Buhlmann and van de Geer, 2011`](#ref-buhlmann2011statistics)
 
 ## Setting & assumptions
 
@@ -156,7 +156,7 @@ complexity and feeds GCV.
 
 - [OLS](ols.md) — the $\lambda\to 0$ limit (full-rank $X$).
 - [Lasso via Coordinate Descent](lasso-cd.md) — $\ell_1$ analogue producing sparsity.
-- [Elastic Net](elastic-net.md) — convex combination of ridge and lasso [[Zou and Hastie, 2005]](#ref-zou2005regularization).
+- [Elastic Net](elastic-net.md) — convex combination of ridge and lasso [`Zou and Hastie, 2005`](#ref-zou2005regularization).
 - [GLM via IRLS](glm-irls.md) — the unpenalized engine reused inside ridge's penalized IRLS.
 
 ## References

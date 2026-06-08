@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** path-homotopy · **Regime:** low-dim / high-dim · **Penalty:** lasso ($\ell_1$) ·
     **Output:** path · **Links:** identity · **Status:** draft ·
-    **Refs:** tibshirani1996regression, buhlmann2011statistics
+    **Refs:** [`Tibshirani, 1996`](#ref-tibshirani1996regression) · [`Buhlmann and van de Geer, 2011`](#ref-buhlmann2011statistics)
 
 ## Setting & assumptions
 

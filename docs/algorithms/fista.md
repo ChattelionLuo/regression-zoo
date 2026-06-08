@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** first-order-prox · **Regime:** high-dim / low-dim · **Penalty:** lasso (any prox-able) ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** beck2009fast, daubechies2004iterative
+    **Refs:** [`Beck and Teboulle, 2009`](#ref-beck2009fast) · [`Daubechies et al., 2004`](#ref-daubechies2004iterative)
 
 ## Setting & assumptions
 
@@ -104,11 +104,11 @@ return β̂
 - **Optimization (convex $\mathcal L$).** With $s=1/L_\nabla$,
   $F(\beta^{(k)})-F(\hat\beta)\le \dfrac{2L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{(k+1)^2}=O(1/k^2)$,
   where $F=\mathcal L+\lambda P$ — the optimal rate for first-order methods on this class
-  [[Beck and Teboulle, 2009]](#ref-beck2009fast).
+  [`Beck and Teboulle, 2009`](#ref-beck2009fast).
 - FISTA is an optimization method: statistical properties of the *solution* $\hat\beta(\lambda)$
   are those of the lasso/penalized M-estimator it computes (see [Lasso-CD](lasso-cd.md)).
 - Builds on the iterative thresholding iteration of Daubechies, Defrise & De Mol (2004)
-  [[Daubechies et al., 2004]](#ref-daubechies2004iterative).
+  [`Daubechies et al., 2004`](#ref-daubechies2004iterative).
 
 ## Variants & related
 

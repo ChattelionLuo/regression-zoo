@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch · **Regime:** high-dim / low-dim · **Penalty:** group-lasso ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** SGL2015, buhlmann2011statistics
+    **Refs:** [`Buhlmann and van de Geer, 2011`](#ref-buhlmann2011statistics)
 
 ## Setting & assumptions
 
@@ -124,14 +124,14 @@ lasso but with the groupwise update replacing the scalar one.
 - **Groupwise sparsity / selection.** Under a group-restricted-eigenvalue condition and
   $\lambda\asymp\sigma\big(\sqrt{d_g/n}+\sqrt{\log G/n}\big)$, the group lasso recovers the true
   active groups and attains $\ell_2$ error scaling with the total active dimension
-  $\sum_{g\in S}d_g$ rather than $p$ [[Bühlmann and van de Geer, 2011]](#ref-buhlmann2011statistics).
+  $\sum_{g\in S}d_g$ rather than $p$ [`Bühlmann and van de Geer, 2011`](#ref-buhlmann2011statistics).
 - The $\sqrt{d_g}$ weighting equalizes the noise level across groups of differing size, which is
   what makes a single $\lambda$ appropriate for all groups.
 
 ## Variants & related
 
 - [Lasso](lasso-cd.md) — the all-singletons case ($d_g\equiv 1$).
-- **Sparse group lasso** — adds an extra $\ell_1$ term for within-group sparsity [[Simon et al., 2013]](#ref-simon2013sparse).
+- **Sparse group lasso** — adds an extra $\ell_1$ term for within-group sparsity [`Simon et al., 2013`](#ref-simon2013sparse).
 - [Elastic Net](elastic-net.md) · [Adaptive Lasso](adaptive-lasso.md) ·
   [Fused Lasso](fused-lasso.md) — sibling structured penalties.
 - **Overlapping group lasso** — groups may share variables (latent-group formulation).

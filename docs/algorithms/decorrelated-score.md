@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** high-dim-inference · **Regime:** high-dim ($p\gg n$) · **Penalty:** lasso (base) ·
     **Output:** point+inference · **Links:** any · **Status:** draft ·
-    **Refs:** 10.1214/16-AOS1448, vandegeer2014, javanmard2014confidence
+    **Refs:** [`Ning and Liu, 2017`](#ref-10.1214/16-AOS1448) · [`van de Geer et al., 2014`](#ref-vandegeer2014) · [`Javanmard and Montanari, 2014`](#ref-javanmard2014confidence)
 
 ## Setting & assumptions
 
@@ -146,15 +146,15 @@ Return  θ̂, U (p-value), CI
 - **Asymptotic null distribution:** under compatibility + sparsity
   ($s\log p/\sqrt n\to 0$) and a valid sparse $\hat w$,
   $U_n\xrightarrow{d}N(0,1)$ under $H_0$ and $U_n^2\xrightarrow{d}\chi^2_d$
-  [[Ning and Liu, 2017]](#ref-10.1214/16-AOS1448).
+  [`Ning and Liu, 2017`](#ref-10.1214/16-AOS1448).
 - **Estimation / normality:** the one-step estimator is $\sqrt n$-consistent and asymptotically
   normal with variance $I_{\theta\mid\gamma}^{-1}$, the semiparametric efficiency bound for
-  $\theta$ in the presence of the nuisance [[Janková and van de Geer, 2018]](#ref-jankova2018semiparametric).
+  $\theta$ in the presence of the nuisance [`Janková and van de Geer, 2018`](#ref-jankova2018semiparametric).
 - **Honest coverage:** inverting the test gives CIs with asymptotically nominal coverage,
   uniformly over the sparse nuisance space; validity is **robust to model misspecification** of
   the nuisance and to moderate nuisance estimation error.
-- The construction generalizes the desparsified-lasso normal limit ([[van de Geer et al., 2014]](#ref-vandegeer2014),
-  [[Javanmard and Montanari, 2014]](#ref-javanmard2014confidence)) from linear models to general (penalized) likelihoods.
+- The construction generalizes the desparsified-lasso normal limit ([`van de Geer et al., 2014`](#ref-vandegeer2014),
+  [`Javanmard and Montanari, 2014`](#ref-javanmard2014confidence)) from linear models to general (penalized) likelihoods.
 
 ## Variants & related
 

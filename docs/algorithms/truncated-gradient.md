@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / high-dim / low-dim · **Penalty:** lasso ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** truncated_SGD_Langford_2009
+    **Refs:** [`Langford et al., 2009`](#ref-truncated_SGD_Langford_2009)
 
 ## Setting & assumptions
 
@@ -104,7 +104,7 @@ Return β
 
 - **Online regret / sparsity trade-off.** Truncated Gradient enjoys an online regret bound and
   provably controls the induced sparsity through $(\lambda, K, \theta)$, with the truncation bias
-  bounded by the gravity parameter [[Langford et al., 2009]](#ref-truncated_SGD_Langford_2009).
+  bounded by the gravity parameter [`Langford et al., 2009`](#ref-truncated_SGD_Langford_2009).
 - It recovers FOBOS-$\ell_1$ (hence its regret guarantees) in the $\theta\to\infty$, $K=1$ limit.
 
 ## Variants & related

@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch (nonconvex) · **Regime:** high-dim / low-dim · **Penalty:** mcp ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** zhang2010nearly, loh2015regularized
+    **Refs:** [`Zhang, 2010`](#ref-zhang2010nearly) · [`Loh and Wainwright, 2015`](#ref-loh2015regularized)
 
 ## Setting & assumptions
 
@@ -130,10 +130,10 @@ return path {β(λ)}
   behaved than generic nonconvex problems.
 - **Near-unbiased selection (Zhang 2010).** Under a sparse Riesz / restricted-eigenvalue
   condition, MCP attains the oracle sparsity pattern and near-minimax estimation rates while
-  minimizing the maximum concavity for a given threshold gap [[Zhang, 2010]](#ref-zhang2010nearly).
+  minimizing the maximum concavity for a given threshold gap [`Zhang, 2010`](#ref-zhang2010nearly).
 - **Stationary-point control.** As a regularized M-estimator with nonconvex penalty, all
   stationary points are within statistical precision of $\beta^\star$ under restricted strong
-  convexity [[Loh and Wainwright, 2015]](#ref-loh2015regularized).
+  convexity [`Loh and Wainwright, 2015`](#ref-loh2015regularized).
 
 ## Variants & related
 

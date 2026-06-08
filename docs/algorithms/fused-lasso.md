@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch · **Regime:** low-dim / high-dim · **Penalty:** fused-lasso ·
     **Output:** point / path · **Links:** identity · **Status:** draft ·
-    **Refs:** Tibshirani2005, tibshirani1996regression
+    **Refs:** [`Tibshirani et al., 2005`](#ref-Tibshirani2005) · [`Tibshirani, 1996`](#ref-tibshirani1996regression)
 
 ## Setting & assumptions
 

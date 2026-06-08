@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** high-dim-inference · **Regime:** high-dim ($p\gg n$) · **Penalty:** lasso (base) ·
     **Output:** point+inference · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** vandegeer2014, Zhang_delasso_2014, javanmard2014confidence, hdi2015, 10.1111/biom.13587
+    **Refs:** [`van de Geer et al., 2014`](#ref-vandegeer2014) · [`Zhang and Zhang, 2014`](#ref-Zhang_delasso_2014) · [`Javanmard and Montanari, 2014`](#ref-javanmard2014confidence) · [`Dezeure et al., 2015`](#ref-hdi2015) · [`Xia et al., 2021`](#ref-10.1111/biom.13587)
 
 ## Setting & assumptions
 
@@ -72,7 +72,7 @@ $\hat b_j\pm z_{1-\alpha/2}\,\hat\sigma\sqrt{[\hat\Theta\hat\Sigma\hat\Theta^\to
 
 ### Constructing $\hat\Theta$ — nodewise lasso
 
-van de Geer et al. (2014) build $\hat\Theta$ row by row via **nodewise lasso**: regress each
+[`van de Geer et al., 2014`](#ref-vandegeer2014) build $\hat\Theta$ row by row via **nodewise lasso**: regress each
 column $X_{\cdot j}$ on the remaining columns $X_{\cdot\text{-}j}$,
 
 $$
@@ -92,7 +92,7 @@ $\lVert I-\hat\Theta\hat\Sigma\rVert_\infty\le\mu$.
 The noise level $\sigma^2$ is estimated from the lasso residuals, e.g. the scaled-lasso /
 degrees-of-freedom corrected estimator
 $\hat\sigma^2=\lVert y-X\hat\beta\rVert_2^2/\big(n-\lVert\hat\beta\rVert_0\big)$ or via
-cross-validation; [[Dezeure et al., 2015]](#ref-hdi2015) implements these defaults.
+cross-validation; [`Dezeure et al., 2015`](#ref-hdi2015) implements these defaults.
 
 ### GLM extension (logit / log links)
 
@@ -107,9 +107,9 @@ $$
 $$
 
 with asymptotic variance $[\hat\Theta\,\hat\Sigma_W\,\hat\Theta^\top]_{jj}/n$; the nodewise
-regressions are run on the $\sqrt{\hat W}$-weighted design. [[Xia et al., 2021]](#ref-10.1111/biom.13587)
-develop this weighted/Fisher-information correction for GLMs; [[Guo et al., 2021]](#ref-guo2021inference) and
-[[Ma et al., 2021]](#ref-ma2021global) give related corrections and (simultaneous) tests for high-dimensional logistic
+regressions are run on the $\sqrt{\hat W}$-weighted design. [`Xia et al., 2021`](#ref-10.1111/biom.13587)
+develop this weighted/Fisher-information correction for GLMs; [`Guo et al., 2021`](#ref-guo2021inference) and
+[`Ma et al., 2021`](#ref-ma2021global) give related corrections and (simultaneous) tests for high-dimensional logistic
 regression.
 
 ## Algorithm
@@ -167,14 +167,14 @@ $\min_m m^\top\hat\Sigma m$ s.t. $\lVert\hat\Sigma m-e_j\rVert_\infty\le\mu$.
 
 - **Asymptotic normality:** under compatibility + precision-row-sparsity and
   $s=o(\sqrt n/\log p)$, $\sqrt n(\hat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})$
-  with $\Omega=\Theta\Sigma\Theta^\top$ ([[van de Geer et al., 2014]](#ref-vandegeer2014), [[Zhang and Zhang, 2014]](#ref-Zhang_delasso_2014),
-  [[Javanmard and Montanari, 2014]](#ref-javanmard2014confidence)).
+  with $\Omega=\Theta\Sigma\Theta^\top$ ([`van de Geer et al., 2014`](#ref-vandegeer2014), [`Zhang and Zhang, 2014`](#ref-Zhang_delasso_2014),
+  [`Javanmard and Montanari, 2014`](#ref-javanmard2014confidence)).
 - **Coverage / honesty:** the resulting CIs achieve asymptotically nominal coverage uniformly
   over the sparse parameter space; the remainder term is uniformly negligible.
 - **Efficiency:** the asymptotic variance attains the semiparametric efficiency bound under the
-  stated conditions [[Janková and van de Geer, 2018]](#ref-jankova2018semiparametric).
+  stated conditions [`Janková and van de Geer, 2018`](#ref-jankova2018semiparametric).
 - **GLM:** analogous normality with the Fisher-information variance for logit/log links
-  ([[Xia et al., 2021]](#ref-10.1111/biom.13587), [[Guo et al., 2021]](#ref-guo2021inference)); [[Ma et al., 2021]](#ref-ma2021global) provides simultaneous/global tests.
+  ([`Xia et al., 2021`](#ref-10.1111/biom.13587), [`Guo et al., 2021`](#ref-guo2021inference)); [`Ma et al., 2021`](#ref-ma2021global) provides simultaneous/global tests.
 
 ## Variants & related
 

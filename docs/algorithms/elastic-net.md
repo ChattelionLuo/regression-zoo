@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch · **Regime:** high-dim / low-dim · **Penalty:** elastic-net ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** zou2005regularization, fhht2007
+    **Refs:** [`Zou and Hastie, 2005`](#ref-zou2005regularization) · [`Friedman et al., 2007`](#ref-fhht2007)
 
 ## Setting & assumptions
 

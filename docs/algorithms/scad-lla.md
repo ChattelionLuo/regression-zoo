@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** penalized-batch (nonconvex) · **Regime:** high-dim / low-dim · **Penalty:** scad ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** fan2001variable, loh2015regularized
+    **Refs:** [`Fan and Li, 2001`](#ref-fan2001variable) · [`Loh and Wainwright, 2015`](#ref-loh2015regularized)
 
 ## Setting & assumptions
 
@@ -136,7 +136,7 @@ return β^(λ)
   initializer, one LLA step yields the oracle estimator with high probability.
 - **Nonconvex M-estimation theory.** Under restricted strong convexity, all stationary points
   of the nonconvex objective lie within statistical precision of $\beta^\star$
-  [[Loh and Wainwright, 2015]](#ref-loh2015regularized), so the LLA fixed point is well-behaved despite nonconvexity.
+  [`Loh and Wainwright, 2015`](#ref-loh2015regularized), so the LLA fixed point is well-behaved despite nonconvexity.
 
 ## Variants & related
 

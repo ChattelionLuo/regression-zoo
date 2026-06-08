@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** classical · **Regime:** low-dim ($n>p$) · **Penalty:** none ·
     **Output:** point · **Links:** any differentiable $g$ · **Status:** draft ·
-    **Refs:** IWLS1987, Nocedal2006
+    **Refs:** [`Green, 1987`](#ref-IWLS1987) · [`Nocedal and Wright, 2006`](#ref-Nocedal2006)
 
 ## Setting & assumptions
 

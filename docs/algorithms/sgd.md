@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / low-dim / high-dim · **Penalty:** none ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** Robbins1951, polyak1992acceleration, ruppert1988efficient, chen2020statistical
+    **Refs:** [`Robbins and Monro, 1951`](#ref-Robbins1951) · [`Polyak and Juditsky, 1992`](#ref-polyak1992acceleration) · [`Ruppert, 1988`](#ref-ruppert1988efficient) · [`Chen et al., 2020`](#ref-chen2020statistical)
 
 ## Setting & assumptions
 
@@ -108,13 +108,13 @@ Return β  (or the averaged β̄ for inference)
 ## Statistical guarantees
 
 - **Consistency.** Under the Robbins–Monro step conditions, $\beta^{(t)}\to\beta^\star$ a.s.
-  [[Robbins and Monro, 1951]](#ref-Robbins1951).
+  [`Robbins and Monro, 1951`](#ref-Robbins1951).
 - **Asymptotic normality of the averaged iterate.** With $\gamma_t=\gamma_0 t^{-a}$, $a\in(0.5,1)$,
   $\sqrt{t}\,(\bar\beta_t - \beta^\star)\xrightarrow{d}\mathcal N(0,\, H^{-1} G H^{-1})$ where
   $H=\nabla^2\mathcal L(\beta^\star)$ and $G$ is the gradient-noise covariance; this matches the
-  MLE's efficiency ([[Polyak and Juditsky, 1992]](#ref-polyak1992acceleration), [[Ruppert, 1988]](#ref-ruppert1988efficient)).
+  MLE's efficiency ([`Polyak and Juditsky, 1992`](#ref-polyak1992acceleration), [`Ruppert, 1988`](#ref-ruppert1988efficient)).
 - **Inference.** Plug-in / online estimators of the sandwich covariance permit confidence
-  intervals from the averaged SGD path [[Chen et al., 2020]](#ref-chen2020statistical).
+  intervals from the averaged SGD path [`Chen et al., 2020`](#ref-chen2020statistical).
 
 ## Variants & related
 

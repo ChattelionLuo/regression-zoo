@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming · **Penalty:** none ·
     **Output:** point+inference · **Links:** any · **Status:** draft ·
-    **Refs:** luo2020renewable, Luo2020
+    **Refs:** [`Luo and Song, 2020`](#ref-luo2020renewable) · [`Luo and Song, 2020`](#ref-Luo2020)
 
 ## Setting & assumptions
 
@@ -110,7 +110,7 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 - **Asymptotic equivalence to the full-data MLE.** As batches accumulate, $\hat\beta_b$ is
   consistent and asymptotically normal with the **same** limiting distribution as the oracle MLE
   computed on all data at once, with $J_b^{-1}$ a consistent variance estimator
-  [[Luo and Song, 2020]](#ref-luo2020renewable).
+  [`Luo and Song, 2020`](#ref-luo2020renewable).
 - This yields valid streaming confidence intervals and tests while storing only $O(p^2)$ summary
   statistics.
 

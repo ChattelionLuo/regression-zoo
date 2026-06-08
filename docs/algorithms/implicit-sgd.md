@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / low-dim / high-dim · **Penalty:** none ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** Toulis2017, Fang2019
+    **Refs:** [`Toulis and Airoldi, 2017`](#ref-Toulis2017) · [`Fang, 2019`](#ref-Fang2019)
 
 ## Setting & assumptions
 
@@ -116,10 +116,10 @@ iterations; no $p\times p$ system is ever formed.
 
 - **Stability & consistency.** The implicit update is numerically stable — it cannot overshoot for
   large $\gamma_t$ the way explicit SGD can — while retaining the same limit $\beta^\star$ and the
-  same asymptotic distribution as explicit SGD [[Toulis and Airoldi, 2017]](#ref-Toulis2017).
+  same asymptotic distribution as explicit SGD [`Toulis and Airoldi, 2017`](#ref-Toulis2017).
 - **Asymptotic efficiency via averaging.** The Polyak–Ruppert average of implicit iterates is
   asymptotically normal with the MLE's sandwich covariance, enabling scalable inference
-  [[Fang, 2019]](#ref-Fang2019).
+  [`Fang, 2019`](#ref-Fang2019).
 
 ## Variants & related
 

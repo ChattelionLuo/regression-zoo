@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / low-dim / high-dim · **Penalty:** none (or composite) ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** AdaGrad2011
+    **Refs:** [`Duchi et al., 2011`](#ref-AdaGrad2011)
 
 ## Setting & assumptions
 
@@ -105,7 +105,7 @@ step $\eta/(\sqrt{G_{t,j}}+\epsilon)$, giving sparse adaptive online solutions.
 - **Online regret.** AdaGrad achieves data-dependent regret
   $\mathcal O\!\big(\max_j \lVert g_{1:T,j}\rVert_2\big)$, never worse than and often far better
   than non-adaptive online gradient descent, with the largest gains on sparse/predictable
-  features [[Duchi et al., 2011]](#ref-AdaGrad2011).
+  features [`Duchi et al., 2011`](#ref-AdaGrad2011).
 - It is an optimization (regret) guarantee rather than an asymptotic-efficiency statement; for
   parameter inference, pair with averaging as in [SGD](sgd.md).
 

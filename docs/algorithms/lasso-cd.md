@@ -17,7 +17,7 @@ status: reviewed
 !!! info "At a glance"
     **Family:** penalized-batch · **Regime:** high-dim / low-dim · **Penalty:** lasso ·
     **Output:** path over $\lambda$ · **Links:** identity, logit, log · **Status:** reviewed ·
-    **Refs:** tibshirani1996regression, fhht2007
+    **Refs:** [`Tibshirani, 1996`](#ref-tibshirani1996regression) · [`Friedman et al., 2007`](#ref-fhht2007)
 
 ## Setting & assumptions
 
@@ -101,7 +101,7 @@ penalized weighted least squares problem.
 - **Estimation:** under a restricted-eigenvalue / compatibility condition and
   $\lambda\asymp\sigma\sqrt{\log p / n}$, $\lVert\hat\beta-\beta^\star\rVert_1=O_P(s\sqrt{\log p/n})$.
 - **Selection:** support recovery under the irrepresentable/beta-min conditions
-  [[Zhao and Yu, 2006]](#ref-zhao2006model).
+  [`Zhao and Yu, 2006`](#ref-zhao2006model).
 - Coordinate descent converges to a global optimum (convex objective, separable penalty).
 
 ## Variants & related

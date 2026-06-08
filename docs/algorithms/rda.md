@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / high-dim / low-dim · **Penalty:** lasso ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** xiao2009dual
+    **Refs:** [`Xiao, 2010`](#ref-xiao2009dual)
 
 ## Setting & assumptions
 
@@ -104,10 +104,10 @@ Return β
 ## Statistical guarantees
 
 - **Online regret.** With $\beta_t\propto\sqrt{t}$, RDA attains $\mathcal O(\sqrt{T})$ regret for
-  convex losses [[Xiao, 2010]](#ref-xiao2009dual).
+  convex losses [`Xiao, 2010`](#ref-xiao2009dual).
 - **Sparsity.** Because the threshold acts on the *averaged* gradient $\bar g_t$ with a level that
   does not vanish, RDA produces sparser, more stable solutions than the diminishing-threshold
-  FOBOS, as analyzed in [[Xiao, 2010]](#ref-xiao2009dual).
+  FOBOS, as analyzed in [`Xiao, 2010`](#ref-xiao2009dual).
 
 ## Variants & related
 

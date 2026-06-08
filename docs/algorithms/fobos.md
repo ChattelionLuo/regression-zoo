@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** online-streaming · **Regime:** streaming / high-dim / low-dim · **Penalty:** lasso (any prox-able) ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** xiao2009dual, truncated_SGD_Langford_2009
+    **Refs:** [`Xiao, 2010`](#ref-xiao2009dual) · [`Langford et al., 2009`](#ref-truncated_SGD_Langford_2009)
 
 ## Setting & assumptions
 
@@ -109,7 +109,7 @@ Return β
   (Duchi & Singer, 2009).
 - **Sparsity behavior.** Single-point soft-thresholding zeros only coordinates whose half-step
   magnitude falls below $\gamma_t\lambda$; because $\gamma_t\to0$, FOBOS yields **weaker** online
-  sparsity than gradient-averaging schemes such as [RDA](rda.md) [[Xiao, 2010]](#ref-xiao2009dual).
+  sparsity than gradient-averaging schemes such as [RDA](rda.md) [`Xiao, 2010`](#ref-xiao2009dual).
 
 ## Variants & related
 

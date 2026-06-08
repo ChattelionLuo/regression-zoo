@@ -17,7 +17,7 @@ status: draft
 !!! info "At a glance"
     **Family:** first-order-prox · **Regime:** high-dim / low-dim · **Penalty:** lasso (any prox-able) ·
     **Output:** point · **Links:** identity, logit, log · **Status:** draft ·
-    **Refs:** daubechies2004iterative, beck2009fast
+    **Refs:** [`Daubechies et al., 2004`](#ref-daubechies2004iterative) · [`Beck and Teboulle, 2009`](#ref-beck2009fast)
 
 ## Setting & assumptions
 
@@ -100,12 +100,12 @@ return β̂
 
 - **Optimization (convex $\mathcal L$).** With $t_k=1/L_\nabla$,
   $F(\beta^{(k)})-F(\hat\beta)\le \dfrac{L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{2k}=O(1/k)$,
-  where $F=\mathcal L+\lambda P$ [[Beck and Teboulle, 2009]](#ref-beck2009fast). The accelerated [FISTA](fista.md) improves this
+  where $F=\mathcal L+\lambda P$ [`Beck and Teboulle, 2009`](#ref-beck2009fast). The accelerated [FISTA](fista.md) improves this
   to $O(1/k^2)$.
 - ISTA is an optimization method: statistical properties of the *solution* $\hat\beta(\lambda)$
   are those of the lasso/penalized M-estimator it computes (see [Lasso-CD](lasso-cd.md)).
 - Daubechies, Defrise & De Mol (2004) established convergence of the iterative thresholding
-  iteration for linear inverse problems with a sparsity penalty [[Daubechies et al., 2004]](#ref-daubechies2004iterative).
+  iteration for linear inverse problems with a sparsity penalty [`Daubechies et al., 2004`](#ref-daubechies2004iterative).
 
 ## Variants & related
 
