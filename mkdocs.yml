@@ -9,9 +9,7 @@ use_directory_urls: true
 
 theme:
   name: material
-  font:
-    text: DM Sans
-    code: JetBrains Mono
+  font: false  # self-hosted Alright Sans via docs/css/extra.css
   icon:
     logo: material/chart-bell-curve-cumulative
     repo: fontawesome/brands/github

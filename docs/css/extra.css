@@ -5,7 +5,55 @@
    corners. Inspired by Jane Street (editorial) × Palantir (structured density).
    ============================================================================ */
 
-/* ----- Single text typeface: Inter everywhere (Jane Street style) ---------- */
+/* ----- Self-hosted Alright Sans (same typeface as janestreet.com) ---------- */
+@font-face {
+  font-family: "Alright Sans";
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url("../fonts/AlrightSans-Light.woff2") format("woff2"),
+       url("../fonts/AlrightSans-Light.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: italic; font-weight: 300; font-display: swap;
+  src: url("../fonts/AlrightSans-LightItalic.woff2") format("woff2"),
+       url("../fonts/AlrightSans-LightItalic.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/AlrightSans.woff2") format("woff2"),
+       url("../fonts/AlrightSans.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url("../fonts/AlrightSans-Italic.woff2") format("woff2"),
+       url("../fonts/AlrightSans-Italic.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url("../fonts/AlrightSans-Medium.woff2") format("woff2"),
+       url("../fonts/AlrightSans-Medium.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: italic; font-weight: 500; font-display: swap;
+  src: url("../fonts/AlrightSans-MediumItalic.woff2") format("woff2"),
+       url("../fonts/AlrightSans-MediumItalic.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/AlrightSans-Bold.woff2") format("woff2"),
+       url("../fonts/AlrightSans-Bold.woff")  format("woff");
+}
+@font-face {
+  font-family: "Alright Sans";
+  font-style: italic; font-weight: 700; font-display: swap;
+  src: url("../fonts/AlrightSans-BoldItalic.woff2") format("woff2"),
+       url("../fonts/AlrightSans-BoldItalic.woff")  format("woff");
+}
 
 /* ----- Brand tokens -------------------------------------------------------- */
 :root {
@@ -24,11 +72,13 @@
   --arena-accent-2:   #6b34c9;   /* secondary (violet)        */
   --arena-accent-wash:#eef0fe;
 
-  /* One typeface for ALL text — headings, labels, buttons, body. Inter.
-     (Code blocks use JetBrains Mono, configured separately by the theme.)   */
-  --arena-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* One typeface for ALL text — headings, labels, buttons, body. Alright Sans.
+     (Code blocks use JetBrains Mono, set explicitly below since font: false.)   */
+  --arena-sans: "Alright Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --arena-serif: var(--arena-sans);
   --arena-mono:  var(--arena-sans);
+  --md-text-font-family:  "Alright Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --md-code-font-family:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 /* Map onto Material's variables (light scheme) */
