@@ -5,7 +5,7 @@ hide:
 
 <div class="arena-hero" markdown>
 
-<span class="arena-eyebrow">GLM Algorithm Arena · Phase I</span>
+<span class="arena-eyebrow">Linear Model Arena · Phase I &amp; II</span>
 
 # An encyclopedia of GLM algorithms
 
@@ -25,15 +25,13 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 > **Given** a design matrix $X$, a response vector $y$, a model specification — family, link $g$, loss, and tuning parameters where relevant —
 > **what** exactly does the algorithm return as $\hat\beta$ ?
 
-Each method can be viewed as the same essential mapping $(X, y, \text{model}) \mapsto \hat\beta$ and often written
-against the shared template
+Even someone in finance can parrot $\hat\beta = (X^\top X)^{-1} X^\top y$, but it is much trickier when the situation becomes irregular. In statistics, each method can be essential viewed as the mapping $(X, y, \text{model}) \mapsto \hat\beta$ and often written against the shared template
 
 $$
 \hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
 $$
 
-or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases —
-benchmarked on equal footing.
+or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases — benchmarked on equal footing.
 
 ## Explore
 
@@ -88,30 +86,31 @@ This Arena puts this solver zoo in one coordinate system. Each algorithm card st
 
 <div class="grid cards" markdown>
 
--   **I · Documentation** &nbsp; <span class="badge status-draft">current</span>
+-   **I · Documentation** &nbsp; <span class="badge status-current">current</span>
 
     ---
 
     Faithful algorithm cards — exact mathematics only. Each defines the estimator,
     the algorithm, its hyperparameters, and the precise $(X,y,g)\mapsto\hat\beta$ contract.
 
--   **II · Implementation** &nbsp; <span class="badge status-stub">planned</span>
+-   **II · Implementation & Arena** &nbsp; <span class="badge status-current">current</span>
 
     ---
 
     Python solvers behind one interface, `fit(X, y, link, **config) -> beta_hat`,
-    mirroring each method's official construction.
+    mirroring each method's official construction. Run across 16 datasets with 50+ configs per solver.
+    [Open the Arena →](arena/index.md)
 
--   **III · The Arena** &nbsp; <span class="badge status-stub">planned</span>
+-   **III · Deep analysis** &nbsp; <span class="badge status-stub">planned</span>
 
     ---
 
-    Run every solver across many datasets; study performance, agreement, and the
-    correlations between their outputs.
+    Structured comparison of solver families: convergence rates, sensitivity to
+    regularisation, agreement on held-out data, and statistical inference properties.
 
 </div>
 
-!!! tip "Contributing a card"
+!!! tip "Contributing an algo card"
     If a source defines an algorithm precisely, it can become a card. Copy the stub in the [card schema](framework/card-schema.md), drop it in
     `docs/algorithms/<id>.md`, fill the fixed sections faithfully from the source paper, and
     add the bibkey to `reference.bib`. Run `python scripts/validate_cards.py`, and it appears

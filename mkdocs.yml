@@ -72,6 +72,10 @@ plugins:
 
 nav:
   - Home: index.md
+  - Arena:
+      - Overview: arena/index.md
+      - Embedding maps: arena/embeddings.md
+      - Coefficient heatmaps: arena/heatmaps.md
   - Framework:
       - Notation & framework: framework/notation.md
       - Taxonomy: framework/taxonomy.md
