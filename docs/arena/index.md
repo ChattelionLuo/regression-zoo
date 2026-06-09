@@ -1,15 +1,15 @@
-﻿<p class="arena-kicker">Phase II 繚 Comparative study</p>
+<p class="arena-kicker">Phase II · Comparative study</p>
 
 # The Arena
 
-Every solver from Phase I has a faithful Python implementation and has been run across **16 datasets** ??real and synthetic, regression and logistic ??with up to 50 hyperparameter configurations per solver where applicable.
+Every solver from Phase I has a faithful Python implementation and has been run across **16 datasets** -- real and synthetic, regression and logistic -- with up to 50 hyperparameter configurations per solver where applicable.
 
 Each *(solver, config)* run produces one coefficient vector $\widehat\beta \in \mathbb{R}^p$.  The two visualisations below make those vectors comparable:
 
-- **Embedding map** ??unit-normalised vectors $\widehat\beta/\|\widehat\beta\|$ projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the solver name and exact config.
-- **Coefficient heatmap** ??all runs for one dataset as a matrix (rows = runs, columns = features $j$). The top bar shows mean $|\widehat\beta_j|$ per feature. Colour = $\widehat\beta_j$ on a diverging RdBu scale. Hover for exact value.
+- **Embedding map** -- unit-normalised vectors $\widehat\beta/\|\widehat\beta\|$ projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the solver name and exact config.
+- **Coefficient heatmap** -- all runs for one dataset as a matrix (rows = runs, columns = features $j$). The top bar shows mean $|\widehat\beta_j|$ per feature. Colour = $\widehat\beta_j$ on a diverging RdBu scale. Hover for exact value.
 
-All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??FitResult`.
+All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> FitResult`.
 
 ---
 
@@ -17,7 +17,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Diabetes
 
-<p class="arena-ds-meta">n = 442 繚 p = 10 繚 Regression 繚 UCI / sklearn</p>
+<p class="arena-ds-meta">n = 442 · p = 10 · Regression · UCI / sklearn</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Diabetes.html" class="arena-embed-frame" title="Embedding: Diabetes"></iframe>
@@ -28,7 +28,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Breast Cancer
 
-<p class="arena-ds-meta">n = 569 繚 p = 30 繚 Logistic 繚 UCI / sklearn</p>
+<p class="arena-ds-meta">n = 569 · p = 30 · Logistic · UCI / sklearn</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Breast_Cancer.html" class="arena-embed-frame" title="Embedding: Breast Cancer"></iframe>
@@ -37,9 +37,9 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 <iframe src="figures/heatmap_Breast_Cancer.html" class="arena-heatmap-frame" title="Heatmap: Breast Cancer"></iframe>
 </div>
 
-### Digits (??5)
+### Digits (>= 5)
 
-<p class="arena-ds-meta">n = 1 797 繚 p = 64 繚 Logistic 繚 NIST / sklearn</p>
+<p class="arena-ds-meta">n = 1 797 · p = 64 · Logistic · NIST / sklearn</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Digits_hi5.html" class="arena-embed-frame" title="Embedding: Digits"></iframe>
@@ -50,7 +50,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Fair Affairs
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 8 繚 Regression 繚 statsmodels</p>
+<p class="arena-ds-meta">n = 2 000 · p = 8 · Regression · statsmodels</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Fair_Affairs.html" class="arena-embed-frame" title="Embedding: Fair Affairs"></iframe>
@@ -61,7 +61,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### RAND HIE
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 9 繚 Regression 繚 statsmodels</p>
+<p class="arena-ds-meta">n = 2 000 · p = 9 · Regression · statsmodels</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_RAND_HIE.html" class="arena-embed-frame" title="Embedding: RAND HIE"></iframe>
@@ -72,7 +72,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### STAR98
 
-<p class="arena-ds-meta">n = 303 繚 p = 21 繚 Logistic 繚 statsmodels</p>
+<p class="arena-ds-meta">n = 303 · p = 21 · Logistic · statsmodels</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_STAR98_pass.html" class="arena-embed-frame" title="Embedding: STAR98"></iframe>
@@ -83,7 +83,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### ANES96
 
-<p class="arena-ds-meta">n = 944 繚 p = 10 繚 Logistic 繚 statsmodels</p>
+<p class="arena-ds-meta">n = 944 · p = 10 · Logistic · statsmodels</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_ANES96_vote.html" class="arena-embed-frame" title="Embedding: ANES96"></iframe>
@@ -94,7 +94,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Mode Choice
 
-<p class="arena-ds-meta">n = 840 繚 p = 8 繚 Logistic 繚 statsmodels</p>
+<p class="arena-ds-meta">n = 840 · p = 8 · Logistic · statsmodels</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Mode_Choice.html" class="arena-embed-frame" title="Embedding: Mode Choice"></iframe>
@@ -105,11 +105,11 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ---
 
-## Synthetic ??regression
+## Synthetic -- regression
 
 ### Sparse
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 200 繚 20 informative features 繚 Regression</p>
+<p class="arena-ds-meta">n = 2 000 · p = 200 · 20 informative features · Regression</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Reg_Sparse200.html" class="arena-embed-frame" title="Embedding: Sparse 200"></iframe>
@@ -120,7 +120,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Dense
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 100 繚 all features informative 繚 Regression</p>
+<p class="arena-ds-meta">n = 2 000 · p = 100 · all features informative · Regression</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Reg_Dense100.html" class="arena-embed-frame" title="Embedding: Dense 100"></iframe>
@@ -131,7 +131,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Correlated
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 150 繚 effective rank 10 繚 Regression</p>
+<p class="arena-ds-meta">n = 2 000 · p = 150 · effective rank 10 · Regression</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Reg_Corr150.html" class="arena-embed-frame" title="Embedding: Correlated 150"></iframe>
@@ -142,7 +142,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### High-dimensional
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 300 繚 30 informative features 繚 Regression</p>
+<p class="arena-ds-meta">n = 2 000 · p = 300 · 30 informative features · Regression</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Reg_HighDim300.html" class="arena-embed-frame" title="Embedding: HighDim 300"></iframe>
@@ -153,7 +153,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Friedman #1
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 10 繚 nonlinear ground truth 繚 Regression</p>
+<p class="arena-ds-meta">n = 2 000 · p = 10 · nonlinear ground truth · Regression</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Friedman1.html" class="arena-embed-frame" title="Embedding: Friedman1"></iframe>
@@ -164,11 +164,11 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ---
 
-## Synthetic ??logistic
+## Synthetic -- logistic
 
 ### Dense
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 100 繚 80 informative features 繚 Logistic</p>
+<p class="arena-ds-meta">n = 2 000 · p = 100 · 80 informative features · Logistic</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Logit_Dense100.html" class="arena-embed-frame" title="Embedding: Logit Dense100"></iframe>
@@ -179,7 +179,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Sparse
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 200 繚 25 informative features 繚 Logistic</p>
+<p class="arena-ds-meta">n = 2 000 · p = 200 · 25 informative features · Logistic</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Logit_Sparse200.html" class="arena-embed-frame" title="Embedding: Logit Sparse200"></iframe>
@@ -190,7 +190,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 
 ### Noisy
 
-<p class="arena-ds-meta">n = 2 000 繚 p = 150 繚 12 % label noise 繚 Logistic</p>
+<p class="arena-ds-meta">n = 2 000 · p = 150 · 12 % label noise · Logistic</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_Synth_Logit_Noisy150.html" class="arena-embed-frame" title="Embedding: Logit Noisy150"></iframe>
@@ -207,7 +207,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) ??F
 |---|---|---|---|---|
 | Diabetes | UCI / sklearn | 442 | 10 | Regression |
 | Breast Cancer | UCI / sklearn | 569 | 30 | Logistic |
-| Digits (??5) | NIST / sklearn | 1 797 | 64 | Logistic |
+| Digits (>= 5) | NIST / sklearn | 1 797 | 64 | Logistic |
 | Fair Affairs | statsmodels | 2 000 | 8 | Regression |
 | RAND HIE | statsmodels | 2 000 | 9 | Regression |
 | STAR98 | statsmodels | 303 | 21 | Logistic |

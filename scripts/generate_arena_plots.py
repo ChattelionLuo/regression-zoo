@@ -283,7 +283,7 @@ PLOTLY_LAYOUT = dict(
     plot_bgcolor='rgba(0,0,0,0)',
     font=dict(family="'Alright Sans', 'Inter', 'Helvetica Neue', sans-serif",
               size=12, color='#1a1a1a'),
-    margin=dict(l=0, r=0, t=40, b=0),
+    margin=dict(l=0, r=0, t=8, b=0),
     hoverlabel=dict(
         bgcolor='#1a1a1a', font_color='#f5f5f5',
         font_family="'Alright Sans', 'Inter', sans-serif",
@@ -388,11 +388,7 @@ def make_embedding_figure(df_ds, ds_name, ds_meta):
 
     fig.update_layout(
         **PLOTLY_LAYOUT,
-        title=dict(
-            text=f"<b>{ds_name.replace('_', ' ')}</b>  ·  n={n}, p={p}, {kind}  ·  {len(df_ok)} runs",
-            font=dict(size=14, color='#1a1a1a'),
-            x=0, xanchor='left',
-        ),
+        title=None,
         height=460,
         legend=dict(
             **_LEGEND_BASE,
@@ -549,10 +545,7 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
 
     fig.update_layout(
         **PLOTLY_LAYOUT,
-        title=dict(
-            text=f"<b>{ds_name.replace('_', ' ')}</b>  ·  n={n}, p={p}  ·  coefficients",
-            font=dict(size=13, color='#1a1a1a'), x=0, xanchor='left',
-        ),
+        title=None,
         height=total_height,
         shapes=divider_shapes,
         dragmode='zoom',
