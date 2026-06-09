@@ -236,7 +236,8 @@
 }
 .md-typeset table:not([class]) td { border-top: 1px solid var(--arena-line); }
 .md-typeset table:not([class]) tr:hover td { background: var(--arena-surface); }
-
+
+
 /* ----- Citation badge: `Author, Year` inside a link ----------------------- */
 /* Links wrapping a code span are citation references — style as a badge      */
 .md-typeset a > code {
@@ -406,14 +407,12 @@ mjx-container[display="true"] {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1.2rem;
     max-width: 100%;
   }
   .md-typeset .arena-btn {
     width: auto;
     align-self: flex-start;
-  }
-}
   }
 }
 
