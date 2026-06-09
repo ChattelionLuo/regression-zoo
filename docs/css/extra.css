@@ -190,23 +190,6 @@
 .md-nav--secondary .md-nav__title { display: none; }
 input#__toc { display: none; }
 
-/*
- * Arena TOC: make h2-level section headings ("Real datasets" etc.) look exactly
- * like the non-clickable section labels in the Algorithms sidebar ("Classical" etc.)
- * Those use <label class="md-nav__item--section"> — we replicate the same visual.
- */
-.md-nav--secondary > .md-nav__list > .md-nav__item:has(> .md-nav) > .md-nav__link {
-  font-weight: 700;
-  color: var(--arena-ink-soft);   /* same muted-gray as Material section labels */
-  padding-top: 1.25rem;           /* breathing room above each section, matching algo page */
-  pointer-events: none;           /* non-clickable, same as <label> in algo sidebar */
-  cursor: default;
-}
-/* suppress all hover effects so it truly looks like a non-link label */
-.md-nav--secondary > .md-nav__list > .md-nav__item:has(> .md-nav) > .md-nav__link:hover {
-  color: var(--arena-ink-soft);
-}
-
 /* Mobile nav drawer — dark title bar only, items stay on white */
 @media screen and (max-width: 76.1875em) {
   .md-nav--primary .md-nav__title[for="__drawer"] {
