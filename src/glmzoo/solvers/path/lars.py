@@ -48,14 +48,30 @@ class LARSSolver(BaseSolver):
 
         alphas, _, coefs = lars_path(X, y, method=method, max_iter=max_iter)
         # coefs shape: (p, n_path_points)
+        # alphas is DECREASING (from lam_max down to 0 / near-0)
 
         if lam is None:
             # Use the coefficient at the median alpha
-            idx = len(alphas) // 2
+            beta = coefs[:, len(alphas) // 2]
         else:
-            idx = int(np.argmin(np.abs(alphas - float(lam))))
-
-        beta = coefs[:, idx]
+            lam_f = float(lam)
+            if lam_f >= alphas[0]:
+                # More regularised than the start of the path → zero solution
+                beta = coefs[:, 0]
+            elif lam_f <= alphas[-1]:
+                # Less regularised than the end of the path → OLS-like solution
+                beta = coefs[:, -1]
+            else:
+                # Linear interpolation between the two bracketing path points.
+                # The LASSO path is piecewise linear in λ, so this is exact.
+                k = int(np.searchsorted(-alphas, -lam_f))  # first index where alpha < lam_f
+                k = max(1, min(k, len(alphas) - 1))
+                a_lo, a_hi = alphas[k], alphas[k - 1]   # a_lo < lam_f <= a_hi
+                if abs(a_hi - a_lo) < 1e-15:
+                    beta = coefs[:, k]
+                else:
+                    t = (lam_f - a_lo) / (a_hi - a_lo)   # t ∈ [0, 1]
+                    beta = (1.0 - t) * coefs[:, k] + t * coefs[:, k - 1]
 
         return FitResult(
             beta_hat=beta,

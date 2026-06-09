@@ -56,37 +56,18 @@ class LassoCDSolver(BaseSolver):
         if lnk.name == "log":
             return self._fit_poisson(X, y, lam, max_iter, fit_intercept)
 
-        # --- Gaussian / identity link: run full coordinate-descent path ---
-        lam_max = float(np.max(np.abs(X.T @ (y - y.mean()))) / n)
-        lam_min = lam_min_ratio * lam_max
-        alphas = np.exp(np.linspace(np.log(lam_max), np.log(max(lam_min, 1e-10)), n_alphas))
-
-        coef_path = np.zeros((p, n_alphas))
-        prev_coef = None
-        for k, alpha in enumerate(alphas):
-            model = Lasso(
-                alpha=alpha,
-                fit_intercept=fit_intercept,
-                max_iter=max_iter,
-                warm_start=False,
-            )
-            if prev_coef is not None:
-                model.coef_ = prev_coef
-            model.fit(X, y)
-            coef_path[:, k] = model.coef_.ravel()
-            prev_coef = model.coef_.copy()
-
-        # pick the alpha closest to requested lam
-        idx = int(np.argmin(np.abs(alphas - lam)))
-        final_model = Lasso(alpha=alphas[idx], fit_intercept=fit_intercept, max_iter=max_iter)
-        final_model.fit(X, y)
+        # --- Gaussian / identity link: fit directly at the requested lambda ---
+        # (Previously used an internal path with lam_min_ratio clipping, which caused
+        # many configs to produce identical betas.  Direct fit gives each lam its own
+        # unique solution.)
+        model = Lasso(alpha=lam, fit_intercept=fit_intercept, max_iter=max_iter)
+        model.fit(X, y)
 
         return FitResult(
-            beta_hat=final_model.coef_.ravel(),
-            intercept=float(final_model.intercept_) if fit_intercept else 0.0,
-            n_iter=final_model.n_iter_,
-            path={"alphas": alphas, "coefs": coef_path},
-            diagnostics={"converged": final_model.n_iter_ < max_iter, "n_iter": final_model.n_iter_},
+            beta_hat=model.coef_.ravel(),
+            intercept=float(model.intercept_) if fit_intercept else 0.0,
+            n_iter=model.n_iter_,
+            diagnostics={"converged": model.n_iter_ < max_iter, "n_iter": model.n_iter_},
         )
 
     # ------------------------------------------------------------------
