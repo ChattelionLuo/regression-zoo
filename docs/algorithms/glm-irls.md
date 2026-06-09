@@ -35,7 +35,7 @@ status: draft
 The MLE maximizes the log-likelihood, equivalently **minimizes the mean negative log-likelihood**:
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) , \qquad
 \mathcal L(\beta) = \frac1n\sum_{i=1}^n \ell_i(\beta),
 $$
@@ -47,7 +47,7 @@ S(\beta) \;=\; X^\top\!\big(y - \mu(\beta)\big) \;=\; 0 ,
 $$
 
 (for the canonical link; for a general link a diagonal derivative factor appears, which the IRLS
-weights below absorb). There is no closed form in general, so $\hat\beta$ is found iteratively.
+weights below absorb). There is no closed form in general, so $\widehat\beta$ is found iteratively.
 
 ## Algorithm
 
@@ -96,16 +96,16 @@ weights positive and the step stable.
 | dispersion $\phi$ | estimated | fixed at $1$ for binomial/Poisson; estimated for Gaussian/Gamma |
 
 **Dispersion estimation.** When $\phi$ is unknown it is estimated *after* convergence, typically by
-the Pearson statistic $\hat\phi = \tfrac{1}{n-p}\sum_i (y_i-\hat\mu_i)^2/V(\hat\mu_i)$.
+the Pearson statistic $\widehat\phi = \tfrac{1}{n-p}\sum_i (y_i-\widehat\mu_i)^2/V(\widehat\mu_i)$.
 
 **Deviance.** Convergence and goodness-of-fit are monitored by the **deviance**
-$D = 2\big[\ell(\text{saturated}) - \ell(\hat\beta)\big]$, which IRLS decreases monotonically (with
+$D = 2\big[\ell(\text{saturated}) - \ell(\widehat\beta)\big]$, which IRLS decreases monotonically (with
 step-halving) and which generalizes the residual sum of squares.
 
 ## Mapping to framework
 
 - **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link $g$ and family ($V$, $\phi$).
-- **Output:** point estimate $\hat\beta$ (the MLE), plus $\hat\phi$ and deviance $D$.
+- **Output:** point estimate $\widehat\beta$ (the MLE), plus $\widehat\phi$ and deviance $D$.
 - **Links:** any differentiable $g$; identity/Gaussian reduces to a single
   [OLS](ols.md) solve, logit→logistic regression, log→Poisson regression.
 - **Preprocessing:** intercept as a column of ones; standardization optional (improves conditioning
@@ -120,10 +120,10 @@ step-halving) and which generalizes the residual sum of squares.
 ## Statistical guarantees
 
 - **Consistency & asymptotic normality.** Under standard regularity (correct family/link, full-rank
-  design, $n\to\infty$ with $p$ fixed), $\hat\beta$ is consistent and
-  $\sqrt n(\hat\beta-\beta^\star)\xrightarrow{d}\mathcal N\!\big(0,\,\phi\,(\tfrac1n X^\top W X)^{-1}\big)$,
+  design, $n\to\infty$ with $p$ fixed), $\widehat\beta$ is consistent and
+  $\sqrt n(\widehat\beta-\beta^\star)\xrightarrow{d}\mathcal N\!\big(0,\,\phi\,(\tfrac1n X^\top W X)^{-1}\big)$,
   attaining the Cramér–Rao bound (efficiency).
-- **Inference.** $\widehat{\operatorname{Var}}(\hat\beta)=\hat\phi\,(X^\top W X)^{-1}$ at convergence
+- **Inference.** $\widehat{\operatorname{Var}}(\widehat\beta)=\widehat\phi\,(X^\top W X)^{-1}$ at convergence
   gives Wald standard errors; deviance differences give likelihood-ratio tests.
 - Convergence is guaranteed locally; step-halving safeguards the global iteration.
 

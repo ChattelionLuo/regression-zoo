@@ -30,10 +30,10 @@ status: draft
   $\nabla\mathcal L$ and Fisher information $I$, so it applies across GLMs (linear, logistic,
   Poisson, …) — hence `link_support: [any]`.
 - Sparsity $\lVert\gamma^\star\rVert_0\ll p$ and a compatibility/restricted-eigenvalue condition,
-  so a penalized (lasso) estimator $\hat\gamma$ is $\ell_1$-consistent. The nuisance score block
+  so a penalized (lasso) estimator $\widehat\gamma$ is $\ell_1$-consistent. The nuisance score block
   $I_{\gamma\gamma}$ has a sparse inverse direction, enabling the decorrelation step.
 - **Key difficulty:** the ordinary score $\nabla_\theta\mathcal L$ is sensitive to the
-  estimation error in $\hat\gamma$ (its bias does not vanish at $\sqrt n$ rate). The decorrelated
+  estimation error in $\widehat\gamma$ (its bias does not vanish at $\sqrt n$ rate). The decorrelated
   score removes this first-order sensitivity.
 
 ## Estimator / objective
@@ -62,32 +62,32 @@ components on the nuisance-score components (equivalently a penalized solve of
 $I_{\gamma\gamma}\,w=I_{\gamma\theta}$):
 
 $$
-\hat w=\arg\min_{w}\ \lVert w\rVert_1\quad\text{s.t.}\quad
-\big\lVert \hat I_{\gamma\gamma}\,w-\hat I_{\gamma\theta}\big\rVert_\infty\le\mu,
+\widehat w=\arg\min_{w}\ \lVert w\rVert_1\quad\text{s.t.}\quad
+\big\lVert \widehat I_{\gamma\gamma}\,w-\widehat I_{\gamma\theta}\big\rVert_\infty\le\mu,
 $$
 
-with $\hat I=\nabla^2\mathcal L(\hat\theta_0,\hat\gamma)$ evaluated at the penalized estimator.
+with $\widehat I=\nabla^2\mathcal L(\widehat\theta_0,\widehat\gamma)$ evaluated at the penalized estimator.
 The plug-in **decorrelated score statistic** for $H_0:\theta=\theta_0$ is then
 
 $$
-\hat S=\nabla_\theta\mathcal L(\theta_0,\hat\gamma)-\hat w^\top\nabla_\gamma\mathcal L(\theta_0,\hat\gamma),
+\widehat S=\nabla_\theta\mathcal L(\theta_0,\widehat\gamma)-\widehat w^\top\nabla_\gamma\mathcal L(\theta_0,\widehat\gamma),
 \qquad
-U_n=\frac{\sqrt n\,\hat S}{\sqrt{\hat I_{\theta\mid\gamma}}}\ \xrightarrow{d}\ N(0,1)\ \text{ under }H_0,
+U_n=\frac{\sqrt n\,\widehat S}{\sqrt{\widehat I_{\theta\mid\gamma}}}\ \xrightarrow{d}\ N(0,1)\ \text{ under }H_0,
 $$
 
 and $U_n^2\xrightarrow{d}\chi^2_1$ (more generally $\chi^2_d$ for a $d$-dimensional target). A
 one-step / point estimator is recovered by a Newton correction along the decorrelated direction,
 
 $$
-\hat\theta=\theta_0-\frac{\hat S}{\hat I_{\theta\mid\gamma}},\qquad
-\sqrt n(\hat\theta-\theta^\star)\xrightarrow{d}N\!\big(0,\,I_{\theta\mid\gamma}^{-1}\big).
+\widehat\theta=\theta_0-\frac{\widehat S}{\widehat I_{\theta\mid\gamma}},\qquad
+\sqrt n(\widehat\theta-\theta^\star)\xrightarrow{d}N\!\big(0,\,I_{\theta\mid\gamma}^{-1}\big).
 $$
 
 **Inverting for CIs.** Collect all $\theta_0$ not rejected at level $\alpha$:
 
 $$
 \mathcal C_{1-\alpha}=\Big\{\theta_0:\ |U_n(\theta_0)|\le z_{1-\alpha/2}\Big\}
-=\ \hat\theta\ \pm\ z_{1-\alpha/2}\,\big(n\,\hat I_{\theta\mid\gamma}\big)^{-1/2}.
+=\ \widehat\theta\ \pm\ z_{1-\alpha/2}\,\big(n\,\widehat I_{\theta\mid\gamma}\big)^{-1/2}.
 $$
 
 ## Algorithm
@@ -115,8 +115,8 @@ Return  θ̂, U (p-value), CI
 
 | Knob | Default | Notes |
 |---|---|---|
-| $\lambda$ (nuisance lasso) | CV / $\sqrt{\log p/n}$ | regularizes $\hat\gamma$; the score is first-order insensitive to its error |
-| $\mu$ (Dantzig tol) | $\asymp\sqrt{\log p/n}$ | controls bias of the decorrelation weight $\hat w$ |
+| $\lambda$ (nuisance lasso) | CV / $\sqrt{\log p/n}$ | regularizes $\widehat\gamma$; the score is first-order insensitive to its error |
+| $\mu$ (Dantzig tol) | $\asymp\sqrt{\log p/n}$ | controls bias of the decorrelation weight $\widehat w$ |
 | loss / link | any GLM | identity, logit, log, … via $\nabla\mathcal L,\nabla^2\mathcal L$ |
 | target dim $d$ | $1$ | $\chi^2_d$ null for multi-dimensional $\theta$ |
 | $\alpha$ | $0.05$ | test level / CI coverage |
@@ -125,7 +125,7 @@ Return  θ̂, U (p-value), CI
 
 - **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link $g$, target coordinate(s)
   $\theta$, null value $\theta_0$, penalties $\lambda,\mu$.
-- **Output:** point estimate $\hat\theta$ **plus inference** — the statistic $U_n$
+- **Output:** point estimate $\widehat\theta$ **plus inference** — the statistic $U_n$
   ($p$-value) and CI $\mathcal C_{1-\alpha}$ (hence `output: point+inference`).
 - **Links:** any — the construction only uses the loss gradient/Hessian
   $\nabla\mathcal L,\ \nabla^2\mathcal L=I$.
@@ -144,7 +144,7 @@ Return  θ̂, U (p-value), CI
 ## Statistical guarantees
 
 - **Asymptotic null distribution:** under compatibility + sparsity
-  ($s\log p/\sqrt n\to 0$) and a valid sparse $\hat w$,
+  ($s\log p/\sqrt n\to 0$) and a valid sparse $\widehat w$,
   $U_n\xrightarrow{d}N(0,1)$ under $H_0$ and $U_n^2\xrightarrow{d}\chi^2_d$
   [`Ning and Liu, 2017`](#ref-10.1214/16-AOS1448).
 - **Estimation / normality:** the one-step estimator is $\sqrt n$-consistent and asymptotically
@@ -159,8 +159,8 @@ Return  θ̂, U (p-value), CI
 ## Variants & related
 
 - [Debiased / Desparsified Lasso](debiased-lasso.md) — the linear-model special case; its
-  $\hat\Theta X^\top$ correction coincides with decorrelation under Gaussian loss.
-- [Lasso via Coordinate Descent](lasso-cd.md) — supplies the penalized nuisance estimate $\hat\gamma$.
+  $\widehat\Theta X^\top$ correction coincides with decorrelation under Gaussian loss.
+- [Lasso via Coordinate Descent](lasso-cd.md) — supplies the penalized nuisance estimate $\widehat\gamma$.
 - **Double / orthogonalized (Neyman) score** — the same orthogonality principle underlies
   double-ML and partialling-out estimators.
 

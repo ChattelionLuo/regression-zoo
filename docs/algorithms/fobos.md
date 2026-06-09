@@ -32,7 +32,7 @@ status: draft
 FOBOS (Duchi & Singer, 2009) minimizes the **composite** online objective
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
 \nabla\ell_i(\beta) = -(y_i-\mu_i)\,x_i = (\mu(x_i^\top\beta)-y_i)\,x_i,
 $$
 
@@ -91,7 +91,7 @@ Return β
 ## Mapping to framework
 
 - **Input:** stream of $(x_i,y_i)$, link $g$, penalty $(\lambda, P)$, schedule $\gamma_t$.
-- **Output:** sparse point estimate $\hat\beta$.
+- **Output:** sparse point estimate $\widehat\beta$.
 - **Links:** identity, logit, log.
 - **Preprocessing:** feature scaling recommended so a single $\lambda$ acts uniformly.
 

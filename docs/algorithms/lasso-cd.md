@@ -31,7 +31,7 @@ status: reviewed
 The $\ell_1$-penalized template:
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) \;+\; \lambda\lVert\beta\rVert_1 ,
 \qquad
 \mathcal L(\beta)=\frac{1}{2n}\lVert y-X\beta\rVert_2^2 \;\text{(Gaussian)} .
@@ -63,7 +63,7 @@ for λ in grid:                       # decreasing
 Return path {β(λ)}
 ```
 
-- $\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ with $\hat\beta=0$);
+- $\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ with $\widehat\beta=0$);
   grid is log-spaced down to $\lambda_{\min}=\epsilon\,\lambda_{\max}$.
 - **Active-set / strong rules** restrict cycling to likely-nonzero coordinates for speed.
 
@@ -86,7 +86,7 @@ penalized weighted least squares problem.
 ## Mapping to framework
 
 - **Input:** $X, y$, link; regularization $\lambda$ (or request full path).
-- **Output:** $\hat\beta(\lambda)$ — a single point or the whole path.
+- **Output:** $\widehat\beta(\lambda)$ — a single point or the whole path.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian) or fit unpenalized intercept (GLM).
 
@@ -99,7 +99,7 @@ penalized weighted least squares problem.
 ## Statistical guarantees
 
 - **Estimation:** under a restricted-eigenvalue / compatibility condition and
-  $\lambda\asymp\sigma\sqrt{\log p / n}$, $\lVert\hat\beta-\beta^\star\rVert_1=O_P(s\sqrt{\log p/n})$.
+  $\lambda\asymp\sigma\sqrt{\log p / n}$, $\lVert\widehat\beta-\beta^\star\rVert_1=O_P(s\sqrt{\log p/n})$.
 - **Selection:** support recovery under the irrepresentable/beta-min conditions
   [`Zhao and Yu, 2006`](#ref-zhao2006model).
 - Coordinate descent converges to a global optimum (convex objective, separable penalty).

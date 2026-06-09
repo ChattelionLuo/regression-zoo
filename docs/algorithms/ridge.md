@@ -35,7 +35,7 @@ status: draft
 Ridge is the $\ell_2$-penalized template ($P(\beta)=\lVert\beta\rVert_2^2$) with the Gaussian loss:
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\,\lVert y - X\beta\rVert_2^2 \;+\; \lambda\,\lVert\beta\rVert_2^2 .
 $$
 
@@ -44,7 +44,7 @@ Setting the gradient $-\tfrac1n X^\top(y-X\beta) + 2\lambda\beta$ to zero gives 
 unique closed form
 
 $$
-\boxed{\;\hat\beta(\lambda) = \big(X^\top X + 2n\lambda I\big)^{-1} X^\top y\;}
+\boxed{\;\widehat\beta(\lambda) = \big(X^\top X + 2n\lambda I\big)^{-1} X^\top y\;}
 $$
 
 *(Arena note — scaling convention.)* Because we use the $\tfrac{1}{2n}$-normalized loss together
@@ -57,7 +57,7 @@ whenever reporting a numerical $\lambda$.
 **GLM / penalized-likelihood generalization.** For a general GLM the estimator solves
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_2^2 ,
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_2^2 ,
 $$
 
 with $\mathcal L$ the mean negative log-likelihood (logistic, Poisson, …); the penalized score
@@ -69,7 +69,7 @@ equation is $X^\top(y-\mu(\beta)) = 2n\lambda\,\beta$.
 singular values $\sigma_1\ge\cdots\ge\sigma_r>0$. Then
 
 $$
-\hat\beta(\lambda) = \sum_{k} v_k\,\frac{\sigma_k}{\sigma_k^2 + 2n\lambda}\, u_k^\top y ,
+\widehat\beta(\lambda) = \sum_{k} v_k\,\frac{\sigma_k}{\sigma_k^2 + 2n\lambda}\, u_k^\top y ,
 $$
 
 so each component of the least-squares solution is multiplied by the **shrinkage factor**
@@ -110,7 +110,7 @@ repeat until convergence:
 | tol / max-iter | $10^{-7}$ / 100 | IRLS stopping for GLM links |
 
 **$\lambda$ selection.** Generalized cross-validation minimizes
-$\mathrm{GCV}(\lambda)=\tfrac1n\lVert y - X\hat\beta(\lambda)\rVert_2^2 / \big(1-\mathrm{df}(\lambda)/n\big)^2$,
+$\mathrm{GCV}(\lambda)=\tfrac1n\lVert y - X\widehat\beta(\lambda)\rVert_2^2 / \big(1-\mathrm{df}(\lambda)/n\big)^2$,
 a rotation-invariant approximation to leave-one-out CV that reuses the SVD. Ordinary $k$-fold CV
 on prediction error is the common alternative.
 
@@ -127,7 +127,7 @@ complexity and feeds GCV.
 
 - **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link (`identity`/`logit`/`log`),
   ridge level $\lambda$.
-- **Output:** point estimate $\hat\beta(\lambda)=(X^\top X + 2n\lambda I)^{-1}X^\top y$ (identity),
+- **Output:** point estimate $\widehat\beta(\lambda)=(X^\top X + 2n\lambda I)^{-1}X^\top y$ (identity),
   or the penalized-IRLS solution for other links.
 - **Links:** identity (closed form); logit, log via penalized IRLS.
 - **Preprocessing:** standardize $X$, center $y$ / keep intercept unpenalized; report the $\lambda$
@@ -138,17 +138,17 @@ complexity and feeds GCV.
 - Cholesky route: $O(np^2)$ to form $X^\top X$ plus $O(p^3)$ to factor/solve; memory $O(p^2)$.
 - SVD route: $O(np\min(n,p))$ once, after which every $\lambda$ on a grid costs only $O(pr)$
   — ideal for GCV/CV over a $\lambda$-path.
-- High-dim ($p\gg n$): use the dual/woodbury form $\hat\beta = X^\top(XX^\top + 2n\lambda I)^{-1}y$
+- High-dim ($p\gg n$): use the dual/woodbury form $\widehat\beta = X^\top(XX^\top + 2n\lambda I)^{-1}y$
   at $O(n^2 p + n^3)$.
 
 ## Statistical guarantees
 
-- **Bias–variance trade-off.** $\hat\beta(\lambda)$ is biased toward $0$ but has strictly smaller
+- **Bias–variance trade-off.** $\widehat\beta(\lambda)$ is biased toward $0$ but has strictly smaller
   variance than OLS; for the Gaussian model there always exists a $\lambda>0$ whose mean-squared
   error beats OLS — the original motivation of Hoerl & Kennard (1970).
-- **Existence/uniqueness.** The objective is strongly convex for any $\lambda>0$, so $\hat\beta$ is
+- **Existence/uniqueness.** The objective is strongly convex for any $\lambda>0$, so $\widehat\beta$ is
   unique even when $p>n$ or $X$ is rank-deficient.
-- **Bayesian reading.** $\hat\beta(\lambda)$ is the posterior mean under a Gaussian prior
+- **Bayesian reading.** $\widehat\beta(\lambda)$ is the posterior mean under a Gaussian prior
   $\beta\sim\mathcal N(0,\tau^2 I)$ with $\tau^2 \propto 1/\lambda$.
 - Ridge does **not** perform variable selection; for sparse recovery use $\ell_1$ penalties.
 

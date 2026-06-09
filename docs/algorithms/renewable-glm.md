@@ -40,22 +40,22 @@ S_k(\beta) = X_k^\top\big(y_k - \mu_k(\beta)\big), \quad \mu_k(\beta)=g^{-1}(X_k
 $$
 
 but computed **incrementally** (Luo & Song, 2020). Renewable estimation maintains a running
-estimate $\hat\beta_{b}$ and the **aggregated negative Hessian / information**
+estimate $\widehat\beta_{b}$ and the **aggregated negative Hessian / information**
 $J_b=\sum_{k\le b} X_k^\top W_k X_k$. For a new batch $b$ it performs an information-weighted
 one-step (Newton) update that fuses the previous summary with the current-batch score:
 
 $$
 \boxed{\;
 \begin{aligned}
-J_b &= J_{b-1} + X_b^\top W_b\big(\hat\beta_{b-1}\big)\,X_b,\\[4pt]
-\hat\beta_b &= \hat\beta_{b-1} + J_b^{-1}\, X_b^\top\big(y_b - \mu_b(\hat\beta_{b-1})\big),
+J_b &= J_{b-1} + X_b^\top W_b\big(\widehat\beta_{b-1}\big)\,X_b,\\[4pt]
+\widehat\beta_b &= \widehat\beta_{b-1} + J_b^{-1}\, X_b^\top\big(y_b - \mu_b(\widehat\beta_{b-1})\big),
 \end{aligned}
 \;}
 $$
 
 where $W_b(\beta)=\operatorname{diag}\big(V(\mu_{b,i})\big)$ are the GLM weights (under the canonical
 link). The term $J_{b-1}$ carries the **prior estimate weighted by accumulated information**, while
-$X_b^\top(y_b-\mu_b(\hat\beta_{b-1}))$ is the new batch's score at the previous estimate — together
+$X_b^\top(y_b-\mu_b(\widehat\beta_{b-1}))$ is the new batch's score at the previous estimate — together
 an aggregated estimating equation whose solution is the renewable estimator.
 
 ## Algorithm
@@ -84,14 +84,14 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 |---|---|---|
 | link $g$ | any | canonical or non-canonical (use observed information if non-canonical) |
 | inner Newton steps | 1 | per batch; more improves finite-batch accuracy |
-| init $\hat\beta_0, J_0$ | $0,\,0$ | first batch behaves like a standard IRLS fit |
+| init $\widehat\beta_0, J_0$ | $0,\,0$ | first batch behaves like a standard IRLS fit |
 | batch size $n_b$ | data-driven | arbitrary, may vary across blocks |
 | ridge on $J_b$ | optional | small $\epsilon I$ for early-batch invertibility |
 
 ## Mapping to framework
 
 - **Input:** sequence of batches $(X_b, y_b)$, link $g$.
-- **Output:** $\hat\beta_b$ **and** inference — covariance $\widehat{\operatorname{Cov}}(\hat\beta_b)=J_b^{-1}$
+- **Output:** $\widehat\beta_b$ **and** inference — covariance $\widehat{\operatorname{Cov}}(\widehat\beta_b)=J_b^{-1}$
   (Wald intervals, tests). Hence `output: point+inference`.
 - **Links:** any differentiable link.
 - **Preprocessing:** consistent coding/scaling across batches; intercept via a ones column.
@@ -101,13 +101,13 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 - **Per batch:** forming $X_b^\top W_b X_b$ and the score is $O(n_b p^2)$; the Newton solve is
   $O(p^3)$ (amortized small since $p$ is fixed and batches stream). Cost is **independent of the
   total number of batches** already processed.
-- **Memory:** $O(p^2)$ — the estimate $\hat\beta_b$ ($O(p)$) plus the aggregated information $J_b$
+- **Memory:** $O(p^2)$ — the estimate $\widehat\beta_b$ ($O(p)$) plus the aggregated information $J_b$
   ($O(p^2)$). Crucially, **raw data are not stored**: storage is bounded by the summary, not the
   data volume.
 
 ## Statistical guarantees
 
-- **Asymptotic equivalence to the full-data MLE.** As batches accumulate, $\hat\beta_b$ is
+- **Asymptotic equivalence to the full-data MLE.** As batches accumulate, $\widehat\beta_b$ is
   consistent and asymptotically normal with the **same** limiting distribution as the oracle MLE
   computed on all data at once, with $J_b^{-1}$ a consistent variance estimator
   [`Luo and Song, 2020`](#ref-luo2020renewable).

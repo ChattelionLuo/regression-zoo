@@ -34,7 +34,7 @@ status: draft
 SCAD (Fan & Li 2001) uses a folded-concave penalty $p_\lambda(\cdot)$ applied coordinatewise:
 
 $$
-\hat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) \;+\; \sum_{j=1}^p p_\lambda\!\big(|\beta_j|\big),
 $$
 
@@ -115,7 +115,7 @@ return β^(λ)
 ## Mapping to framework
 
 - **Input:** $X, y$, link; regularization $\lambda$, concavity $a$ (or request full path).
-- **Output:** $\hat\beta(\lambda)$ — a point or the whole path.
+- **Output:** $\widehat\beta(\lambda)$ — a point or the whole path.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian) or fit an unpenalized intercept (GLM).
 

@@ -32,7 +32,7 @@ status: draft
 Truncated Gradient (Langford, Li & Zhang, 2009) approximately solves the $\ell_1$-penalized GLM
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_1, \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_1, \qquad
 \nabla\ell_i(\beta) = -(y_i-\mu_i)\,x_i = (\mu(x_i^\top\beta)-y_i)\,x_i,
 $$
 
@@ -88,7 +88,7 @@ Return β
 ## Mapping to framework
 
 - **Input:** stream of $(x_i,y_i)$, link $g$, $(\lambda, K, \theta)$, step $\gamma$.
-- **Output:** sparse point estimate $\hat\beta$.
+- **Output:** sparse point estimate $\widehat\beta$.
 - **Links:** identity, logit, log.
 - **Preprocessing:** feature scaling recommended so $\lambda$ acts uniformly across coordinates.
 

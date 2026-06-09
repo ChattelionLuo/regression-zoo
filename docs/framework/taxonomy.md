@@ -4,7 +4,7 @@ Algorithms are organized along three orthogonal axes. A single card may belong t
 categories; the **family** tag is its primary placement, the **data regime** and
 **penalty / structure** tags refine it.
 
-## Axis A — Algorithm family (how $\hat\beta$ is computed)
+## Axis A — Algorithm family (how $\widehat\beta$ is computed)
 
 | Family tag | Description | Representative methods |
 |---|---|---|

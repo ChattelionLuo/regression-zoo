@@ -36,14 +36,14 @@ The LARS-Lasso modification traces the full $\ell_1$-regularization path, i.e. t
 minimizers of the lasso objective over all $\lambda\ge 0$:
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2}\,\lVert y - X\beta\rVert_2^2 \;+\; \lambda\,\lVert\beta\rVert_1 .
 $$
 
 Because this solution is **piecewise linear in $\lambda$**, it is fully described by its breakpoints
 (knots). LARS computes those knots and the linear segments between them directly, rather than
 solving the optimization on a $\lambda$-grid. Plain (unmodified) LARS solves a slightly less
-constrained problem; adding the drop/sign rule below makes it reproduce $\hat\beta(\lambda)$ exactly.
+constrained problem; adding the drop/sign rule below makes it reproduce $\widehat\beta(\lambda)$ exactly.
 
 ## Algorithm
 
@@ -52,7 +52,7 @@ correlation with the current residual, and moves the coefficients in the **equia
 — the direction making equal angles with all active predictors — so that those correlations stay
 tied and decrease together until a new variable catches up.
 
-Let $r = y - X\hat\beta$ be the residual, $c = X^\top r$ the current correlations, and
+Let $r = y - X\widehat\beta$ be the residual, $c = X^\top r$ the current correlations, and
 $C = \max_j |c_j|$. With $\mathcal A$ the active set, signs $s_j=\operatorname{sign}(c_j)$, and
 $X_{\mathcal A}$ the signed active columns, define
 
@@ -74,7 +74,7 @@ $$
 
 ($\min^{+}$ = minimum over positive entries). For **LARS-Lasso**, also compute the distance at which
 an active coefficient would hit zero,
-$\gamma_{\text{drop}} = \min^{+}_{j\in\mathcal A}\{-\hat\beta_j / (s_j w_j)\}$; if
+$\gamma_{\text{drop}} = \min^{+}_{j\in\mathcal A}\{-\widehat\beta_j / (s_j w_j)\}$; if
 $\gamma_{\text{drop}} < \gamma$, take that shorter step and **drop** the offending variable (its
 sign no longer agrees), which is exactly what enforces lasso sign agreement.
 
@@ -115,13 +115,13 @@ knots).
 | stopping | full path | stop at a target #steps, target $\lambda$, or when $\mathcal A$ saturates |
 | tie/precision tol | $10^{-12}$ | guards the equiangular solve and min-ratio comparisons |
 
-There is no $\lambda$ to tune *a priori* — LARS returns the whole path; a single $\hat\beta(\lambda)$
+There is no $\lambda$ to tune *a priori* — LARS returns the whole path; a single $\widehat\beta(\lambda)$
 is read off (or interpolated between knots) afterwards, with $\lambda$ chosen by CV, $C_p$, AIC/BIC.
 
 ## Mapping to framework
 
 - **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link `identity`; mode `lasso`/`lar`.
-- **Output:** the **path** $\{\hat\beta(\lambda)\}$ as a list of knots and equiangular segments.
+- **Output:** the **path** $\{\widehat\beta(\lambda)\}$ as a list of knots and equiangular segments.
 - **Links:** identity only (least-squares correlations); other links use coordinate-descent GLM paths.
 - **Preprocessing:** standardize $X$ to unit norm, center $y$.
 
@@ -134,7 +134,7 @@ is read off (or interpolated between knots) afterwards, with $\lambda$ chosen by
 ## Statistical guarantees
 
 - **Exactness.** With the drop/sign-agreement modification, LARS-Lasso returns the **exact** lasso
-  solution path $\hat\beta(\lambda)$ for all $\lambda\ge 0$ (the homotopy is piecewise linear).
+  solution path $\widehat\beta(\lambda)$ for all $\lambda\ge 0$ (the homotopy is piecewise linear).
 - **Efficiency.** The whole path costs the order of a single least-squares solve, unlike grid-based
   solvers that re-optimize at each $\lambda$.
 - Selection/estimation properties are inherited from the lasso (restricted-eigenvalue /

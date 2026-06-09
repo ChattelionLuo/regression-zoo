@@ -3,7 +3,7 @@
 Every algorithm card in this encyclopedia answers the **same question** in the **same language**:
 
 > Given a design matrix $X$, a response $y$, and a link function $g$, produce a coefficient
-> estimate $\hat\beta$ — under a stated configuration of hyperparameters.
+> estimate $\widehat\beta$ — under a stated configuration of hyperparameters.
 
 This page fixes the notation and the canonical objects (exponential family, link, loss,
 gradient, Hessian, penalties, optimization template). **All cards reference this page** so
@@ -20,7 +20,7 @@ that estimators defined in different papers can be compared on equal footing.
 | $X \in \mathbb{R}^{n\times p}$ | design / covariate matrix, rows $x_i^\top$, columns $X_{\cdot j}$ |
 | $x_i \in \mathbb{R}^{p}$ | covariate vector for observation $i$ |
 | $y \in \mathbb{R}^{n}$ | response vector, entries $y_i$ |
-| $\beta \in \mathbb{R}^{p}$ | unknown coefficient vector; $\beta^\star$ true value, $\hat\beta$ estimate |
+| $\beta \in \mathbb{R}^{p}$ | unknown coefficient vector; $\beta^\star$ true value, $\widehat\beta$ estimate |
 | $\beta_0$ | optional intercept (absorbed into $X$ via a column of ones unless stated) |
 
 **Standardization.** Unless a card says otherwise, columns of $X$ are centered and scaled to
@@ -127,14 +127,14 @@ The quantity $S(\beta) = X^\top(y-\mu(\beta))$ is the **score**; $I(\beta)=X^\to
 The overwhelming majority of GLM solvers compute
 
 $$
-\boxed{\;\hat\beta \in \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal{L}(\beta) \;+\; \lambda\, P(\beta)\;}
+\boxed{\;\widehat\beta \in \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal{L}(\beta) \;+\; \lambda\, P(\beta)\;}
 $$
 
 where $P$ is a (possibly zero) penalty and $\lambda \ge 0$ a regularization level. Cards describe
 **how** the minimization is performed (closed form, Newton/IRLS, coordinate descent, proximal/
 first-order, homotopy/path, stochastic/online, ...), which is precisely the "algorithm".
 
-Some cards instead define $\hat\beta$ through an **estimating equation** $\sum_i \psi_i(\beta)=0$
+Some cards instead define $\widehat\beta$ through an **estimating equation** $\sum_i \psi_i(\beta)=0$
 (e.g. GEE, quasi-likelihood, debiasing corrections); the same notation applies.
 
 ### Common penalties $P(\beta)$
@@ -184,7 +184,7 @@ Every implemented solver will expose the same contract:
 fit(X, y, link, **config)  ->  beta_hat   (plus optional path, diagnostics)
 ```
 
-so that, given identical $(X, y, g)$, different cards' outputs $\hat\beta$ can be compared,
+so that, given identical $(X, y, g)$, different cards' outputs $\widehat\beta$ can be compared,
 correlated, and benchmarked across datasets. The card's **"Mapping to framework"** section is
 the spec for this interface.
 

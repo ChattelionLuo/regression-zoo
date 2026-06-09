@@ -35,7 +35,7 @@ status: draft
 The Minimax Concave Penalty (Zhang 2010) is applied coordinatewise:
 
 $$
-\hat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y - X\beta\rVert_2^2 \;+\; \sum_{j=1}^p p_\lambda\!\big(|\beta_j|;\gamma\big),
 $$
 
@@ -92,7 +92,7 @@ for λ in grid:                       # decreasing
 return path {β(λ)}
 ```
 
-- $\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ with $\hat\beta=0$);
+- $\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ with $\widehat\beta=0$);
   grid log-spaced down to $\lambda_{\min}=\epsilon\lambda_{\max}$, with warm starts.
 - **General GLM.** Penalized IRLS (outer quadratic approximation) + weighted coordinate descent
   (inner) applying the firm-thresholding update on the working response, as in [Lasso-CD](lasso-cd.md).
@@ -112,7 +112,7 @@ return path {β(λ)}
 ## Mapping to framework
 
 - **Input:** $X, y$, link; regularization $\lambda$, concavity $\gamma$ (or request full path).
-- **Output:** $\hat\beta(\lambda)$ — a point or the whole path.
+- **Output:** $\widehat\beta(\lambda)$ — a point or the whole path.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian) or fit an unpenalized intercept (GLM).
 

@@ -34,7 +34,7 @@ status: draft
 Same target as SGD — the unpenalized GLM minimizer
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
 \nabla\ell_i(\beta) = -(y_i-\mu_i)\,x_i = (\mu(x_i^\top\beta)-y_i)\,x_i,
 $$
 
@@ -100,7 +100,7 @@ iterations; no $p\times p$ system is ever formed.
 ## Mapping to framework
 
 - **Input:** stream of $(x_i,y_i)$, link $g$, schedule $\gamma_t$.
-- **Output:** point estimate $\hat\beta$, or averaged $\bar\beta_t$ with asymptotic covariance.
+- **Output:** point estimate $\widehat\beta$, or averaged $\bar\beta_t$ with asymptotic covariance.
 - **Links:** identity, logit, log (any monotone canonical $\mu=g^{-1}$).
 - **Preprocessing:** feature scaling recommended; bounded memory, no data retention.
 

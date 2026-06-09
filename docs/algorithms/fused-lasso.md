@@ -37,7 +37,7 @@ Two $\ell_1$ penalties are combined: one on the coefficients (sparsity) and one 
 differences** (smoothness / piecewise constancy):
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y-X\beta\rVert_2^2
 \;+\; \lambda_1 \lVert\beta\rVert_1
 \;+\; \lambda_2 \sum_{j=2}^{p} |\beta_j-\beta_{j-1}| .
@@ -107,7 +107,7 @@ The two penalties are typically selected jointly by 2-D cross-validation.
 ## Mapping to framework
 
 - **Input:** $X, y$, link `identity`, an **ordering** of coefficients; penalties $\lambda_1,\lambda_2$.
-- **Output:** $\hat\beta$ — a point, or a path over the $(\lambda_1,\lambda_2)$ grid; sparse and
+- **Output:** $\widehat\beta$ — a point, or a path over the $(\lambda_1,\lambda_2)$ grid; sparse and
   piecewise constant.
 - **Links:** identity only (for non-Gaussian families a fused penalty is combined with IRLS, but
   that is outside the original definition).

@@ -33,7 +33,7 @@ status: draft
 FISTA solves the same composite convex objective as [ISTA](ista.md):
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) \;+\; \lambda\lVert\beta\rVert_1 ,
 \qquad
 \mathcal L(\beta)=\frac{1}{2n}\lVert y-X\beta\rVert_2^2 \;\text{(Gaussian)} ,
@@ -88,7 +88,7 @@ return β̂
 ## Mapping to framework
 
 - **Input:** $X, y$, link; regularization $\lambda$; step rule.
-- **Output:** $\hat\beta(\lambda)$ — a single point.
+- **Output:** $\widehat\beta(\lambda)$ — a single point.
 - **Links:** identity, logit, log (any convex GLM loss with Lipschitz gradient).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian) or fit an unpenalized intercept (GLM).
 
@@ -102,10 +102,10 @@ return β̂
 ## Statistical guarantees
 
 - **Optimization (convex $\mathcal L$).** With $s=1/L_\nabla$,
-  $F(\beta^{(k)})-F(\hat\beta)\le \dfrac{2L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{(k+1)^2}=O(1/k^2)$,
+  $F(\beta^{(k)})-F(\widehat\beta)\le \dfrac{2L_\nabla\lVert\beta^{(0)}-\widehat\beta\rVert_2^2}{(k+1)^2}=O(1/k^2)$,
   where $F=\mathcal L+\lambda P$ — the optimal rate for first-order methods on this class
   [`Beck and Teboulle, 2009`](#ref-beck2009fast).
-- FISTA is an optimization method: statistical properties of the *solution* $\hat\beta(\lambda)$
+- FISTA is an optimization method: statistical properties of the *solution* $\widehat\beta(\lambda)$
   are those of the lasso/penalized M-estimator it computes (see [Lasso-CD](lasso-cd.md)).
 - Builds on the iterative thresholding iteration of Daubechies, Defrise & De Mol (2004)
   [`Daubechies et al., 2004`](#ref-daubechies2004iterative).

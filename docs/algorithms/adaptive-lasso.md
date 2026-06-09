@@ -24,7 +24,7 @@ status: draft
 - Any GLM in the [exponential family](../framework/notation.md#2-exponential-dispersion-family);
   Gaussian/identity is canonical, logistic/Poisson via the IRLS outer loop.
 - Originally proposed for the low-dimensional regime where a $\sqrt n$-consistent initial
-  estimator (e.g. OLS) exists; extends to high dimensions when $\hat\beta_{\text{init}}$ is a
+  estimator (e.g. OLS) exists; extends to high dimensions when $\widehat\beta_{\text{init}}$ is a
   ridge or marginal-regression estimate.
 - Columns of $X$ standardized to unit variance; $y$ centered (Gaussian). Intercept unpenalized.
 - Sparsity $\lVert\beta^\star\rVert_0=s$ assumed; relies on an initial estimate whose nonzero
@@ -33,14 +33,14 @@ status: draft
 ## Estimator / objective
 
 The adaptive lasso replaces the uniform $\ell_1$ penalty by a **weighted** $\ell_1$ penalty whose
-weights are computed from a preliminary estimate $\hat\beta_{\text{init}}$:
+weights are computed from a preliminary estimate $\widehat\beta_{\text{init}}$:
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y-X\beta\rVert_2^2
 \;+\; \lambda \sum_{j=1}^p w_j\,|\beta_j|,
 \qquad
-w_j = \frac{1}{|\hat\beta_{\text{init},j}|^{\gamma}},\;\; \gamma>0 .
+w_j = \frac{1}{|\widehat\beta_{\text{init},j}|^{\gamma}},\;\; \gamma>0 .
 $$
 
 For a general GLM, replace the Gaussian loss by the mean negative log-likelihood $\mathcal L(\beta)$.
@@ -60,7 +60,7 @@ $$
 $$
 
 an ordinary lasso in $(\tilde X,\tilde\beta)$. Solve it by [coordinate descent](lasso-cd.md),
-then map back $\hat\beta_j = \hat{\tilde\beta}_j / w_j$.
+then map back $\widehat\beta_j = \widehat{\tilde\beta}_j / w_j$.
 
 ```text
 Input: X (standardized), y (centered), λ-grid, exponent γ, initial estimator type
@@ -77,7 +77,7 @@ Input: X (standardized), y (centered), λ-grid, exponent γ, initial estimator t
 Return path {β(λ)}
 ```
 
-Coordinates with $\hat\beta_{\text{init},j}=0$ have $w_j=\infty$ and are dropped a priori
+Coordinates with $\widehat\beta_{\text{init},j}=0$ have $w_j=\infty$ and are dropped a priori
 ($\beta_j\equiv 0$), giving an automatic screening step. For GLMs the inner solve is the
 penalized IRLS + coordinate-descent loop applied to $\tilde X$.
 
@@ -87,7 +87,7 @@ penalized IRLS + coordinate-descent loop applied to $\tilde X$.
 |---|---|---|
 | $\lambda$ | path | selected by CV (`lambda.min` / `lambda.1se`), AIC/BIC, or fixed |
 | $\gamma$ (weight exponent) | 1 | $\gamma\in\{0.5,1,2\}$ typical; larger $\gamma$ ⇒ stronger asymmetry; tuned with $\lambda$ by CV |
-| $\hat\beta_{\text{init}}$ | OLS ($n>p$) | ridge or univariate/marginal regression when $p\ge n$ |
+| $\widehat\beta_{\text{init}}$ | OLS ($n>p$) | ridge or univariate/marginal regression when $p\ge n$ |
 | standardize | true | columns to unit variance |
 | intercept | true, unpenalized | |
 | tol | $10^{-7}$ | convergence on max coordinate change |
@@ -99,10 +99,10 @@ cross-validation.
 ## Mapping to framework
 
 - **Input:** $X, y$, link; weight exponent $\gamma$, initial estimator, regularization $\lambda$.
-- **Output:** $\hat\beta(\lambda)$ — a point or the whole path, on the original scale.
+- **Output:** $\widehat\beta(\lambda)$ — a point or the whole path, on the original scale.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian). Requires computing
-  $\hat\beta_{\text{init}}$ before the main solve.
+  $\widehat\beta_{\text{init}}$ before the main solve.
 
 ## Complexity
 
@@ -113,7 +113,7 @@ cross-validation.
 
 ## Statistical guarantees
 
-- **Oracle property** (Zou, 2006). With a $\sqrt n$-consistent $\hat\beta_{\text{init}}$ and
+- **Oracle property** (Zou, 2006). With a $\sqrt n$-consistent $\widehat\beta_{\text{init}}$ and
   $\lambda_n$ chosen so that $\lambda_n/\sqrt n\to 0$ and $\lambda_n n^{(\gamma-1)/2}\to\infty$,
   the adaptive lasso (i) selects the true support with probability $\to 1$ and (ii) estimates the
   nonzero coefficients with the same asymptotic distribution as if the true support were known.

@@ -3,7 +3,7 @@
 # Algorithm Catalogue
 
 The library of algorithm cards, grouped by [family](../framework/taxonomy.md). Each entry maps
-$(X, y, g) \mapsto \hat\beta$ under the [unified notation](../framework/notation.md).
+$(X, y, g) \mapsto \widehat\beta$ under the [unified notation](../framework/notation.md).
 
 !!! note "Status legend"
     **reviewed** — math checked against source · **draft** — written, pending review ·

@@ -23,12 +23,12 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 <p class="arena-kicker">The one question every card answers</p>
 
 > **Given** a design matrix $X$, a response vector $y$, a model specification — family, link $g$, loss, and tuning parameters where relevant —
-> **what** exactly does the algorithm return as $\hat\beta$ ?
+> **what** exactly does the algorithm return as $\widehat\beta$ ?
 
-Even someone in finance can parrot $\hat\beta = (X^\top X)^{-1} X^\top y$, but it is much trickier when the situation becomes irregular. In statistics, each method can be essential viewed as the mapping $(X, y, \text{model}) \mapsto \hat\beta$ and often written against the shared template
+Even someone in finance can parrot $\widehat\beta = (X^\top X)^{-1} X^\top y$, but it is much trickier when the situation becomes irregular. In statistics, each method can be essential viewed as the mapping $(X, y, \text{model}) \mapsto \widehat\beta$ and often written against the shared template
 
 $$
-\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
+\widehat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
 $$
 
 or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases — benchmarked on equal footing.
@@ -91,7 +91,7 @@ This Arena puts this solver zoo in one coordinate system. Each algorithm card st
     ---
 
     Faithful algorithm cards — exact mathematics only. Each defines the estimator,
-    the algorithm, its hyperparameters, and the precise $(X,y,g)\mapsto\hat\beta$ contract.
+    the algorithm, its hyperparameters, and the precise $(X,y,g)\mapsto\widehat\beta$ contract.
 
 -   **II · Implementation & Arena** &nbsp; <span class="badge status-current">current</span>
 

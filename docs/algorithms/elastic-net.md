@@ -36,7 +36,7 @@ The elastic net mixes the lasso ($\ell_1$) and ridge ($\ell_2$) penalties throug
 parameter $\alpha\in[0,1]$:
 
 $$
-\hat\beta(\lambda,\alpha) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda,\alpha) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y-X\beta\rVert_2^2
 \;+\; \lambda\Big( \alpha\lVert\beta\rVert_1 + \frac{1-\alpha}{2}\lVert\beta\rVert_2^2 \Big).
 $$
@@ -78,7 +78,7 @@ Return path {β(λ)}
 ```
 
 - $\lambda_{\max}=\tfrac1{n\alpha}\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ giving
-  $\hat\beta=0$ for given $\alpha>0$); grid log-spaced down to $\lambda_{\min}=\epsilon\,\lambda_{\max}$.
+  $\widehat\beta=0$ for given $\alpha>0$); grid log-spaced down to $\lambda_{\min}=\epsilon\,\lambda_{\max}$.
 - **Active-set / strong rules** restrict cycling to likely-nonzero coordinates.
 
 **General GLM — penalized IRLS (outer) + coordinate descent (inner).** Form the quadratic
@@ -91,7 +91,7 @@ elastic net, which applies a double amount of shrinkage ($\ell_1$ then $\ell_2$)
 over-shrink. Zou & Hastie (2005) propose the *corrected* elastic net, rescaling
 
 $$
-\hat\beta^{\text{enet}} = (1+\lambda(1-\alpha))\,\hat\beta^{\text{naive}},
+\widehat\beta^{\text{enet}} = (1+\lambda(1-\alpha))\,\widehat\beta^{\text{naive}},
 $$
 
 which undoes the ridge contraction while keeping the grouping/variable-selection behaviour.
@@ -116,7 +116,7 @@ $\{0,0.1,\dots,1\}$ with a full $\lambda$ path for each.
 ## Mapping to framework
 
 - **Input:** $X, y$, link; regularization $\lambda$ and mixing $\alpha$ (or request the full path).
-- **Output:** $\hat\beta(\lambda,\alpha)$ — a single point or the whole path over $\lambda$.
+- **Output:** $\widehat\beta(\lambda,\alpha)$ — a single point or the whole path over $\lambda$.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; center $y$ (Gaussian) or fit an unpenalized intercept (GLM).
 
@@ -130,7 +130,7 @@ $\{0,0.1,\dots,1\}$ with a full $\lambda$ path for each.
 ## Statistical guarantees
 
 - **Grouping effect.** For two predictors with sample correlation $\rho$, Zou & Hastie (2005)
-  bound the coefficient difference: $\;|\hat\beta_j-\hat\beta_k| \le C\sqrt{2(1-\rho)}\,$,
+  bound the coefficient difference: $\;|\widehat\beta_j-\widehat\beta_k| \le C\sqrt{2(1-\rho)}\,$,
   so highly correlated predictors receive nearly equal coefficients (and enter/leave the model
   together) — unlike the lasso, which selects one arbitrarily.
 - Strict convexity for $\alpha<1$ gives a **unique** solution even under collinearity; the model

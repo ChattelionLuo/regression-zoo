@@ -30,14 +30,14 @@ status: reviewed
 OLS is the unpenalized template ($P\equiv 0$) with the Gaussian loss:
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \frac{1}{2n}\,\lVert y - X\beta\rVert_2^2 .
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \frac{1}{2n}\,\lVert y - X\beta\rVert_2^2 .
 $$
 
 Setting the gradient $-\tfrac1n X^\top(y-X\beta)$ to zero gives the **normal equations**
 $X^\top X\,\beta = X^\top y$, whose unique solution (full rank) is
 
 $$
-\boxed{\;\hat\beta = (X^\top X)^{-1} X^\top y\;}
+\boxed{\;\widehat\beta = (X^\top X)^{-1} X^\top y\;}
 $$
 
 ## Algorithm
@@ -52,7 +52,7 @@ Return β̂
 ```
 
 Equivalent routes: Cholesky of $X^\top X$, or SVD $X=U\Sigma V^\top$ giving
-$\hat\beta = V\Sigma^{-1}U^\top y$ (most robust when $X$ is ill-conditioned).
+$\widehat\beta = V\Sigma^{-1}U^\top y$ (most robust when $X$ is ill-conditioned).
 
 ## Hyperparameters & configuration
 
@@ -67,7 +67,7 @@ No regularization parameter ($\lambda=0$).
 ## Mapping to framework
 
 - **Input:** $X\in\mathbb{R}^{n\times p}$, $y\in\mathbb{R}^n$, link `identity`.
-- **Output:** $\hat\beta=(X^\top X)^{-1}X^\top y$.
+- **Output:** $\widehat\beta=(X^\top X)^{-1}X^\top y$.
 - **Links:** identity only (for other links use [GLM-IRLS](glm-irls.md)).
 - **Preprocessing:** center/scale optional; affects intercept handling only.
 
@@ -77,9 +77,9 @@ No regularization parameter ($\lambda=0$).
 
 ## Statistical guarantees
 
-- Unbiased: $\mathbb{E}[\hat\beta]=\beta^\star$; covariance $\sigma^2(X^\top X)^{-1}$.
+- Unbiased: $\mathbb{E}[\widehat\beta]=\beta^\star$; covariance $\sigma^2(X^\top X)^{-1}$.
 - **Gauss–Markov:** BLUE among linear unbiased estimators under homoskedasticity.
-- Under Gaussian errors, $\hat\beta$ is the MLE and is efficient.
+- Under Gaussian errors, $\widehat\beta$ is the MLE and is efficient.
 
 ## Variants & related
 

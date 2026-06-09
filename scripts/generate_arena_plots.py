@@ -407,7 +407,7 @@ def make_embedding_figure(df_ds, ds_name, ds_meta):
 
 # ── Heatmap figure ─────────────────────────────────────────────────────────────
 def make_heatmap_figure(df_ds, ds_name, ds_meta):
-    """Interactive coefficient heatmap for one dataset."""
+    """Interactive coefficient heatmap (with mean-|β̂| bar) for one dataset."""
     n, p = ds_meta['X'].shape
 
     _FAM_ORDER = {'Classical': 0, 'Penalized': 1, 'First-order': 2, 'Online': 3}
@@ -416,7 +416,6 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
     df2 = df2.sort_values(['_fam_ord', 'cls', 'bnorm']).reset_index(drop=True)
 
     betas = np.vstack(df2['beta'].values)
-    n_runs, _ = betas.shape
 
     # Widen single-config solvers: repeat their row 8× so it's visible
     single_config_solvers = {'OLSSolver', 'GLMIRLSSolver'}
@@ -432,10 +431,10 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
     B = np.array(expanded_rows)
 
     # Subsample rows for high-dimensional data to keep HTML files loadable
-    # Target: keep total cells (n_rows × p) below 80 000
-    MAX_CELLS = 80_000
+    # Target: keep total cells (n_rows × p) below 60 000
+    MAX_CELLS = 60_000
     if len(B) * p > MAX_CELLS:
-        n_keep = max(120, MAX_CELLS // max(p, 1))
+        n_keep = max(100, MAX_CELLS // max(p, 1))
         rng = np.random.default_rng(42)
         families_arr = np.array(expanded_families)
         unique_fams = list(dict.fromkeys(expanded_families))
@@ -452,35 +451,80 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
         expanded_families = [expanded_families[i] for i in keep_idx]
         B = np.array(expanded_rows)
 
-    # Compact per-row hover text (same label for every column in a row → much smaller JSON)
+    n_rows = len(B)
+
+    # Per-row y-labels (used as categorical y axis → hover shows full label via %{y})
     hover_cls = [ALGO_LABELS.get(c, c) for c in expanded_cls]
-    row_labels = [f"<b>{hover_cls[r]}</b>  {expanded_labels[r]}" for r in range(len(B))]
-    hover_text = [[f"{row_labels[r]}<br>j={j}  β={B[r,j]:.4f}" for j in range(p)] for r in range(len(B))]
+    row_y_labels = [f"{hover_cls[r]}  ·  {expanded_labels[r]}" for r in range(n_rows)]
 
     vmax = float(np.percentile(np.abs(B), 99))
     vmax = max(vmax, 1e-6)
 
+    # Mean |β̂| per feature (for top bar)
+    mean_abs_beta = np.mean(np.abs(B), axis=0)
+
     # y-tick labels at midpoints of each solver block
     y_tickvals, y_ticktext = [], []
-    pos = 0
-    prev_cls = None
     block_start = 0
+    prev_cls = None
     for i, cls_name in enumerate(expanded_cls + [None]):
         if cls_name != prev_cls and prev_cls is not None:
-            mid = (block_start + i - 1) / 2.0
-            y_tickvals.append(mid)
+            mid_idx = (block_start + i - 1) // 2
+            y_tickvals.append(row_y_labels[mid_idx])
             y_ticktext.append(ALGO_LABELS.get(prev_cls, prev_cls))
             block_start = i
         prev_cls = cls_name
-        pos = i
 
-    # Colour strip on left (as annotation band)
-    strip_colors = [ALGO_COLORS.get(c, '#888') for c in expanded_cls]
+    # Family divider shapes (yref='y2' = heatmap subplot row)
+    divider_shapes = []
+    prev_fam = None
+    for i, fam in enumerate(expanded_families + [None]):
+        if fam != prev_fam and prev_fam is not None:
+            divider_shapes.append(dict(
+                type='line', xref='x', yref='y2',
+                x0=-0.5, x1=p - 0.5,
+                y0=row_y_labels[i - 1] if i < n_rows else row_y_labels[-1],
+                y1=row_y_labels[i - 1] if i < n_rows else row_y_labels[-1],
+                line=dict(color='rgba(200,200,200,0.5)', width=1),
+            ))
+        prev_fam = fam
 
-    fig = go.Figure()
+    # X-axis ticks: show every N-th feature index
+    if p <= 20:
+        xtick_step = 1
+    elif p <= 64:
+        xtick_step = 5
+    elif p <= 150:
+        xtick_step = 10
+    else:
+        xtick_step = 25
+    xtick_vals = list(range(0, p, xtick_step))
 
+    # ── Subplots: row 1 = mean |β̂| bar, row 2 = coefficient heatmap ──────────
+    fig = make_subplots(
+        rows=2, cols=1,
+        row_heights=[0.12, 0.88],
+        shared_xaxes=True,
+        vertical_spacing=0.02,
+    )
+
+    # Row 1: mean |β̂| per feature
+    fig.add_trace(go.Bar(
+        x=list(range(p)),
+        y=mean_abs_beta.tolist(),
+        marker_color='#4a6fa5',
+        marker_line_width=0,
+        opacity=0.85,
+        hovertemplate='j=%{x}<br>mean|β̂|=%{y:.4f}<extra></extra>',
+        showlegend=False,
+        name='',
+    ), row=1, col=1)
+
+    # Row 2: coefficient heatmap
+    # Use y=row_y_labels so %{y} gives per-row solver label in hover — no 2D text array needed
     fig.add_trace(go.Heatmap(
         z=B,
+        y=row_y_labels,
         colorscale=[
             [0.0, '#053061'], [0.1, '#2166ac'], [0.2, '#4393c3'],
             [0.3, '#92c5de'], [0.4, '#d1e5f0'], [0.5, '#f7f7f7'],
@@ -488,50 +532,55 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
             [0.9, '#b2182b'], [1.0, '#67001f'],
         ],
         zmin=-vmax, zmax=vmax,
-        text=hover_text,
-        hovertemplate='%{text}<extra></extra>',
+        hovertemplate='<b>%{y}</b><br>j=%{x}  β̂=%{z:.4f}<extra></extra>',
         showscale=True,
         colorbar=dict(
-            title=dict(text='β̂', side='right', font=dict(size=12)),
-            thickness=12, len=0.8,
-            tickfont=dict(size=10),
+            title=dict(text='β̂', side='right', font=dict(size=11)),
+            thickness=10, len=0.75,
+            tickfont=dict(size=9),
             bgcolor='rgba(0,0,0,0)',
+            y=0.44, yanchor='middle',
         ),
         xgap=0, ygap=0,
-    ))
+    ), row=2, col=1)
 
-    # Horizontal divider lines between solver families
-    shape_list = []
-    pos = 0
-    prev_fam = None
-    for i, fam in enumerate(expanded_families + [None]):
-        if fam != prev_fam and prev_fam is not None:
-            shape_list.append(dict(
-                type='line', xref='paper', yref='y',
-                x0=0, x1=1, y0=pos - 0.5, y1=pos - 0.5,
-                line=dict(color='rgba(255,255,255,0.7)', width=1.5),
-            ))
-        prev_fam = fam
-        pos = i
+    heatmap_height = max(300, min(n_rows * 3 + 80, 820))
+    total_height = heatmap_height + 80  # +80 for bar subplot
 
     fig.update_layout(
         **PLOTLY_LAYOUT,
         title=dict(
-            text=f"<b>{ds_name.replace('_', ' ')}</b>  ·  n={n}, p={p}  ·  coefficient heatmap",
-            font=dict(size=14, color='#1a1a1a'), x=0, xanchor='left',
+            text=f"<b>{ds_name.replace('_', ' ')}</b>  ·  n={n}, p={p}  ·  coefficients",
+            font=dict(size=13, color='#1a1a1a'), x=0, xanchor='left',
         ),
-        height=max(350, min(len(B) * 4 + 80, 900)),
-        xaxis=dict(
-            title='Feature index j', tickfont=dict(size=10),
-            showgrid=False, zeroline=False,
-        ),
-        yaxis=dict(
-            tickmode='array', tickvals=y_tickvals, ticktext=y_ticktext,
-            tickfont=dict(size=10), showgrid=False, zeroline=False,
-            autorange='reversed',
-        ),
-        shapes=shape_list,
+        height=total_height,
+        shapes=divider_shapes,
         dragmode='zoom',
+        bargap=0,
+    )
+
+    # Bar subplot (row 1) axes
+    fig.update_yaxes(
+        title=dict(text='mean |β̂|', font=dict(size=9)),
+        tickfont=dict(size=9), showgrid=False, zeroline=False,
+        row=1, col=1,
+    )
+    fig.update_xaxes(showgrid=False, zeroline=False, row=1, col=1)
+
+    # Heatmap subplot (row 2) axes
+    fig.update_yaxes(
+        tickmode='array', tickvals=y_tickvals, ticktext=y_ticktext,
+        tickfont=dict(size=10), showgrid=False, zeroline=False,
+        autorange='reversed',
+        row=2, col=1,
+    )
+    fig.update_xaxes(
+        title=dict(text='feature index j', font=dict(size=10)),
+        tickmode='array', tickvals=xtick_vals,
+        ticktext=[str(v) for v in xtick_vals],
+        tickfont=dict(size=9),
+        showgrid=False, zeroline=False,
+        row=2, col=1,
     )
 
     return fig

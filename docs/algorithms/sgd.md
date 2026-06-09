@@ -33,7 +33,7 @@ status: draft
 SGD targets the unpenalized GLM minimizer ($P\equiv 0$):
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta)
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta)
             \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \frac1n\sum_{i=1}^n \ell_i(\beta),
 $$
 
@@ -93,7 +93,7 @@ Return β  (or the averaged β̄ for inference)
 ## Mapping to framework
 
 - **Input:** stream of $(x_i, y_i)$, link $g$, schedule $\gamma_t$.
-- **Output:** point estimate $\hat\beta$ (last iterate), or $\bar\beta_t$ with an asymptotic
+- **Output:** point estimate $\widehat\beta$ (last iterate), or $\bar\beta_t$ with an asymptotic
   covariance estimate (`point+inference` via averaging).
 - **Links:** identity, logit, log (any canonical link supplying $\mu=g^{-1}(\eta)$).
 - **Preprocessing:** feature scaling strongly recommended; no full-data storage required.

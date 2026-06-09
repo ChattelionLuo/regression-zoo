@@ -38,7 +38,7 @@ The penalty is a sum of (un-squared) $\ell_2$ norms of the blocks, weighted by $
 larger groups are penalized commensurately:
 
 $$
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\Big\lVert y-\sum_{g=1}^G X_g\beta_g\Big\rVert_2^2
 \;+\; \lambda \sum_{g=1}^G \sqrt{d_g}\,\lVert\beta_g\rVert_2 .
 $$
@@ -86,7 +86,7 @@ Return path {β(λ)}
 ```
 
 - $\lambda_{\max}=\max_g \tfrac{1}{n\sqrt{d_g}}\lVert X_g^\top y\rVert_2$ (smallest $\lambda$ with
-  $\hat\beta=0$); grid log-spaced to $\epsilon\lambda_{\max}$.
+  $\widehat\beta=0$); grid log-spaced to $\epsilon\lambda_{\max}$.
 - For **non-orthonormal** $X_g$ the inner block problem has no closed form; solve it with a short
   proximal-gradient / fixed-point loop (the threshold test for $\beta_g=0$ is unchanged).
 
@@ -108,7 +108,7 @@ lasso but with the groupwise update replacing the scalar one.
 ## Mapping to framework
 
 - **Input:** $X, y$, link, the **group partition** $\{\mathcal G_g\}$; regularization $\lambda$.
-- **Output:** $\hat\beta(\lambda)$ — a point or the whole path; sparsity is at the group level.
+- **Output:** $\widehat\beta(\lambda)$ — a point or the whole path; sparsity is at the group level.
 - **Links:** identity (LS inner loop), logit, log (IRLS outer loop).
 - **Preprocessing:** standardize $X$; optionally orthonormalize each $X_g$; center $y$ (Gaussian).
 

@@ -32,7 +32,7 @@ status: draft
 AdaGrad targets the unpenalized GLM minimizer (a composite penalty $P$ is optional, see below):
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
 g_t := \nabla\ell_{i_t}(\beta^{(t)}) = \big(\mu(x_{i_t}^\top\beta^{(t)})-y_{i_t}\big)\,x_{i_t}.
 $$
 
@@ -88,7 +88,7 @@ step $\eta/(\sqrt{G_{t,j}}+\epsilon)$, giving sparse adaptive online solutions.
 ## Mapping to framework
 
 - **Input:** stream of $(x_i,y_i)$, link $g$, base rate $\eta$ (optional $\lambda,P$).
-- **Output:** point estimate $\hat\beta$ (with sparsity if a prox penalty is used).
+- **Output:** point estimate $\widehat\beta$ (with sparsity if a prox penalty is used).
 - **Links:** identity, logit, log.
 - **Preprocessing:** AdaGrad is comparatively robust to feature scaling, but centering still helps.
 

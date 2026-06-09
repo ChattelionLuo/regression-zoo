@@ -32,7 +32,7 @@ status: draft
 RDA minimizes the composite online objective
 
 $$
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
 g_t := \nabla\ell_{i_t}(\beta^{(t)}) = \big(\mu(x_{i_t}^\top\beta^{(t)})-y_{i_t}\big)\,x_{i_t},
 $$
 
@@ -90,7 +90,7 @@ Return β
 ## Mapping to framework
 
 - **Input:** stream of $(x_i,y_i)$, link $g$, penalty $(\lambda, P)$, schedule $\beta_t$, auxiliary $h$.
-- **Output:** sparse point estimate $\hat\beta$.
+- **Output:** sparse point estimate $\widehat\beta$.
 - **Links:** identity, logit, log.
 - **Preprocessing:** feature scaling recommended so $\lambda$ thresholds coordinates uniformly.
 

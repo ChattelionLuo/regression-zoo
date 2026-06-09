@@ -37,7 +37,7 @@ status: reviewed                  # stub | draft | reviewed
 | `regime` | list of data-regime tags (Axis B) |
 | `penalty` | penalty/structure tag (Axis C) |
 | `link_support` | links handled (`identity`, `logit`, `log`, `probit`, `any`, ...) |
-| `output` | `point` (just $\hat\beta$), `path` (over $\lambda$), or `point+inference` |
+| `output` | `point` (just $\widehat\beta$), `path` (over $\lambda$), or `point+inference` |
 | `year` | year of the primary reference |
 | `refs` | list of bibkeys present in `reference.bib` |
 | `status` | maturity: `stub` < `draft` < `reviewed` |
@@ -50,12 +50,12 @@ A card body uses exactly these H2 sections, in order. Empty sections are allowed
 
 1. **Setting & assumptions** — data regime, link(s), structural assumptions
    (sparsity, design conditions, dispersion known/unknown).
-2. **Estimator / objective** — the *exact* definition of $\hat\beta$ in unified notation:
+2. **Estimator / objective** — the *exact* definition of $\widehat\beta$ in unified notation:
    the objective $\mathcal L + \lambda P$ or estimating equation. This is the mathematical heart.
-3. **Algorithm** — faithful pseudocode of how $\hat\beta$ is computed (updates, stopping rule).
+3. **Algorithm** — faithful pseudocode of how $\widehat\beta$ is computed (updates, stopping rule).
 4. **Hyperparameters & configuration** — every knob: $\lambda$ (and selection rule),
    step sizes, tolerances, weights, initialization, standardization.
-5. **Mapping to framework** — the $(X, y, g, \text{config}) \to \hat\beta$ contract:
+5. **Mapping to framework** — the $(X, y, g, \text{config}) \to \widehat\beta$ contract:
    inputs, outputs, supported links, and any required preprocessing. This is the Phase-2 spec.
 6. **Complexity** — per-iteration and total cost; memory (esp. for streaming).
 7. **Statistical guarantees** *(brief)* — consistency / rates / inference validity, with
