@@ -369,15 +369,16 @@ mjx-container[display="true"] {
 .arena-cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.1rem;          /* comfortable breathing room between buttons */
+  gap: 1.1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.6rem;
-  align-items: center;
+  align-items: stretch;   /* make both buttons the same height */
 }
 .md-typeset .arena-btn {
-  display: inline-flex; align-items: center; gap: 0.45rem;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
   font-size: 0.82rem; font-weight: 600;
   padding: 0.72rem 1.5rem;
+  min-width: 200px;       /* equal minimum width so both buttons match the wider one */
   border-radius: 0;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -395,15 +396,16 @@ mjx-container[display="true"] {
 }
 .md-typeset .arena-btn--ghost:hover { border-color: var(--arena-ink); color: var(--arena-ink); }
 
-/* Mobile: stack buttons vertically, keep them auto-width (not full-stretch) */
+/* Mobile: stack buttons vertically with a clear gap so they don't crowd each other */
 @media screen and (max-width: 480px) {
   .arena-cta {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: 1.2rem;
   }
   .md-typeset .arena-btn {
     width: auto;
+    min-width: 0;
     align-self: flex-start;
   }
 }
