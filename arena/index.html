@@ -18,8 +18,6 @@
         <link rel="prev" href="../algorithms/renewable-glm/">
       
       
-        <link rel="next" href="real-datasets/">
-      
       
         
       
@@ -29,7 +27,7 @@
     
     
       
-        <title>Overview - Linear Model Arena</title>
+        <title>Arena - Linear Model Arena</title>
       
     
     
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Arena
             
           </span>
         </div>
@@ -283,20 +281,17 @@
     
   
   
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
   
   
     
   
   Arena
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -1811,41 +1806,16 @@
   
   
   
-    
-    
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
         
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
   
   
   <span class="md-ellipsis">
@@ -1859,114 +1829,88 @@
   
   
 
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
+  
+  
+  <span class="md-ellipsis">
+    
   
     Arena
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="real-datasets/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Real datasets
-  
-
     
   </span>
   
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="synthetic-regression/" class="md-nav__link">
+      
         
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  <span class="md-ellipsis">
+  
     
   
-    Synthetic — regression
   
-
-    
-  </span>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#real-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real datasets
+      
+    </span>
+  </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthetic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic — regression
+      
+    </span>
+  </a>
   
-
-      </a>
-    </li>
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthetic-logistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic — logistic
+      
+    </span>
+  </a>
   
-
-              
-            
-              
-                
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datasets
+      
+    </span>
+  </a>
   
+</li>
+      
+    </ul>
   
-  
-  
-    <li class="md-nav__item">
-      <a href="synthetic-logistic/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Synthetic — logistic
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
+</nav>
       
     </li>
   
@@ -2002,6 +1946,172 @@
 <li><strong>Coefficient heatmap</strong>: all runs for one dataset as a matrix (rows = runs, columns = features <span class="arithmatex">\(j\)</span>). The top bar shows mean <span class="arithmatex">\(|\widehat\beta_j|\)</span> per feature. Colour = <span class="arithmatex">\(\widehat\beta_j\)</span> on a diverging RdBu scale. Hover for exact value.</li>
 </ul>
 <p>All solvers share the interface <code>SolverCls(config={...}).fit(X, y, link=...) -&gt; FitResult</code>.</p>
+<hr />
+<h2 id="real-datasets">Real datasets<a class="headerlink" href="#real-datasets" title="Permanent link">&para;</a></h2>
+<h4 id="diabetes">Diabetes<a class="headerlink" href="#diabetes" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 442 · p = 10 · Regression · UCI / sklearn</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Diabetes.html" class="arena-embed-frame" title="Embedding: Diabetes"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Diabetes.html" class="arena-heatmap-frame" title="Heatmap: Diabetes"></iframe>
+</div>
+
+<h4 id="breast-cancer">Breast Cancer<a class="headerlink" href="#breast-cancer" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 569 · p = 30 · Logistic · UCI / sklearn</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Breast_Cancer.html" class="arena-embed-frame" title="Embedding: Breast Cancer"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Breast_Cancer.html" class="arena-heatmap-frame" title="Heatmap: Breast Cancer"></iframe>
+</div>
+
+<h4 id="digits-5">Digits (&gt;= 5)<a class="headerlink" href="#digits-5" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 1 797 · p = 64 · Logistic · NIST / sklearn</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Digits_hi5.html" class="arena-embed-frame" title="Embedding: Digits"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Digits_hi5.html" class="arena-heatmap-frame" title="Heatmap: Digits"></iframe>
+</div>
+
+<h4 id="fair-affairs">Fair Affairs<a class="headerlink" href="#fair-affairs" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 8 · Regression · statsmodels</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Fair_Affairs.html" class="arena-embed-frame" title="Embedding: Fair Affairs"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Fair_Affairs.html" class="arena-heatmap-frame" title="Heatmap: Fair Affairs"></iframe>
+</div>
+
+<h4 id="rand-hie">RAND HIE<a class="headerlink" href="#rand-hie" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 9 · Regression · statsmodels</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_RAND_HIE.html" class="arena-embed-frame" title="Embedding: RAND HIE"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_RAND_HIE.html" class="arena-heatmap-frame" title="Heatmap: RAND HIE"></iframe>
+</div>
+
+<h4 id="star98">STAR98<a class="headerlink" href="#star98" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 303 · p = 21 · Logistic · statsmodels</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_STAR98_pass.html" class="arena-embed-frame" title="Embedding: STAR98"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_STAR98_pass.html" class="arena-heatmap-frame" title="Heatmap: STAR98"></iframe>
+</div>
+
+<h4 id="anes96">ANES96<a class="headerlink" href="#anes96" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 944 · p = 10 · Logistic · statsmodels</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_ANES96_vote.html" class="arena-embed-frame" title="Embedding: ANES96"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_ANES96_vote.html" class="arena-heatmap-frame" title="Heatmap: ANES96"></iframe>
+</div>
+
+<h4 id="mode-choice">Mode Choice<a class="headerlink" href="#mode-choice" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 840 · p = 8 · Logistic · statsmodels</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Mode_Choice.html" class="arena-embed-frame" title="Embedding: Mode Choice"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Mode_Choice.html" class="arena-heatmap-frame" title="Heatmap: Mode Choice"></iframe>
+</div>
+
+<hr />
+<h2 id="synthetic-regression">Synthetic — regression<a class="headerlink" href="#synthetic-regression" title="Permanent link">&para;</a></h2>
+<h4 id="sparse">Sparse<a class="headerlink" href="#sparse" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 200 · 20 informative features · Regression</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Reg_Sparse200.html" class="arena-embed-frame" title="Embedding: Sparse 200"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Reg_Sparse200.html" class="arena-heatmap-frame" title="Heatmap: Sparse 200"></iframe>
+</div>
+
+<h4 id="dense">Dense<a class="headerlink" href="#dense" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 100 · all features informative · Regression</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Reg_Dense100.html" class="arena-embed-frame" title="Embedding: Dense 100"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Reg_Dense100.html" class="arena-heatmap-frame" title="Heatmap: Dense 100"></iframe>
+</div>
+
+<h4 id="correlated">Correlated<a class="headerlink" href="#correlated" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 150 · effective rank 10 · Regression</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Reg_Corr150.html" class="arena-embed-frame" title="Embedding: Correlated 150"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Reg_Corr150.html" class="arena-heatmap-frame" title="Heatmap: Correlated 150"></iframe>
+</div>
+
+<h4 id="high-dimensional">High-dimensional<a class="headerlink" href="#high-dimensional" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 300 · 30 informative features · Regression</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Reg_HighDim300.html" class="arena-embed-frame" title="Embedding: HighDim 300"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Reg_HighDim300.html" class="arena-heatmap-frame" title="Heatmap: HighDim 300"></iframe>
+</div>
+
+<h4 id="friedman-1">Friedman #1<a class="headerlink" href="#friedman-1" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 10 · nonlinear ground truth · Regression</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Friedman1.html" class="arena-embed-frame" title="Embedding: Friedman1"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Friedman1.html" class="arena-heatmap-frame" title="Heatmap: Friedman1"></iframe>
+</div>
+
+<hr />
+<h2 id="synthetic-logistic">Synthetic — logistic<a class="headerlink" href="#synthetic-logistic" title="Permanent link">&para;</a></h2>
+<h4 id="dense_1">Dense<a class="headerlink" href="#dense_1" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 100 · 80 informative features · Logistic</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Logit_Dense100.html" class="arena-embed-frame" title="Embedding: Logit Dense100"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Logit_Dense100.html" class="arena-heatmap-frame" title="Heatmap: Logit Dense100"></iframe>
+</div>
+
+<h4 id="sparse_1">Sparse<a class="headerlink" href="#sparse_1" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 200 · 25 informative features · Logistic</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Logit_Sparse200.html" class="arena-embed-frame" title="Embedding: Logit Sparse200"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Logit_Sparse200.html" class="arena-heatmap-frame" title="Heatmap: Logit Sparse200"></iframe>
+</div>
+
+<h4 id="noisy">Noisy<a class="headerlink" href="#noisy" title="Permanent link">&para;</a></h4>
+<p class="arena-ds-meta">n = 2 000 · p = 150 · 12 % label noise · Logistic</p>
+
+<div class="arena-figure-frame">
+<iframe src="figures/tsne_umap_Synth_Logit_Noisy150.html" class="arena-embed-frame" title="Embedding: Logit Noisy150"></iframe>
+</div>
+<div class="arena-figure-frame">
+<iframe src="figures/heatmap_Synth_Logit_Noisy150.html" class="arena-heatmap-frame" title="Heatmap: Logit Noisy150"></iframe>
+</div>
+
 <hr />
 <h2 id="datasets">Datasets<a class="headerlink" href="#datasets" title="Permanent link">&para;</a></h2>
 <table>
@@ -2180,22 +2290,6 @@
             </div>
           </a>
         
-        
-          
-          <a href="real-datasets/" class="md-footer__link md-footer__link--next" aria-label="Next: Real datasets">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Real datasets
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
