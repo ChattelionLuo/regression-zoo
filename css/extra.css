@@ -367,19 +367,24 @@ mjx-container[display="true"] {
 .arena-hero .arena-lede strong { color: var(--arena-ink); font-weight: 600; }
 
 .arena-cta {
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+/* Markdown wraps both links in a single <p> — make that the actual flex row */
+.arena-cta p {
   display: flex;
   flex-wrap: wrap;
   gap: 1.1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.6rem;
   align-items: stretch;
-  max-width: 520px;     /* cap width so buttons don't sprawl across full page */
+  max-width: 520px;
+  margin: 0;
+  padding: 0;
 }
 .md-typeset .arena-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
   font-size: 0.82rem; font-weight: 600;
   padding: 0.72rem 1.5rem;
-  flex: 1 1 0;          /* both buttons share container space equally → same width */
+  flex: 1 1 0;          /* both buttons are flex items now → equal width */
   border-radius: 0;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -397,16 +402,17 @@ mjx-container[display="true"] {
 }
 .md-typeset .arena-btn--ghost:hover { border-color: var(--arena-ink); color: var(--arena-ink); }
 
-/* Mobile: stack full-width with clear gap so they never look crowded */
+/* Mobile: stack vertically, natural (auto) width, clear gap between them */
 @media screen and (max-width: 600px) {
-  .arena-cta {
+  .arena-cta p {
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     max-width: 100%;
   }
   .md-typeset .arena-btn {
     flex: none;
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
   }
 }
 
