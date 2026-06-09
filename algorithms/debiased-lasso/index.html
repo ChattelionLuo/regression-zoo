@@ -1518,10 +1518,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#constructing-hattheta-nodewise-lasso" class="md-nav__link">
+  <a href="#constructing-widehattheta-nodewise-lasso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Constructing \(\hat\Theta\) — nodewise lasso
+        Constructing \(\widehat\Theta\) — nodewise lasso
       
     </span>
   </a>
@@ -2092,10 +2092,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#constructing-hattheta-nodewise-lasso" class="md-nav__link">
+  <a href="#constructing-widehattheta-nodewise-lasso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Constructing \(\hat\Theta\) — nodewise lasso
+        Constructing \(\widehat\Theta\) — nodewise lasso
       
     </span>
   </a>
@@ -2241,70 +2241,70 @@
 <li>Linear/Gaussian case: <span class="arithmatex">\(y=X\beta^\star+\varepsilon\)</span>, identity link, <span class="arithmatex">\(\varepsilon\)</span> mean-zero with
   variance <span class="arithmatex">\(\sigma^2\)</span> (unknown, estimated). GLM extension covers logit/log links via the
   Fisher-information geometry (below).</li>
-<li>The lasso <span class="arithmatex">\(\hat\beta\)</span> is consistent in <span class="arithmatex">\(\ell_1\)</span> but <strong>biased</strong> and non-Gaussian (shrinkage
+<li>The lasso <span class="arithmatex">\(\widehat\beta\)</span> is consistent in <span class="arithmatex">\(\ell_1\)</span> but <strong>biased</strong> and non-Gaussian (shrinkage
   toward <span class="arithmatex">\(0\)</span>, no tractable limit law). Debiasing removes the leading bias so a Gaussian limit
   is recovered.</li>
 <li>Design conditions: a restricted-eigenvalue / compatibility condition on
-  <span class="arithmatex">\(\hat\Sigma=X^\top X/n\)</span>, and a <strong>row-sparsity</strong> condition on the precision matrix
-  <span class="arithmatex">\(\Theta^\star=\Sigma^{-1}\)</span> so that <span class="arithmatex">\(\hat\Theta\)</span> can be estimated. Sparsity must satisfy
+  <span class="arithmatex">\(\widehat\Sigma=X^\top X/n\)</span>, and a <strong>row-sparsity</strong> condition on the precision matrix
+  <span class="arithmatex">\(\Theta^\star=\Sigma^{-1}\)</span> so that <span class="arithmatex">\(\widehat\Theta\)</span> can be estimated. Sparsity must satisfy
   <span class="arithmatex">\(s=o\!\big(\sqrt{n}/\log p\big)\)</span> for the remainder term to be asymptotically negligible.</li>
 </ul>
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>Start from the lasso base estimator
-<span class="arithmatex">\(\hat\beta=\arg\min_\beta \tfrac1{2n}\lVert y-X\beta\rVert_2^2+\lambda\lVert\beta\rVert_1\)</span>.
+<span class="arithmatex">\(\widehat\beta=\arg\min_\beta \tfrac1{2n}\lVert y-X\beta\rVert_2^2+\lambda\lVert\beta\rVert_1\)</span>.
 Its KKT/score residual is biased; the <strong>debiased (desparsified)</strong> estimator adds a single
-score-correction step using an approximate inverse <span class="arithmatex">\(\hat\Theta\)</span> of
-<span class="arithmatex">\(\hat\Sigma=X^\top X/n\)</span>:</p>
+score-correction step using an approximate inverse <span class="arithmatex">\(\widehat\Theta\)</span> of
+<span class="arithmatex">\(\widehat\Sigma=X^\top X/n\)</span>:</p>
 <div class="arithmatex">\[
-\boxed{\;\hat b \;=\; \hat\beta \;+\; \frac{1}{n}\,\hat\Theta\, X^\top\big(y-X\hat\beta\big)\;}
+\boxed{\;\widehat b \;=\; \widehat\beta \;+\; \frac{1}{n}\,\widehat\Theta\, X^\top\big(y-X\widehat\beta\big)\;}
 \]</div>
 <p>This is an <strong>estimating-equation</strong> correction rather than a new penalized objective: it inverts
 the lasso KKT conditions so that the <span class="arithmatex">\(\ell_1\)</span> shrinkage on the target coordinate is removed
 ("desparsified"). Plugging <span class="arithmatex">\(y=X\beta^\star+\varepsilon\)</span> gives the bias decomposition</p>
 <div class="arithmatex">\[
-\sqrt{n}\,\big(\hat b-\beta^\star\big)
-=\underbrace{\tfrac{1}{\sqrt n}\,\hat\Theta X^\top\varepsilon}_{\text{Gaussian term }Z}
-\;+\;\underbrace{\sqrt{n}\,\big(I-\hat\Theta\hat\Sigma\big)\big(\beta^\star-\hat\beta\big)}_{\text{remainder }\Delta}.
+\sqrt{n}\,\big(\widehat b-\beta^\star\big)
+=\underbrace{\tfrac{1}{\sqrt n}\,\widehat\Theta X^\top\varepsilon}_{\text{Gaussian term }Z}
+\;+\;\underbrace{\sqrt{n}\,\big(I-\widehat\Theta\widehat\Sigma\big)\big(\beta^\star-\widehat\beta\big)}_{\text{remainder }\Delta}.
 \]</div>
-<p>The Gaussian term satisfies <span class="arithmatex">\(Z_j\mid X\sim N\!\big(0,\sigma^2[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}\big)\)</span>.
+<p>The Gaussian term satisfies <span class="arithmatex">\(Z_j\mid X\sim N\!\big(0,\sigma^2[\widehat\Theta\widehat\Sigma\widehat\Theta^\top]_{jj}\big)\)</span>.
 The remainder is bounded coordinatewise by
-<span class="arithmatex">\(\lVert\Delta\rVert_\infty\le \sqrt{n}\,\lambda_{\text{node}}\,\lVert\hat\beta-\beta^\star\rVert_1
+<span class="arithmatex">\(\lVert\Delta\rVert_\infty\le \sqrt{n}\,\lambda_{\text{node}}\,\lVert\widehat\beta-\beta^\star\rVert_1
 =O_P\!\big(s\log p/\sqrt n\big)\)</span>, which <span class="arithmatex">\(\to 0\)</span> under <span class="arithmatex">\(s=o(\sqrt n/\log p)\)</span>. Hence each coordinate
 is <strong>asymptotically normal and <span class="arithmatex">\(\sqrt n\)</span>-consistent</strong>:</p>
 <div class="arithmatex">\[
-\sqrt{n}\,\big(\hat b_j-\beta_j^\star\big)\;\xrightarrow{d}\;N\!\big(0,\ \sigma^2\,[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}\big),
+\sqrt{n}\,\big(\widehat b_j-\beta_j^\star\big)\;\xrightarrow{d}\;N\!\big(0,\ \sigma^2\,[\widehat\Theta\widehat\Sigma\widehat\Theta^\top]_{jj}\big),
 \]</div>
 <p>yielding the <span class="arithmatex">\((1-\alpha)\)</span> confidence interval
-<span class="arithmatex">\(\hat b_j\pm z_{1-\alpha/2}\,\hat\sigma\sqrt{[\hat\Theta\hat\Sigma\hat\Theta^\top]_{jj}/n}\)</span>.</p>
-<h3 id="constructing-hattheta-nodewise-lasso">Constructing <span class="arithmatex">\(\hat\Theta\)</span> — nodewise lasso<a class="headerlink" href="#constructing-hattheta-nodewise-lasso" title="Permanent link">&para;</a></h3>
-<p><a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a> build <span class="arithmatex">\(\hat\Theta\)</span> row by row via <strong>nodewise lasso</strong>: regress each
+<span class="arithmatex">\(\widehat b_j\pm z_{1-\alpha/2}\,\widehat\sigma\sqrt{[\widehat\Theta\widehat\Sigma\widehat\Theta^\top]_{jj}/n}\)</span>.</p>
+<h3 id="constructing-widehattheta-nodewise-lasso">Constructing <span class="arithmatex">\(\widehat\Theta\)</span> — nodewise lasso<a class="headerlink" href="#constructing-widehattheta-nodewise-lasso" title="Permanent link">&para;</a></h3>
+<p><a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a> build <span class="arithmatex">\(\widehat\Theta\)</span> row by row via <strong>nodewise lasso</strong>: regress each
 column <span class="arithmatex">\(X_{\cdot j}\)</span> on the remaining columns <span class="arithmatex">\(X_{\cdot\text{-}j}\)</span>,</p>
 <div class="arithmatex">\[
-\hat\gamma_j=\arg\min_{\gamma\in\mathbb{R}^{p-1}}\ \tfrac1{2n}\lVert X_{\cdot j}-X_{\cdot\text{-}j}\gamma\rVert_2^2+\lambda_j\lVert\gamma\rVert_1,
+\widehat\gamma_j=\arg\min_{\gamma\in\mathbb{R}^{p-1}}\ \tfrac1{2n}\lVert X_{\cdot j}-X_{\cdot\text{-}j}\gamma\rVert_2^2+\lambda_j\lVert\gamma\rVert_1,
 \]</div>
-<p>with residual <span class="arithmatex">\(r_j=X_{\cdot j}-X_{\cdot\text{-}j}\hat\gamma_j\)</span> and
-<span class="arithmatex">\(\hat\tau_j^2=r_j^\top X_{\cdot j}/n\)</span>. Row <span class="arithmatex">\(j\)</span> of <span class="arithmatex">\(\hat\Theta\)</span> is
-<span class="arithmatex">\(\hat\Theta_{j\cdot}=\hat\tau_j^{-2}\,(-\hat\gamma_{j,1},\dots,1,\dots,-\hat\gamma_{j,p-1})\)</span> (the
-<span class="arithmatex">\(1\)</span> in position <span class="arithmatex">\(j\)</span>). Equivalently (Javanmard–Montanari) <span class="arithmatex">\(\hat\Theta\)</span>'s rows solve a
-<strong>constrained optimization</strong> minimizing <span class="arithmatex">\(m^\top\hat\Sigma m\)</span> subject to
-<span class="arithmatex">\(\lVert\hat\Sigma m-e_j\rVert_\infty\le\mu\)</span>, directly controlling the bias term
-<span class="arithmatex">\(\lVert I-\hat\Theta\hat\Sigma\rVert_\infty\le\mu\)</span>.</p>
+<p>with residual <span class="arithmatex">\(r_j=X_{\cdot j}-X_{\cdot\text{-}j}\widehat\gamma_j\)</span> and
+<span class="arithmatex">\(\widehat\tau_j^2=r_j^\top X_{\cdot j}/n\)</span>. Row <span class="arithmatex">\(j\)</span> of <span class="arithmatex">\(\widehat\Theta\)</span> is
+<span class="arithmatex">\(\widehat\Theta_{j\cdot}=\widehat\tau_j^{-2}\,(-\widehat\gamma_{j,1},\dots,1,\dots,-\widehat\gamma_{j,p-1})\)</span> (the
+<span class="arithmatex">\(1\)</span> in position <span class="arithmatex">\(j\)</span>). Equivalently (Javanmard–Montanari) <span class="arithmatex">\(\widehat\Theta\)</span>'s rows solve a
+<strong>constrained optimization</strong> minimizing <span class="arithmatex">\(m^\top\widehat\Sigma m\)</span> subject to
+<span class="arithmatex">\(\lVert\widehat\Sigma m-e_j\rVert_\infty\le\mu\)</span>, directly controlling the bias term
+<span class="arithmatex">\(\lVert I-\widehat\Theta\widehat\Sigma\rVert_\infty\le\mu\)</span>.</p>
 <h3 id="variance-estimation">Variance estimation<a class="headerlink" href="#variance-estimation" title="Permanent link">&para;</a></h3>
 <p>The noise level <span class="arithmatex">\(\sigma^2\)</span> is estimated from the lasso residuals, e.g. the scaled-lasso /
 degrees-of-freedom corrected estimator
-<span class="arithmatex">\(\hat\sigma^2=\lVert y-X\hat\beta\rVert_2^2/\big(n-\lVert\hat\beta\rVert_0\big)\)</span> or via
+<span class="arithmatex">\(\widehat\sigma^2=\lVert y-X\widehat\beta\rVert_2^2/\big(n-\lVert\widehat\beta\rVert_0\big)\)</span> or via
 cross-validation; <a href="#ref-hdi2015"><code>Dezeure et al., 2015</code></a> implements these defaults.</p>
 <h3 id="glm-extension-logit-log-links">GLM extension (logit / log links)<a class="headerlink" href="#glm-extension-logit-log-links" title="Permanent link">&para;</a></h3>
-<p>For a GLM, replace the Gaussian residual by the score and <span class="arithmatex">\(\hat\Sigma\)</span> by the weighted
-(Fisher-information) Gram matrix <span class="arithmatex">\(\hat\Sigma_W=X^\top \hat W X/n\)</span> with
-<span class="arithmatex">\(\hat W=\operatorname{diag}\big(V(\hat\mu_i)\big)\)</span> evaluated at the penalized MLE <span class="arithmatex">\(\hat\beta\)</span>.
+<p>For a GLM, replace the Gaussian residual by the score and <span class="arithmatex">\(\widehat\Sigma\)</span> by the weighted
+(Fisher-information) Gram matrix <span class="arithmatex">\(\widehat\Sigma_W=X^\top \widehat W X/n\)</span> with
+<span class="arithmatex">\(\widehat W=\operatorname{diag}\big(V(\widehat\mu_i)\big)\)</span> evaluated at the penalized MLE <span class="arithmatex">\(\widehat\beta\)</span>.
 The debiased estimator becomes</p>
 <div class="arithmatex">\[
-\hat b=\hat\beta+\tfrac1n\,\hat\Theta\,X^\top\big(y-\hat\mu\big),\qquad
-\hat\Theta\approx\big(X^\top\hat W X/n\big)^{-1},
+\widehat b=\widehat\beta+\tfrac1n\,\widehat\Theta\,X^\top\big(y-\widehat\mu\big),\qquad
+\widehat\Theta\approx\big(X^\top\widehat W X/n\big)^{-1},
 \]</div>
-<p>with asymptotic variance <span class="arithmatex">\([\hat\Theta\,\hat\Sigma_W\,\hat\Theta^\top]_{jj}/n\)</span>; the nodewise
-regressions are run on the <span class="arithmatex">\(\sqrt{\hat W}\)</span>-weighted design. <a href="#ref-10.1111/biom.13587"><code>Xia et al., 2021</code></a>
+<p>with asymptotic variance <span class="arithmatex">\([\widehat\Theta\,\widehat\Sigma_W\,\widehat\Theta^\top]_{jj}/n\)</span>; the nodewise
+regressions are run on the <span class="arithmatex">\(\sqrt{\widehat W}\)</span>-weighted design. <a href="#ref-10.1111/biom.13587"><code>Xia et al., 2021</code></a>
 develop this weighted/Fisher-information correction for GLMs; <a href="#ref-guo2021inference"><code>Guo et al., 2021</code></a> and
 <a href="#ref-ma2021global"><code>Ma et al., 2021</code></a> give related corrections and (simultaneous) tests for high-dimensional logistic
 regression.</p>
@@ -2325,7 +2325,7 @@ regression.</p>
 Return  b̂, {se_j}, {CI_j}
 </code></pre></div>
 <p>The Javanmard–Montanari variant replaces step 2 with the per-row constrained QP
-<span class="arithmatex">\(\min_m m^\top\hat\Sigma m\)</span> s.t. <span class="arithmatex">\(\lVert\hat\Sigma m-e_j\rVert_\infty\le\mu\)</span>.</p>
+<span class="arithmatex">\(\min_m m^\top\widehat\Sigma m\)</span> s.t. <span class="arithmatex">\(\lVert\widehat\Sigma m-e_j\rVert_\infty\le\mu\)</span>.</p>
 <h2 id="hyperparameters-configuration">Hyperparameters &amp; configuration<a class="headerlink" href="#hyperparameters-configuration" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2339,12 +2339,12 @@ Return  b̂, {se_j}, {CI_j}
 <tr>
 <td><span class="arithmatex">\(\lambda\)</span> (base lasso)</td>
 <td>CV / <span class="arithmatex">\(\sqrt{\log p/n}\)</span></td>
-<td>controls <span class="arithmatex">\(\hat\beta\)</span>; bias of <span class="arithmatex">\(\hat b\)</span> is first-order insensitive to it</td>
+<td>controls <span class="arithmatex">\(\widehat\beta\)</span>; bias of <span class="arithmatex">\(\widehat b\)</span> is first-order insensitive to it</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\lambda_j\)</span> (nodewise)</td>
 <td>CV per column</td>
-<td>governs <span class="arithmatex">\(\hat\Theta\)</span> quality and the remainder <span class="arithmatex">\(\lVert I-\hat\Theta\hat\Sigma\rVert_\infty\)</span></td>
+<td>governs <span class="arithmatex">\(\widehat\Theta\)</span> quality and the remainder <span class="arithmatex">\(\lVert I-\widehat\Theta\widehat\Sigma\rVert_\infty\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\mu\)</span> (JM variant)</td>
@@ -2352,14 +2352,14 @@ Return  b̂, {se_j}, {CI_j}
 <td>bias bound in the constrained-QP construction</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\hat\sigma^2\)</span></td>
+<td><span class="arithmatex">\(\widehat\sigma^2\)</span></td>
 <td>scaled lasso / df-corrected</td>
 <td>noise level for Gaussian SEs</td>
 </tr>
 <tr>
 <td>link / weights</td>
 <td>identity</td>
-<td>logit, log via Fisher weights <span class="arithmatex">\(\hat W\)</span> (GLM extension)</td>
+<td>logit, log via Fisher weights <span class="arithmatex">\(\widehat W\)</span> (GLM extension)</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\alpha\)</span></td>
@@ -2371,7 +2371,7 @@ Return  b̂, {se_j}, {CI_j}
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X\in\mathbb{R}^{n\times p}\)</span>, <span class="arithmatex">\(y\in\mathbb{R}^n\)</span>, link <span class="arithmatex">\(g\)</span>, penalties <span class="arithmatex">\(\lambda,\{\lambda_j\}\)</span>.</li>
-<li><strong>Output:</strong> debiased point estimate <span class="arithmatex">\(\hat b\)</span> <strong>plus inference</strong> — standard errors <span class="arithmatex">\(\{se_j\}\)</span>,
+<li><strong>Output:</strong> debiased point estimate <span class="arithmatex">\(\widehat b\)</span> <strong>plus inference</strong> — standard errors <span class="arithmatex">\(\{se_j\}\)</span>,
   <span class="arithmatex">\(z\)</span>-statistics/<span class="arithmatex">\(p\)</span>-values, and CIs <span class="arithmatex">\(\{CI_j\}\)</span> (hence <code>output: point+inference</code>).</li>
 <li><strong>Links:</strong> identity (Gaussian); logit, log via the weighted Fisher-information correction.</li>
 <li><strong>Preprocessing:</strong> standardize columns of <span class="arithmatex">\(X\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian) or fit unpenalized
@@ -2380,16 +2380,16 @@ Return  b̂, {se_j}, {CI_j}
 <h2 id="complexity">Complexity<a class="headerlink" href="#complexity" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Base lasso: as in <a href="../lasso-cd/">Lasso via Coordinate Descent</a>, <span class="arithmatex">\(O(npL)\)</span> over a path.</li>
-<li>Nodewise <span class="arithmatex">\(\hat\Theta\)</span>: <strong><span class="arithmatex">\(p\)</span> separate lasso regressions</strong>, each <span class="arithmatex">\(O(np)\)</span> per cycle ⇒
+<li>Nodewise <span class="arithmatex">\(\widehat\Theta\)</span>: <strong><span class="arithmatex">\(p\)</span> separate lasso regressions</strong>, each <span class="arithmatex">\(O(np)\)</span> per cycle ⇒
   dominant cost <span class="arithmatex">\(O(np^2)\)</span> (embarrassingly parallel over columns).</li>
 <li>Debias + variance: <span class="arithmatex">\(O(np)\)</span> for the score correction; forming the needed diagonal of
-  <span class="arithmatex">\(\hat\Theta\hat\Sigma\hat\Theta^\top\)</span> is <span class="arithmatex">\(O(np)\)</span> per coordinate.</li>
-<li>Memory <span class="arithmatex">\(O(np)\)</span> (rows of <span class="arithmatex">\(\hat\Theta\)</span> can be streamed/discarded after extracting <span class="arithmatex">\(se_j\)</span>).</li>
+  <span class="arithmatex">\(\widehat\Theta\widehat\Sigma\widehat\Theta^\top\)</span> is <span class="arithmatex">\(O(np)\)</span> per coordinate.</li>
+<li>Memory <span class="arithmatex">\(O(np)\)</span> (rows of <span class="arithmatex">\(\widehat\Theta\)</span> can be streamed/discarded after extracting <span class="arithmatex">\(se_j\)</span>).</li>
 </ul>
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Asymptotic normality:</strong> under compatibility + precision-row-sparsity and
-  <span class="arithmatex">\(s=o(\sqrt n/\log p)\)</span>, <span class="arithmatex">\(\sqrt n(\hat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})\)</span>
+  <span class="arithmatex">\(s=o(\sqrt n/\log p)\)</span>, <span class="arithmatex">\(\sqrt n(\widehat b_j-\beta_j^\star)\xrightarrow{d}N(0,\sigma^2\Omega_{jj})\)</span>
   with <span class="arithmatex">\(\Omega=\Theta\Sigma\Theta^\top\)</span> (<a href="#ref-vandegeer2014"><code>van de Geer et al., 2014</code></a>, <a href="#ref-Zhang_delasso_2014"><code>Zhang and Zhang, 2014</code></a>,
   <a href="#ref-javanmard2014confidence"><code>Javanmard and Montanari, 2014</code></a>).</li>
 <li><strong>Coverage / honesty:</strong> the resulting CIs achieve asymptotically nominal coverage uniformly
@@ -2404,7 +2404,7 @@ Return  b̂, {se_j}, {CI_j}
 <li><a href="../lasso-cd/">Lasso via Coordinate Descent</a> — the base estimator that is debiased here.</li>
 <li><a href="../decorrelated-score/">Decorrelated Score (Ning–Liu)</a> — score-based inference framework with
   the same orthogonalization idea, stated directly for general GLMs.</li>
-<li><strong>Nodewise lasso</strong> (Meinshausen–Bühlmann) — the precision-matrix construction reused for <span class="arithmatex">\(\hat\Theta\)</span>.</li>
+<li><strong>Nodewise lasso</strong> (Meinshausen–Bühlmann) — the precision-matrix construction reused for <span class="arithmatex">\(\widehat\Theta\)</span>.</li>
 <li><strong>Scaled / square-root lasso</strong> — pivotal noise-level estimation feeding the SEs.</li>
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>

@@ -2173,20 +2173,20 @@ seen through block <span class="arithmatex">\(b\)</span>,</p>
 S_k(\beta) = X_k^\top\big(y_k - \mu_k(\beta)\big), \quad \mu_k(\beta)=g^{-1}(X_k\beta),
 \]</div>
 <p>but computed <strong>incrementally</strong> (Luo &amp; Song, 2020). Renewable estimation maintains a running
-estimate <span class="arithmatex">\(\hat\beta_{b}\)</span> and the <strong>aggregated negative Hessian / information</strong>
+estimate <span class="arithmatex">\(\widehat\beta_{b}\)</span> and the <strong>aggregated negative Hessian / information</strong>
 <span class="arithmatex">\(J_b=\sum_{k\le b} X_k^\top W_k X_k\)</span>. For a new batch <span class="arithmatex">\(b\)</span> it performs an information-weighted
 one-step (Newton) update that fuses the previous summary with the current-batch score:</p>
 <div class="arithmatex">\[
 \boxed{\;
 \begin{aligned}
-J_b &amp;= J_{b-1} + X_b^\top W_b\big(\hat\beta_{b-1}\big)\,X_b,\\[4pt]
-\hat\beta_b &amp;= \hat\beta_{b-1} + J_b^{-1}\, X_b^\top\big(y_b - \mu_b(\hat\beta_{b-1})\big),
+J_b &amp;= J_{b-1} + X_b^\top W_b\big(\widehat\beta_{b-1}\big)\,X_b,\\[4pt]
+\widehat\beta_b &amp;= \widehat\beta_{b-1} + J_b^{-1}\, X_b^\top\big(y_b - \mu_b(\widehat\beta_{b-1})\big),
 \end{aligned}
 \;}
 \]</div>
 <p>where <span class="arithmatex">\(W_b(\beta)=\operatorname{diag}\big(V(\mu_{b,i})\big)\)</span> are the GLM weights (under the canonical
 link). The term <span class="arithmatex">\(J_{b-1}\)</span> carries the <strong>prior estimate weighted by accumulated information</strong>, while
-<span class="arithmatex">\(X_b^\top(y_b-\mu_b(\hat\beta_{b-1}))\)</span> is the new batch's score at the previous estimate — together
+<span class="arithmatex">\(X_b^\top(y_b-\mu_b(\widehat\beta_{b-1}))\)</span> is the new batch's score at the previous estimate — together
 an aggregated estimating equation whose solution is the renewable estimator.</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>Input: stream of batches (X_b, y_b); link g; init β̂₀, J₀ = 0 (p×p)
@@ -2227,7 +2227,7 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 <td>per batch; more improves finite-batch accuracy</td>
 </tr>
 <tr>
-<td>init <span class="arithmatex">\(\hat\beta_0, J_0\)</span></td>
+<td>init <span class="arithmatex">\(\widehat\beta_0, J_0\)</span></td>
 <td><span class="arithmatex">\(0,\,0\)</span></td>
 <td>first batch behaves like a standard IRLS fit</td>
 </tr>
@@ -2246,7 +2246,7 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> sequence of batches <span class="arithmatex">\((X_b, y_b)\)</span>, link <span class="arithmatex">\(g\)</span>.</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta_b\)</span> <strong>and</strong> inference — covariance <span class="arithmatex">\(\widehat{\operatorname{Cov}}(\hat\beta_b)=J_b^{-1}\)</span>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta_b\)</span> <strong>and</strong> inference — covariance <span class="arithmatex">\(\widehat{\operatorname{Cov}}(\widehat\beta_b)=J_b^{-1}\)</span>
   (Wald intervals, tests). Hence <code>output: point+inference</code>.</li>
 <li><strong>Links:</strong> any differentiable link.</li>
 <li><strong>Preprocessing:</strong> consistent coding/scaling across batches; intercept via a ones column.</li>
@@ -2256,13 +2256,13 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 <li><strong>Per batch:</strong> forming <span class="arithmatex">\(X_b^\top W_b X_b\)</span> and the score is <span class="arithmatex">\(O(n_b p^2)\)</span>; the Newton solve is
   <span class="arithmatex">\(O(p^3)\)</span> (amortized small since <span class="arithmatex">\(p\)</span> is fixed and batches stream). Cost is <strong>independent of the
   total number of batches</strong> already processed.</li>
-<li><strong>Memory:</strong> <span class="arithmatex">\(O(p^2)\)</span> — the estimate <span class="arithmatex">\(\hat\beta_b\)</span> (<span class="arithmatex">\(O(p)\)</span>) plus the aggregated information <span class="arithmatex">\(J_b\)</span>
+<li><strong>Memory:</strong> <span class="arithmatex">\(O(p^2)\)</span> — the estimate <span class="arithmatex">\(\widehat\beta_b\)</span> (<span class="arithmatex">\(O(p)\)</span>) plus the aggregated information <span class="arithmatex">\(J_b\)</span>
   (<span class="arithmatex">\(O(p^2)\)</span>). Crucially, <strong>raw data are not stored</strong>: storage is bounded by the summary, not the
   data volume.</li>
 </ul>
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Asymptotic equivalence to the full-data MLE.</strong> As batches accumulate, <span class="arithmatex">\(\hat\beta_b\)</span> is
+<li><strong>Asymptotic equivalence to the full-data MLE.</strong> As batches accumulate, <span class="arithmatex">\(\widehat\beta_b\)</span> is
   consistent and asymptotically normal with the <strong>same</strong> limiting distribution as the oracle MLE
   computed on all data at once, with <span class="arithmatex">\(J_b^{-1}\)</span> a consistent variance estimator
   <a href="#ref-luo2020renewable"><code>Luo and Song, 2020</code></a>.</li>

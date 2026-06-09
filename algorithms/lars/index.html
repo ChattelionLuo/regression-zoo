@@ -2170,19 +2170,19 @@
 <p>The LARS-Lasso modification traces the full <span class="arithmatex">\(\ell_1\)</span>-regularization path, i.e. the family of
 minimizers of the lasso objective over all <span class="arithmatex">\(\lambda\ge 0\)</span>:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2}\,\lVert y - X\beta\rVert_2^2 \;+\; \lambda\,\lVert\beta\rVert_1 .
 \]</div>
 <p>Because this solution is <strong>piecewise linear in <span class="arithmatex">\(\lambda\)</span></strong>, it is fully described by its breakpoints
 (knots). LARS computes those knots and the linear segments between them directly, rather than
 solving the optimization on a <span class="arithmatex">\(\lambda\)</span>-grid. Plain (unmodified) LARS solves a slightly less
-constrained problem; adding the drop/sign rule below makes it reproduce <span class="arithmatex">\(\hat\beta(\lambda)\)</span> exactly.</p>
+constrained problem; adding the drop/sign rule below makes it reproduce <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> exactly.</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <p>LARS maintains an <strong>active set</strong> <span class="arithmatex">\(\mathcal A\)</span> of variables that are tied for maximal absolute
 correlation with the current residual, and moves the coefficients in the <strong>equiangular direction</strong>
 — the direction making equal angles with all active predictors — so that those correlations stay
 tied and decrease together until a new variable catches up.</p>
-<p>Let <span class="arithmatex">\(r = y - X\hat\beta\)</span> be the residual, <span class="arithmatex">\(c = X^\top r\)</span> the current correlations, and
+<p>Let <span class="arithmatex">\(r = y - X\widehat\beta\)</span> be the residual, <span class="arithmatex">\(c = X^\top r\)</span> the current correlations, and
 <span class="arithmatex">\(C = \max_j |c_j|\)</span>. With <span class="arithmatex">\(\mathcal A\)</span> the active set, signs <span class="arithmatex">\(s_j=\operatorname{sign}(c_j)\)</span>, and
 <span class="arithmatex">\(X_{\mathcal A}\)</span> the signed active columns, define</p>
 <div class="arithmatex">\[
@@ -2200,7 +2200,7 @@ The step length <span class="arithmatex">\(\gamma\)</span> to the next join is t
 \]</div>
 <p>(<span class="arithmatex">\(\min^{+}\)</span> = minimum over positive entries). For <strong>LARS-Lasso</strong>, also compute the distance at which
 an active coefficient would hit zero,
-<span class="arithmatex">\(\gamma_{\text{drop}} = \min^{+}_{j\in\mathcal A}\{-\hat\beta_j / (s_j w_j)\}\)</span>; if
+<span class="arithmatex">\(\gamma_{\text{drop}} = \min^{+}_{j\in\mathcal A}\{-\widehat\beta_j / (s_j w_j)\}\)</span>; if
 <span class="arithmatex">\(\gamma_{\text{drop}} &lt; \gamma\)</span>, take that shorter step and <strong>drop</strong> the offending variable (its
 sign no longer agrees), which is exactly what enforces lasso sign agreement.</p>
 <div class="highlight"><pre><span></span><code>Input: X (standardized), y (centered)
@@ -2260,12 +2260,12 @@ knots).</p>
 </tr>
 </tbody>
 </table>
-<p>There is no <span class="arithmatex">\(\lambda\)</span> to tune <em>a priori</em> — LARS returns the whole path; a single <span class="arithmatex">\(\hat\beta(\lambda)\)</span>
+<p>There is no <span class="arithmatex">\(\lambda\)</span> to tune <em>a priori</em> — LARS returns the whole path; a single <span class="arithmatex">\(\widehat\beta(\lambda)\)</span>
 is read off (or interpolated between knots) afterwards, with <span class="arithmatex">\(\lambda\)</span> chosen by CV, <span class="arithmatex">\(C_p\)</span>, AIC/BIC.</p>
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X\in\mathbb{R}^{n\times p}\)</span>, <span class="arithmatex">\(y\in\mathbb{R}^n\)</span>, link <code>identity</code>; mode <code>lasso</code>/<code>lar</code>.</li>
-<li><strong>Output:</strong> the <strong>path</strong> <span class="arithmatex">\(\{\hat\beta(\lambda)\}\)</span> as a list of knots and equiangular segments.</li>
+<li><strong>Output:</strong> the <strong>path</strong> <span class="arithmatex">\(\{\widehat\beta(\lambda)\}\)</span> as a list of knots and equiangular segments.</li>
 <li><strong>Links:</strong> identity only (least-squares correlations); other links use coordinate-descent GLM paths.</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span> to unit norm, center <span class="arithmatex">\(y\)</span>.</li>
 </ul>
@@ -2278,7 +2278,7 @@ is read off (or interpolated between knots) afterwards, with <span class="arithm
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Exactness.</strong> With the drop/sign-agreement modification, LARS-Lasso returns the <strong>exact</strong> lasso
-  solution path <span class="arithmatex">\(\hat\beta(\lambda)\)</span> for all <span class="arithmatex">\(\lambda\ge 0\)</span> (the homotopy is piecewise linear).</li>
+  solution path <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> for all <span class="arithmatex">\(\lambda\ge 0\)</span> (the homotopy is piecewise linear).</li>
 <li><strong>Efficiency.</strong> The whole path costs the order of a single least-squares solve, unlike grid-based
   solvers that re-optimize at each <span class="arithmatex">\(\lambda\)</span>.</li>
 <li>Selection/estimation properties are inherited from the lasso (restricted-eigenvalue /

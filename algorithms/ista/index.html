@@ -2167,7 +2167,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>ISTA targets the composite convex objective</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) \;+\; \lambda\lVert\beta\rVert_1 ,
 \qquad
 \mathcal L(\beta)=\frac{1}{2n}\lVert y-X\beta\rVert_2^2 \;\text{(Gaussian)} ,
@@ -2243,7 +2243,7 @@ return β̂
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X, y\)</span>, link; regularization <span class="arithmatex">\(\lambda\)</span>; step rule.</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> — a single point.</li>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> — a single point.</li>
 <li><strong>Links:</strong> identity, logit, log (any convex GLM loss with Lipschitz gradient).</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian) or fit an unpenalized intercept (GLM).</li>
 </ul>
@@ -2257,10 +2257,10 @@ return β̂
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Optimization (convex <span class="arithmatex">\(\mathcal L\)</span>).</strong> With <span class="arithmatex">\(t_k=1/L_\nabla\)</span>,
-  <span class="arithmatex">\(F(\beta^{(k)})-F(\hat\beta)\le \dfrac{L_\nabla\lVert\beta^{(0)}-\hat\beta\rVert_2^2}{2k}=O(1/k)\)</span>,
+  <span class="arithmatex">\(F(\beta^{(k)})-F(\widehat\beta)\le \dfrac{L_\nabla\lVert\beta^{(0)}-\widehat\beta\rVert_2^2}{2k}=O(1/k)\)</span>,
   where <span class="arithmatex">\(F=\mathcal L+\lambda P\)</span> <a href="#ref-beck2009fast"><code>Beck and Teboulle, 2009</code></a>. The accelerated <a href="../fista/">FISTA</a> improves this
   to <span class="arithmatex">\(O(1/k^2)\)</span>.</li>
-<li>ISTA is an optimization method: statistical properties of the <em>solution</em> <span class="arithmatex">\(\hat\beta(\lambda)\)</span>
+<li>ISTA is an optimization method: statistical properties of the <em>solution</em> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span>
   are those of the lasso/penalized M-estimator it computes (see <a href="../lasso-cd/">Lasso-CD</a>).</li>
 <li>Daubechies, Defrise &amp; De Mol (2004) established convergence of the iterative thresholding
   iteration for linear inverse problems with a sparsity penalty <a href="#ref-daubechies2004iterative"><code>Daubechies et al., 2004</code></a>.</li>

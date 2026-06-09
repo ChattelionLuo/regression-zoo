@@ -601,6 +601,15 @@ mjx-container[display="true"] {
   .md-typeset .arena-hero h1 { font-size: 2.0rem; }
 }
 
+/* Dataset metadata line below arena section headers */
+.arena-ds-meta {
+  margin: -0.5rem 0 0.9rem;
+  font-size: 0.78rem;
+  color: var(--arena-muted);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
 /* ── Arena figure frames (iframe embeds) ───────────────────────────────────── */
 .arena-figure-frame {
   margin: 0.4rem 0 2.0rem;

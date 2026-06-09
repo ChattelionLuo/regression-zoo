@@ -2193,7 +2193,7 @@
 <p>Every algorithm card in this encyclopedia answers the <strong>same question</strong> in the <strong>same language</strong>:</p>
 <blockquote>
 <p>Given a design matrix <span class="arithmatex">\(X\)</span>, a response <span class="arithmatex">\(y\)</span>, and a link function <span class="arithmatex">\(g\)</span>, produce a coefficient
-estimate <span class="arithmatex">\(\hat\beta\)</span> — under a stated configuration of hyperparameters.</p>
+estimate <span class="arithmatex">\(\widehat\beta\)</span> — under a stated configuration of hyperparameters.</p>
 </blockquote>
 <p>This page fixes the notation and the canonical objects (exponential family, link, loss,
 gradient, Hessian, penalties, optimization template). <strong>All cards reference this page</strong> so
@@ -2230,7 +2230,7 @@ that estimators defined in different papers can be compared on equal footing.</p
 </tr>
 <tr>
 <td><span class="arithmatex">\(\beta \in \mathbb{R}^{p}\)</span></td>
-<td>unknown coefficient vector; <span class="arithmatex">\(\beta^\star\)</span> true value, <span class="arithmatex">\(\hat\beta\)</span> estimate</td>
+<td>unknown coefficient vector; <span class="arithmatex">\(\beta^\star\)</span> true value, <span class="arithmatex">\(\widehat\beta\)</span> estimate</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\beta_0\)</span></td>
@@ -2388,12 +2388,12 @@ empirical loss as</p>
 <h2 id="5-the-estimator-template">5. The estimator template<a class="headerlink" href="#5-the-estimator-template" title="Permanent link">&para;</a></h2>
 <p>The overwhelming majority of GLM solvers compute</p>
 <div class="arithmatex">\[
-\boxed{\;\hat\beta \in \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal{L}(\beta) \;+\; \lambda\, P(\beta)\;}
+\boxed{\;\widehat\beta \in \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal{L}(\beta) \;+\; \lambda\, P(\beta)\;}
 \]</div>
 <p>where <span class="arithmatex">\(P\)</span> is a (possibly zero) penalty and <span class="arithmatex">\(\lambda \ge 0\)</span> a regularization level. Cards describe
 <strong>how</strong> the minimization is performed (closed form, Newton/IRLS, coordinate descent, proximal/
 first-order, homotopy/path, stochastic/online, ...), which is precisely the "algorithm".</p>
-<p>Some cards instead define <span class="arithmatex">\(\hat\beta\)</span> through an <strong>estimating equation</strong> <span class="arithmatex">\(\sum_i \psi_i(\beta)=0\)</span>
+<p>Some cards instead define <span class="arithmatex">\(\widehat\beta\)</span> through an <strong>estimating equation</strong> <span class="arithmatex">\(\sum_i \psi_i(\beta)=0\)</span>
 (e.g. GEE, quasi-likelihood, debiasing corrections); the same notation applies.</p>
 <h3 id="common-penalties-pbeta">Common penalties <span class="arithmatex">\(P(\beta)\)</span><a class="headerlink" href="#common-penalties-pbeta" title="Permanent link">&para;</a></h3>
 <table>
@@ -2471,7 +2471,7 @@ first-order, homotopy/path, stochastic/online, ...), which is precisely the "alg
 <p>Every implemented solver will expose the same contract:</p>
 <div class="highlight"><pre><span></span><code>fit(X, y, link, **config)  -&gt;  beta_hat   (plus optional path, diagnostics)
 </code></pre></div>
-<p>so that, given identical <span class="arithmatex">\((X, y, g)\)</span>, different cards' outputs <span class="arithmatex">\(\hat\beta\)</span> can be compared,
+<p>so that, given identical <span class="arithmatex">\((X, y, g)\)</span>, different cards' outputs <span class="arithmatex">\(\widehat\beta\)</span> can be compared,
 correlated, and benchmarked across datasets. The card's <strong>"Mapping to framework"</strong> section is
 the spec for this interface.</p>
 <hr />

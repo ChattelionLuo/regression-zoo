@@ -2169,7 +2169,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>The Minimax Concave Penalty (Zhang 2010) is applied coordinatewise:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y - X\beta\rVert_2^2 \;+\; \sum_{j=1}^p p_\lambda\!\big(|\beta_j|;\gamma\big),
 \]</div>
 <p>with MCP defined through its derivative, for <span class="arithmatex">\(\gamma&gt;1\)</span>:</p>
@@ -2216,7 +2216,7 @@ for λ in grid:                       # decreasing
 return path {β(λ)}
 </code></pre></div>
 <ul>
-<li><span class="arithmatex">\(\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty\)</span> (smallest <span class="arithmatex">\(\lambda\)</span> with <span class="arithmatex">\(\hat\beta=0\)</span>);
+<li><span class="arithmatex">\(\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty\)</span> (smallest <span class="arithmatex">\(\lambda\)</span> with <span class="arithmatex">\(\widehat\beta=0\)</span>);
   grid log-spaced down to <span class="arithmatex">\(\lambda_{\min}=\epsilon\lambda_{\max}\)</span>, with warm starts.</li>
 <li><strong>General GLM.</strong> Penalized IRLS (outer quadratic approximation) + weighted coordinate descent
   (inner) applying the firm-thresholding update on the working response, as in <a href="../lasso-cd/">Lasso-CD</a>.</li>
@@ -2271,7 +2271,7 @@ return path {β(λ)}
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X, y\)</span>, link; regularization <span class="arithmatex">\(\lambda\)</span>, concavity <span class="arithmatex">\(\gamma\)</span> (or request full path).</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> — a point or the whole path.</li>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> — a point or the whole path.</li>
 <li><strong>Links:</strong> identity (LS inner loop), logit, log (IRLS outer loop).</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian) or fit an unpenalized intercept (GLM).</li>
 </ul>

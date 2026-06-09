@@ -2168,7 +2168,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>SCAD (Fan &amp; Li 2001) uses a folded-concave penalty <span class="arithmatex">\(p_\lambda(\cdot)\)</span> applied coordinatewise:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;\in\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \mathcal L(\beta) \;+\; \sum_{j=1}^p p_\lambda\!\big(|\beta_j|\big),
 \]</div>
 <p>where <span class="arithmatex">\(\mathcal L\)</span> is the mean negative log-likelihood (Gaussian: <span class="arithmatex">\(\tfrac1{2n}\lVert y-X\beta\rVert_2^2\)</span>).
@@ -2272,7 +2272,7 @@ return β^(λ)
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X, y\)</span>, link; regularization <span class="arithmatex">\(\lambda\)</span>, concavity <span class="arithmatex">\(a\)</span> (or request full path).</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> — a point or the whole path.</li>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> — a point or the whole path.</li>
 <li><strong>Links:</strong> identity (LS inner loop), logit, log (IRLS outer loop).</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian) or fit an unpenalized intercept (GLM).</li>
 </ul>

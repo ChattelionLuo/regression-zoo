@@ -2160,7 +2160,7 @@
 <li>Any GLM in the <a href="../../framework/notation/#2-exponential-dispersion-family">exponential family</a>;
   Gaussian/identity is canonical, logistic/Poisson via the IRLS outer loop.</li>
 <li>Originally proposed for the low-dimensional regime where a <span class="arithmatex">\(\sqrt n\)</span>-consistent initial
-  estimator (e.g. OLS) exists; extends to high dimensions when <span class="arithmatex">\(\hat\beta_{\text{init}}\)</span> is a
+  estimator (e.g. OLS) exists; extends to high dimensions when <span class="arithmatex">\(\widehat\beta_{\text{init}}\)</span> is a
   ridge or marginal-regression estimate.</li>
 <li>Columns of <span class="arithmatex">\(X\)</span> standardized to unit variance; <span class="arithmatex">\(y\)</span> centered (Gaussian). Intercept unpenalized.</li>
 <li>Sparsity <span class="arithmatex">\(\lVert\beta^\star\rVert_0=s\)</span> assumed; relies on an initial estimate whose nonzero
@@ -2168,13 +2168,13 @@
 </ul>
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>The adaptive lasso replaces the uniform <span class="arithmatex">\(\ell_1\)</span> penalty by a <strong>weighted</strong> <span class="arithmatex">\(\ell_1\)</span> penalty whose
-weights are computed from a preliminary estimate <span class="arithmatex">\(\hat\beta_{\text{init}}\)</span>:</p>
+weights are computed from a preliminary estimate <span class="arithmatex">\(\widehat\beta_{\text{init}}\)</span>:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\lVert y-X\beta\rVert_2^2
 \;+\; \lambda \sum_{j=1}^p w_j\,|\beta_j|,
 \qquad
-w_j = \frac{1}{|\hat\beta_{\text{init},j}|^{\gamma}},\;\; \gamma&gt;0 .
+w_j = \frac{1}{|\widehat\beta_{\text{init},j}|^{\gamma}},\;\; \gamma&gt;0 .
 \]</div>
 <p>For a general GLM, replace the Gaussian loss by the mean negative log-likelihood <span class="arithmatex">\(\mathcal L(\beta)\)</span>.
 Large initial coefficients get <strong>small</strong> weights (penalized lightly, kept), while near-zero ones
@@ -2189,7 +2189,7 @@ the columns. Define rescaled predictors <span class="arithmatex">\(\tilde X_{\cd
 = \frac{1}{2n}\lVert y-\tilde X\tilde\beta\rVert_2^2 + \lambda\lVert\tilde\beta\rVert_1 ,
 \]</div>
 <p>an ordinary lasso in <span class="arithmatex">\((\tilde X,\tilde\beta)\)</span>. Solve it by <a href="../lasso-cd/">coordinate descent</a>,
-then map back <span class="arithmatex">\(\hat\beta_j = \hat{\tilde\beta}_j / w_j\)</span>.</p>
+then map back <span class="arithmatex">\(\widehat\beta_j = \widehat{\tilde\beta}_j / w_j\)</span>.</p>
 <div class="highlight"><pre><span></span><code>Input: X (standardized), y (centered), λ-grid, exponent γ, initial estimator type
 1. Compute β_init  (OLS if n&gt;p; ridge or marginal regression if p≥n)
 2. Weights:  w_j = 1 / |β_init,j|^γ        # w_j = ∞ where β_init,j = 0  → β_j forced to 0
@@ -2203,7 +2203,7 @@ then map back <span class="arithmatex">\(\hat\beta_j = \hat{\tilde\beta}_j / w_j
 5. Map back:  β_j(λ) = β̃_j(λ) / w_j
 Return path {β(λ)}
 </code></pre></div>
-<p>Coordinates with <span class="arithmatex">\(\hat\beta_{\text{init},j}=0\)</span> have <span class="arithmatex">\(w_j=\infty\)</span> and are dropped a priori
+<p>Coordinates with <span class="arithmatex">\(\widehat\beta_{\text{init},j}=0\)</span> have <span class="arithmatex">\(w_j=\infty\)</span> and are dropped a priori
 (<span class="arithmatex">\(\beta_j\equiv 0\)</span>), giving an automatic screening step. For GLMs the inner solve is the
 penalized IRLS + coordinate-descent loop applied to <span class="arithmatex">\(\tilde X\)</span>.</p>
 <h2 id="hyperparameters-configuration">Hyperparameters &amp; configuration<a class="headerlink" href="#hyperparameters-configuration" title="Permanent link">&para;</a></h2>
@@ -2227,7 +2227,7 @@ penalized IRLS + coordinate-descent loop applied to <span class="arithmatex">\(\
 <td><span class="arithmatex">\(\gamma\in\{0.5,1,2\}\)</span> typical; larger <span class="arithmatex">\(\gamma\)</span> ⇒ stronger asymmetry; tuned with <span class="arithmatex">\(\lambda\)</span> by CV</td>
 </tr>
 <tr>
-<td><span class="arithmatex">\(\hat\beta_{\text{init}}\)</span></td>
+<td><span class="arithmatex">\(\widehat\beta_{\text{init}}\)</span></td>
 <td>OLS (<span class="arithmatex">\(n&gt;p\)</span>)</td>
 <td>ridge or univariate/marginal regression when <span class="arithmatex">\(p\ge n\)</span></td>
 </tr>
@@ -2258,10 +2258,10 @@ cross-validation.</p>
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X, y\)</span>, link; weight exponent <span class="arithmatex">\(\gamma\)</span>, initial estimator, regularization <span class="arithmatex">\(\lambda\)</span>.</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> — a point or the whole path, on the original scale.</li>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> — a point or the whole path, on the original scale.</li>
 <li><strong>Links:</strong> identity (LS inner loop), logit, log (IRLS outer loop).</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian). Requires computing
-  <span class="arithmatex">\(\hat\beta_{\text{init}}\)</span> before the main solve.</li>
+  <span class="arithmatex">\(\widehat\beta_{\text{init}}\)</span> before the main solve.</li>
 </ul>
 <h2 id="complexity">Complexity<a class="headerlink" href="#complexity" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2272,7 +2272,7 @@ cross-validation.</p>
 </ul>
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Oracle property</strong> (Zou, 2006). With a <span class="arithmatex">\(\sqrt n\)</span>-consistent <span class="arithmatex">\(\hat\beta_{\text{init}}\)</span> and
+<li><strong>Oracle property</strong> (Zou, 2006). With a <span class="arithmatex">\(\sqrt n\)</span>-consistent <span class="arithmatex">\(\widehat\beta_{\text{init}}\)</span> and
   <span class="arithmatex">\(\lambda_n\)</span> chosen so that <span class="arithmatex">\(\lambda_n/\sqrt n\to 0\)</span> and <span class="arithmatex">\(\lambda_n n^{(\gamma-1)/2}\to\infty\)</span>,
   the adaptive lasso (i) selects the true support with probability <span class="arithmatex">\(\to 1\)</span> and (ii) estimates the
   nonzero coefficients with the same asymptotic distribution as if the true support were known.

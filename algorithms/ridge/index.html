@@ -2169,14 +2169,14 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>Ridge is the <span class="arithmatex">\(\ell_2\)</span>-penalized template (<span class="arithmatex">\(P(\beta)=\lVert\beta\rVert_2^2\)</span>) with the Gaussian loss:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\,\lVert y - X\beta\rVert_2^2 \;+\; \lambda\,\lVert\beta\rVert_2^2 .
 \]</div>
 <p>Setting the gradient <span class="arithmatex">\(-\tfrac1n X^\top(y-X\beta) + 2\lambda\beta\)</span> to zero gives the
 <strong>regularized normal equations</strong> <span class="arithmatex">\(\big(X^\top X + 2n\lambda I\big)\beta = X^\top y\)</span>, with the
 unique closed form</p>
 <div class="arithmatex">\[
-\boxed{\;\hat\beta(\lambda) = \big(X^\top X + 2n\lambda I\big)^{-1} X^\top y\;}
+\boxed{\;\widehat\beta(\lambda) = \big(X^\top X + 2n\lambda I\big)^{-1} X^\top y\;}
 \]</div>
 <p><em>(Arena note — scaling convention.)</em> Because we use the <span class="arithmatex">\(\tfrac{1}{2n}\)</span>-normalized loss together
 with the penalty <span class="arithmatex">\(\lambda\lVert\beta\rVert_2^2\)</span>, the ridge term entering the normal equations is
@@ -2186,7 +2186,7 @@ the two agree under <span class="arithmatex">\(\lambda_{\text{here}} = \lambda_{
 whenever reporting a numerical <span class="arithmatex">\(\lambda\)</span>.</p>
 <p><strong>GLM / penalized-likelihood generalization.</strong> For a general GLM the estimator solves</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_2^2 ,
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_2^2 ,
 \]</div>
 <p>with <span class="arithmatex">\(\mathcal L\)</span> the mean negative log-likelihood (logistic, Poisson, …); the penalized score
 equation is <span class="arithmatex">\(X^\top(y-\mu(\beta)) = 2n\lambda\,\beta\)</span>.</p>
@@ -2194,7 +2194,7 @@ equation is <span class="arithmatex">\(X^\top(y-\mu(\beta)) = 2n\lambda\,\beta\)
 <p><strong>SVD solution and singular-value shrinkage.</strong> Let <span class="arithmatex">\(X = U\Sigma V^\top\)</span> be the (thin) SVD with
 singular values <span class="arithmatex">\(\sigma_1\ge\cdots\ge\sigma_r&gt;0\)</span>. Then</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) = \sum_{k} v_k\,\frac{\sigma_k}{\sigma_k^2 + 2n\lambda}\, u_k^\top y ,
+\widehat\beta(\lambda) = \sum_{k} v_k\,\frac{\sigma_k}{\sigma_k^2 + 2n\lambda}\, u_k^\top y ,
 \]</div>
 <p>so each component of the least-squares solution is multiplied by the <strong>shrinkage factor</strong>
 <span class="arithmatex">\(\sigma_k^2/(\sigma_k^2 + 2n\lambda)\in(0,1)\)</span>: directions with small <span class="arithmatex">\(\sigma_k\)</span> (the unstable ones)
@@ -2255,7 +2255,7 @@ GLM but with a ridge term added to each weighted least-squares step:</p>
 </tbody>
 </table>
 <p><strong><span class="arithmatex">\(\lambda\)</span> selection.</strong> Generalized cross-validation minimizes
-<span class="arithmatex">\(\mathrm{GCV}(\lambda)=\tfrac1n\lVert y - X\hat\beta(\lambda)\rVert_2^2 / \big(1-\mathrm{df}(\lambda)/n\big)^2\)</span>,
+<span class="arithmatex">\(\mathrm{GCV}(\lambda)=\tfrac1n\lVert y - X\widehat\beta(\lambda)\rVert_2^2 / \big(1-\mathrm{df}(\lambda)/n\big)^2\)</span>,
 a rotation-invariant approximation to leave-one-out CV that reuses the SVD. Ordinary <span class="arithmatex">\(k\)</span>-fold CV
 on prediction error is the common alternative.</p>
 <p><strong>Effective degrees of freedom.</strong> With hat matrix <span class="arithmatex">\(H_\lambda = X(X^\top X + 2n\lambda I)^{-1}X^\top\)</span>,</p>
@@ -2268,7 +2268,7 @@ complexity and feeds GCV.</p>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X\in\mathbb{R}^{n\times p}\)</span>, <span class="arithmatex">\(y\in\mathbb{R}^n\)</span>, link (<code>identity</code>/<code>logit</code>/<code>log</code>),
   ridge level <span class="arithmatex">\(\lambda\)</span>.</li>
-<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\hat\beta(\lambda)=(X^\top X + 2n\lambda I)^{-1}X^\top y\)</span> (identity),
+<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\widehat\beta(\lambda)=(X^\top X + 2n\lambda I)^{-1}X^\top y\)</span> (identity),
   or the penalized-IRLS solution for other links.</li>
 <li><strong>Links:</strong> identity (closed form); logit, log via penalized IRLS.</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>, center <span class="arithmatex">\(y\)</span> / keep intercept unpenalized; report the <span class="arithmatex">\(\lambda\)</span>
@@ -2279,17 +2279,17 @@ complexity and feeds GCV.</p>
 <li>Cholesky route: <span class="arithmatex">\(O(np^2)\)</span> to form <span class="arithmatex">\(X^\top X\)</span> plus <span class="arithmatex">\(O(p^3)\)</span> to factor/solve; memory <span class="arithmatex">\(O(p^2)\)</span>.</li>
 <li>SVD route: <span class="arithmatex">\(O(np\min(n,p))\)</span> once, after which every <span class="arithmatex">\(\lambda\)</span> on a grid costs only <span class="arithmatex">\(O(pr)\)</span>
   — ideal for GCV/CV over a <span class="arithmatex">\(\lambda\)</span>-path.</li>
-<li>High-dim (<span class="arithmatex">\(p\gg n\)</span>): use the dual/woodbury form <span class="arithmatex">\(\hat\beta = X^\top(XX^\top + 2n\lambda I)^{-1}y\)</span>
+<li>High-dim (<span class="arithmatex">\(p\gg n\)</span>): use the dual/woodbury form <span class="arithmatex">\(\widehat\beta = X^\top(XX^\top + 2n\lambda I)^{-1}y\)</span>
   at <span class="arithmatex">\(O(n^2 p + n^3)\)</span>.</li>
 </ul>
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Bias–variance trade-off.</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> is biased toward <span class="arithmatex">\(0\)</span> but has strictly smaller
+<li><strong>Bias–variance trade-off.</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> is biased toward <span class="arithmatex">\(0\)</span> but has strictly smaller
   variance than OLS; for the Gaussian model there always exists a <span class="arithmatex">\(\lambda&gt;0\)</span> whose mean-squared
   error beats OLS — the original motivation of Hoerl &amp; Kennard (1970).</li>
-<li><strong>Existence/uniqueness.</strong> The objective is strongly convex for any <span class="arithmatex">\(\lambda&gt;0\)</span>, so <span class="arithmatex">\(\hat\beta\)</span> is
+<li><strong>Existence/uniqueness.</strong> The objective is strongly convex for any <span class="arithmatex">\(\lambda&gt;0\)</span>, so <span class="arithmatex">\(\widehat\beta\)</span> is
   unique even when <span class="arithmatex">\(p&gt;n\)</span> or <span class="arithmatex">\(X\)</span> is rank-deficient.</li>
-<li><strong>Bayesian reading.</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> is the posterior mean under a Gaussian prior
+<li><strong>Bayesian reading.</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> is the posterior mean under a Gaussian prior
   <span class="arithmatex">\(\beta\sim\mathcal N(0,\tau^2 I)\)</span> with <span class="arithmatex">\(\tau^2 \propto 1/\lambda\)</span>.</li>
 <li>Ridge does <strong>not</strong> perform variable selection; for sparse recovery use <span class="arithmatex">\(\ell_1\)</span> penalties.</li>
 </ul>

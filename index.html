@@ -2003,11 +2003,11 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 
 <blockquote>
 <p><strong>Given</strong> a design matrix <span class="arithmatex">\(X\)</span>, a response vector <span class="arithmatex">\(y\)</span>, a model specification — family, link <span class="arithmatex">\(g\)</span>, loss, and tuning parameters where relevant —
-<strong>what</strong> exactly does the algorithm return as <span class="arithmatex">\(\hat\beta\)</span> ?</p>
+<strong>what</strong> exactly does the algorithm return as <span class="arithmatex">\(\widehat\beta\)</span> ?</p>
 </blockquote>
-<p>Even someone in finance can parrot <span class="arithmatex">\(\hat\beta = (X^\top X)^{-1} X^\top y\)</span>, but it is much trickier when the situation becomes irregular. In statistics, each method can be essential viewed as the mapping <span class="arithmatex">\((X, y, \text{model}) \mapsto \hat\beta\)</span> and often written against the shared template</p>
+<p>Even someone in finance can parrot <span class="arithmatex">\(\widehat\beta = (X^\top X)^{-1} X^\top y\)</span>, but it is much trickier when the situation becomes irregular. In statistics, each method can be essential viewed as the mapping <span class="arithmatex">\((X, y, \text{model}) \mapsto \widehat\beta\)</span> and often written against the shared template</p>
 <div class="arithmatex">\[
-\hat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
+\widehat\beta\in\arg\min_\beta \mathcal L(\beta; X, y, g)+\lambda P(\beta),
 \]</div>
 <p>or other procedures/updating rules. In here, estimators are defined across decades of literature that can be read, compared, and — in later phases — benchmarked on equal footing.</p>
 <h2 id="explore">Explore<a class="headerlink" href="#explore" title="Permanent link">&para;</a></h2>
@@ -2053,7 +2053,7 @@ Interactive t-SNE / UMAP embeddings and coefficient heatmaps reveal how methods 
 <p><strong>I · Documentation</strong> &nbsp; <span class="badge status-current">current</span></p>
 <hr />
 <p>Faithful algorithm cards — exact mathematics only. Each defines the estimator,
-the algorithm, its hyperparameters, and the precise <span class="arithmatex">\((X,y,g)\mapsto\hat\beta\)</span> contract.</p>
+the algorithm, its hyperparameters, and the precise <span class="arithmatex">\((X,y,g)\mapsto\widehat\beta\)</span> contract.</p>
 </li>
 <li>
 <p><strong>II · Implementation &amp; Arena</strong> &nbsp; <span class="badge status-current">current</span></p>

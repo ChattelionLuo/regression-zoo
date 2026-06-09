@@ -2166,10 +2166,10 @@
   <span class="arithmatex">\(\nabla\mathcal L\)</span> and Fisher information <span class="arithmatex">\(I\)</span>, so it applies across GLMs (linear, logistic,
   Poisson, …) — hence <code>link_support: [any]</code>.</li>
 <li>Sparsity <span class="arithmatex">\(\lVert\gamma^\star\rVert_0\ll p\)</span> and a compatibility/restricted-eigenvalue condition,
-  so a penalized (lasso) estimator <span class="arithmatex">\(\hat\gamma\)</span> is <span class="arithmatex">\(\ell_1\)</span>-consistent. The nuisance score block
+  so a penalized (lasso) estimator <span class="arithmatex">\(\widehat\gamma\)</span> is <span class="arithmatex">\(\ell_1\)</span>-consistent. The nuisance score block
   <span class="arithmatex">\(I_{\gamma\gamma}\)</span> has a sparse inverse direction, enabling the decorrelation step.</li>
 <li><strong>Key difficulty:</strong> the ordinary score <span class="arithmatex">\(\nabla_\theta\mathcal L\)</span> is sensitive to the
-  estimation error in <span class="arithmatex">\(\hat\gamma\)</span> (its bias does not vanish at <span class="arithmatex">\(\sqrt n\)</span> rate). The decorrelated
+  estimation error in <span class="arithmatex">\(\widehat\gamma\)</span> (its bias does not vanish at <span class="arithmatex">\(\sqrt n\)</span> rate). The decorrelated
   score removes this first-order sensitivity.</li>
 </ul>
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
@@ -2192,26 +2192,26 @@ I_{\theta\mid\gamma}=I_{\theta\theta}-I_{\theta\gamma}I_{\gamma\gamma}^{-1}I_{\g
 components on the nuisance-score components (equivalently a penalized solve of
 <span class="arithmatex">\(I_{\gamma\gamma}\,w=I_{\gamma\theta}\)</span>):</p>
 <div class="arithmatex">\[
-\hat w=\arg\min_{w}\ \lVert w\rVert_1\quad\text{s.t.}\quad
-\big\lVert \hat I_{\gamma\gamma}\,w-\hat I_{\gamma\theta}\big\rVert_\infty\le\mu,
+\widehat w=\arg\min_{w}\ \lVert w\rVert_1\quad\text{s.t.}\quad
+\big\lVert \widehat I_{\gamma\gamma}\,w-\widehat I_{\gamma\theta}\big\rVert_\infty\le\mu,
 \]</div>
-<p>with <span class="arithmatex">\(\hat I=\nabla^2\mathcal L(\hat\theta_0,\hat\gamma)\)</span> evaluated at the penalized estimator.
+<p>with <span class="arithmatex">\(\widehat I=\nabla^2\mathcal L(\widehat\theta_0,\widehat\gamma)\)</span> evaluated at the penalized estimator.
 The plug-in <strong>decorrelated score statistic</strong> for <span class="arithmatex">\(H_0:\theta=\theta_0\)</span> is then</p>
 <div class="arithmatex">\[
-\hat S=\nabla_\theta\mathcal L(\theta_0,\hat\gamma)-\hat w^\top\nabla_\gamma\mathcal L(\theta_0,\hat\gamma),
+\widehat S=\nabla_\theta\mathcal L(\theta_0,\widehat\gamma)-\widehat w^\top\nabla_\gamma\mathcal L(\theta_0,\widehat\gamma),
 \qquad
-U_n=\frac{\sqrt n\,\hat S}{\sqrt{\hat I_{\theta\mid\gamma}}}\ \xrightarrow{d}\ N(0,1)\ \text{ under }H_0,
+U_n=\frac{\sqrt n\,\widehat S}{\sqrt{\widehat I_{\theta\mid\gamma}}}\ \xrightarrow{d}\ N(0,1)\ \text{ under }H_0,
 \]</div>
 <p>and <span class="arithmatex">\(U_n^2\xrightarrow{d}\chi^2_1\)</span> (more generally <span class="arithmatex">\(\chi^2_d\)</span> for a <span class="arithmatex">\(d\)</span>-dimensional target). A
 one-step / point estimator is recovered by a Newton correction along the decorrelated direction,</p>
 <div class="arithmatex">\[
-\hat\theta=\theta_0-\frac{\hat S}{\hat I_{\theta\mid\gamma}},\qquad
-\sqrt n(\hat\theta-\theta^\star)\xrightarrow{d}N\!\big(0,\,I_{\theta\mid\gamma}^{-1}\big).
+\widehat\theta=\theta_0-\frac{\widehat S}{\widehat I_{\theta\mid\gamma}},\qquad
+\sqrt n(\widehat\theta-\theta^\star)\xrightarrow{d}N\!\big(0,\,I_{\theta\mid\gamma}^{-1}\big).
 \]</div>
 <p><strong>Inverting for CIs.</strong> Collect all <span class="arithmatex">\(\theta_0\)</span> not rejected at level <span class="arithmatex">\(\alpha\)</span>:</p>
 <div class="arithmatex">\[
 \mathcal C_{1-\alpha}=\Big\{\theta_0:\ |U_n(\theta_0)|\le z_{1-\alpha/2}\Big\}
-=\ \hat\theta\ \pm\ z_{1-\alpha/2}\,\big(n\,\hat I_{\theta\mid\gamma}\big)^{-1/2}.
+=\ \widehat\theta\ \pm\ z_{1-\alpha/2}\,\big(n\,\widehat I_{\theta\mid\gamma}\big)^{-1/2}.
 \]</div>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>Input: X, y, loss L (GLM neg-loglik), target index θ, null θ₀, penalties λ, μ
@@ -2244,12 +2244,12 @@ Return  θ̂, U (p-value), CI
 <tr>
 <td><span class="arithmatex">\(\lambda\)</span> (nuisance lasso)</td>
 <td>CV / <span class="arithmatex">\(\sqrt{\log p/n}\)</span></td>
-<td>regularizes <span class="arithmatex">\(\hat\gamma\)</span>; the score is first-order insensitive to its error</td>
+<td>regularizes <span class="arithmatex">\(\widehat\gamma\)</span>; the score is first-order insensitive to its error</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\mu\)</span> (Dantzig tol)</td>
 <td><span class="arithmatex">\(\asymp\sqrt{\log p/n}\)</span></td>
-<td>controls bias of the decorrelation weight <span class="arithmatex">\(\hat w\)</span></td>
+<td>controls bias of the decorrelation weight <span class="arithmatex">\(\widehat w\)</span></td>
 </tr>
 <tr>
 <td>loss / link</td>
@@ -2272,7 +2272,7 @@ Return  θ̂, U (p-value), CI
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X\in\mathbb{R}^{n\times p}\)</span>, <span class="arithmatex">\(y\in\mathbb{R}^n\)</span>, link <span class="arithmatex">\(g\)</span>, target coordinate(s)
   <span class="arithmatex">\(\theta\)</span>, null value <span class="arithmatex">\(\theta_0\)</span>, penalties <span class="arithmatex">\(\lambda,\mu\)</span>.</li>
-<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\hat\theta\)</span> <strong>plus inference</strong> — the statistic <span class="arithmatex">\(U_n\)</span>
+<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\widehat\theta\)</span> <strong>plus inference</strong> — the statistic <span class="arithmatex">\(U_n\)</span>
   (<span class="arithmatex">\(p\)</span>-value) and CI <span class="arithmatex">\(\mathcal C_{1-\alpha}\)</span> (hence <code>output: point+inference</code>).</li>
 <li><strong>Links:</strong> any — the construction only uses the loss gradient/Hessian
   <span class="arithmatex">\(\nabla\mathcal L,\ \nabla^2\mathcal L=I\)</span>.</li>
@@ -2291,7 +2291,7 @@ Return  θ̂, U (p-value), CI
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Asymptotic null distribution:</strong> under compatibility + sparsity
-  (<span class="arithmatex">\(s\log p/\sqrt n\to 0\)</span>) and a valid sparse <span class="arithmatex">\(\hat w\)</span>,
+  (<span class="arithmatex">\(s\log p/\sqrt n\to 0\)</span>) and a valid sparse <span class="arithmatex">\(\widehat w\)</span>,
   <span class="arithmatex">\(U_n\xrightarrow{d}N(0,1)\)</span> under <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(U_n^2\xrightarrow{d}\chi^2_d\)</span>
   <a href="#ref-10.1214/16-AOS1448"><code>Ning and Liu, 2017</code></a>.</li>
 <li><strong>Estimation / normality:</strong> the one-step estimator is <span class="arithmatex">\(\sqrt n\)</span>-consistent and asymptotically
@@ -2306,8 +2306,8 @@ Return  θ̂, U (p-value), CI
 <h2 id="variants-related">Variants &amp; related<a class="headerlink" href="#variants-related" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../debiased-lasso/">Debiased / Desparsified Lasso</a> — the linear-model special case; its
-  <span class="arithmatex">\(\hat\Theta X^\top\)</span> correction coincides with decorrelation under Gaussian loss.</li>
-<li><a href="../lasso-cd/">Lasso via Coordinate Descent</a> — supplies the penalized nuisance estimate <span class="arithmatex">\(\hat\gamma\)</span>.</li>
+  <span class="arithmatex">\(\widehat\Theta X^\top\)</span> correction coincides with decorrelation under Gaussian loss.</li>
+<li><a href="../lasso-cd/">Lasso via Coordinate Descent</a> — supplies the penalized nuisance estimate <span class="arithmatex">\(\widehat\gamma\)</span>.</li>
 <li><strong>Double / orthogonalized (Neyman) score</strong> — the same orthogonality principle underlies
   double-ML and partialling-out estimators.</li>
 </ul>

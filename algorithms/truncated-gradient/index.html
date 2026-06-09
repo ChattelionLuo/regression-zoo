@@ -2166,7 +2166,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>Truncated Gradient (Langford, Li &amp; Zhang, 2009) approximately solves the <span class="arithmatex">\(\ell_1\)</span>-penalized GLM</p>
 <div class="arithmatex">\[
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_1, \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda\lVert\beta\rVert_1, \qquad
 \nabla\ell_i(\beta) = -(y_i-\mu_i)\,x_i = (\mu(x_i^\top\beta)-y_i)\,x_i,
 \]</div>
 <p>by interleaving plain SGD steps with a <strong>soft truncation</strong> applied every <span class="arithmatex">\(K\)</span> steps. The
@@ -2243,7 +2243,7 @@ Return β
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> stream of <span class="arithmatex">\((x_i,y_i)\)</span>, link <span class="arithmatex">\(g\)</span>, <span class="arithmatex">\((\lambda, K, \theta)\)</span>, step <span class="arithmatex">\(\gamma\)</span>.</li>
-<li><strong>Output:</strong> sparse point estimate <span class="arithmatex">\(\hat\beta\)</span>.</li>
+<li><strong>Output:</strong> sparse point estimate <span class="arithmatex">\(\widehat\beta\)</span>.</li>
 <li><strong>Links:</strong> identity, logit, log.</li>
 <li><strong>Preprocessing:</strong> feature scaling recommended so <span class="arithmatex">\(\lambda\)</span> acts uniformly across coordinates.</li>
 </ul>

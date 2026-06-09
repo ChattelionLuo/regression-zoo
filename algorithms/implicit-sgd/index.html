@@ -2168,7 +2168,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>Same target as SGD — the unpenalized GLM minimizer</p>
 <div class="arithmatex">\[
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
 \nabla\ell_i(\beta) = -(y_i-\mu_i)\,x_i = (\mu(x_i^\top\beta)-y_i)\,x_i,
 \]</div>
 <p>but with an <strong>implicit</strong> (backward-Euler / proximal) recursion in which the gradient is evaluated
@@ -2252,7 +2252,7 @@ iterations; no <span class="arithmatex">\(p\times p\)</span> system is ever form
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> stream of <span class="arithmatex">\((x_i,y_i)\)</span>, link <span class="arithmatex">\(g\)</span>, schedule <span class="arithmatex">\(\gamma_t\)</span>.</li>
-<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\hat\beta\)</span>, or averaged <span class="arithmatex">\(\bar\beta_t\)</span> with asymptotic covariance.</li>
+<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\widehat\beta\)</span>, or averaged <span class="arithmatex">\(\bar\beta_t\)</span> with asymptotic covariance.</li>
 <li><strong>Links:</strong> identity, logit, log (any monotone canonical <span class="arithmatex">\(\mu=g^{-1}\)</span>).</li>
 <li><strong>Preprocessing:</strong> feature scaling recommended; bounded memory, no data retention.</li>
 </ul>

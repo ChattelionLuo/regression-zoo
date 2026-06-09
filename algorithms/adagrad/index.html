@@ -2166,7 +2166,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>AdaGrad targets the unpenalized GLM minimizer (a composite penalty <span class="arithmatex">\(P\)</span> is optional, see below):</p>
 <div class="arithmatex">\[
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta), \qquad
 g_t := \nabla\ell_{i_t}(\beta^{(t)}) = \big(\mu(x_{i_t}^\top\beta^{(t)})-y_{i_t}\big)\,x_{i_t}.
 \]</div>
 <p>It accumulates the <strong>per-coordinate</strong> sum of squared gradients and rescales each step by it. With
@@ -2239,7 +2239,7 @@ step <span class="arithmatex">\(\eta/(\sqrt{G_{t,j}}+\epsilon)\)</span>, giving 
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> stream of <span class="arithmatex">\((x_i,y_i)\)</span>, link <span class="arithmatex">\(g\)</span>, base rate <span class="arithmatex">\(\eta\)</span> (optional <span class="arithmatex">\(\lambda,P\)</span>).</li>
-<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\hat\beta\)</span> (with sparsity if a prox penalty is used).</li>
+<li><strong>Output:</strong> point estimate <span class="arithmatex">\(\widehat\beta\)</span> (with sparsity if a prox penalty is used).</li>
 <li><strong>Links:</strong> identity, logit, log.</li>
 <li><strong>Preprocessing:</strong> AdaGrad is comparatively robust to feature scaling, but centering still helps.</li>
 </ul>

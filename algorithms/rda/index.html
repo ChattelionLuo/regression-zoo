@@ -2166,7 +2166,7 @@
 <h2 id="estimator-objective">Estimator / objective<a class="headerlink" href="#estimator-objective" title="Permanent link">&para;</a></h2>
 <p>RDA minimizes the composite online objective</p>
 <div class="arithmatex">\[
-\hat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
+\widehat\beta \;=\; \arg\min_{\beta\in\mathbb{R}^p}\; \mathcal L(\beta) + \lambda P(\beta), \qquad
 g_t := \nabla\ell_{i_t}(\beta^{(t)}) = \big(\mu(x_{i_t}^\top\beta^{(t)})-y_{i_t}\big)\,x_{i_t},
 \]</div>
 <p>but, unlike FOBOS, it forms the <strong>running average of all past subgradients</strong> and minimizes against
@@ -2241,7 +2241,7 @@ Return β
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> stream of <span class="arithmatex">\((x_i,y_i)\)</span>, link <span class="arithmatex">\(g\)</span>, penalty <span class="arithmatex">\((\lambda, P)\)</span>, schedule <span class="arithmatex">\(\beta_t\)</span>, auxiliary <span class="arithmatex">\(h\)</span>.</li>
-<li><strong>Output:</strong> sparse point estimate <span class="arithmatex">\(\hat\beta\)</span>.</li>
+<li><strong>Output:</strong> sparse point estimate <span class="arithmatex">\(\widehat\beta\)</span>.</li>
 <li><strong>Links:</strong> identity, logit, log.</li>
 <li><strong>Preprocessing:</strong> feature scaling recommended so <span class="arithmatex">\(\lambda\)</span> thresholds coordinates uniformly.</li>
 </ul>

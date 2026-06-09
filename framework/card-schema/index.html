@@ -2074,7 +2074,7 @@ deviation, simplification, or default we add is flagged explicitly as <em>"(Aren
 </tr>
 <tr>
 <td><code>output</code></td>
-<td><code>point</code> (just <span class="arithmatex">\(\hat\beta\)</span>), <code>path</code> (over <span class="arithmatex">\(\lambda\)</span>), or <code>point+inference</code></td>
+<td><code>point</code> (just <span class="arithmatex">\(\widehat\beta\)</span>), <code>path</code> (over <span class="arithmatex">\(\lambda\)</span>), or <code>point+inference</code></td>
 </tr>
 <tr>
 <td><code>year</code></td>
@@ -2096,12 +2096,12 @@ deviation, simplification, or default we add is flagged explicitly as <em>"(Aren
 <ol>
 <li><strong>Setting &amp; assumptions</strong> — data regime, link(s), structural assumptions
    (sparsity, design conditions, dispersion known/unknown).</li>
-<li><strong>Estimator / objective</strong> — the <em>exact</em> definition of <span class="arithmatex">\(\hat\beta\)</span> in unified notation:
+<li><strong>Estimator / objective</strong> — the <em>exact</em> definition of <span class="arithmatex">\(\widehat\beta\)</span> in unified notation:
    the objective <span class="arithmatex">\(\mathcal L + \lambda P\)</span> or estimating equation. This is the mathematical heart.</li>
-<li><strong>Algorithm</strong> — faithful pseudocode of how <span class="arithmatex">\(\hat\beta\)</span> is computed (updates, stopping rule).</li>
+<li><strong>Algorithm</strong> — faithful pseudocode of how <span class="arithmatex">\(\widehat\beta\)</span> is computed (updates, stopping rule).</li>
 <li><strong>Hyperparameters &amp; configuration</strong> — every knob: <span class="arithmatex">\(\lambda\)</span> (and selection rule),
    step sizes, tolerances, weights, initialization, standardization.</li>
-<li><strong>Mapping to framework</strong> — the <span class="arithmatex">\((X, y, g, \text{config}) \to \hat\beta\)</span> contract:
+<li><strong>Mapping to framework</strong> — the <span class="arithmatex">\((X, y, g, \text{config}) \to \widehat\beta\)</span> contract:
    inputs, outputs, supported links, and any required preprocessing. This is the Phase-2 spec.</li>
 <li><strong>Complexity</strong> — per-iteration and total cost; memory (esp. for streaming).</li>
 <li><strong>Statistical guarantees</strong> <em>(brief)</em> — consistency / rates / inference validity, with

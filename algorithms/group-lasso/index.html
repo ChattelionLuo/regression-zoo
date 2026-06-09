@@ -2172,7 +2172,7 @@
 <p>The penalty is a sum of (un-squared) <span class="arithmatex">\(\ell_2\)</span> norms of the blocks, weighted by <span class="arithmatex">\(\sqrt{d_g}\)</span> so that
 larger groups are penalized commensurately:</p>
 <div class="arithmatex">\[
-\hat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
+\widehat\beta(\lambda) \;=\; \arg\min_{\beta\in\mathbb{R}^p}\;
 \frac{1}{2n}\Big\lVert y-\sum_{g=1}^G X_g\beta_g\Big\rVert_2^2
 \;+\; \lambda \sum_{g=1}^G \sqrt{d_g}\,\lVert\beta_g\rVert_2 .
 \]</div>
@@ -2213,7 +2213,7 @@ Return path {β(λ)}
 </code></pre></div>
 <ul>
 <li><span class="arithmatex">\(\lambda_{\max}=\max_g \tfrac{1}{n\sqrt{d_g}}\lVert X_g^\top y\rVert_2\)</span> (smallest <span class="arithmatex">\(\lambda\)</span> with
-  <span class="arithmatex">\(\hat\beta=0\)</span>); grid log-spaced to <span class="arithmatex">\(\epsilon\lambda_{\max}\)</span>.</li>
+  <span class="arithmatex">\(\widehat\beta=0\)</span>); grid log-spaced to <span class="arithmatex">\(\epsilon\lambda_{\max}\)</span>.</li>
 <li>For <strong>non-orthonormal</strong> <span class="arithmatex">\(X_g\)</span> the inner block problem has no closed form; solve it with a short
   proximal-gradient / fixed-point loop (the threshold test for <span class="arithmatex">\(\beta_g=0\)</span> is unchanged).</li>
 </ul>
@@ -2269,7 +2269,7 @@ lasso but with the groupwise update replacing the scalar one.</p>
 <h2 id="mapping-to-framework">Mapping to framework<a class="headerlink" href="#mapping-to-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Input:</strong> <span class="arithmatex">\(X, y\)</span>, link, the <strong>group partition</strong> <span class="arithmatex">\(\{\mathcal G_g\}\)</span>; regularization <span class="arithmatex">\(\lambda\)</span>.</li>
-<li><strong>Output:</strong> <span class="arithmatex">\(\hat\beta(\lambda)\)</span> — a point or the whole path; sparsity is at the group level.</li>
+<li><strong>Output:</strong> <span class="arithmatex">\(\widehat\beta(\lambda)\)</span> — a point or the whole path; sparsity is at the group level.</li>
 <li><strong>Links:</strong> identity (LS inner loop), logit, log (IRLS outer loop).</li>
 <li><strong>Preprocessing:</strong> standardize <span class="arithmatex">\(X\)</span>; optionally orthonormalize each <span class="arithmatex">\(X_g\)</span>; center <span class="arithmatex">\(y\)</span> (Gaussian).</li>
 </ul>
