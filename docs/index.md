@@ -15,7 +15,7 @@ Linear and generalized linear models are still load-bearing statistical tools. T
 
 <div class="arena-cta" markdown>
 [Browse the catalogue](algorithms/index.md){ .arena-btn .arena-btn--primary }
-[Read the framework](framework/notation.md){ .arena-btn .arena-btn--ghost }
+[Explore the Arena](arena/index.md){ .arena-btn .arena-btn--ghost }
 </div>
 
 </div>
@@ -46,15 +46,6 @@ or other procedures/updating rules. In here, estimators are defined across decad
 
     [:octicons-arrow-right-24: Read the framework](framework/notation.md)
 
--   :material-sitemap-outline:{ .lg } &nbsp; **Taxonomy**
-
-    ---
-
-    How hundreds of solvers stay navigable,
-    from classical closed forms to online stochastic approximation.
-
-    [:octicons-arrow-right-24: See the taxonomy](framework/taxonomy.md)
-
 -   :material-card-text-outline:{ .lg } &nbsp; **Card schema**
 
     ---
@@ -71,6 +62,15 @@ or other procedures/updating rules. In here, estimators are defined across decad
     debiased Lasso, SGD, and many more.
 
     [:octicons-arrow-right-24: Open the catalogue](algorithms/index.md)
+
+-   :material-chart-scatter-plot:{ .lg } &nbsp; **The Arena**
+
+    ---
+
+    Every solver run across 16 datasets with 50+ hyperparameter configs each.
+    Interactive t-SNE / UMAP embeddings and coefficient heatmaps reveal how methods cluster and differ.
+
+    [:octicons-arrow-right-24: Explore the Arena](arena/index.md)
 
 </div>
 

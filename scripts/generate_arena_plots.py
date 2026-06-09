@@ -430,9 +430,32 @@ def make_heatmap_figure(df_ds, ds_name, ds_meta):
             expanded_families.append(row['family'])
 
     B = np.array(expanded_rows)
+
+    # Subsample rows for high-dimensional data to keep HTML files loadable
+    # Target: keep total cells (n_rows × p) below 80 000
+    MAX_CELLS = 80_000
+    if len(B) * p > MAX_CELLS:
+        n_keep = max(120, MAX_CELLS // max(p, 1))
+        rng = np.random.default_rng(42)
+        families_arr = np.array(expanded_families)
+        unique_fams = list(dict.fromkeys(expanded_families))
+        keep_idx = []
+        for fam in unique_fams:
+            fam_idx = np.where(families_arr == fam)[0]
+            n_fam = max(1, round(len(fam_idx) * n_keep / len(B)))
+            chosen = sorted(rng.choice(fam_idx, min(n_fam, len(fam_idx)), replace=False).tolist())
+            keep_idx.extend(chosen)
+        keep_idx = sorted(keep_idx)
+        expanded_rows     = [expanded_rows[i]     for i in keep_idx]
+        expanded_labels   = [expanded_labels[i]   for i in keep_idx]
+        expanded_cls      = [expanded_cls[i]      for i in keep_idx]
+        expanded_families = [expanded_families[i] for i in keep_idx]
+        B = np.array(expanded_rows)
+
+    # Compact per-row hover text (same label for every column in a row → much smaller JSON)
     hover_cls = [ALGO_LABELS.get(c, c) for c in expanded_cls]
-    hover_text = [[f"<b>{hover_cls[r]}</b><br>{expanded_labels[r]}<br>β[{j}] = {B[r, j]:.4f}"
-                   for j in range(p)] for r in range(len(B))]
+    row_labels = [f"<b>{hover_cls[r]}</b>  {expanded_labels[r]}" for r in range(len(B))]
+    hover_text = [[f"{row_labels[r]}<br>j={j}  β={B[r,j]:.4f}" for j in range(p)] for r in range(len(B))]
 
     vmax = float(np.percentile(np.abs(B), 99))
     vmax = max(vmax, 1e-6)

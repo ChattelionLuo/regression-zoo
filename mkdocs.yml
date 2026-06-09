@@ -72,10 +72,6 @@ plugins:
 
 nav:
   - Home: index.md
-  - Arena:
-      - Overview: arena/index.md
-      - Embedding maps: arena/embeddings.md
-      - Coefficient heatmaps: arena/heatmaps.md
   - Framework:
       - Notation & framework: framework/notation.md
       - Taxonomy: framework/taxonomy.md
@@ -110,3 +106,4 @@ nav:
           - RDA: algorithms/rda.md
           - Truncated Gradient: algorithms/truncated-gradient.md
           - Renewable GLM: algorithms/renewable-glm.md
+  - Arena: arena/index.md

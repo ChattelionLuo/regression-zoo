@@ -1,4 +1,4 @@
-# Unified Notation & Mathematical Framework
+# Notation & Mathematical Framework
 
 Every algorithm card in this encyclopedia answers the **same question** in the **same language**:
 
