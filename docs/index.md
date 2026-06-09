@@ -5,8 +5,6 @@ hide:
 
 <div class="arena-hero" markdown>
 
-<span class="arena-eyebrow">Linear Model Arena · Phase I &amp; II</span>
-
 # An encyclopedia of GLM algorithms
 
 <p class="arena-lede" markdown>
@@ -99,7 +97,7 @@ This Arena puts this solver zoo in one coordinate system. Each algorithm card st
 
     Python solvers behind one interface, `fit(X, y, link, **config) -> beta_hat`,
     mirroring each method's official construction. Run across 16 datasets with 50+ configs per solver.
-    [Open the Arena →](arena/index.md)
+    [Explore the Arena →](arena/index.md)
 
 -   **III · Deep analysis** &nbsp; <span class="badge status-stub">planned</span>
 

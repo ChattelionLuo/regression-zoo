@@ -1,15 +1,13 @@
-<p class="arena-kicker">Phase II · Comparative study</p>
-
 # The Arena
 
-Every solver from Phase I has a faithful Python implementation and has been run across **16 datasets**, real and synthetic, regression and logistic, with up to 50 hyperparameter configurations per solver where applicable.
+Every [algorithm](algorithms/index.md) has a Python implementation and has been run across all datasets, real and synthetic, regression and logistic, with up to 50 hyperparameter configurations per algorithm where applicable.
 
-Each *(solver, config)* run produces one coefficient vector $\widehat\beta \in \mathbb{R}^p$.  The two visualisations below make those vectors comparable:
+Each (`algorithm`, `config`) run produces one coefficient vector $\widehat\beta \in \mathbb{R}^p$.  At this time we have two visualisations:
 
-- **Embedding map**: unit-normalised vectors $\widehat\beta/\|\widehat\beta\|$ projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the solver name and exact config.
-- **Coefficient heatmap**: all runs for one dataset as a matrix (rows = runs, columns = features $j$). The top bar shows mean $|\widehat\beta_j|$ per feature. Colour = $\widehat\beta_j$ on a diverging RdBu scale. Hover for exact value.
+- **Embedding map**: unit-normalised vectors $\widehat\beta/\|\widehat\beta\|$ projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the algorithm name and exact config.
+- **Coefficient heatmap**: all runs for one dataset as a matrix (rows = runs, columns = feature indices). The top bar shows mean $|\widehat\beta_j|$ per feature. Hover for exact value.
 
-All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> FitResult`.
+All algorithms share the interface `SolverCls(config={...}).fit(X, y, link=...) -> FitResult`.
 
 ---
 

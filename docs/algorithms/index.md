@@ -1,5 +1,3 @@
-<p class="arena-kicker">Phase I · Documentation</p>
-
 # Algorithm Catalogue
 
 The library of algorithm cards, grouped by [family](../framework/taxonomy.md). Each entry maps
