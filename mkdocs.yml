@@ -52,6 +52,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      toc_depth: 3
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
@@ -107,8 +108,4 @@ nav:
           - RDA: algorithms/rda.md
           - Truncated Gradient: algorithms/truncated-gradient.md
           - Renewable GLM: algorithms/renewable-glm.md
-  - Arena:
-      - Overview: arena/index.md
-      - Real datasets: arena/real-datasets.md
-      - Synthetic — regression: arena/synthetic-regression.md
-      - Synthetic — logistic: arena/synthetic-logistic.md
+  - Arena: arena/index.md
