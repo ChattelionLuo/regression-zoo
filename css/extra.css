@@ -186,6 +186,16 @@
 .md-sidebar__scrollwrap::-webkit-scrollbar { width: 6px; }
 .md-sidebar__scrollwrap::-webkit-scrollbar-thumb { background: var(--arena-line-strong); border-radius: 0; }
 
+/* Hide the "Table of contents" label in the integrated TOC sidebar */
+.md-nav--secondary .md-nav__title { display: none; }
+
+/* Bold the h2-level TOC entries (those that have child nav = section headings)
+   to match the bold section headings in the Algorithms sidebar */
+.md-nav--secondary > .md-nav__list > .md-nav__item:has(> .md-nav) > .md-nav__link {
+  font-weight: 700;
+  color: var(--arena-ink);
+}
+
 /* Mobile nav drawer — dark title bar only, items stay on white */
 @media screen and (max-width: 76.1875em) {
   .md-nav--primary .md-nav__title[for="__drawer"] {
