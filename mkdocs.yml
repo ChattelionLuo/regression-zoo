@@ -41,6 +41,7 @@ theme:
     - search.highlight
     - content.code.copy
     - content.code.annotate
+    - toc.integrate
     - toc.follow
 
 markdown_extensions:
