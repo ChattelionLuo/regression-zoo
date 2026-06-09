@@ -600,3 +600,37 @@ mjx-container[display="true"] {
   .arena-stat:nth-child(1), .arena-stat:nth-child(2) { border-bottom: 1px solid var(--arena-line); }
   .md-typeset .arena-hero h1 { font-size: 2.0rem; }
 }
+
+/* ── Arena figure frames (iframe embeds) ───────────────────────────────────── */
+.arena-figure-frame {
+  margin: 0.4rem 0 2.0rem;
+  border: 1px solid var(--arena-line);
+  background: transparent;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Embedding (t-SNE + UMAP) — fixed height, full width */
+.arena-embed-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+/* Heatmap — taller, scrollable */
+.arena-heatmap-frame {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+/* Dark mode: slightly lighter border */
+[data-md-color-scheme="slate"] .arena-figure-frame {
+  border-color: #2a2f3a;
+  background: #12151a;
+}
+
