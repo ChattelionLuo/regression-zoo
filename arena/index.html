@@ -2130,16 +2130,14 @@
   
 
 
-<p class="arena-kicker">Phase II · Comparative study</p>
-
 <h1 id="the-arena">The Arena<a class="headerlink" href="#the-arena" title="Permanent link">&para;</a></h1>
-<p>Every solver from Phase I has a faithful Python implementation and has been run across <strong>16 datasets</strong>, real and synthetic, regression and logistic, with up to 50 hyperparameter configurations per solver where applicable.</p>
-<p>Each <em>(solver, config)</em> run produces one coefficient vector <span class="arithmatex">\(\widehat\beta \in \mathbb{R}^p\)</span>.  The two visualisations below make those vectors comparable:</p>
+<p>Every <a href="algorithms/index.md">algorithm</a> has a Python implementation and has been run across all datasets, real and synthetic, regression and logistic, with up to 50 hyperparameter configurations per algorithm where applicable.</p>
+<p>Each (<code>algorithm</code>, <code>config</code>) run produces one coefficient vector <span class="arithmatex">\(\widehat\beta \in \mathbb{R}^p\)</span>.  At this time we have two visualisations:</p>
 <ul>
-<li><strong>Embedding map</strong>: unit-normalised vectors <span class="arithmatex">\(\widehat\beta/\|\widehat\beta\|\)</span> projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the solver name and exact config.</li>
-<li><strong>Coefficient heatmap</strong>: all runs for one dataset as a matrix (rows = runs, columns = features <span class="arithmatex">\(j\)</span>). The top bar shows mean <span class="arithmatex">\(|\widehat\beta_j|\)</span> per feature. Colour = <span class="arithmatex">\(\widehat\beta_j\)</span> on a diverging RdBu scale. Hover for exact value.</li>
+<li><strong>Embedding map</strong>: unit-normalised vectors <span class="arithmatex">\(\widehat\beta/\|\widehat\beta\|\)</span> projected to 2D by t-SNE and UMAP.  Algorithmically similar solutions cluster; hover to see the algorithm name and exact config.</li>
+<li><strong>Coefficient heatmap</strong>: all runs for one dataset as a matrix (rows = runs, columns = feature indices). The top bar shows mean <span class="arithmatex">\(|\widehat\beta_j|\)</span> per feature. Hover for exact value.</li>
 </ul>
-<p>All solvers share the interface <code>SolverCls(config={...}).fit(X, y, link=...) -&gt; FitResult</code>.</p>
+<p>All algorithms share the interface <code>SolverCls(config={...}).fit(X, y, link=...) -&gt; FitResult</code>.</p>
 <hr />
 <h2 id="real-datasets">Real datasets<a class="headerlink" href="#real-datasets" title="Permanent link">&para;</a></h2>
 <h3 id="diabetes">Diabetes<a class="headerlink" href="#diabetes" title="Permanent link">&para;</a></h3>
