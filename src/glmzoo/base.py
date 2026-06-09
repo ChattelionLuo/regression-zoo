@@ -36,8 +36,12 @@ class BaseSolver:
     #: matches the card `id` in docs/algorithms/<id>.md
     card_id: str = "base"
 
-    def __init__(self, **config: Any) -> None:
-        self.config = config
+    def __init__(self, config: dict | None = None, **kwargs: Any) -> None:
+        # Accept either SolverCls(config={...}) or SolverCls(lam=0.1, ...)
+        if config is not None:
+            self.config = dict(config)
+        else:
+            self.config = kwargs
 
     def _resolve_link(self, link: str | Link) -> Link:
         if isinstance(link, Link):
