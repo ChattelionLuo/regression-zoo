@@ -15,7 +15,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 
 ## Real datasets
 
-#### Diabetes
+### Diabetes
 
 <p class="arena-ds-meta">n = 442 · p = 10 · Regression · UCI / sklearn</p>
 
@@ -26,7 +26,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Diabetes.html" class="arena-heatmap-frame" title="Heatmap: Diabetes"></iframe>
 </div>
 
-#### Breast Cancer
+### Breast Cancer
 
 <p class="arena-ds-meta">n = 569 · p = 30 · Logistic · UCI / sklearn</p>
 
@@ -37,7 +37,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Breast_Cancer.html" class="arena-heatmap-frame" title="Heatmap: Breast Cancer"></iframe>
 </div>
 
-#### Digits (>= 5)
+### Digits (>= 5)
 
 <p class="arena-ds-meta">n = 1 797 · p = 64 · Logistic · NIST / sklearn</p>
 
@@ -48,7 +48,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Digits_hi5.html" class="arena-heatmap-frame" title="Heatmap: Digits"></iframe>
 </div>
 
-#### Fair Affairs
+### Fair Affairs
 
 <p class="arena-ds-meta">n = 2 000 · p = 8 · Regression · statsmodels</p>
 
@@ -59,7 +59,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Fair_Affairs.html" class="arena-heatmap-frame" title="Heatmap: Fair Affairs"></iframe>
 </div>
 
-#### RAND HIE
+### RAND HIE
 
 <p class="arena-ds-meta">n = 2 000 · p = 9 · Regression · statsmodels</p>
 
@@ -70,7 +70,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_RAND_HIE.html" class="arena-heatmap-frame" title="Heatmap: RAND HIE"></iframe>
 </div>
 
-#### STAR98
+### STAR98
 
 <p class="arena-ds-meta">n = 303 · p = 21 · Logistic · statsmodels</p>
 
@@ -81,7 +81,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_STAR98_pass.html" class="arena-heatmap-frame" title="Heatmap: STAR98"></iframe>
 </div>
 
-#### ANES96
+### ANES96
 
 <p class="arena-ds-meta">n = 944 · p = 10 · Logistic · statsmodels</p>
 
@@ -92,7 +92,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_ANES96_vote.html" class="arena-heatmap-frame" title="Heatmap: ANES96"></iframe>
 </div>
 
-#### Mode Choice
+### Mode Choice
 
 <p class="arena-ds-meta">n = 840 · p = 8 · Logistic · statsmodels</p>
 
@@ -107,7 +107,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 
 ## Synthetic — regression
 
-#### Sparse
+### Sparse
 
 <p class="arena-ds-meta">n = 2 000 · p = 200 · 20 informative features · Regression</p>
 
@@ -118,7 +118,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Reg_Sparse200.html" class="arena-heatmap-frame" title="Heatmap: Sparse 200"></iframe>
 </div>
 
-#### Dense
+### Dense
 
 <p class="arena-ds-meta">n = 2 000 · p = 100 · all features informative · Regression</p>
 
@@ -129,7 +129,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Reg_Dense100.html" class="arena-heatmap-frame" title="Heatmap: Dense 100"></iframe>
 </div>
 
-#### Correlated
+### Correlated
 
 <p class="arena-ds-meta">n = 2 000 · p = 150 · effective rank 10 · Regression</p>
 
@@ -140,7 +140,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Reg_Corr150.html" class="arena-heatmap-frame" title="Heatmap: Correlated 150"></iframe>
 </div>
 
-#### High-dimensional
+### High-dimensional
 
 <p class="arena-ds-meta">n = 2 000 · p = 300 · 30 informative features · Regression</p>
 
@@ -151,7 +151,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Reg_HighDim300.html" class="arena-heatmap-frame" title="Heatmap: HighDim 300"></iframe>
 </div>
 
-#### Friedman #1
+### Friedman #1
 
 <p class="arena-ds-meta">n = 2 000 · p = 10 · nonlinear ground truth · Regression</p>
 
@@ -166,7 +166,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 
 ## Synthetic — logistic
 
-#### Dense
+### Dense
 
 <p class="arena-ds-meta">n = 2 000 · p = 100 · 80 informative features · Logistic</p>
 
@@ -177,7 +177,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Logit_Dense100.html" class="arena-heatmap-frame" title="Heatmap: Logit Dense100"></iframe>
 </div>
 
-#### Sparse
+### Sparse
 
 <p class="arena-ds-meta">n = 2 000 · p = 200 · 25 informative features · Logistic</p>
 
@@ -188,7 +188,7 @@ All solvers share the interface `SolverCls(config={...}).fit(X, y, link=...) -> 
 <iframe src="figures/heatmap_Synth_Logit_Sparse200.html" class="arena-heatmap-frame" title="Heatmap: Logit Sparse200"></iframe>
 </div>
 
-#### Noisy
+### Noisy
 
 <p class="arena-ds-meta">n = 2 000 · p = 150 · 12 % label noise · Logistic</p>
 
