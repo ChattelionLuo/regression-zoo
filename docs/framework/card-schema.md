@@ -1,4 +1,4 @@
-# Algorithm-Card Schema
+# Algorithm Card
 
 Every algorithm is documented in **one Markdown file** under `docs/algorithms/<id>.md`.
 A card has two parts: **YAML frontmatter** (machine-readable metadata, consumed by the future

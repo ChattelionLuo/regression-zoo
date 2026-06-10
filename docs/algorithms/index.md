@@ -3,9 +3,12 @@
 The library of algorithm cards, grouped by [family](../framework/taxonomy.md). Each entry maps
 $(X, y, g) \mapsto \widehat\beta$ under the [unified notation](../framework/notation.md).
 
-!!! note "Status legend"
+!!! note "Status legend & contributions"
     **reviewed** — math checked against source · **draft** — written, pending review ·
     **stub** — scaffold only.
+
+    We welcome new algorithm cards, additional datasets, or hyperparameter tuning suggestions.
+    Contact us at <a href="mailto:chattelion.luo@connect.polyu.hk">chattelion.luo@connect.polyu.hk</a>.
 
 ## Classical (low-dimensional regression & GLMs)
 

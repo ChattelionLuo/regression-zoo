@@ -50,7 +50,7 @@ or other procedures/updating rules. In here, estimators are defined across decad
 
     The template that keeps the catalogue honest: metadata, source-backed mathematics, and a rule against undocumented reinterpretations.
 
-    [:octicons-arrow-right-24: View the schema](framework/card-schema.md)
+    [:octicons-arrow-right-24: View the algorithm card format](framework/card-schema.md)
 
 -   :material-bookshelf:{ .lg } &nbsp; **Algorithm catalogue**
 
@@ -108,8 +108,7 @@ This Arena puts this solver zoo in one coordinate system. Each algorithm card st
 
 </div>
 
-!!! tip "Contributing an algo card"
-    If a source defines an algorithm precisely, it can become a card. Copy the stub in the [card schema](framework/card-schema.md), drop it in
-    `docs/algorithms/<id>.md`, fill the fixed sections faithfully from the source paper, and
-    add the bibkey to `reference.bib`. Run `python scripts/validate_cards.py`, and it appears
-    in the catalogue.
+!!! tip "Contributing an algorithm card"
+    If a source defines an algorithm precisely, it can become an algorithm card. See the [algorithm card format](framework/card-schema.md) for the template.
+    We welcome contributions of new algorithm cards, datasets, or hyperparameter tuning suggestions.
+    Feel free to reach out at <a href="mailto:chattelion.luo@connect.polyu.hk">chattelion.luo@connect.polyu.hk</a>.
