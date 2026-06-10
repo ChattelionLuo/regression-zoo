@@ -2161,7 +2161,7 @@ return path {β(λ)}
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Convexity condition.</strong> For Gaussian loss with standardized columns, the objective is convex
-  whenever <span class="arithmatex">\(\gamma &gt; 1/c_{\min}\)</span>, where <span class="arithmatex">\(c_{\min}\)</span> is the minimum eigenvalue of <span class="arithmatex">\(\tfrac1n X^\top X\)</span>;
+  whenever <span class="arithmatex">\(\gamma &gt; 1/c_{\min}\)</span>, where <span class="arithmatex">\(c_{\min}\)</span> is the minimum eigenvalue of $ X^\top X/n$;
   more generally each coordinate subproblem is convex when <span class="arithmatex">\(\gamma&gt;1\)</span>. This makes MCP-CD better
   behaved than generic nonconvex problems.</li>
 <li><strong>Near-unbiased selection (Zhang 2010).</strong> Under a sparse Riesz / restricted-eigenvalue

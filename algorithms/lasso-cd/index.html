@@ -2049,7 +2049,7 @@
 \]</div>
 <p>For a general GLM, <span class="arithmatex">\(\mathcal L\)</span> is the mean negative log-likelihood (logistic, Poisson, …).</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
-<p><strong>Gaussian — cyclic coordinate descent.</strong> With standardized columns (<span class="arithmatex">\(\tfrac1n\lVert X_{\cdot j}\rVert_2^2=1\)</span>),
+<p><strong>Gaussian — cyclic coordinate descent.</strong> With standardized columns (<span class="arithmatex">\(\lVert X_{\cdot j}\rVert_2^2/n=1\)</span>),
 each coordinate has a closed-form soft-threshold update. Let the partial residual be
 <span class="arithmatex">\(r^{(j)} = y - \sum_{k\ne j} X_{\cdot k}\beta_k\)</span>. Then</p>
 <div class="arithmatex">\[
@@ -2068,7 +2068,7 @@ for λ in grid:                       # decreasing
 Return path {β(λ)}
 </code></pre></div>
 <ul>
-<li><span class="arithmatex">\(\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty\)</span> (smallest <span class="arithmatex">\(\lambda\)</span> with <span class="arithmatex">\(\widehat\beta=0\)</span>);
+<li><span class="arithmatex">\(\lambda_{\max}=\lVert X^\top y\rVert_\infty/n\)</span> (smallest <span class="arithmatex">\(\lambda\)</span> with <span class="arithmatex">\(\widehat\beta=0\)</span>);
   grid is log-spaced down to <span class="arithmatex">\(\lambda_{\min}=\epsilon\,\lambda_{\max}\)</span>.</li>
 <li><strong>Active-set / strong rules</strong> restrict cycling to likely-nonzero coordinates for speed.</li>
 </ul>

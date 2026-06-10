@@ -2081,8 +2081,8 @@ Return β̂   (and dispersion φ̂, deviance D)
 <span class="arithmatex">\(\beta \leftarrow \beta - \big(\nabla^2\mathcal L\big)^{-1}\nabla\mathcal L\)</span>. Using the framework
 identities <span class="arithmatex">\(\nabla\mathcal L = -\tfrac1n X^\top(y-\mu)\)</span> and <span class="arithmatex">\(\nabla^2\mathcal L = \tfrac1n X^\top W X\)</span>,
 the update becomes <span class="arithmatex">\(\beta + (X^\top W X)^{-1}X^\top(y-\mu)\)</span>, which is <strong>exactly</strong> the IRLS step
-<span class="arithmatex">\((X^\top W X)^{-1}X^\top W z\)</span>. For the canonical link the <strong>observed information equals the
-expected (Fisher) information</strong>, so Newton–Raphson and Fisher scoring coincide; for non-canonical
+<span class="arithmatex">\((X^\top W X)^{-1}X^\top W z\)</span>. For the canonical link the observed information <strong>equals</strong> the
+expected (Fisher) information, so Newton–Raphson and Fisher scoring coincide; for non-canonical
 links Fisher scoring replaces the observed Hessian by its expectation <span class="arithmatex">\(X^\top W X\)</span>, which keeps the
 weights positive and the step stable.</p>
 <h2 id="hyperparameters-configuration">Hyperparameters &amp; configuration<a class="headerlink" href="#hyperparameters-configuration" title="Permanent link">&para;</a></h2>
@@ -2166,8 +2166,8 @@ step-halving) and which generalizes the residual sum of squares.</p>
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a id="ref-McCullagh1989"></a> <a href="https://doi.org/10.1007/978-1-4899-3242-6" class="ref-link" target="_blank" rel="noopener noreferrer">McCullagh, P. and Nelder, J. A. (1989). <em>Generalized Linear Models</em>, 2nd ed. Chapman and Hall.</a></li>
-<li><a id="ref-IWLS1987"></a> <a href="https://doi.org/10.2307/1403100" class="ref-link" target="_blank" rel="noopener noreferrer">Green, P. J. (1987). Penalized likelihood for general semi-parametric regression models. <em>Int. Stat. Rev.</em>, 55:245--259.</a></li>
+<li><a id="ref-McCullagh1989"></a> <a href="https://doi.org/10.1201/9780203753736" class="ref-link" target="_blank" rel="noopener noreferrer">McCullagh, P. and Nelder, J. A. (1989). <em>Generalized Linear Models</em>, 2nd ed. Chapman and Hall.</a></li>
+<li><a id="ref-IWLS1987"></a> <a href="https://www.jstor.org/stable/1403404" class="ref-link" target="_blank" rel="noopener noreferrer">Green, P. J. (1987). Penalized likelihood for general semi-parametric regression models. <em>Int. Stat. Rev.</em>, 55:245--259.</a></li>
 <li><a id="ref-Nocedal2006"></a> <a href="https://link.springer.com/book/10.1007/978-0-387-40065-5" class="ref-link" target="_blank" rel="noopener noreferrer">Nocedal, J. and Wright, S. J. (2006). <em>Numerical Optimization</em>, 2nd ed. Springer.</a></li>
 </ul>
 

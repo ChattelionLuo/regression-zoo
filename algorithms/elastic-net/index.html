@@ -2057,7 +2057,7 @@ The limiting cases are <span class="arithmatex">\(\alpha=1\)</span> (pure <a hre
 is unique even when columns of <span class="arithmatex">\(X\)</span> are collinear.</p>
 <h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
 <p><strong>Gaussian — cyclic coordinate descent.</strong> With standardized columns
-(<span class="arithmatex">\(\tfrac1n\lVert X_{\cdot j}\rVert_2^2=1\)</span>), each coordinate has a closed form combining
+(<span class="arithmatex">\(\lVert X_{\cdot j}\rVert_2^2/n=1\)</span>), each coordinate has a closed form combining
 soft-thresholding (from the <span class="arithmatex">\(\ell_1\)</span> term) with a ridge shrinkage denominator (from the <span class="arithmatex">\(\ell_2\)</span>
 term). Let the partial residual be <span class="arithmatex">\(r^{(j)} = y - \sum_{k\ne j} X_{\cdot k}\beta_k\)</span>. Then</p>
 <div class="arithmatex">\[
@@ -2091,7 +2091,7 @@ approximation of <span class="arithmatex">\(\mathcal L\)</span> at the current <
 above on the penalized weighted least squares problem.</p>
 <p><strong>Naive vs corrected (rescaled) elastic net.</strong> The raw coordinate solution is the <em>naive</em>
 elastic net, which applies a double amount of shrinkage (<span class="arithmatex">\(\ell_1\)</span> then <span class="arithmatex">\(\ell_2\)</span>) and can
-over-shrink. Zou &amp; Hastie (2005) propose the <em>corrected</em> elastic net, rescaling</p>
+over-shrink. <a href="#ref-zou2005regularization"><code>Zou and Hastie, 2005</code></a> propose the <em>corrected</em> elastic net, rescaling</p>
 <div class="arithmatex">\[
 \widehat\beta^{\text{enet}} = (1+\lambda(1-\alpha))\,\widehat\beta^{\text{naive}},
 \]</div>
@@ -2167,7 +2167,7 @@ Modern <code>glmnet</code>-style parameterizations fold this scaling into the pe
 </ul>
 <h2 id="statistical-guarantees">Statistical guarantees<a class="headerlink" href="#statistical-guarantees" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Grouping effect.</strong> For two predictors with sample correlation <span class="arithmatex">\(\rho\)</span>, Zou &amp; Hastie (2005)
+<li><strong>Grouping effect.</strong> For two predictors with sample correlation <span class="arithmatex">\(\rho\)</span>, <a href="#ref-zou2005regularization"><code>Zou and Hastie, 2005</code></a>
   bound the coefficient difference: <span class="arithmatex">\(\;|\widehat\beta_j-\widehat\beta_k| \le C\sqrt{2(1-\rho)}\,\)</span>,
   so highly correlated predictors receive nearly equal coefficients (and enter/leave the model
   together) — unlike the lasso, which selects one arbitrarily.</li>
