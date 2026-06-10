@@ -41,7 +41,7 @@ For a general GLM, $\mathcal L$ is the mean negative log-likelihood (logistic, P
 
 ## Algorithm
 
-**Gaussian — cyclic coordinate descent.** With standardized columns ($\tfrac1n\lVert X_{\cdot j}\rVert_2^2=1$),
+**Gaussian — cyclic coordinate descent.** With standardized columns ($\lVert X_{\cdot j}\rVert_2^2/n=1$),
 each coordinate has a closed-form soft-threshold update. Let the partial residual be
 $r^{(j)} = y - \sum_{k\ne j} X_{\cdot k}\beta_k$. Then
 
@@ -63,7 +63,7 @@ for λ in grid:                       # decreasing
 Return path {β(λ)}
 ```
 
-- $\lambda_{\max}=\tfrac1n\lVert X^\top y\rVert_\infty$ (smallest $\lambda$ with $\widehat\beta=0$);
+- $\lambda_{\max}=\lVert X^\top y\rVert_\infty/n$ (smallest $\lambda$ with $\widehat\beta=0$);
   grid is log-spaced down to $\lambda_{\min}=\epsilon\,\lambda_{\max}$.
 - **Active-set / strong rules** restrict cycling to likely-nonzero coordinates for speed.
 

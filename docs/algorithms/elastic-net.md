@@ -49,7 +49,7 @@ is unique even when columns of $X$ are collinear.
 ## Algorithm
 
 **Gaussian — cyclic coordinate descent.** With standardized columns
-($\tfrac1n\lVert X_{\cdot j}\rVert_2^2=1$), each coordinate has a closed form combining
+($\lVert X_{\cdot j}\rVert_2^2/n=1$), each coordinate has a closed form combining
 soft-thresholding (from the $\ell_1$ term) with a ridge shrinkage denominator (from the $\ell_2$
 term). Let the partial residual be $r^{(j)} = y - \sum_{k\ne j} X_{\cdot k}\beta_k$. Then
 
@@ -88,7 +88,7 @@ above on the penalized weighted least squares problem.
 
 **Naive vs corrected (rescaled) elastic net.** The raw coordinate solution is the *naive*
 elastic net, which applies a double amount of shrinkage ($\ell_1$ then $\ell_2$) and can
-over-shrink. Zou & Hastie (2005) propose the *corrected* elastic net, rescaling
+over-shrink. [`Zou and Hastie, 2005`](#ref-zou2005regularization) propose the *corrected* elastic net, rescaling
 
 $$
 \widehat\beta^{\text{enet}} = (1+\lambda(1-\alpha))\,\widehat\beta^{\text{naive}},
@@ -129,7 +129,7 @@ $\{0,0.1,\dots,1\}$ with a full $\lambda$ path for each.
 
 ## Statistical guarantees
 
-- **Grouping effect.** For two predictors with sample correlation $\rho$, Zou & Hastie (2005)
+- **Grouping effect.** For two predictors with sample correlation $\rho$, [`Zou and Hastie, 2005`](#ref-zou2005regularization)
   bound the coefficient difference: $\;|\widehat\beta_j-\widehat\beta_k| \le C\sqrt{2(1-\rho)}\,$,
   so highly correlated predictors receive nearly equal coefficients (and enter/leave the model
   together) — unlike the lasso, which selects one arbitrarily.
