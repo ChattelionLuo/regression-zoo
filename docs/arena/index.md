@@ -11,8 +11,8 @@ All algorithms share the interface `SolverCls(config={...}).fit(X, y, link=...) 
 
 ---
 
-!!! tip "Best viewed on a desktop browser"
-    The interactive visualisations below (embedding maps and coefficient heatmaps) are best explored on a desktop or laptop browser, where you can zoom, pan, and hover over individual points.
+!!! tip "Tip"
+    The interactive visualisations are best explored on a desktop or laptop browser, where you can zoom, pan, and hover. If you want to suggest a dataset or a new arena function, feel free to reach out at <a href="mailto:chattelion.luo@connect.polyu.hk">chattelion.luo@connect.polyu.hk</a>
 
 ## Real datasets
 
