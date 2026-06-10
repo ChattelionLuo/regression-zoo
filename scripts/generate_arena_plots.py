@@ -337,7 +337,7 @@ def make_embedding_figure(df_ds, ds_name, ds_meta):
     fig = make_subplots(
         rows=1, cols=2,
         subplot_titles=('t-SNE', 'UMAP'),
-        horizontal_spacing=0.08,
+        horizontal_spacing=0.03,
     )
 
     # Plot each solver as a separate trace (for legend toggle)
@@ -386,8 +386,9 @@ def make_embedding_figure(df_ds, ds_name, ds_meta):
         fig.update_yaxes(showgrid=False, zeroline=False, showticklabels=False,
                          showline=False, row=1, col=col)
 
+    layout = {**PLOTLY_LAYOUT, 'margin': dict(l=0, r=0, t=26, b=0)}
     fig.update_layout(
-        **PLOTLY_LAYOUT,
+        **layout,
         title=None,
         height=460,
         legend=dict(
@@ -395,6 +396,7 @@ def make_embedding_figure(df_ds, ds_name, ds_meta):
             orientation='v',
             x=1.01, xanchor='left', y=0.5, yanchor='middle',
             itemsizing='constant',
+            tracegroupgap=2,
         ),
         dragmode='pan',
     )
