@@ -65,7 +65,7 @@ or other procedures/updating rules. In here, estimators are defined across decad
 
     ---
 
-    Every solver run across 16 datasets with 50+ hyperparameter configs each.
+    Every algorithm run across all datasets with multiple hyperparameter configs each.
     Interactive t-SNE / UMAP embeddings and coefficient heatmaps reveal how methods cluster and differ.
 
     [:octicons-arrow-right-24: Explore the Arena](arena/index.md)
