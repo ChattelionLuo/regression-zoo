@@ -44,13 +44,13 @@ or other procedures/updating rules. In here, estimators are defined across decad
 
     [:octicons-arrow-right-24: Read the framework](framework/notation.md)
 
--   :material-card-text-outline:{ .lg } &nbsp; **Card schema**
+-   :material-card-text-outline:{ .lg } &nbsp; **Algorithm card**
 
     ---
 
     The template that keeps the catalogue honest: metadata, source-backed mathematics, and a rule against undocumented reinterpretations.
 
-    [:octicons-arrow-right-24: View the algorithm card format](framework/card-schema.md)
+    [:octicons-arrow-right-24: View the algorithm card format](framework/algorithm-card.md)
 
 -   :material-bookshelf:{ .lg } &nbsp; **Algorithm catalogue**
 
@@ -109,6 +109,6 @@ This Arena puts this solver zoo in one coordinate system. Each algorithm card st
 </div>
 
 !!! tip "Contributing an algorithm card"
-    If a source defines an algorithm precisely, it can become an algorithm card. See the [algorithm card format](framework/card-schema.md) for the template.
+    If a source defines an algorithm precisely, it can become an algorithm card. See [algorithm card](framework/algorithm-card.md) for the template.
     We welcome contributions of new algorithm cards, datasets, or hyperparameter tuning suggestions.
     Feel free to reach out at <a href="mailto:chattelion.luo@connect.polyu.hk">chattelion.luo@connect.polyu.hk</a>.

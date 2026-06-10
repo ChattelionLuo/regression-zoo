@@ -77,7 +77,7 @@ nav:
   - Framework:
       - Notation & framework: framework/notation.md
       - Taxonomy: framework/taxonomy.md
-      - Card schema: framework/card-schema.md
+      - Algorithm card: framework/algorithm-card.md
   - Algorithms:
       - Catalogue: algorithms/index.md
       - Classical:

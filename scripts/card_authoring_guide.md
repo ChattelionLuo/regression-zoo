@@ -4,7 +4,7 @@ Read this, then read the gold-standard examples before writing any card.
 
 ## Required reading (in order)
 1. `docs/framework/notation.md` — the unified notation. **Use these symbols exactly.**
-2. `docs/framework/card-schema.md` — frontmatter fields + the 9 fixed body sections.
+2. `docs/framework/algorithm-card.md` — frontmatter fields + the 9 fixed body sections.
 3. Gold-standard cards: `docs/algorithms/ols.md` and `docs/algorithms/lasso-cd.md`.
    Match their depth, structure, and tone.
 

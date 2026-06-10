@@ -5,7 +5,7 @@ A card has two parts: **YAML frontmatter** (machine-readable metadata, consumed 
 arena) and a **fixed-section body** (human-readable, faithful mathematics).
 
 > **Faithfulness rule.** A card must reproduce the estimator/algorithm *as defined in its
-> source(s)*, only translating symbols into the [unified notation](notation.md). Any
+> source(s)*, only translating symbols into the [notation](notation.md). Any
 > deviation, simplification, or default we add is flagged explicitly as *"(Arena note)"*.
 
 ---

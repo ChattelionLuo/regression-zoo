@@ -33,7 +33,7 @@ categories; the **family** tag is its primary placement, the **data regime** and
 ## How to read a card
 
 Each card header shows badges for **family**, **regime**, and **status**, followed by a
-metadata block, then the precise mathematics. See the [algorithm card format](card-schema.md).
+metadata block, then the precise mathematics. See the [algorithm card format](algorithm-card.md).
 
 ## Coverage map (living)
 

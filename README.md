@@ -22,7 +22,7 @@ Every algorithm is reduced to one mapping and documented under a single unified 
 |---|---|
 | `docs/framework/notation.md` | unified mathematical framework & notation (the backbone) |
 | `docs/framework/taxonomy.md` | how algorithms are categorized |
-| `docs/framework/card-schema.md` | the algorithm-card template |
+| `docs/framework/algorithm-card.md` | the algorithm-card template |
 | `docs/algorithms/*.md` | one card per algorithm |
 | `registry/algorithms.yaml` | aggregated card metadata (for the future arena) |
 | `src/glmzoo/` | Python package skeleton (Phase 2) |
@@ -41,9 +41,9 @@ Math is rendered with KaTeX; cards use `$...$` / `$$...$$`.
 
 ## Adding an algorithm card
 
-1. Copy the stub from `docs/framework/card-schema.md` to `docs/algorithms/<id>.md`.
+1. Copy the stub from `docs/framework/algorithm-card.md` to `docs/algorithms/<id>.md`.
 2. Fill the fixed sections **faithfully** from the source paper, in the unified notation.
 3. Ensure every `refs:` bibkey exists in `reference.bib`.
 4. Add the card to the catalogue in `docs/algorithms/index.md`.
 
-See `docs/framework/card-schema.md` for the full schema and the faithfulness rule.
+See `docs/framework/algorithm-card.md` for the full schema and the faithfulness rule.
