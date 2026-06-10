@@ -117,4 +117,4 @@ Return β
 
 ## References
 
-- <a id="ref-xiao2009dual"></a> Xiao, L. (2010). Dual averaging methods for regularized stochastic learning and online optimization. *J. Mach. Learn. Res.*, 11:2543--2596.
+- <a id="ref-xiao2009dual"></a> <a href="https://jmlr.org/papers/v11/xiao10a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Xiao, L. (2010). Dual averaging methods for regularized stochastic learning and online optimization. *J. Mach. Learn. Res.*, 11:2543--2596.</a>

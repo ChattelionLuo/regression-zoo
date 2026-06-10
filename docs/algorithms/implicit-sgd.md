@@ -130,5 +130,5 @@ iterations; no $p\times p$ system is ever formed.
 
 ## References
 
-- <a id="ref-Toulis2017"></a> Toulis, P. and Airoldi, E. M. (2017). Asymptotic and finite-sample properties of estimators based on stochastic gradients. *Ann. Statist.*, 45(4):1694--1727.
-- <a id="ref-Fang2019"></a> Fang, Y. (2019). Scalable statistical inference for averaged implicit stochastic gradient descent. *Scand. J. Stat.*, 46(4):987--1002.
+- <a id="ref-Toulis2017"></a> <a href="https://doi.org/10.1214/16-AOS1506" class="ref-link" target="_blank" rel="noopener noreferrer">Toulis, P. and Airoldi, E. M. (2017). Asymptotic and finite-sample properties of estimators based on stochastic gradients. *Ann. Statist.*, 45(4):1694--1727.</a>
+- <a id="ref-Fang2019"></a> <a href="https://doi.org/10.1111/sjos.12418" class="ref-link" target="_blank" rel="noopener noreferrer">Fang, Y. (2019). Scalable statistical inference for averaged implicit stochastic gradient descent. *Scand. J. Stat.*, 46(4):987--1002.</a>

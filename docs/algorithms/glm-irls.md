@@ -136,6 +136,6 @@ step-halving) and which generalizes the residual sum of squares.
 
 ## References
 
-- <a id="ref-McCullagh1989"></a> McCullagh, P. and Nelder, J. A. (1989). *Generalized Linear Models*, 2nd ed. Chapman and Hall.
-- <a id="ref-IWLS1987"></a> Green, P. J. (1987). Penalized likelihood for general semi-parametric regression models. *Int. Stat. Rev.*, 55:245--259.
-- <a id="ref-Nocedal2006"></a> Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.
+- <a id="ref-McCullagh1989"></a> <a href="https://doi.org/10.1007/978-1-4899-3242-6" class="ref-link" target="_blank" rel="noopener noreferrer">McCullagh, P. and Nelder, J. A. (1989). *Generalized Linear Models*, 2nd ed. Chapman and Hall.</a>
+- <a id="ref-IWLS1987"></a> <a href="https://doi.org/10.2307/1403100" class="ref-link" target="_blank" rel="noopener noreferrer">Green, P. J. (1987). Penalized likelihood for general semi-parametric regression models. *Int. Stat. Rev.*, 55:245--259.</a>
+- <a id="ref-Nocedal2006"></a> <a href="https://link.springer.com/book/10.1007/978-0-387-40065-5" class="ref-link" target="_blank" rel="noopener noreferrer">Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.</a>

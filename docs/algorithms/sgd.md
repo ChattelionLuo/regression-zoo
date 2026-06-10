@@ -125,7 +125,7 @@ Return β  (or the averaged β̄ for inference)
 
 ## References
 
-- <a id="ref-Robbins1951"></a> Robbins, H. and Monro, S. (1951). A stochastic approximation method. *Ann. Math. Statist.*, 22(3):400--407.
-- <a id="ref-polyak1992acceleration"></a> Polyak, B. T. and Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging. *SIAM J. Control Optim.*, 30(4):838--855.
+- <a id="ref-Robbins1951"></a> <a href="https://doi.org/10.1214/aoms/1177729586" class="ref-link" target="_blank" rel="noopener noreferrer">Robbins, H. and Monro, S. (1951). A stochastic approximation method. *Ann. Math. Statist.*, 22(3):400--407.</a>
+- <a id="ref-polyak1992acceleration"></a> <a href="https://doi.org/10.1137/0330046" class="ref-link" target="_blank" rel="noopener noreferrer">Polyak, B. T. and Juditsky, A. B. (1992). Acceleration of stochastic approximation by averaging. *SIAM J. Control Optim.*, 30(4):838--855.</a>
 - <a id="ref-ruppert1988efficient"></a> Ruppert, D. (1988). Efficient estimations from a slowly convergent Robbins-Monro process. Technical Report, Cornell University Operations Research and Industrial Engineering.
-- <a id="ref-chen2020statistical"></a> Chen, X., Lee, J. D., Tong, X. T., and Zhang, Y. (2020). Statistical inference for model parameters in stochastic gradient descent. *Ann. Statist.*, 48(1):251--273.
+- <a id="ref-chen2020statistical"></a> <a href="https://doi.org/10.1214/19-AOS1850" class="ref-link" target="_blank" rel="noopener noreferrer">Chen, X., Lee, J. D., Tong, X. T., and Zhang, Y. (2020). Statistical inference for model parameters in stochastic gradient descent. *Ann. Statist.*, 48(1):251--273.</a>

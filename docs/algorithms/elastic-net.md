@@ -147,6 +147,6 @@ $\{0,0.1,\dots,1\}$ with a full $\lambda$ path for each.
 
 ## References
 
-- <a id="ref-zou2005regularization"></a> Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.
-- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.
-- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
+- <a id="ref-zou2005regularization"></a> <a href="https://doi.org/10.1111/j.1467-9868.2005.00503.x" class="ref-link" target="_blank" rel="noopener noreferrer">Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.</a>
+- <a id="ref-fhht2007"></a> <a href="https://doi.org/10.1214/07-AOAS131" class="ref-link" target="_blank" rel="noopener noreferrer">Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.</a>
+- <a id="ref-tibshirani1996regression"></a> <a href="https://doi.org/10.1111/j.2517-6161.1996.tb02080.x" class="ref-link" target="_blank" rel="noopener noreferrer">Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.</a>

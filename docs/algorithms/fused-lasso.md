@@ -139,5 +139,5 @@ The two penalties are typically selected jointly by 2-D cross-validation.
 
 ## References
 
-- <a id="ref-Tibshirani2005"></a> Tibshirani, R., Saunders, M., Rosset, S., Zhu, J., and Knight, K. (2005). Sparsity and smoothness via the fused lasso. *J. R. Stat. Soc. Ser. B*, 67(1):91--108.
-- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
+- <a id="ref-Tibshirani2005"></a> <a href="https://doi.org/10.1111/j.1467-9868.2005.00490.x" class="ref-link" target="_blank" rel="noopener noreferrer">Tibshirani, R., Saunders, M., Rosset, S., Zhu, J., and Knight, K. (2005). Sparsity and smoothness via the fused lasso. *J. R. Stat. Soc. Ser. B*, 67(1):91--108.</a>
+- <a id="ref-tibshirani1996regression"></a> <a href="https://doi.org/10.1111/j.2517-6161.1996.tb02080.x" class="ref-link" target="_blank" rel="noopener noreferrer">Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.</a>

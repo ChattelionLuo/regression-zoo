@@ -655,3 +655,23 @@ mjx-container[display="true"] {
   background: #12151a;
 }
 
+/* ── Reference links ──────────────────────────────────────────────────────── */
+/*
+ * .ref-link — applied to every clickable reference entry in algorithm cards.
+ * Hover effect: subtle steel-ink underline that fades to the site accent colour.
+ * Deliberately avoids the standard bright-blue Material hyperlink colour.
+ */
+.md-typeset .ref-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--arena-line);
+  padding-bottom: 1px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.md-typeset .ref-link:hover,
+.md-typeset .ref-link:focus-visible {
+  color: var(--arena-accent);
+  border-bottom-color: var(--arena-accent);
+  text-decoration: none;
+}
+

@@ -130,7 +130,7 @@ cross-validation.
 
 ## References
 
-- <a id="ref-zou2006adaptive"></a> Zou, H. (2006). The adaptive lasso and its oracle properties. *J. Amer. Statist. Assoc.*, 101(476):1418--1429.
-- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.
-- <a id="ref-tibshirani1996regression"></a> Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.
-- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.
+- <a id="ref-zou2006adaptive"></a> <a href="https://doi.org/10.1198/016214506000000735" class="ref-link" target="_blank" rel="noopener noreferrer">Zou, H. (2006). The adaptive lasso and its oracle properties. *J. Amer. Statist. Assoc.*, 101(476):1418--1429.</a>
+- <a id="ref-buhlmann2011statistics"></a> <a href="https://link.springer.com/book/10.1007/978-3-642-20192-9" class="ref-link" target="_blank" rel="noopener noreferrer">Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.</a>
+- <a id="ref-tibshirani1996regression"></a> <a href="https://doi.org/10.1111/j.2517-6161.1996.tb02080.x" class="ref-link" target="_blank" rel="noopener noreferrer">Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *J. R. Stat. Soc. Ser. B*, 58(1):267--288.</a>
+- <a id="ref-fhht2007"></a> <a href="https://doi.org/10.1214/07-AOAS131" class="ref-link" target="_blank" rel="noopener noreferrer">Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.</a>

@@ -146,6 +146,6 @@ return β^(λ)
 
 ## References
 
-- <a id="ref-fan2001variable"></a> Fan, J. and Li, R. (2001). Variable selection via nonconcave penalized likelihood and its oracle properties. *J. Amer. Statist. Assoc.*, 96(456):1348--1360.
-- <a id="ref-ZouLi2008"></a> Zou, H. and Li, R. (2008). One-step sparse estimates in nonconcave penalized likelihood models. *Ann. Statist.*, 36(4):1509--1533.
-- <a id="ref-loh2015regularized"></a> Loh, P.-L. and Wainwright, M. J. (2015). Regularized M-estimators with nonconvexity: statistical and algorithmic theory for local optima. *J. Mach. Learn. Res.*, 16:559--616.
+- <a id="ref-fan2001variable"></a> <a href="https://doi.org/10.1198/016214501753382273" class="ref-link" target="_blank" rel="noopener noreferrer">Fan, J. and Li, R. (2001). Variable selection via nonconcave penalized likelihood and its oracle properties. *J. Amer. Statist. Assoc.*, 96(456):1348--1360.</a>
+- <a id="ref-ZouLi2008"></a> <a href="https://doi.org/10.1214/009053607000000802" class="ref-link" target="_blank" rel="noopener noreferrer">Zou, H. and Li, R. (2008). One-step sparse estimates in nonconcave penalized likelihood models. *Ann. Statist.*, 36(4):1509--1533.</a>
+- <a id="ref-loh2015regularized"></a> <a href="https://jmlr.org/papers/v16/loh15a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Loh, P.-L. and Wainwright, M. J. (2015). Regularized M-estimators with nonconvexity: statistical and algorithmic theory for local optima. *J. Mach. Learn. Res.*, 16:559--616.</a>

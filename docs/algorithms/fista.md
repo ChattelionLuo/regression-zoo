@@ -118,5 +118,5 @@ return β̂
 
 ## References
 
-- <a id="ref-beck2009fast"></a> Beck, A. and Teboulle, M. (2009). A fast iterative shrinkage-thresholding algorithm for linear inverse problems. *SIAM J. Imaging Sci.*, 2(1):183--202.
-- <a id="ref-daubechies2004iterative"></a> Daubechies, I., Defrise, M., and De Mol, C. (2004). An iterative thresholding algorithm for linear inverse problems with a sparsity constraint. *Commun. Pure Appl. Math.*, 57(11):1413--1457.
+- <a id="ref-beck2009fast"></a> <a href="https://doi.org/10.1137/080716542" class="ref-link" target="_blank" rel="noopener noreferrer">Beck, A. and Teboulle, M. (2009). A fast iterative shrinkage-thresholding algorithm for linear inverse problems. *SIAM J. Imaging Sci.*, 2(1):183--202.</a>
+- <a id="ref-daubechies2004iterative"></a> <a href="https://doi.org/10.1002/cpa.20042" class="ref-link" target="_blank" rel="noopener noreferrer">Daubechies, I., Defrise, M., and De Mol, C. (2004). An iterative thresholding algorithm for linear inverse problems with a sparsity constraint. *Commun. Pure Appl. Math.*, 57(11):1413--1457.</a>

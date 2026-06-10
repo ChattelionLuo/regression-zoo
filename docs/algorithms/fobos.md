@@ -119,6 +119,6 @@ Return β
 
 ## References
 
-- <a id="ref-duchi2009fobos"></a> Duchi, J. and Singer, Y. (2009). Efficient online and batch learning using forward-backward splitting. *J. Mach. Learn. Res.*, 10:2899--2934.
-- <a id="ref-xiao2009dual"></a> Xiao, L. (2010). Dual averaging methods for regularized stochastic learning and online optimization. *J. Mach. Learn. Res.*, 11:2543--2596.
-- <a id="ref-truncated_SGD_Langford_2009"></a> Langford, J., Li, L., and Zhang, T. (2009). Sparse online learning via truncated gradient. *J. Mach. Learn. Res.*, 10:777--801.
+- <a id="ref-duchi2009fobos"></a> <a href="https://jmlr.org/papers/v10/duchi09a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Duchi, J. and Singer, Y. (2009). Efficient online and batch learning using forward-backward splitting. *J. Mach. Learn. Res.*, 10:2899--2934.</a>
+- <a id="ref-xiao2009dual"></a> <a href="https://jmlr.org/papers/v11/xiao10a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Xiao, L. (2010). Dual averaging methods for regularized stochastic learning and online optimization. *J. Mach. Learn. Res.*, 11:2543--2596.</a>
+- <a id="ref-truncated_SGD_Langford_2009"></a> <a href="https://jmlr.org/papers/v10/langford09a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Langford, J., Li, L., and Zhang, T. (2009). Sparse online learning via truncated gradient. *J. Mach. Learn. Res.*, 10:777--801.</a>

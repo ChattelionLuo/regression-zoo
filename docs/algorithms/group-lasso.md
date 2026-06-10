@@ -138,7 +138,7 @@ lasso but with the groupwise update replacing the scalar one.
 
 ## References
 
-- <a id="ref-Yuan2006group"></a> Yuan, M. and Lin, Y. (2006). Model selection and estimation in regression with grouped variables. *J. R. Stat. Soc. Ser. B*, 68(1):49--67.
-- <a id="ref-simon2013sparse"></a> Simon, N., Friedman, J., Hastie, T., and Tibshirani, R. (2013). A sparse-group lasso. *J. Comput. Graph. Statist.*, 22(2):231--245.
-- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.
-- <a id="ref-fhht2007"></a> Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.
+- <a id="ref-Yuan2006group"></a> <a href="https://doi.org/10.1111/j.1467-9868.2005.00532.x" class="ref-link" target="_blank" rel="noopener noreferrer">Yuan, M. and Lin, Y. (2006). Model selection and estimation in regression with grouped variables. *J. R. Stat. Soc. Ser. B*, 68(1):49--67.</a>
+- <a id="ref-simon2013sparse"></a> <a href="https://doi.org/10.1080/10618600.2012.681250" class="ref-link" target="_blank" rel="noopener noreferrer">Simon, N., Friedman, J., Hastie, T., and Tibshirani, R. (2013). A sparse-group lasso. *J. Comput. Graph. Statist.*, 22(2):231--245.</a>
+- <a id="ref-buhlmann2011statistics"></a> <a href="https://link.springer.com/book/10.1007/978-3-642-20192-9" class="ref-link" target="_blank" rel="noopener noreferrer">Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.</a>
+- <a id="ref-fhht2007"></a> <a href="https://doi.org/10.1214/07-AOAS131" class="ref-link" target="_blank" rel="noopener noreferrer">Friedman, J., Hastie, T., Höfling, H., and Tibshirani, R. (2007). Pathwise coordinate optimization. *Ann. Appl. Stat.*, 1(2):302--332.</a>

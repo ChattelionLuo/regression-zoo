@@ -161,7 +161,7 @@ complexity and feeds GCV.
 
 ## References
 
-- <a id="ref-hoerl1970ridge"></a> Hoerl, A. E. and Kennard, R. W. (1970). Ridge regression: biased estimation for nonorthogonal problems. *Technometrics*, 12(1):55--67.
-- <a id="ref-Nocedal2006"></a> Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.
-- <a id="ref-zou2005regularization"></a> Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.
-- <a id="ref-buhlmann2011statistics"></a> Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.
+- <a id="ref-hoerl1970ridge"></a> <a href="https://doi.org/10.1080/00401706.1970.10488634" class="ref-link" target="_blank" rel="noopener noreferrer">Hoerl, A. E. and Kennard, R. W. (1970). Ridge regression: biased estimation for nonorthogonal problems. *Technometrics*, 12(1):55--67.</a>
+- <a id="ref-Nocedal2006"></a> <a href="https://link.springer.com/book/10.1007/978-0-387-40065-5" class="ref-link" target="_blank" rel="noopener noreferrer">Nocedal, J. and Wright, S. J. (2006). *Numerical Optimization*, 2nd ed. Springer.</a>
+- <a id="ref-zou2005regularization"></a> <a href="https://doi.org/10.1111/j.1467-9868.2005.00503.x" class="ref-link" target="_blank" rel="noopener noreferrer">Zou, H. and Hastie, T. (2005). Regularization and variable selection via the elastic net. *J. R. Stat. Soc. Ser. B*, 67(2):301--320.</a>
+- <a id="ref-buhlmann2011statistics"></a> <a href="https://link.springer.com/book/10.1007/978-3-642-20192-9" class="ref-link" target="_blank" rel="noopener noreferrer">Bühlmann, P. and van de Geer, S. (2011). *Statistics for High-Dimensional Data: Methods, Theory and Applications*. Springer.</a>

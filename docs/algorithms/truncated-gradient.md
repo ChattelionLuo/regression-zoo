@@ -115,4 +115,4 @@ Return β
 
 ## References
 
-- <a id="ref-truncated_SGD_Langford_2009"></a> Langford, J., Li, L., and Zhang, T. (2009). Sparse online learning via truncated gradient. *J. Mach. Learn. Res.*, 10:777--801.
+- <a id="ref-truncated_SGD_Langford_2009"></a> <a href="https://jmlr.org/papers/v10/langford09a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Langford, J., Li, L., and Zhang, T. (2009). Sparse online learning via truncated gradient. *J. Mach. Learn. Res.*, 10:777--801.</a>

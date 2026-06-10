@@ -122,4 +122,4 @@ Return β̂_b  and  Cov(β̂_b) ≈ J_b⁻¹
 
 ## References
 
-- <a id="ref-luo2020renewable"></a><a id="ref-Luo2020"></a> Luo, L. and Song, P. X.-K. (2020). Renewable estimation and incremental inference in generalized linear models with streaming data sets. *J. R. Stat. Soc. Ser. B*, 82(1):69--97.
+- <a id="ref-luo2020renewable"></a><a id="ref-Luo2020"></a> <a href="https://doi.org/10.1111/rssb.12352" class="ref-link" target="_blank" rel="noopener noreferrer">Luo, L. and Song, P. X.-K. (2020). Renewable estimation and incremental inference in generalized linear models with streaming data sets. *J. R. Stat. Soc. Ser. B*, 82(1):69--97.</a>

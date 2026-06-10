@@ -117,4 +117,4 @@ step $\eta/(\sqrt{G_{t,j}}+\epsilon)$, giving sparse adaptive online solutions.
 
 ## References
 
-- <a id="ref-AdaGrad2011"></a> Duchi, J., Hazan, E., and Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. *J. Mach. Learn. Res.*, 12:2121--2159.
+- <a id="ref-AdaGrad2011"></a> <a href="https://jmlr.org/papers/v12/duchi11a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Duchi, J., Hazan, E., and Singer, Y. (2011). Adaptive subgradient methods for online learning and stochastic optimization. *J. Mach. Learn. Res.*, 12:2121--2159.</a>

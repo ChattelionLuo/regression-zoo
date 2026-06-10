@@ -166,7 +166,7 @@ Return  θ̂, U (p-value), CI
 
 ## References
 
-- <a id="ref-10.1214/16-AOS1448"></a> Ning, Y. and Liu, H. (2017). A general theory of hypothesis tests and confidence regions for sparse high dimensional models. *Ann. Statist.*, 45(1):158--195.
-- <a id="ref-vandegeer2014"></a> van de Geer, S., Bühlmann, P., Ritov, Y. A., and Dezeure, R. (2014). On asymptotically optimal confidence regions and tests for high-dimensional models. *Ann. Statist.*, 42(3):1166--1202.
-- <a id="ref-javanmard2014confidence"></a> Javanmard, A. and Montanari, A. (2014). Confidence intervals and hypothesis testing for high-dimensional regression. *J. Mach. Learn. Res.*, 15(1):2869--2909.
-- <a id="ref-jankova2018semiparametric"></a> Janková, J. and van de Geer, S. (2018). Semiparametric efficiency bounds for high-dimensional models. *Ann. Statist.*, 46(5):2336--2359.
+- <a id="ref-10.1214/16-AOS1448"></a> <a href="https://doi.org/10.1214/16-AOS1448" class="ref-link" target="_blank" rel="noopener noreferrer">Ning, Y. and Liu, H. (2017). A general theory of hypothesis tests and confidence regions for sparse high dimensional models. *Ann. Statist.*, 45(1):158--195.</a>
+- <a id="ref-vandegeer2014"></a> <a href="https://doi.org/10.1214/14-AOS1221" class="ref-link" target="_blank" rel="noopener noreferrer">van de Geer, S., Bühlmann, P., Ritov, Y. A., and Dezeure, R. (2014). On asymptotically optimal confidence regions and tests for high-dimensional models. *Ann. Statist.*, 42(3):1166--1202.</a>
+- <a id="ref-javanmard2014confidence"></a> <a href="https://jmlr.org/papers/v15/javanmard14a.html" class="ref-link" target="_blank" rel="noopener noreferrer">Javanmard, A. and Montanari, A. (2014). Confidence intervals and hypothesis testing for high-dimensional regression. *J. Mach. Learn. Res.*, 15(1):2869--2909.</a>
+- <a id="ref-jankova2018semiparametric"></a> <a href="https://doi.org/10.1214/17-AOS1622" class="ref-link" target="_blank" rel="noopener noreferrer">Janková, J. and van de Geer, S. (2018). Semiparametric efficiency bounds for high-dimensional models. *Ann. Statist.*, 46(5):2336--2359.</a>
