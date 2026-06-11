@@ -323,7 +323,7 @@ def build_configs(lam_max: float, p: int, link: str, n_samples: int = 0) -> list
 
     for lam in lam_grid(10):
         for g in [0.5, 1.0, 2.0, 3.0, 5.0]:
-            add('AdaptiveLassoSolver', {'lam': float(lam), 'gamma': g},
+            add('AdaptiveLassoSolver', {'lam': float(lam), 'gamma': g, 'max_iter': 500},
                 f'AdaLasso lam={lam:.4g} g={g}')
 
     for lam in lam_grid(10):
@@ -403,8 +403,8 @@ def is_feasible(sname: str, n: int, p: int, link: str, is_sparse: bool) -> bool:
     # Sparse-incompatible solvers
     if is_sparse and sname in DENSE_ONLY:
         return False
-    # Large dense datasets: O(n*p^2) solvers
-    if not is_sparse and n * p > MAX_NP_EXPENSIVE and sname in EXPENSIVE_DENSE:
+    # Large datasets: expensive solvers — skip regardless of sparsity
+    if n * p > MAX_NP_EXPENSIVE and sname in EXPENSIVE_DENSE:
         return False
     # Dense p^3 solvers (ISTA, FISTA, GLMIRLS, RenewableGLM)
     # skip when p is large OR when n*p is large (both make X.T @ X expensive)
@@ -454,10 +454,19 @@ def run_dataset(ds: dict) -> list[dict]:
     records = []
     solver_counts = {}
     skipped_timeout = {}
+    _cur_solver = [None]
+    _solver_t0 = [time.time()]
     for SolverCls, cfg, label in all_cfgs:
         sname = SolverCls.__name__
         if not is_feasible(sname, n, p, link, is_sp):
             continue
+        if sname != _cur_solver[0]:
+            if _cur_solver[0] is not None:
+                elapsed_s = time.time() - _solver_t0[0]
+                print(f"  [{_cur_solver[0]}] done  ({elapsed_s:.1f}s)", flush=True)
+            _cur_solver[0] = sname
+            _solver_t0[0] = time.time()
+            print(f"  [{sname}] starting…", flush=True)
         try:
             if use_timeout:
                 signal.alarm(SOLVER_TIMEOUT)
@@ -483,6 +492,8 @@ def run_dataset(ds: dict) -> list[dict]:
         except Exception:
             pass
 
+    if _cur_solver[0] is not None:
+        print(f"  [{_cur_solver[0]}] done  ({time.time()-_solver_t0[0]:.1f}s)", flush=True)
     print(f"  Solver counts:", flush=True)
     for s, c in sorted(solver_counts.items()):
         print(f"    {s:25s}: {c}", flush=True)
