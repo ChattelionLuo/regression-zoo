@@ -24,7 +24,7 @@ Merge with:
     python scripts/libsvm_arena_v2_merge.py
 """
 from __future__ import annotations
-import sys, os, argparse, bz2, gzip, time, pickle, warnings
+import sys, os, argparse, bz2, gzip, time, pickle, warnings, signal
 warnings.filterwarnings('ignore')  # suppress sklearn ConvergenceWarning etc.
 import numpy as np
 import scipy.sparse as sp
@@ -105,6 +105,7 @@ MAX_NP_EXPENSIVE  = 5_000_000   # LARS, GroupLasso, SCAD, MCP: skip dense when n
 MAX_P_CUBIC       = 2_000       # ISTA, FISTA, GLMIRLS, RenewableGLM: skip dense p > this
 MAX_NP_SAGA_LOGIT = 5_000_000   # LassoCD, ElasticNet SAGA logit: skip dense logit n*p > this
 MAX_P_SPARSE_OPS  = 10_000      # Ridge, ISTA, FISTA, GLMIRLS: skip sparse p > this
+MAX_P_GROUP       = 500         # GroupLasso pure-Python group loop: skip dense p > this
 
 DENSE_ONLY    = {'LARSSolver', 'GroupLassoSolver', 'SCADLLASolver',
                  'MCPCDSolver', 'AdaptiveLassoSolver', 'FusedLassoSolver'}
@@ -258,11 +259,23 @@ FAMILY = {
 }
 
 # ── Config builder — matching original protocol exactly ───────────────────────
-def build_configs(lam_max: float, p: int, link: str) -> list[tuple]:
-    """Return list of (SolverCls, cfg_dict, label) matching original protocol."""
+def build_configs(lam_max: float, p: int, link: str, n_samples: int = 0) -> list[tuple]:
+    """Return list of (SolverCls, cfg_dict, label) matching original protocol.
+
+    n_samples is used to cap online-solver n_passes for large datasets,
+    keeping the total per-config Python iterations ≤ 2M.
+    """
     # All solver classes (loaded once globally)
     global _SOLVERS
     Solvers = {cls.__name__: cls for cls in _SOLVERS}
+
+    # Adaptive T cap for online solvers: target ≤ 2M Python iterations per config
+    _MAX_STEPS = 2_000_000
+    _n = max(n_samples, 1)
+    def _T_vals(full_list):
+        cap = max(1, _MAX_STEPS // _n)
+        capped = [t for t in full_list if t <= cap]
+        return capped if capped else [min(full_list)]
 
     def lam_grid(n=50, frac_min=0.001):
         lo = max(lam_max * frac_min, 1e-7)
@@ -335,8 +348,14 @@ def build_configs(lam_max: float, p: int, link: str) -> list[tuple]:
         add('FISTASolver', {'lam': float(lam)}, f'FISTA lam={lam:.4g}')
 
     # ── Online ────────────────────────────────────────────────────────────────
+    _T_sgd     = _T_vals([5, 10, 20, 30, 50, 80, 100, 150, 200, 300])
+    _T_adagrad = _T_vals([5, 10, 20, 30, 50, 80, 100, 150, 200, 300])
+    _T_fobos   = _T_vals([10, 20])
+    _T_rda     = _T_vals([5, 10])
+    _T_trunc   = _T_vals([5, 10])
+
     for g in [0.001, 0.005, 0.01, 0.05, 0.1]:
-        for T in [5, 10, 20, 30, 50, 80, 100, 150, 200, 300]:
+        for T in _T_sgd:
             add('SGDSolver', {'gamma0': g, 'n_passes': T}, f'SGD g={g} T={T}')
 
     for g in [0.001, 0.005, 0.01, 0.05, 0.1]:
@@ -345,18 +364,18 @@ def build_configs(lam_max: float, p: int, link: str) -> list[tuple]:
                 f'ISGD g={g} a={a}')
 
     for e in [0.01, 0.05, 0.1, 0.5, 1.0]:
-        for T in [5, 10, 20, 30, 50, 80, 100, 150, 200, 300]:
+        for T in _T_adagrad:
             add('AdaGradSolver', {'eta': e, 'n_passes': T}, f'AdaGrad e={e} T={T}')
 
     for lam in lam_grid(5):
         for g in [0.001, 0.01, 0.05, 0.1, 0.5]:
-            for T in [10, 20]:
+            for T in _T_fobos:
                 add('FOBOSSolver', {'lam': float(lam), 'gamma0': g, 'n_passes': T},
                     f'FOBOS lam={lam:.4g} g={g} T={T}')
 
     for lam in lam_grid(5):
         for g in [0.001, 0.01, 0.05, 0.1, 0.5]:
-            for T in [5, 10]:
+            for T in _T_rda:
                 add('RDASolver', {'lam': float(lam), 'gamma0': g, 'n_passes': T},
                     f'RDA lam={lam:.4g} g={g} T={T}')
 
@@ -386,15 +405,29 @@ def is_feasible(sname: str, n: int, p: int, link: str, is_sparse: bool) -> bool:
     if not is_sparse and n * p > MAX_NP_EXPENSIVE and sname in EXPENSIVE_DENSE:
         return False
     # Dense p^3 solvers (ISTA, FISTA, GLMIRLS, RenewableGLM)
-    if not is_sparse and p > MAX_P_CUBIC and sname in CUBIC_SOLVERS:
-        return False
+    # skip when p is large OR when n*p is large (both make X.T @ X expensive)
+    if not is_sparse and sname in CUBIC_SOLVERS:
+        if p >= MAX_P_CUBIC or n * p > MAX_NP_EXPENSIVE:
+            return False
     # Sparse large-p: dense ops infeasible
     if is_sparse and p > MAX_P_SPARSE_OPS and sname in SPARSE_OPS_SKIP:
+        return False
+    # GroupLasso pure-Python inner loop: skip for large p
+    if not is_sparse and p > MAX_P_GROUP and sname == 'GroupLassoSolver':
         return False
     # SAGA logit on large dense datasets
     if not is_sparse and link == 'logit' and n * p > MAX_NP_SAGA_LOGIT and sname in SAGA_LOGIT:
         return False
     return True
+
+# ── Per-solver timeout ────────────────────────────────────────────────────────
+SOLVER_TIMEOUT = 90   # seconds per solver config; skip if exceeded
+
+class _SolverTimeout(Exception):
+    pass
+
+def _alarm_handler(signum, frame):
+    raise _SolverTimeout()
 
 # ── Run one dataset ───────────────────────────────────────────────────────────
 _SOLVERS = None  # populated in main()
@@ -409,17 +442,27 @@ def run_dataset(ds: dict) -> list[dict]:
     lam_max = compute_lam_max(X, y)
     print(f"  lam_max = {lam_max:.6g}", flush=True)
 
-    all_cfgs = build_configs(lam_max, p, link)
+    all_cfgs = build_configs(lam_max, p, link, n_samples=n)
+
+    # Set up SIGALRM timeout (Unix only)
+    use_timeout = hasattr(signal, 'SIGALRM')
+    if use_timeout:
+        signal.signal(signal.SIGALRM, _alarm_handler)
 
     records = []
     solver_counts = {}
+    skipped_timeout = {}
     for SolverCls, cfg, label in all_cfgs:
         sname = SolverCls.__name__
         if not is_feasible(sname, n, p, link, is_sp):
             continue
         try:
+            if use_timeout:
+                signal.alarm(SOLVER_TIMEOUT)
             t0 = time.time()
             result = SolverCls(config=cfg).fit(X, y, link=link)
+            if use_timeout:
+                signal.alarm(0)
             elapsed = time.time() - t0
             beta = np.asarray(result.beta_hat, dtype=float).ravel()
             if not np.all(np.isfinite(beta)):
@@ -431,12 +474,20 @@ def run_dataset(ds: dict) -> list[dict]:
                 family=FAMILY.get(sname, 'Other'),
             ))
             solver_counts[sname] = solver_counts.get(sname, 0) + 1
+        except _SolverTimeout:
+            if use_timeout:
+                signal.alarm(0)
+            skipped_timeout[sname] = skipped_timeout.get(sname, 0) + 1
         except Exception:
             pass
 
     print(f"  Solver counts:", flush=True)
     for s, c in sorted(solver_counts.items()):
         print(f"    {s:25s}: {c}", flush=True)
+    if skipped_timeout:
+        print(f"  Timed-out (skipped):", flush=True)
+        for s, c in sorted(skipped_timeout.items()):
+            print(f"    {s:25s}: {c}", flush=True)
     return records
 
 # ── Main ──────────────────────────────────────────────────────────────────────
