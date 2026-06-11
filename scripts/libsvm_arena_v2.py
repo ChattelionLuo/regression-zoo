@@ -103,7 +103,7 @@ rng_global   = np.random.default_rng(SEED)
 # (same logic as before, but now applied against unified config list)
 MAX_NP_EXPENSIVE  = 5_000_000   # LARS, GroupLasso, SCAD, MCP: skip dense when n*p > this
 MAX_P_CUBIC       = 2_000       # ISTA, FISTA, GLMIRLS, RenewableGLM: skip dense p > this
-MAX_NP_SAGA_LOGIT = 5_000_000   # LassoCD, ElasticNet SAGA logit: skip dense logit n*p > this
+MAX_NP_SAGA_LOGIT = 1_000_000   # LassoCD, ElasticNet SAGA logit: skip dense logit n*p > this
 MAX_P_SPARSE_OPS  = 10_000      # Ridge, ISTA, FISTA, GLMIRLS: skip sparse p > this
 MAX_P_GROUP       = 500         # GroupLasso pure-Python group loop: skip dense p > this
 
@@ -112,7 +112,9 @@ DENSE_ONLY    = {'LARSSolver', 'GroupLassoSolver', 'SCADLLASolver',
 CUBIC_SOLVERS = {'ISTASolver', 'FISTASolver', 'GLMIRLSSolver', 'RenewableGLMSolver'}
 SPARSE_OPS_SKIP = {'ISTASolver', 'FISTASolver', 'RidgeSolver',
                    'GLMIRLSSolver', 'RenewableGLMSolver'}
-EXPENSIVE_DENSE = {'LARSSolver', 'GroupLassoSolver', 'SCADLLASolver', 'MCPCDSolver'}
+# EXPENSIVE_DENSE: all have O(n·p) or O(n·p²) inner solves — skip for large n·p
+EXPENSIVE_DENSE = {'LARSSolver', 'GroupLassoSolver', 'SCADLLASolver', 'MCPCDSolver',
+                   'AdaptiveLassoSolver'}  # AdaptiveLasso: inner Lasso max_iter=10000
 SAGA_LOGIT    = {'LassoCDSolver', 'ElasticNetSolver'}
 REGRESSION_ONLY = {'OLSSolver', 'LARSSolver', 'FusedLassoSolver'}  # skip for logit
 
@@ -312,11 +314,11 @@ def build_configs(lam_max: float, p: int, link: str, n_samples: int = 0) -> list
         add('RidgeSolver', {'lam': float(lam)}, f'Ridge lam={lam:.4g}')
 
     for lam in lam_grid(50):
-        add('LassoCDSolver', {'lam': float(lam), 'max_iter': 2000}, f'Lasso lam={lam:.4g}')
+        add('LassoCDSolver', {'lam': float(lam), 'max_iter': 200}, f'Lasso lam={lam:.4g}')
 
     for lam in lam_grid(10):
         for a in [0.1, 0.3, 0.5, 0.7, 0.9]:
-            add('ElasticNetSolver', {'lam': float(lam), 'alpha': a, 'max_iter': 2000},
+            add('ElasticNetSolver', {'lam': float(lam), 'alpha': a, 'max_iter': 200},
                 f'EN lam={lam:.4g} a={a}')
 
     for lam in lam_grid(10):
