@@ -229,7 +229,7 @@ Real datasets are standardised (zero mean, unit variance). Synthetic datasets ar
 
 ## LIBSVM Benchmark Datasets
 
-The following visualisations cover **38 datasets** from the [LIBSVM data repository](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/), comprising **3 606 solver runs** across regression and binary-classification tasks. Datasets span from tiny (n = 38, p = 7 129 for Leukemia) to large (n = 80 000, p = 2 000 for Epsilon).
+The following visualisations cover **38 datasets** from the [LIBSVM data repository](https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/), comprising **27,732 solver runs** across regression and binary-classification tasks. Datasets span from tiny (n = 38, p = 7,129 for Leukemia) to large (n = 80,000, p = 2,000 for Epsilon).
 
 ### Regression
 
@@ -246,7 +246,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Body Fat
 
-<p class="arena-ds-meta">n = 252 &middot; p = 14 &middot; Regression &middot; LIBSVM &middot; 101 runs</p>
+<p class="arena-ds-meta">n = 252 &middot; p = 14 &middot; Regression &middot; LIBSVM &middot; 862 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_bodyfat.html" class="arena-embed-frame" title="Embedding: Body Fat"></iframe>
@@ -257,7 +257,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### California Housing (cadata)
 
-<p class="arena-ds-meta">n = 20,640 &middot; p = 8 &middot; Regression &middot; LIBSVM &middot; 100 runs</p>
+<p class="arena-ds-meta">n = 20,640 &middot; p = 8 &middot; Regression &middot; LIBSVM &middot; 872 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_cadata.html" class="arena-embed-frame" title="Embedding: California Housing (cadata)"></iframe>
@@ -268,7 +268,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### CPU Small
 
-<p class="arena-ds-meta">n = 8,192 &middot; p = 12 &middot; Regression &middot; LIBSVM &middot; 101 runs</p>
+<p class="arena-ds-meta">n = 8,192 &middot; p = 12 &middot; Regression &middot; LIBSVM &middot; 831 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_cpusmall.html" class="arena-embed-frame" title="Embedding: CPU Small"></iframe>
@@ -279,7 +279,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### EUNITE 2001 Electricity
 
-<p class="arena-ds-meta">n = 336 &middot; p = 16 &middot; Regression &middot; LIBSVM &middot; 101 runs</p>
+<p class="arena-ds-meta">n = 336 &middot; p = 16 &middot; Regression &middot; LIBSVM &middot; 880 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_eunite2001.html" class="arena-embed-frame" title="Embedding: EUNITE 2001 Electricity"></iframe>
@@ -290,7 +290,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Boston Housing
 
-<p class="arena-ds-meta">n = 506 &middot; p = 13 &middot; Regression &middot; LIBSVM &middot; 101 runs</p>
+<p class="arena-ds-meta">n = 506 &middot; p = 13 &middot; Regression &middot; LIBSVM &middot; 891 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_housing.html" class="arena-embed-frame" title="Embedding: Boston Housing"></iframe>
@@ -301,7 +301,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Mackey-Glass (mg)
 
-<p class="arena-ds-meta">n = 1,385 &middot; p = 6 &middot; Regression &middot; LIBSVM &middot; 100 runs</p>
+<p class="arena-ds-meta">n = 1,385 &middot; p = 6 &middot; Regression &middot; LIBSVM &middot; 872 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_mg.html" class="arena-embed-frame" title="Embedding: Mackey-Glass (mg)"></iframe>
@@ -312,7 +312,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Auto MPG
 
-<p class="arena-ds-meta">n = 392 &middot; p = 7 &middot; Regression &middot; LIBSVM &middot; 100 runs</p>
+<p class="arena-ds-meta">n = 392 &middot; p = 7 &middot; Regression &middot; LIBSVM &middot; 878 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_mpg.html" class="arena-embed-frame" title="Embedding: Auto MPG"></iframe>
@@ -323,7 +323,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Pyrimidines
 
-<p class="arena-ds-meta">n = 74 &middot; p = 27 &middot; Regression &middot; LIBSVM &middot; 102 runs</p>
+<p class="arena-ds-meta">n = 74 &middot; p = 27 &middot; Regression &middot; LIBSVM &middot; 870 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_pyrim.html" class="arena-embed-frame" title="Embedding: Pyrimidines"></iframe>
@@ -334,7 +334,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Space GA
 
-<p class="arena-ds-meta">n = 3,107 &middot; p = 6 &middot; Regression &middot; LIBSVM &middot; 100 runs</p>
+<p class="arena-ds-meta">n = 3,107 &middot; p = 6 &middot; Regression &middot; LIBSVM &middot; 890 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_space_ga.html" class="arena-embed-frame" title="Embedding: Space GA"></iframe>
@@ -345,7 +345,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Triazines
 
-<p class="arena-ds-meta">n = 186 &middot; p = 60 &middot; Regression &middot; LIBSVM &middot; 103 runs</p>
+<p class="arena-ds-meta">n = 186 &middot; p = 60 &middot; Regression &middot; LIBSVM &middot; 870 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_triazines.html" class="arena-embed-frame" title="Embedding: Triazines"></iframe>
@@ -356,7 +356,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Year Prediction MSD
 
-<p class="arena-ds-meta">n = 80,000 &middot; p = 90 &middot; Regression &middot; LIBSVM &middot; 103 runs</p>
+<p class="arena-ds-meta">n = 80,000 &middot; p = 90 &middot; Regression &middot; LIBSVM &middot; 884 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_YearPredMSD.html" class="arena-embed-frame" title="Embedding: Year Prediction MSD"></iframe>
@@ -369,7 +369,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Australian Credit
 
-<p class="arena-ds-meta">n = 690 &middot; p = 14 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 690 &middot; p = 14 &middot; Binary logistic &middot; LIBSVM &middot; 437 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_australian.html" class="arena-embed-frame" title="Embedding: Australian Credit"></iframe>
@@ -380,7 +380,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Breast Cancer (LIBSVM)
 
-<p class="arena-ds-meta">n = 683 &middot; p = 10 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 683 &middot; p = 10 &middot; Binary logistic &middot; LIBSVM &middot; 781 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_breast-cancer.html" class="arena-embed-frame" title="Embedding: Breast Cancer (LIBSVM)"></iframe>
@@ -391,7 +391,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### COD-RNA
 
-<p class="arena-ds-meta">n = 59,535 &middot; p = 8 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 59,535 &middot; p = 8 &middot; Binary logistic &middot; LIBSVM &middot; 765 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_cod-rna.html" class="arena-embed-frame" title="Embedding: COD-RNA"></iframe>
@@ -402,7 +402,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Colon Cancer
 
-<p class="arena-ds-meta">n = 62 &middot; p = 2,000 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 62 &middot; p = 2,000 &middot; Binary logistic &middot; LIBSVM &middot; 711 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_colon-cancer.html" class="arena-embed-frame" title="Embedding: Colon Cancer"></iframe>
@@ -413,7 +413,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Diabetes (Pima)
 
-<p class="arena-ds-meta">n = 768 &middot; p = 8 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 768 &middot; p = 8 &middot; Binary logistic &middot; LIBSVM &middot; 600 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_diabetes.html" class="arena-embed-frame" title="Embedding: Diabetes (Pima)"></iframe>
@@ -424,7 +424,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Duke Breast Cancer
 
-<p class="arena-ds-meta">n = 44 &middot; p = 7,129 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 44 &middot; p = 7,129 &middot; Binary logistic &middot; LIBSVM &middot; 771 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_duke.html" class="arena-embed-frame" title="Embedding: Duke Breast Cancer"></iframe>
@@ -435,7 +435,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Epsilon
 
-<p class="arena-ds-meta">n = 80,000 &middot; p = 2,000 &middot; Binary logistic &middot; LIBSVM &middot; 56 runs</p>
+<p class="arena-ds-meta">n = 80,000 &middot; p = 2,000 &middot; Binary logistic &middot; LIBSVM &middot; 594 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_epsilon.html" class="arena-embed-frame" title="Embedding: Epsilon"></iframe>
@@ -446,7 +446,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Fourclass
 
-<p class="arena-ds-meta">n = 862 &middot; p = 2 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 862 &middot; p = 2 &middot; Binary logistic &middot; LIBSVM &middot; 280 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_fourclass.html" class="arena-embed-frame" title="Embedding: Fourclass"></iframe>
@@ -457,7 +457,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### German Credit (numerical)
 
-<p class="arena-ds-meta">n = 1,000 &middot; p = 24 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 1,000 &middot; p = 24 &middot; Binary logistic &middot; LIBSVM &middot; 761 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_german-numer.html" class="arena-embed-frame" title="Embedding: German Credit (numerical)"></iframe>
@@ -468,7 +468,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Gisette
 
-<p class="arena-ds-meta">n = 6,000 &middot; p = 5,000 &middot; Binary logistic &middot; LIBSVM &middot; 43 runs</p>
+<p class="arena-ds-meta">n = 6,000 &middot; p = 5,000 &middot; Binary logistic &middot; LIBSVM &middot; 791 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_gisette.html" class="arena-embed-frame" title="Embedding: Gisette"></iframe>
@@ -479,7 +479,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Heart Disease
 
-<p class="arena-ds-meta">n = 270 &middot; p = 13 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 270 &middot; p = 13 &middot; Binary logistic &middot; LIBSVM &middot; 367 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_heart.html" class="arena-embed-frame" title="Embedding: Heart Disease"></iframe>
@@ -490,7 +490,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### IJCNN1
 
-<p class="arena-ds-meta">n = 49,990 &middot; p = 22 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 49,990 &middot; p = 22 &middot; Binary logistic &middot; LIBSVM &middot; 781 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_ijcnn1.html" class="arena-embed-frame" title="Embedding: IJCNN1"></iframe>
@@ -501,7 +501,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Ionosphere
 
-<p class="arena-ds-meta">n = 351 &middot; p = 34 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 351 &middot; p = 34 &middot; Binary logistic &middot; LIBSVM &middot; 631 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_ionosphere.html" class="arena-embed-frame" title="Embedding: Ionosphere"></iframe>
@@ -512,7 +512,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Leukemia
 
-<p class="arena-ds-meta">n = 38 &middot; p = 7,129 &middot; Binary logistic &middot; LIBSVM &middot; 85 runs</p>
+<p class="arena-ds-meta">n = 38 &middot; p = 7,129 &middot; Binary logistic &middot; LIBSVM &middot; 777 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_leukemia.html" class="arena-embed-frame" title="Embedding: Leukemia"></iframe>
@@ -523,7 +523,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Liver Disorders
 
-<p class="arena-ds-meta">n = 145 &middot; p = 5 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 145 &middot; p = 5 &middot; Binary logistic &middot; LIBSVM &middot; 598 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_liver-disorders.html" class="arena-embed-frame" title="Embedding: Liver Disorders"></iframe>
@@ -534,7 +534,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Madelon
 
-<p class="arena-ds-meta">n = 2,000 &middot; p = 500 &middot; Binary logistic &middot; LIBSVM &middot; 97 runs</p>
+<p class="arena-ds-meta">n = 2,000 &middot; p = 500 &middot; Binary logistic &middot; LIBSVM &middot; 771 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_madelon.html" class="arena-embed-frame" title="Embedding: Madelon"></iframe>
@@ -545,7 +545,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Mushrooms
 
-<p class="arena-ds-meta">n = 8,124 &middot; p = 112 &middot; Binary logistic &middot; LIBSVM &middot; 97 runs</p>
+<p class="arena-ds-meta">n = 8,124 &middot; p = 112 &middot; Binary logistic &middot; LIBSVM &middot; 794 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_mushrooms.html" class="arena-embed-frame" title="Embedding: Mushrooms"></iframe>
@@ -556,7 +556,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Phishing Websites
 
-<p class="arena-ds-meta">n = 11,055 &middot; p = 68 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 11,055 &middot; p = 68 &middot; Binary logistic &middot; LIBSVM &middot; 777 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_phishing.html" class="arena-embed-frame" title="Embedding: Phishing Websites"></iframe>
@@ -567,7 +567,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Skin/Non-Skin
 
-<p class="arena-ds-meta">n = 80,000 &middot; p = 3 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 80,000 &middot; p = 3 &middot; Binary logistic &middot; LIBSVM &middot; 761 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_skin-nonskin.html" class="arena-embed-frame" title="Embedding: Skin/Non-Skin"></iframe>
@@ -578,7 +578,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Sonar
 
-<p class="arena-ds-meta">n = 208 &middot; p = 60 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 208 &middot; p = 60 &middot; Binary logistic &middot; LIBSVM &middot; 701 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_sonar.html" class="arena-embed-frame" title="Embedding: Sonar"></iframe>
@@ -589,7 +589,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Splice
 
-<p class="arena-ds-meta">n = 1,000 &middot; p = 60 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 1,000 &middot; p = 60 &middot; Binary logistic &middot; LIBSVM &middot; 778 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_splice.html" class="arena-embed-frame" title="Embedding: Splice"></iframe>
@@ -600,7 +600,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### SVMguide1
 
-<p class="arena-ds-meta">n = 3,089 &middot; p = 4 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 3,089 &middot; p = 4 &middot; Binary logistic &middot; LIBSVM &middot; 801 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_svmguide1.html" class="arena-embed-frame" title="Embedding: SVMguide1"></iframe>
@@ -611,7 +611,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### SVMguide3
 
-<p class="arena-ds-meta">n = 1,243 &middot; p = 22 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 1,243 &middot; p = 22 &middot; Binary logistic &middot; LIBSVM &middot; 771 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_svmguide3.html" class="arena-embed-frame" title="Embedding: SVMguide3"></iframe>
@@ -622,7 +622,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### w8a
 
-<p class="arena-ds-meta">n = 49,749 &middot; p = 300 &middot; Binary logistic &middot; LIBSVM &middot; 56 runs</p>
+<p class="arena-ds-meta">n = 49,749 &middot; p = 300 &middot; Binary logistic &middot; LIBSVM &middot; 775 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_w8a.html" class="arena-embed-frame" title="Embedding: w8a"></iframe>
@@ -633,7 +633,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### a9a
 
-<p class="arena-ds-meta">n = 32,561 &middot; p = 123 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 32,561 &middot; p = 123 &middot; Binary logistic &middot; LIBSVM &middot; 290 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_a9a.html" class="arena-embed-frame" title="Embedding: a9a"></iframe>
@@ -644,7 +644,7 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 ### Covertype (binary)
 
-<p class="arena-ds-meta">n = 80,000 &middot; p = 54 &middot; Binary logistic &middot; LIBSVM &middot; 98 runs</p>
+<p class="arena-ds-meta">n = 80,000 &middot; p = 54 &middot; Binary logistic &middot; LIBSVM &middot; 645 runs</p>
 
 <div class="arena-figure-frame">
 <iframe src="figures/tsne_umap_libsvm_covtype-binary.html" class="arena-embed-frame" title="Embedding: Covertype (binary)"></iframe>
@@ -657,42 +657,42 @@ The following visualisations cover **38 datasets** from the [LIBSVM data reposit
 
 | Dataset | n | p | Task | Runs |
 |---------|---|---|------|------|
-| Abalone | 4,177 | 8 | Regression | 100 |
-| Body Fat | 252 | 14 | Regression | 101 |
-| California Housing (cadata) | 20,640 | 8 | Regression | 100 |
-| CPU Small | 8,192 | 12 | Regression | 101 |
-| EUNITE 2001 Electricity | 336 | 16 | Regression | 101 |
-| Boston Housing | 506 | 13 | Regression | 101 |
-| Mackey-Glass (mg) | 1,385 | 6 | Regression | 100 |
-| Auto MPG | 392 | 7 | Regression | 100 |
-| Pyrimidines | 74 | 27 | Regression | 102 |
-| Space GA | 3,107 | 6 | Regression | 100 |
-| Triazines | 186 | 60 | Regression | 103 |
-| Year Prediction MSD | 80,000 | 90 | Regression | 103 |
-| Australian Credit | 690 | 14 | Binary logistic | 98 |
-| Breast Cancer (LIBSVM) | 683 | 10 | Binary logistic | 98 |
-| COD-RNA | 59,535 | 8 | Binary logistic | 98 |
-| Colon Cancer | 62 | 2,000 | Binary logistic | 98 |
-| Diabetes (Pima) | 768 | 8 | Binary logistic | 98 |
-| Duke Breast Cancer | 44 | 7,129 | Binary logistic | 98 |
-| Epsilon | 80,000 | 2,000 | Binary logistic | 56 |
-| Fourclass | 862 | 2 | Binary logistic | 98 |
-| German Credit (numerical) | 1,000 | 24 | Binary logistic | 98 |
-| Gisette | 6,000 | 5,000 | Binary logistic | 43 |
-| Heart Disease | 270 | 13 | Binary logistic | 98 |
-| IJCNN1 | 49,990 | 22 | Binary logistic | 98 |
-| Ionosphere | 351 | 34 | Binary logistic | 98 |
-| Leukemia | 38 | 7,129 | Binary logistic | 85 |
-| Liver Disorders | 145 | 5 | Binary logistic | 98 |
-| Madelon | 2,000 | 500 | Binary logistic | 97 |
-| Mushrooms | 8,124 | 112 | Binary logistic | 97 |
-| Phishing Websites | 11,055 | 68 | Binary logistic | 98 |
-| Skin/Non-Skin | 80,000 | 3 | Binary logistic | 98 |
-| Sonar | 208 | 60 | Binary logistic | 98 |
-| Splice | 1,000 | 60 | Binary logistic | 98 |
-| SVMguide1 | 3,089 | 4 | Binary logistic | 98 |
-| SVMguide3 | 1,243 | 22 | Binary logistic | 98 |
-| w8a | 49,749 | 300 | Binary logistic | 56 |
-| a9a | 32,561 | 123 | Binary logistic | 98 |
-| Covertype (binary) | 80,000 | 54 | Binary logistic | 98 |
+| Abalone | 4,177 | 8 | Regression | 862 |
+| Body Fat | 252 | 14 | Regression | 872 |
+| California Housing (cadata) | 20,640 | 8 | Regression | 831 |
+| CPU Small | 8,192 | 12 | Regression | 880 |
+| EUNITE 2001 Electricity | 336 | 16 | Regression | 891 |
+| Boston Housing | 506 | 13 | Regression | 872 |
+| Mackey-Glass (mg) | 1,385 | 6 | Regression | 878 |
+| Auto MPG | 392 | 7 | Regression | 870 |
+| Pyrimidines | 74 | 27 | Regression | 890 |
+| Space GA | 3,107 | 6 | Regression | 870 |
+| Triazines | 186 | 60 | Regression | 884 |
+| Year Prediction MSD | 80,000 | 90 | Regression | 437 |
+| Australian Credit | 690 | 14 | Binary logistic | 781 |
+| Breast Cancer (LIBSVM) | 683 | 10 | Binary logistic | 765 |
+| COD-RNA | 59,535 | 8 | Binary logistic | 711 |
+| Colon Cancer | 62 | 2,000 | Binary logistic | 600 |
+| Diabetes (Pima) | 768 | 8 | Binary logistic | 771 |
+| Duke Breast Cancer | 44 | 7,129 | Binary logistic | 594 |
+| Epsilon | 80,000 | 2,000 | Binary logistic | 280 |
+| Fourclass | 862 | 2 | Binary logistic | 761 |
+| German Credit (numerical) | 1,000 | 24 | Binary logistic | 791 |
+| Gisette | 6,000 | 5,000 | Binary logistic | 367 |
+| Heart Disease | 270 | 13 | Binary logistic | 781 |
+| IJCNN1 | 49,990 | 22 | Binary logistic | 631 |
+| Ionosphere | 351 | 34 | Binary logistic | 777 |
+| Leukemia | 38 | 7,129 | Binary logistic | 598 |
+| Liver Disorders | 145 | 5 | Binary logistic | 771 |
+| Madelon | 2,000 | 500 | Binary logistic | 794 |
+| Mushrooms | 8,124 | 112 | Binary logistic | 777 |
+| Phishing Websites | 11,055 | 68 | Binary logistic | 761 |
+| Skin/Non-Skin | 80,000 | 3 | Binary logistic | 701 |
+| Sonar | 208 | 60 | Binary logistic | 778 |
+| Splice | 1,000 | 60 | Binary logistic | 801 |
+| SVMguide1 | 3,089 | 4 | Binary logistic | 771 |
+| SVMguide3 | 1,243 | 22 | Binary logistic | 775 |
+| w8a | 49,749 | 300 | Binary logistic | 290 |
+| a9a | 32,561 | 123 | Binary logistic | 645 |
+| Covertype (binary) | 80,000 | 54 | Binary logistic | 623 |
 

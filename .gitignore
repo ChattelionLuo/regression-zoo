@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
+
+notebooks/libsvm_arena_results.pkl
